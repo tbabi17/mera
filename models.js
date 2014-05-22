@@ -1766,26 +1766,10 @@ function renderTReportNumber(v) {
 function renderPriceName(v) {
 	if (v == 'price')
 		return 'Үндсэн үнэ';
-	if (v == 'price1')
-		return 'BM1';
-	if (v == 'price2')
-		return 'BM2';
-	if (v == 'price3')
-		return 'BM3';
-	if (v == 'price4')
-		return 'BM4';
-	if (v == 'price5')
-		return 'Жижиглэн';
-	if (v == 'price6')
-		return 'Миний дэлгүүр';
-	if (v == 'price7')
-		return 'Номин';
-	if (v == 'price8')
-		return 'Макс';
-	if (v == 'price9')
-		return 'Оргил';
-	if (v == 'price10')
-		return 'Орон нутаг';
+	else {
+		v = v.substring(5, v.length);
+		return price_text[v];
+	}
 }
 
 

@@ -2883,14 +2883,14 @@ Ext.define('OCS.ServiceView', {
 					pricetag = me.grid.getView().getSelectionModel().getSelection()[0].get('pricetag');
 					date = me.grid.getView().getSelectionModel().getSelection()[0].get('_date').split(' ')[0];
 					if (service_stage == 'service') {
-						if (userCode == 'amarjargal@cosmo')												
-							window.open('http://202.131.237.150/invzahon/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
+						if (userCode == 'amarjargal@cosmo' || userCode == 'ariunjargal@cosmo')												
+							window.open('http://'+ip+'/invzahon/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
 						else
-							window.open('http://202.131.237.150/invms/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
+							window.open('http://'+ip+'/invms/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
 					}
 					else
 					if (service_stage == 'inret') {
-						window.open('http://202.131.237.150/invbs/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
+						window.open('http://'+ip+'/invbs/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
 					}					
 				}
 			}),

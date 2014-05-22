@@ -2891,7 +2891,7 @@ Ext.define('OCS.ServiceView', {
 					}
 					else
 					if (service_stage == 'inret') {
-						window.open('http://'+ip+'/invbs/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
+						window.open('http://'+ip+'/invbs/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,''); 
 					}					
 				}
 			}),

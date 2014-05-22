@@ -25,7 +25,7 @@ Ext.define('OCS.ServiceActivityGrid', {
 	sortField: '_date',
 	tab : 'service_activity_property',
 	dateField: '_date',
-	title: 'Activities',
+	title: 'Үйл ажиллагаа',
 	icon: 'task',
 	modelName: 'CRM_CALENDAR',
 	collapsed : false,		
@@ -92,7 +92,7 @@ Ext.define('OCS.DealGrid', {
 	values: 'crm_id',
 	where: '0',
 	action: true,
-	title_add: 'Add ...',
+	title_add: 'Нэмэх ...',
 	
 	createActions: function() {
 		var me = this;
@@ -120,33 +120,36 @@ Ext.define('OCS.DealGrid', {
 							}).createWindow();
 						}
 						else if (me.modelName == 'CRM_DEAL_PAYROLL') {
-							new OCS.PayRollWindow({
-								selected: me.selected,								
-								backgrid: me.grid
-							}).createWindow();
+								new OCS.PayRollWindow({
+									selected: me.selected,								
+									backgrid: me.grid
+								}).createWindow();
 						}
 						else if (me.modelName == 'CRM_SERVICE_PAYROLL') {
-							new OCS.ServicePayRollWindow({
-								selected: me.selected,								
-								backgrid: me.grid
-							}).createWindow();
+							if (me.selected.get('service_debt') == 0)
+								Ext.MessageBox.alert('Error', 'Авлагын дүн байхгүй !', function() {});
+							else
+								new OCS.ServicePayRollWindow({
+									selected: me.selected,								
+									backgrid: me.grid
+								}).createWindow();
 						}
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Remove from list',
+				text: 'Устгах',
 				handler: function(widget, event) {
 					if (me.action) {
 						var sel = me.grid.getView().getSelectionModel().getSelection();
 						if (sel.length > 0) {							
 							me.deleteRecord();											
 						} else
-							Ext.MessageBox.alert('Status', 'No selection !', function() {});
+							Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			})
 		];
@@ -287,7 +290,7 @@ Ext.define('OCS.DealContactGrid', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls   : 'add',
-				text: 'Add ...',
+				text: 'Нэмэх ...',
 				handler: function(widget, event) {
 					if (me.action) {
 						me.selected.set('firstName', me.selected.get('crm_name'));
@@ -299,17 +302,17 @@ Ext.define('OCS.DealContactGrid', {
 							backgrid: me.grid
 						}).show();												
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Remove from list',
+				text: 'Устгах ...',
 				handler: function(widget, event) {
 					if (me.action) {
 						var sel = me.grid.getView().getSelectionModel().getSelection();
 						if (sel.length > 0) {
-							Ext.Msg.confirm('Warning ','Remove from list ?',function(btn){
+							Ext.Msg.confirm('Warning ','Устгах ... ?',function(btn){
 								if(btn === 'yes'){
 									Ext.Ajax.request({
 									   url: 'avia.php',
@@ -326,9 +329,9 @@ Ext.define('OCS.DealContactGrid', {
 								}	
 							});																	
 						} else
-							Ext.MessageBox.alert('Status', 'No selection !', function() {});
+							Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			})			
 		];
@@ -378,7 +381,7 @@ Ext.define('OCS.ServiceContactGrid', {
 	extend: 'OCS.DealContactGrid',
 	func: 'crm_contact_list',
 	tab : 'service_detail_property',
-	title: 'Contacts',
+	title: 'Холбоо барих',
 	icon: 'call',
 	table: 'crm_customer',
 	dateField: '_date',
@@ -499,7 +502,7 @@ Ext.define('OCS.ServicePostGrid', {
 	extend: 'OCS.DealGrid',
 	func: 'crm_post_list',
 	tab : 'service_post_list',
-	title: 'Posts',
+	title: 'Пост',
 	icon: 'call',
 	table: 'crm_posts',
 	dateField: '_date',
@@ -668,7 +671,7 @@ Ext.define('OCS.DealProductGrid', {
 	icon: 'call',
 	table: 'crm_deal_products',
 	dateField: '_date',
-	sortField: 'product_name',
+	sortField: '_date',
 	modelName: 'CRM_DEAL_PRODUCTS',
 	collapsed: false,
 	primary: 'id',
@@ -679,7 +682,7 @@ Ext.define('OCS.DealProductGrid', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls : 'add',
-				text: 'Add ...',
+				text: 'Нэмэх ...',
 				handler: function(widget, event) {		
 					if (me.action)
 						new OCS.DealAddProductWindow({
@@ -687,21 +690,21 @@ Ext.define('OCS.DealProductGrid', {
 							backgrid: me.grid
 						}).show();
 					else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls : 'delete',
-				text: 'Remove from list ...',
+				text: 'Устгах ...',
 				handler: function(widget, event) {		
 					if (me.action) {
 						var sel = me.grid.getView().getSelectionModel().getSelection();
 						if (sel.length > 0) {							
 							me.deleteRecord();											
 						} else
-							Ext.MessageBox.alert('Status', 'No selection !', function() {});
+							Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
@@ -716,7 +719,7 @@ Ext.define('OCS.DealProductGrid', {
 								direction: me.xlsName
 							}).show();
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			'-',
@@ -741,7 +744,7 @@ Ext.define('OCS.DealProductGrid', {
 							Ext.MessageBox.alert('Status', 'Empty !', function() {});
 						}
 					} else 
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			})
 		];
@@ -841,11 +844,11 @@ Ext.define('OCS.ServiceProductGrid', {
 	extend: 'OCS.DealProductGrid',
 	func: 'crm_deal_product_list',
 	tab : 'service_product_property',
-	title: 'Products',
+	title: 'Бараа',
 	icon: 'call',
 	table: 'crm_deal_products',
 	dateField: '_date',
-	sortField: 'product_name',
+	sortField: '_date',
 	modelName: 'CRM_DEAL_PRODUCTS',
 	collapsed: false,
 	primary: 'id',
@@ -856,7 +859,7 @@ Ext.define('OCS.ServiceProductGrid', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls : 'add',
-				text: 'Add ...',
+				text: 'Нэмэх ...',
 				handler: function(widget, event) {		
 					if (me.action)
 						new OCS.ServiceAddProductWindow({
@@ -864,21 +867,21 @@ Ext.define('OCS.ServiceProductGrid', {
 							backgrid: me.grid
 						}).show();
 					else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls : 'delete',
-				text: 'Remove from list ...',
+				text: 'Хасах ...',
 				handler: function(widget, event) {		
 					if (me.action) {
 						var sel = me.grid.getView().getSelectionModel().getSelection();
 						if (sel.length > 0) {							
 							me.deleteRecord();											
 						} else
-							Ext.MessageBox.alert('Status', 'No selection !', function() {});
+							Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			})
 		];
@@ -888,7 +891,7 @@ Ext.define('OCS.ServiceProductGrid', {
 
 	updateSource: function(rec) {
 		var me = this;
-		me.action = rec.get('owner') == logged;
+		me.action = ((rec.get('owner') == logged || user_level > 0) && (rec.get('service_stage') == 'receipt' || rec.get('service_stage') == 'transit' || rec.get('service_stage') == 'return'));
 		me.selected = rec;
 		me.where = rec.get('service_id');
 		me.values = 'service_id';
@@ -898,7 +901,13 @@ Ext.define('OCS.ServiceProductGrid', {
 	createColumns: function() {
 		var me = this;
 		return [/*Ext.create('Ext.grid.RowNumberer', {width: 32}), */{
-			text: 'Product name',
+			text: 'Код',
+			dataIndex: 'product_code',
+			width: 50,			
+			align: 'center',
+			sortable: false
+		},{
+			text: 'Барааны нэр',
 			dataIndex: 'product_name',
 			flex: 1,			
 			sortable: false
@@ -908,14 +917,17 @@ Ext.define('OCS.ServiceProductGrid', {
 			width: 100,
 			renderer: renderPrecent,
 			align: 'right',
+			hidden: true,
 			sortable: true
 		},{
-			text: 'Type',
+			text: 'Утга',
 			dataIndex: 'type',
-			width: 60,
+			width: 80,
+			align: 'center',
+			renderer: renderSalesType,
 			sortable: true
 		},{
-			text: 'Qty',
+			text: 'Тоо',
 			dataIndex: 'qty',
 			width: 60,
 			align: 'right',
@@ -924,7 +936,16 @@ Ext.define('OCS.ServiceProductGrid', {
 			summaryRenderer: renderTNumber,
 			sortable: true
 		},{
-			text: 'Total',
+			text: 'Үнэ',
+			dataIndex: 'price',
+			width: 80,
+			align: 'right',
+			renderer: renderMoney,
+			summaryType: 'sum',
+			summaryRenderer: renderTMoney,
+			sortable: true
+		},{
+			text: 'Дүн',
 			dataIndex: 'amount',
 			width: 100,
 			renderer: renderMoney,
@@ -933,7 +954,7 @@ Ext.define('OCS.ServiceProductGrid', {
 			align: 'right',
 			sortable: true
 		},{
-			text: 'Created on',
+			text: 'Огноо',
 			dataIndex: '_date',
 			width: 120,
 			hidden: true,
@@ -1070,7 +1091,7 @@ Ext.define('OCS.DealCommissionGrid', {
 		me.actions = [			
 			Ext.create('Ext.Action', {
 				iconCls: 'add',
-				text: 'Add ...',
+				text: 'Нэмэх ...',
 				handler: function(widget, event) {
 					if (me.action)
 						new OCS.CommissionWindow({
@@ -1078,21 +1099,21 @@ Ext.define('OCS.DealCommissionGrid', {
 							backgrid: me.grid
 						}).show();
 					else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Remove from list',
+				text: 'Устгах ...',
 				handler: function(widget, event) {
 					if (me.action) {
 						var sel = me.grid.getView().getSelectionModel().getSelection();
 						if (sel.length > 0) {
 							me.deleteRecord();											
 						} else
-							Ext.MessageBox.alert('Status', 'No selection !', function() {});
+							Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			})
 		];
@@ -1168,7 +1189,7 @@ Ext.define('OCS.ServiceCommissionGrid', {
 	extend: 'OCS.DealCommissionGrid',
 	func: 'crm_commission_list',
 	tab : 'service_commission_property',
-	title: 'Commissions',
+	title: 'Хөнгөлөлт',
 	icon: 'import',
 	table: 'crm_comission',
 	dateField: '_date',
@@ -1182,7 +1203,7 @@ Ext.define('OCS.ServiceCommissionGrid', {
 		me.actions = [			
 			Ext.create('Ext.Action', {
 				iconCls: 'add',
-				text: 'Add ...',
+				text: 'Нэмэх ...',
 				handler: function(widget, event) {
 					if (me.action)
 						new OCS.ServiceCommissionWindow({
@@ -1190,21 +1211,21 @@ Ext.define('OCS.ServiceCommissionGrid', {
 							backgrid: me.grid
 						}).show();
 					else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Remove from list',
+				text: 'Устгах ...',
 				handler: function(widget, event) {
 					if (me.action) {
 						var sel = me.grid.getView().getSelectionModel().getSelection();
 						if (sel.length > 0) {
 							me.deleteRecord();											
 						} else
-							Ext.MessageBox.alert('Status', 'No selection !', function() {});
+							Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			})
 		];
@@ -1247,7 +1268,7 @@ Ext.define('OCS.DealSalesTeamGrid', {
 	modelName: 'CRM_DEAL_SALES_TEAM',
 	collapsed: false,
 	primary: 'id',
-	title_add: 'Add/Expand ...',
+	title_add: 'Нэмэх/Засах ...',
 
 	createGrid: function() {
 		var me = this;	
@@ -1504,7 +1525,7 @@ Ext.define('OCS.StageWindow', {
 				}
 			],
 			buttons: [{
-				text: 'Commit',
+				text: 'Илгээх',
 				iconCls: 'commit',
 				handler: function() {
 					var form = this.up('form').getForm();
@@ -1679,7 +1700,7 @@ Ext.define('OCS.DealPostReplyWindow', {
 				flex: 1 
 			}],
 			buttons: [{
-				text: 'Commit',
+				text: 'Илгээх',
 				iconCls: 'commit',
 				handler: function() {
 					var form = this.up('form').getForm();
@@ -1760,6 +1781,7 @@ Ext.define('OCS.DealDescrWindow', {
 				fieldLabel: 'Competitor',				
 				name: 'competitor_name',
 				hidden: me.comp,
+				readOnly: true,
 				value: me.selected.get('competitor_name'),
 				table: 'crm_competitors'
 			},{
@@ -1796,7 +1818,7 @@ Ext.define('OCS.DealDescrWindow', {
 				flex: 1 
 			}],
 			buttons: [{
-				text: 'Commit',
+				text: 'Илгээх',
 				iconCls: 'commit',
 				handler: function() {
 					var form = this.up('form').getForm();
@@ -1922,6 +1944,11 @@ Ext.define('OCS.ServiceDescrWindow', {
 
 	initComponent: function() {
 		var me = this;
+		me.service_stage = 'service';
+		if (me.selected.get('service_stage') == 'transit')
+			me.service_stage = 'instock';
+		if (me.selected.get('service_stage') == 'return')
+			me.service_stage = 'inret';
 
 		me.form = Ext.create('OCS.FormPanel', {
 			region: 'center',
@@ -1939,16 +1966,16 @@ Ext.define('OCS.ServiceDescrWindow', {
 			{
 			  xtype: 'combo',
 			  store: Ext.create('Ext.data.Store', {
-  				  model: 'CRM_ITEM',
- 				  data: [{value: 'receipt'},{value: 'service'},{value: 'remind'},{value: 'closed'}]
+  				  model: 'CRM_PREV',
+ 				  data: [{value: 'receipt', name: 'Ирсэн'},{value: 'service', name: 'Олгосон'},{value: 'remind', name: 'Хойшлогдсон'},{value: 'closed', name: 'Хаагдсан'},{value: 'return', name: 'Буцаалтанд ирсэн'},{value: 'inret', name: 'Хүлээн авсан буцаалт'},{value: 'transit', name: 'Замд яваа'},{value: 'instock', name: 'Хүлээн авсан'}]
               }),
 			  name: 'service_stage',
 			  queryMode: 'local',
-			  value: me.selected.get('service_stage'),
-		      displayField: 'value',
+			  value: me.service_stage,
+		      displayField: 'name',
 			  valueField: 'value',
 			  triggerAction: 'all',
-			  fieldLabel: 'Stage',
+			  fieldLabel: 'Үе шат',
 			  editable: false,
 			  listeners: {
 					'change': function(v) {
@@ -1956,6 +1983,14 @@ Ext.define('OCS.ServiceDescrWindow', {
 						form.findField('remind_date').setVisible(v.getValue() == 'remind');
 					}
 			  }
+			},
+			{
+				xtype: 'searchcombo',
+				table: 'crm_users',
+				fieldLabel: 'Хариуцагч',	
+				allowBlank: false,
+				value: me.selected.get('partner'),
+				name: 'owner'
 			},
 			{
 				xtype: 'datefield',
@@ -1978,26 +2013,32 @@ Ext.define('OCS.ServiceDescrWindow', {
 				hideLabel: true,
 				name: 'descr',
 				value: me.selected.get('descr'),
-				emptyText: 'Note ...',
+				emptyText: 'Тайлбар ...',
 				style: 'margin:0', 
 				flex: 1 
 			}],
 			buttons: [{
-				text: 'Commit',
+				text: 'Илгээх',
 				iconCls: 'commit',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
+						var owner = form.findField('owner').getValue();
+						if (owner.indexOf('@') == -1) {
+							 Ext.MessageBox.alert('Status', 'Хариуцагч буруу байна !', function() {});
+							 return;
+						}
+
 						var values = form.getValues(true);
 						var values_services = '';
-						me.service_stage = form.findField('service_stage').getValue();
-						if (me.service_stage != '') {
-							values_services = "service_stage='"+me.service_stage+"'"+
+						me.service_stage = form.findField('service_stage').getValue();						
+						if (me.service_stage == 'remind') {
+							values_services = "owner='"+form.findField('owner').getValue()+"',service_stage='"+me.service_stage+"'"+
 										   ",remind_date='"+Ext.Date.format(form.findField('remind_date').getValue(),'Y-m-d')+"'"+
 										   ",descr='"+form.findField('descr').getValue()+"'";
 							me.selected.data['service_stage'] = me.service_stage;							
 						} else {
-							values_services = "remind_date='"+Ext.Date.format(form.findField('remind_date').getValue(),'Y-m-d')+"'"+
+							values_services = "owner='"+form.findField('owner').getValue()+"',service_stage='"+me.service_stage+"'"+
 										   ",descr='"+form.findField('descr').getValue()+"'";							
 						}
 
@@ -2005,7 +2046,8 @@ Ext.define('OCS.ServiceDescrWindow', {
 						   url: 'avia.php',
 						   params: {handle: 'web', table: 'crm_services', action: 'update', values: values_services, where: "service_id="+me.selected.get('service_id')},
 						   success: function(response, opts) {
-							  me.customerLevelDetection();							 
+							  me.customerLevelDetection();	
+							  me.close();
 						   },
 						   failure: function(response, opts) {										   
 							  Ext.MessageBox.alert('Status', 'Error !', function() {});
@@ -2025,18 +2067,7 @@ Ext.define('OCS.ServiceDescrWindow', {
 	customerLevelDetection: function() {
 		var me = this;
 		if (me.service_stage == 'closed')
-		{
-			Ext.Ajax.request({
-			   url: 'avia.php',
-			   params: {handle: 'web', action: 'sales', values: 'service_id', where: me.selected.get('service_id')},
-			   success: function(response, opts) {							  
-				  
-			   },
-			   failure: function(response, opts) {										   
-				  Ext.MessageBox.alert('Status', 'Error !', function() {});
-			   }
-			});	
-
+		{			
 			Ext.Ajax.request({
 			   url: 'avia.php',
 			   params: {handle: 'web', table: 'crm_customer', action: 'update', values: "level='customer'", where: "crm_id="+me.selected.get('crm_id')+" and (level='suspect' or level='prospect')"},
@@ -2053,6 +2084,17 @@ Ext.define('OCS.ServiceDescrWindow', {
 		{						
 			Ext.Ajax.request({
 			   url: 'avia.php',
+			   params: {handle: 'web', action: 'sales', values: 'service_id', where: me.selected.get('service_id')},
+			   success: function(response, opts) {							  
+				  
+			   },
+			   failure: function(response, opts) {										   
+				  Ext.MessageBox.alert('Status', 'Error !', function() {});
+			   }
+			});	
+			
+			Ext.Ajax.request({
+			   url: 'avia.php',
 			   params: {handle: 'web', table: 'crm_customer', action: 'update', values: "level='prospect'", where: "crm_id="+me.selected.get('crm_id')+" and level='suspect'"},
 			   success: function(response, opts) {
 				  me.close();
@@ -2061,7 +2103,33 @@ Ext.define('OCS.ServiceDescrWindow', {
 			   failure: function(response, opts) {										   
 				  Ext.MessageBox.alert('Status', 'Error !', function() {});
 			   }
-			});		
+			});
+		} else
+		if (me.service_stage == 'instock')
+		{						
+			Ext.Ajax.request({
+			   url: 'avia.php',
+			   params: {handle: 'web', action: 'instock', values: 'service_id', where: me.selected.get('service_id')},
+			   success: function(response, opts) {							  
+				    views['services'].reload(me.selected);
+			   },
+			   failure: function(response, opts) {										   
+				  Ext.MessageBox.alert('Status', 'Error !', function() {});
+			   }
+			});				
+		} else
+		if (me.service_stage == 'inret')
+		{						
+			Ext.Ajax.request({
+			   url: 'avia.php',
+			   params: {handle: 'web', action: 'return', values: 'service_id', where: me.selected.get('service_id')},
+			   success: function(response, opts) {							  
+				    views['services'].reload(me.selected);
+			   },
+			   failure: function(response, opts) {										   
+				  Ext.MessageBox.alert('Status', 'Error !', function() {});
+			   }
+			});				
 		} else {
 			views['services'].reload(me.selected);
 		}
@@ -2120,7 +2188,7 @@ Ext.define('OCS.AssignWindow', {
 				flex: 1 
 			}],
 			buttons: [{
-				text: 'Commit',
+				text: 'Илгээх',
 				iconCls: 'commit',
 				handler: function() {
 					var form = this.up('form').getForm();
@@ -2175,15 +2243,20 @@ Ext.define('OCS.ServiceAssignWindow', {
 				xtype: 'textfield',
 				fieldLabel: 'CRM ID',
 				name: 'crm_id',
-				hidden: true,
 				value: me.selected.get('crm_id'),
+				hidden: true,
+				readOnly: true
+			},{
+				xtype: 'textfield',
+				fieldLabel: 'Гүйлгээ дугаар',
+				name: 'service_id',
+				value: me.selected.get('service_id'),
 				readOnly: true
 			},{
 				xtype: 'searchcombo',
 				table: 'crm_users',
-				fieldLabel: 'Owner',				
+				fieldLabel: 'Хариуцагч',				
 				name: 'owner',
-				labelWidth: 80,
 				value: logged
 			},				
 			{
@@ -2204,11 +2277,17 @@ Ext.define('OCS.ServiceAssignWindow', {
 				flex: 1 
 			}],
 			buttons: [{
-				text: 'Commit',
+				text: 'Илгээх',
 				iconCls: 'commit',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
+						var owner = form.findField('owner').getValue();
+						if (owner.indexOf('@') == -1) {
+							 Ext.MessageBox.alert('Status', 'Хариуцагч буруу байна !', function() {});
+							 return;
+						}
+
 						var values = form.getValues(true);
 						var values_deals = "owner='"+form.findField('owner').getValue()+"'"+
 										   ",descr='"+form.findField('descr').getValue()+"'";
@@ -2216,14 +2295,24 @@ Ext.define('OCS.ServiceAssignWindow', {
 						Ext.Ajax.request({
 						   url: 'avia.php',
 						   params: {handle: 'web', table: 'crm_services', action: 'update', values: values_deals, where: "service_id="+me.selected.get('service_id')},
-						   success: function(response, opts) {
+						   success: function(response, opts) {							  
+	  						  Ext.Ajax.request({
+								   url: 'avia.php',
+								   params: {handle: 'web', table: 'crm_balance', action: 'update', values: "owner='"+form.findField('owner').getValue()+"'", where: "descr="+me.selected.get('subject')+" and crm_id="+me.selected.get('crm_id')},
+								   success: function(response, opts) {
+								   },
+								   failure: function(response, opts) {										   
+									  Ext.MessageBox.alert('Status', 'Error !', function() {});
+								   }
+							  });							  
+							  
 							  me.close();
 							  views['services'].reload(me.selected);
 						   },
 						   failure: function(response, opts) {										   
 							  Ext.MessageBox.alert('Status', 'Error !', function() {});
 						   }
-						});											
+						});
 					}
 					else
 					  Ext.MessageBox.alert('Status', 'Invalid data !', function() {});
@@ -2254,14 +2343,14 @@ Ext.define('OCS.CaseProductGrid', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls   : 'add',
-				text: 'Add ...',
+				text: 'Нэмэх ...',
 				handler: function(widget, event) {
 					if (me.action)
 						new OCS.CaseProductWindow({
 							selected: me.selected
 						}).createWindow();
 					else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			})
 		];
@@ -2427,12 +2516,12 @@ Ext.define('OCS.DealPayrollGrid', {
 	createColumns: function() {
 		var me = this;
 		return [{
-			text: 'Date',
+			text: 'Огноо',
 			dataIndex: 'pay_date',
 			width: 120,			
 			sortable: false
 		},{
-			text: 'Amount',
+			text: 'Дүн',
 			dataIndex: 'amount',
 			flex: 1,		
 			renderer: renderMoney,
@@ -2441,7 +2530,7 @@ Ext.define('OCS.DealPayrollGrid', {
 			summaryRenderer: renderTMoney,
 			sortable: false
 		},{
-			text: 'Created by',
+			text: 'Бүртгэсэн',
 			dataIndex: 'userCode',
 			width: 130,			
 			sortable: false
@@ -2471,7 +2560,7 @@ Ext.define('OCS.ServicePayrollGrid', {
 	extend: 'OCS.DealPayrollGrid',
 	func: 'crm_service_payroll_list',
 	tab : 'service_pay_roll',
-	title: 'Payments',
+	title: 'Төлөлт',
 	icon: 'call',
 	table: 'crm_service_payroll',
 	dateField: '_date',
@@ -2483,7 +2572,7 @@ Ext.define('OCS.ServicePayrollGrid', {
 	updateSource: function(rec) {
 		var me = this;
 		me.selected = rec;
-		me.action = rec.get('owner') == logged;
+		me.action = ((rec.get('owner') == logged || user_level > 0) && rec.get('service_stage') != 'receipt');
 		me.where = rec.get('service_id');
 		me.values = 'service_id';
 		me.loadStore();

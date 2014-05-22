@@ -1,4 +1,4 @@
-Ext.namespace('OSS');
+﻿Ext.namespace('OSS');
 Ext.Loader.setConfig({enabled: true});
 Ext.Loader.setPath('Ext.ux', 'ux/');
 Ext.Loader.setPath('Ext.ux.DataView', 'ux/DataView/');
@@ -72,7 +72,7 @@ Ext.onReady(function() {
 		   url: 'avia.php',
 		   params: {handle: 'web', action: 'login', where: username+','+password},
 		   success: function(response, opts) {
-			   if (response.responseText == 'logged')			   
+			   if (response.responseText.split(',')[0] == 'logged')			   
 				   location.reload();
 			   else
 				  Ext.MessageBox.alert('Status', response.responseText, function() {});
@@ -88,7 +88,7 @@ Ext.onReady(function() {
 	   params: {handle: 'web', action: 'login'},
 	   success: function(response, opts) {
 		   Ext.get('loading').remove();
-		   if (response.responseText == 'logged')
+		   if (response.responseText.split(',')[0] == 'logged')
 		   {			  
 			    setCookie('username', logged, 60);
 				new Ext.create('OCS.Viewport', {
@@ -124,7 +124,7 @@ Ext.onReady(function() {
 								width: 250,
 								autoEl: {
 									tag: 'div',
-									html:'<span style="font-size: 14px; align:center">Welcome !, Sign with your account</span>'
+									html:'<span style="font-size: 14px; valign:center">Тавтай морил, Та нэвтэрнэ үү !</span>'
 								}
 							}),{
 								id: 'username',
@@ -178,7 +178,7 @@ Ext.onReady(function() {
 						},{
 							minWidth: 100,
 							cls: 'login-button',
-							text: 'Sign in',
+							text: 'Нэвтрэх',
 							handler: function() {
 								var user = Ext.getCmp('username').getValue();
 								var password = Ext.getCmp('password').getValue();

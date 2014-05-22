@@ -160,6 +160,80 @@ Ext.define('OCS.SalesFunnel', {
 	}
 });
 
+Ext.define('OCS.SalesServiceFunnel', {
+	extend: 'OCS.Chart',
+	animate: true,
+	shadow: false,
+	legend: {
+		position: 'right',
+
+	},
+	insetPadding: 30,
+	theme: 'Base:gradients',
+
+	initComponent: function() {
+		var me = this;
+		
+		me.store = Ext.create('Ext.data.Store', {
+			fields: ['name', 'value'],
+			proxy: {				
+				type: 'ajax',
+    			url: 'avia.php',
+				actionMethods: {
+					create : 'POST',
+					read   : 'POST',
+					update : 'POST',
+					destroy: 'POST'
+				},
+    	        reader: {
+    	            root:'items',
+    	            totalProperty: 'results'
+    	        },				
+				simpleSortMode: true,
+				extraParams: {handle: 'web', action: 'select', func: 'crm_service_funnel_list'}
+			}
+		});
+		
+		me.rangeData(me.month(), me.nextmonth());
+
+		me.series = [{
+			type: 'pie',
+			field: 'value',
+			showInLegend: true,
+			donut: false,
+			tips: {
+			  trackMouse: true,
+			  width: 250,
+			  height: 28,
+			  renderer: function(storeItem, item) {				
+				this.setTitle(storeItem.get('name') + ': ' + renderMoney(storeItem.get('value')));
+			  }
+			},
+			highlight: {
+			  segment: {
+				margin: 5
+			  }
+			},
+			label: {
+				field: 'name',
+				display: 'rotate',
+				contrast: true,
+				font: '11px Segoe UI'		
+			}
+		}];
+
+		me.callParent(arguments);
+	},
+
+	rangeData: function(e1, e2) {
+		var me = this;
+		me.start = e1;
+		me.end = e2;
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_service_funnel_list', start_date: me.start, end_date: me.end};
+		me.store.load();
+	}
+});
+
 Ext.define('OCS.CampaignChartRevenue', {
 	extend: 'OCS.Chart',
 	animate: true,
@@ -1099,7 +1173,7 @@ Ext.define('OCS.ProductChart', {
 		var me = this;
 		me.start = e1;
 		me.end = e2;
-		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_report_product_list', start_date: e1, end_date: e2, sort:'_date', dir: 'asc'};
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_product_list', start_date: e1, end_date: e2, sort:'_date', dir: 'asc'};
 		me.store.load({callback: function() {
 				me.refresh();
 				me.redraw();
@@ -1120,3 +1194,217 @@ Ext.define('OCS.ProductChart', {
 	}
 });
 
+
+
+Ext.define('OCS.MapOnline', {
+	extend: 'Ext.panel.Panel',
+	layout: 'border',
+	border: false,
+	region: 'center',
+	
+	initComponent: function() {
+		var me = this;
+		me.markers = [];
+		
+		me.store = Ext.create('Ext.data.Store', {
+			fields: ['id', 'owner', 'lat', 'lng', '_date'],
+			proxy: {				
+				type: 'ajax',
+    			url: 'avia.php',
+				actionMethods: {
+					create : 'POST',
+					read   : 'POST',
+					update : 'POST',
+					destroy: 'POST'
+				},
+    	        reader: {
+    	            root:'items',
+    	            totalProperty: 'results'
+    	        },				
+				simpleSortMode: true,
+				extraParams: {handle: 'web', action: 'select', func: 'crm_chart_product_list'}
+			}
+		});
+		me.map = Ext.create('Ext.ux.GMapPanel', {
+			region: 'center',
+			border: false,
+			xtype: 'gmappanel',
+			center: {
+				geoCodeAddr: '15171, Ulaanbaatar, Mongolia'
+			},
+			markers: me.markers			
+		});
+		
+		me.items = [me.map];
+
+		setTimeout(function() {
+			 me.reload(me.today());
+		}, 2000);
+
+		me.callParent(arguments);
+	},
+	
+	removeMarkers: function() {
+		var me = this;
+		if (me.markers) {		
+			for (i = 0; i < me.markers.length; i++) {
+				me.markers[i].setMap(null);
+			}
+		}	
+
+		//me.map.getMap().clearOverlays();
+
+		me.markers = [];
+		me.polylines = [];
+		me.overlay = [];
+	},
+
+	reload: function(start) {
+		var me = this;			
+		me.start = start;
+		end = new Date(start);
+		end.setDate(end.getDate()+1);
+		end = Ext.Date.format(end, 'Y-m-d');
+		i = 0;
+		me.removeMarkers();
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_gps_list', sort:'_date', dir: 'asc', start_date: start, end_date: end, values: me.values, where: me.where};
+		me.store.load({callback: function() {			
+				me.store.each(function(rec){
+					var size = 24;
+					var dt = renderCreatedDate(rec.data['_date']);
+					var url = 'images/greendot.png';
+					if (dt.indexOf('минут') == -1 || dt.indexOf('дөнгөж') == -1) {
+							url = 'images/greendot.png';
+							size = 16;
+					}
+
+					if (i == me.store.getCount() - 1) {
+							url = 'images/online.png';
+							size = 24;
+					}
+
+					var icon = new google.maps.MarkerImage(	    		
+						url,
+						new google.maps.Size(size, size), //size
+						new google.maps.Point(0,0), //origin
+						new google.maps.Point(size/2, size),
+						new google.maps.Size(size, size)//scale 
+					);
+					
+
+					var marker = {
+						lat: rec.data['lat'],
+						lng: rec.data['lng'],					
+						title: rec.data['owner'],			
+						_date: rec.data['_date'],
+						icon: icon,
+						listeners: {
+							'click': function(m) {
+								var dt = renderCreatedDate(this._date);
+								me.infowindow.setContent(this.title+'</br>'+dt);
+								me.infowindow.open(me.map.gmap, this);
+							}
+						}
+					};		
+					
+					me.polylines.push(new google.maps.LatLng(rec.data['lat'], rec.data['lng']));
+					
+					if (me.polylines.length == 2) {		
+						var lineSymbol = {
+						   path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
+						};
+
+						me.flightPath = new google.maps.Polyline({
+							path: me.polylines,
+							geodesic: true,
+							strokeColor: '#ff6633',
+							strokeOpacity: 1.0,
+							icons: [{
+							  icon: lineSymbol,
+							  offset: '50%'
+							}],
+							strokeWeight: 2
+						});
+
+						me.flightPath.setMap(me.map.gmap);
+						me.overlay.push(me.flightPath);
+						me.polylines.splice(0, 1);
+						me.lineCount++;
+					}
+
+					me.infowindow = new google.maps.InfoWindow({
+						content: rec.data['owner']+'</br>'+renderCreatedDate(rec.data['_date'])
+					});
+
+					me.markers.push(me.map.addMarker(marker));
+				});					
+			}
+		});
+	},
+
+	today: function() {
+		var now = new Date();
+		return Ext.Date.format(now, 'Y-m-d');
+	},
+
+	tommorow: function() {
+		 var today = new Date();
+		 var d = today.getDate();
+		 var m = today.getMonth();
+		 var y = today.getFullYear();
+		 var nextDate= new Date(y, m, d+1);
+		 var ndate=Ext.Date.format(nextDate, 'Y-m-d');
+		 return ndate;
+	},
+
+	createWindow: function() {
+		var me = this;		
+		
+		me.form = Ext.create('OCS.FormPanel', {
+			id : 'user_plan_stat',				
+			title: 'Custom',	
+			region: 'center',
+			hidden: false,
+			closable: false,
+			title: '',
+			items: [
+			{
+				xtype: 'searchcombo',
+				fieldLabel: 'Борлуулагч',				
+				table: 'crm_users',
+				name: 'owner'
+			}],
+			buttons: [{
+				text: 'Илгээх',
+				handler: function() {
+					var form = this.up('form').getForm();
+					if (form.isValid())	{
+						if (form.findField('owner').getValue()) {
+							me.values = 'owner';
+							me.where = form.findField('owner').getValue();
+						} else {
+							me.values = '';
+							me.where = '';
+						}
+						
+						me.reload(me.start);
+						me.win.close();
+					}
+					else
+					  Ext.MessageBox.alert('Status', 'Invalid data !', function() {});
+				}
+			}]
+		});
+		
+
+		me.win = new Ext.create('Ext.Window', {
+			title: 'Шүүлтүүр',
+			width: 320,
+			height: 180,
+			layout: 'border',
+			items: me.form
+		});
+		
+		me.win.show();
+	}	
+});

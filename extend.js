@@ -19,7 +19,7 @@ Ext.define('OCS.Module', {
 		var me = this;
 		me.store = Ext.create('Ext.data.Store', {
 			model: me.modelName,
-			pageSize: 32,
+			pageSize: 80,
 			autoLoad: true,
 			remoteSort: me.remoteSort,
 			groupField: me.groupField,
@@ -58,7 +58,7 @@ Ext.define('OCS.Module', {
 						}
 						
 						if (me.func == 'crm_alarm_list' && me.store.getCount() > 0) {
-							var deal = 0, ccase = 0, activity = 0;
+							var deal = 0, ccase = 0, activity = 0, cservice = 0;
 							var show = (pk == 'dashboard');				
 							me.store.each(function(rec){
 								if (show && rec.data['type'] == 'phone call' || rec.data['type'] == 'appointment') {
@@ -116,6 +116,8 @@ Ext.define('OCS.Module', {
 								else
 								if (rec.data['type'] == 'case')
 									ccase++;
+								if (rec.data['type'] == 'service')
+									cservice++;
 								else
 								{
 									if (rec.data['status'] == 'workflow' && show) {	
@@ -136,11 +138,11 @@ Ext.define('OCS.Module', {
 
 							if (user_level == 3) {
 								views['topbar'].update('<div class="caption">'+
-													 '<table cellpadding=0 cellspacing=0><tr><td class="padding green"></td><td class="padding'+(pk=='dashboard'?' active':'')+'"><a href="index.php?pk=dashboard">Dashboard</a></td><td class="padding'+(pk=='workspace'?' active':'')+'"><a href="index.php?pk=workspace">Activities'+(activity>0?'<div class="noti_bubble">'+activity+'</div>':'')+'</a></td><td class="padding'+(pk=='deals'?' active':'')+'"><a href="index.php?pk=deals">Deals'+(deal>0?'<div class="noti_bubble">'+deal+'</div>':'')+'</a></td><td class="padding'+(pk=='reseller'?' active':'')+'"><a href="index.php?pk=reseller">Reseller</a></td><td class="padding'+(pk=='retail'?' active':'')+'"><a href="index.php?pk=retail">Contacts</a></td><td class="padding'+(pk=='corporate'?' active':'')+'"><a href="index.php?pk=corporate">Accounts</a></td><td class="padding'+(pk=='cases'?' active':'')+'"><a href="index.php?pk=cases">Cases'+(ccase>0?'<div class="noti_bubble">'+ccase+'</div>':'')+'</a></td><td class="padding'+(pk=='campaigns'?' active':'')+'"><a href="index.php?pk=campaigns">Campaigns</a></td><td class="padding'+(pk=='competitor'?' active':'')+'"><a href="index.php?pk=competitor">Competitors</a></td><td class="padding'+(pk=='quotes'?' active':'')+'"><a href="index.php?pk=quotes">Invoices</a></td><td class="padding'+(pk=='sales'?' active':'')+'"><a href="index.php?pk=sales">Contracts</a></td><td class="padding'+(pk=='goal'?' active':'')+'"><a href="index.php?pk=goal">Goals</a></td><td class="padding'+(pk=='product'?' active':'')+'"><a href="index.php?pk=product">Products</a></td><td class="padding'+(pk=='reports'?' active':'')+'"><a href="index.php?pk=reports">Reports</a></td><td class="padding'+(pk=='settings'?' active':'')+'"><a href="index.php?pk=settings">Settings</a></td><td class="padding" style="float:right"><a href="logout.php">Logout</a></td></tr></table>'+
+													 '<table cellpadding=0 cellspacing=0><tr><td class="padding green"></td><td class="padding'+(pk=='dashboard'?' active':'')+'"><a href="index.php?pk=dashboard">Хяналт</a></td><td class="padding'+(pk=='workspace'?' active':'')+'"><a href="index.php?pk=workspace">Үйл ажиллагаа'+(activity>0?'<div class="noti_bubble">'+activity+'</div>':'')+'</a></td><td class="padding'+(pk=='deals'?' active':'')+'"><a href="index.php?pk=deals">Хэлцэл'+(deal>0?'<div class="noti_bubble">'+deal+'</div>':'')+'</a></td><td class="padding'+(pk=='reseller'?' active':'')+'" style="display:none"><a href="index.php?pk=reseller">Салбар</a></td><td class="padding'+(pk=='retail'?' active':'')+'"><a href="index.php?pk=retail">Хувь хүн</a></td><td class="padding'+(pk=='corporate'?' active':'')+'"><a href="index.php?pk=corporate">Байгууллага</a></td><td class="padding'+(pk=='cases'?' active':'')+'"><a href="index.php?pk=cases">Үйлчилгээ'+(ccase>0?'<div class="noti_bubble">'+ccase+'</div>':'')+'</a></td><td class="padding'+(pk=='campaigns'?' active':'')+'"><a href="index.php?pk=campaigns">Маркетинг</a></td><td class="padding'+(pk=='services'?' active':'')+'"><a href="index.php?pk=services">Борлуулалт</a>'+(cservice>0?'<div class="noti_bubble">'+cservice+'</div>':'')+'</td><td class="padding'+(pk=='competitor'?' active':'')+'" style="display:none"><a href="index.php?pk=competitor">Өрсөлдөгч</a></td><td class="padding'+(pk=='goal'?' active':'')+'"><a href="index.php?pk=goal">Төлөвлөгөө</a></td><td class="padding'+(pk=='product'?' active':'')+'"><a href="index.php?pk=product">Бүтээгдэхүүн</a></td><td class="padding'+(pk=='reports'?' active':'')+'"><a href="index.php?pk=reports">Тайлан</a></td><td class="padding'+(pk=='settings'?' active':'')+'"><a href="index.php?pk=settings">Тохиргоо</a></td><td class="padding" style="float:right"><a href="logout.php">Гарах</a></td></tr></table>'+
 									 			   '</div>');
 							} else {
 								views['topbar'].update('<div class="caption">'+
-													 '<table cellpadding=0 cellspacing=0><tr><td class="padding green"></td><td class="padding'+(pk=='dashboard'?' active':'')+'"><a href="index.php?pk=dashboard">Dashboard</a></td><td class="padding'+(pk=='workspace'?' active':'')+'"><a href="index.php?pk=workspace">Activities'+(activity>0?'<div class="noti_bubble">'+activity+'</div>':'')+'</a></td><td class="padding'+(pk=='deals'?' active':'')+'"><a href="index.php?pk=deals">Deals'+(deal>0?'<div class="noti_bubble">'+deal+'</div>':'')+'</a></td><td class="padding'+(pk=='reseller'?' active':'')+'"><a href="index.php?pk=reseller">Reseller</a></td><td class="padding'+(pk=='retail'?' active':'')+'"><a href="index.php?pk=retail">Contacts</a></td><td class="padding'+(pk=='corporate'?' active':'')+'"><a href="index.php?pk=corporate">Accounts</a></td><td class="padding'+(pk=='cases'?' active':'')+'"><a href="index.php?pk=cases">Cases'+(ccase>0?'<div class="noti_bubble">'+ccase+'</div>':'')+'</a></td><td class="padding'+(pk=='campaigns'?' active':'')+'"><a href="index.php?pk=campaigns">Campaigns</a></td><td class="padding'+(pk=='services'?' active':'')+'"><a href="index.php?pk=services">Services</a></td><td class="padding'+(pk=='competitor'?' active':'')+'"><a href="index.php?pk=competitor">Competitors</a></td><td class="padding'+(pk=='goal'?' active':'')+'"><a href="index.php?pk=goal">Goals</a></td><td class="padding'+(pk=='product'?' active':'')+'"><a href="index.php?pk=product">Products</a></td><td class="padding'+(pk=='reports'?' active':'')+'"><a href="index.php?pk=reports">Reports</a></td><td class="padding'+(pk=='settings'?' active':'')+'"><a href="index.php?pk=settings">Settings</a></td><td class="padding" style="float:right"><a href="logout.php">Logout</a></td></tr></table>'+
+													 '<table cellpadding=0 cellspacing=0><tr><td class="padding green"></td><td class="padding'+(pk=='dashboard'?' active':'')+'"><a href="index.php?pk=dashboard">Хяналт</a></td><td class="padding'+(pk=='workspace'?' active':'')+'"><a href="index.php?pk=workspace">Үйл ажиллагаа'+(activity>0?'<div class="noti_bubble">'+activity+'</div>':'')+'</a></td><td class="padding'+(pk=='deals'?' active':'')+'"><a href="index.php?pk=deals">Хэлцэл'+(deal>0?'<div class="noti_bubble">'+deal+'</div>':'')+'</a></td><td class="padding'+(pk=='reseller'?' active':'')+'" style="display:none"><a href="index.php?pk=reseller">Салбар</a></td><td class="padding'+(pk=='retail'?' active':'')+'"><a href="index.php?pk=retail">Хүвь хүн</a></td><td class="padding'+(pk=='corporate'?' active':'')+'"><a href="index.php?pk=corporate">Байгууллага</a></td><td class="padding'+(pk=='cases'?' active':'')+'"><a href="index.php?pk=cases">Үйлчилгээ'+(ccase>0?'<div class="noti_bubble">'+ccase+'</div>':'')+'</a></td><td class="padding'+(pk=='campaigns'?' active':'')+'"><a href="index.php?pk=campaigns">Маркетинг</a></td><td class="padding'+(pk=='services'?' active':'')+'"><a href="index.php?pk=services">Борлуулалт</a>'+(cservice>0?'<div class="noti_bubble">'+cservice+'</div>':'')+'</td><td class="padding'+(pk=='competitor'?' active':'')+'" style="display:none"><a href="index.php?pk=competitor">Өрсөлдөгч</a></td><td class="padding'+(pk=='goal'?' active':'')+'"><a href="index.php?pk=goal">Төлөвлөгөө</a></td><td class="padding'+(pk=='product'?' active':'')+'"><a href="index.php?pk=product">Бүтээгдэхүүн</a></td><td class="padding'+(pk=='reports'?' active':'')+'"><a href="index.php?pk=reports">Тайлан</a></td><td class="padding'+(pk=='settings'?' active':'')+'"><a href="index.php?pk=settings">Тохиргоо</a></td><td class="padding" style="float:right"><a href="logout.php">Гарах</a></td></tr></table>'+
 									 			   '</div>');
 							}
 						}
@@ -347,15 +349,9 @@ Ext.define('OCS.Module', {
 					return;
 				}
 			}
-			
-			if (rec.get('name').substring(2, rec.get('name').length) == 'personal' && rec.get('value').length > 10)
-			{
-				
-			} else {
-				values += rec.get('name').substring(2, rec.get('name').length)+'='+me.rawValue(rec)+'&';
-				values1 += rec.get('name').substring(2, rec.get('name').length)+"='"+me.rawValue(rec)+"',";
-			}
 
+			values += rec.get('name').substring(2, rec.get('name').length)+'='+me.rawValue(rec)+'&';
+			values1 += rec.get('name').substring(2, rec.get('name').length)+"='"+me.rawValue(rec)+"',";
 			if (me.table == 'crm_customer' && rec.get('name').substring(2, rec.get('name').length) == 'crm_id' && rec.get('value') != '0')
 			{
 				action = 'update';
@@ -375,6 +371,11 @@ Ext.define('OCS.Module', {
 			if (me.table == 'crm_products' && rec.get('name').substring(2, rec.get('name').length) == 'product_id' && rec.get('value') != '0') {
 				action = 'update';
 				captcha = 'product_id='+rec.get('value');
+				walue = rec.get('value');
+			} else
+			if (me.table == 'crm_warehouse' && rec.get('name').substring(2, rec.get('name').length) == 'warehouse_id' && rec.get('value') != '0') {
+				action = 'update';
+				captcha = 'warehouse_id='+rec.get('value');
 				walue = rec.get('value');
 			} else
 			if (rec.get('name').substring(2, rec.get('name').length) == 'id' && rec.get('value') != '0') {
@@ -524,14 +525,14 @@ Ext.define('OCS.Module', {
 		Ext.Msg.confirm('Warning ','Are you sure you want to delete? ('+selection.length+' records)',function(btn){
 			if(btn === 'yes'){
 				if (selection.length == 1) {
-					if (user_level != 3 || (selection[0].get('owner') && selection[0].get('owner') != logged && selection[0].get('userCode') != logged)) {
-						Ext.MessageBox.alert('Status', 'Not available !', function() {});
+					if (user_level < 2 && selection[0].get('owner') && selection[0].get('owner') != logged && selection[0].get('userCode') != logged) {
+						Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						return;
 					}
 
 					var id = selection[0].get(me.primary);
 					if (id == '' || id == '0') {
-					    Ext.MessageBox.alert('Status', 'Not available !', function() {});
+					    Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						return;
 					}
 				
@@ -552,7 +553,7 @@ Ext.define('OCS.Module', {
 						if(btn === 'yes'){
 							var ids = me.selectedMyCreatedIds(me.primary);
 							if (ids == '' || ids == '0') {
-							    Ext.MessageBox.alert('Status', 'Not available !', function() {});
+							    Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 								return;
 							}
 			
@@ -608,6 +609,7 @@ Ext.define('OCS.Module', {
 			 rec.get('name').indexOf('_revenue') != -1 || 
 			 rec.get('name').indexOf('amount') != -1 || 
 			 rec.get('name').indexOf('qty') != -1 ||
+ 			 rec.get('name').indexOf('price') != -1 ||
 			 rec.get('name').indexOf('crm_id') != -1 || 
 			 rec.get('name').indexOf('tatvar') != -1 || 
 			 rec.get('name').indexOf('capital') != -1 || 
@@ -908,8 +910,7 @@ Ext.define('OCS.GridWithFormPanel', {
 			func: me.func,
 			feature: me.feature,
 			hidden: me.hidden,
-			tbarable: me.tbarable,
-			title: (me.windowed?'':me.title),
+			tbarable: me.tbarable,	
 			listeners : {
 				scope: this,
 				single: true,
@@ -948,13 +949,13 @@ Ext.define('OCS.GridWithFormPanel', {
 				sealedColumns: true,		
 				buttons: [{
 						iconCls: 'reset',
-						text: 'Reset',
+						text: 'Арилгах',
 						handler: function() {
 							me.form.updateSource(me.defaultRec);
 						}				
 					},'->',{
 						iconCls: 'commit',
-						text: 'Commit',
+						text: 'Илгээх',
 						listeners: {
 							mouseover: function(){
 								me.form.doLayout();
@@ -972,8 +973,9 @@ Ext.define('OCS.GridWithFormPanel', {
 
 		me.panel = Ext.create('Ext.panel.Panel', {
 			layout: 'border',
-			border: false,
+			border: false,			
 			region: me.region,
+			title: (me.windowed?'':me.title),			
 			items : [me.grid, me.form]	
 		});
 
@@ -1013,7 +1015,7 @@ Ext.define('OCS.GridWithFormPanel', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls   : 'add',
-				text: 'New...',
+				text: 'Нэмэх...',
 				disabled: me.insert,
 				handler: function(widget, event) {
 					me.form.updateSource(me.defaultRec);
@@ -1022,7 +1024,7 @@ Ext.define('OCS.GridWithFormPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				disabled: me.insert,
 				handler: function(widget, event) {
 					me.showForm();
@@ -1030,7 +1032,7 @@ Ext.define('OCS.GridWithFormPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				disabled: me.remove,
 				handler: function(widget, event) {
 					me.deleteRecord();
@@ -1039,7 +1041,7 @@ Ext.define('OCS.GridWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'merge',
-				text: 'Merge...',
+				text: 'Нэгтгэх...',
 				disabled: !me.merge,
 				handler: function(widget, event) {
 					if (user_level > 0) {					
@@ -1055,12 +1057,12 @@ Ext.define('OCS.GridWithFormPanel', {
 						} else
 							Ext.MessageBox.alert('Status', 'Master & Slave record !', function() {});
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'export',
-				text: 'Export',
+				text: 'Экспорт',
 				handler: function(widget, event) {
 					if (!Ext.fly('frmDummy')) {
 						var frm = document.createElement('form');
@@ -1087,7 +1089,7 @@ Ext.define('OCS.GridWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -1110,14 +1112,14 @@ Ext.define('OCS.GridWithFormPanel', {
 			var selection = me.grid.getSelectionModel().getSelection();						
 			if (selection.length == 1) {
 				if (user_level < 3 && selection[0].get('owner') && selection[0].get('owner') != logged && selection[0].get('userCode') != logged) {
-					Ext.MessageBox.alert('Status', 'Not available !', function() {});
+					Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 					return;
 				}
 				me.form.setVisible(true);
 			}
 		}
 		else
-			Ext.MessageBox.alert('Status', 'No selection !', function() {});
+			Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 	},
 	
 	initSource: function() {
@@ -1145,7 +1147,7 @@ Ext.define('OCS.UserGridWithFormPanel', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls   : 'add',
-				text: 'New...',
+				text: 'Нэмэх...',
 				disabled: me.insert,
 				handler: function(widget, event) {
 					me.form.updateSource(me.defaultRec);
@@ -1154,14 +1156,14 @@ Ext.define('OCS.UserGridWithFormPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				handler: function(widget, event) {
 					me.showForm();
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				disabled: me.remove,
 				handler: function(widget, event) {
 					me.deleteRecord();
@@ -1219,7 +1221,7 @@ Ext.define('OCS.UserGridWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'export',
-				text: 'Export',
+				text: 'Экспорт',
 				handler: function(widget, event) {
 					if (!Ext.fly('frmDummy')) {
 						var frm = document.createElement('form');
@@ -1246,7 +1248,7 @@ Ext.define('OCS.UserGridWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -1262,8 +1264,7 @@ Ext.define('OCS.UserGridWithFormPanel', {
 Ext.define('OCS.WareHouseGridWithFormPanel', {	
 	extend: 'OCS.GridWithFormPanel',	
 	modelName:'CRM_WAREHOUSE',
-	func:'crm_warehouse_list',
-	title: 'Ware house',
+	func:'crm_warehouse_list',	
 	table: 'crm_warehouse',
 	tab: 'my_crm_warehouse_list',
 	primary: 'warehouse_id',
@@ -1283,7 +1284,7 @@ Ext.define('OCS.WareHouseGridWithFormPanel', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls   : 'add',
-				text: 'New...',
+				text: 'Нэмэх...',
 				disabled: me.insert,
 				handler: function(widget, event) {
 					me.form.updateSource(me.defaultRec);
@@ -1292,14 +1293,14 @@ Ext.define('OCS.WareHouseGridWithFormPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				handler: function(widget, event) {
 					me.showForm();
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				disabled: me.remove,
 				handler: function(widget, event) {
 					me.deleteRecord();
@@ -1308,7 +1309,7 @@ Ext.define('OCS.WareHouseGridWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'merge',
-				text: 'Merge...',
+				text: 'Нэгтгэх...',
 				disabled: !me.merge,
 				handler: function(widget, event) {
 					
@@ -1316,7 +1317,7 @@ Ext.define('OCS.WareHouseGridWithFormPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'export',
-				text: 'Export',
+				text: 'Экспорт',
 				handler: function(widget, event) {
 					if (!Ext.fly('frmDummy')) {
 						var frm = document.createElement('form');
@@ -1343,7 +1344,7 @@ Ext.define('OCS.WareHouseGridWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -1379,8 +1380,7 @@ Ext.define('OCS.WareHouseGridWithFormPanel', {
 Ext.define('OCS.StorageGridWithFormPanel', {	
 	extend: 'OCS.GridWithFormPanel',	
 	modelName:'CRM_STORAGE',
-	func:'crm_storage_list',
-	title: 'Ware house detail',
+	func:'crm_storage_list',	
 	table: 'crm_storage',
 	tab: 'my_crm_storage_list',
 	primary: 'id',
@@ -1390,6 +1390,7 @@ Ext.define('OCS.StorageGridWithFormPanel', {
 	merge: true,
 	insert: (user_level==0),
 	remove: (user_level==0),	
+	xlsName: 'Storage',
 	defaultRec: {
 		data: {
 			warehouse_id: '0',
@@ -1411,12 +1412,13 @@ Ext.define('OCS.StorageGridWithFormPanel', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls   : 'add',
-				text: 'Add...',
+				text: 'Нэмэх...',
 				disabled: me.insert,
 				handler: function(widget, event) {
 					if (me.selected)
 						new OCS.StorageAddProductWindow({
-							selected: me.selected
+							selected: me.selected,
+							backgrid: me.grid
 						}).show();
 					else
 						Ext.MessageBox.alert('Status', 'You must select a ware house !', function() {});
@@ -1424,7 +1426,7 @@ Ext.define('OCS.StorageGridWithFormPanel', {
 			}),			
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Хасах',
 				disabled: me.remove,
 				handler: function(widget, event) {
 					me.deleteRecord();
@@ -1433,7 +1435,7 @@ Ext.define('OCS.StorageGridWithFormPanel', {
 			'-',			
 			Ext.create('Ext.Action', {
 				iconCls   : 'import',
-				text: 'Import',
+				text: 'Импорт',
 				handler: function(widget, event) {
 					new OCS.UploadWindow({
 						name: me.xlsName
@@ -1442,7 +1444,7 @@ Ext.define('OCS.StorageGridWithFormPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'export',
-				text: 'Export',
+				text: 'Экспорт',
 				handler: function(widget, event) {
 					if (!Ext.fly('frmDummy')) {
 						var frm = document.createElement('form');
@@ -1469,7 +1471,7 @@ Ext.define('OCS.StorageGridWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -1485,8 +1487,7 @@ Ext.define('OCS.StorageGridWithFormPanel', {
 Ext.define('OCS.ProductGridWithFormPanel', {	
 	extend: 'OCS.GridWithFormPanel',	
 	modelName:'CRM_PRODUCT',
-	func:'crm_product_list',
-	title: 'Products',
+	func:'crm_product_list',	
 	table: 'crm_products',
 	tab: 'my_crm_product_list',
 	primary: 'product_id',
@@ -1508,7 +1509,7 @@ Ext.define('OCS.ProductGridWithFormPanel', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls   : 'add',
-				text: 'Add...',
+				text: 'Нэмэх...',
 				disabled: me.insert,
 				handler: function(widget, event) {
 					me.form.updateSource(me.defaultRec);
@@ -1517,7 +1518,7 @@ Ext.define('OCS.ProductGridWithFormPanel', {
 			}),			
 			Ext.create('Ext.Action', {
 				iconCls   : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				disabled: me.insert,
 				handler: function(widget, event) {
 					me.showForm();
@@ -1525,7 +1526,7 @@ Ext.define('OCS.ProductGridWithFormPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				disabled: me.remove,
 				handler: function(widget, event) {
 					me.deleteRecord();
@@ -1534,7 +1535,7 @@ Ext.define('OCS.ProductGridWithFormPanel', {
 			'-',			
 			Ext.create('Ext.Action', {
 				iconCls   : 'merge',
-				text: 'Merge...',
+				text: 'Нэгтгэх...',
 				disabled: !me.merge,
 				handler: function(widget, event) {
 					
@@ -1542,7 +1543,7 @@ Ext.define('OCS.ProductGridWithFormPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'import',
-				text: 'Import',
+				text: 'Импорт',
 				handler: function(widget, event) {
 					new OCS.UploadWindow({
 						name: me.xlsName
@@ -1551,7 +1552,7 @@ Ext.define('OCS.ProductGridWithFormPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'export',
-				text: 'Export',
+				text: 'Экспорт',
 				handler: function(widget, event) {
 					if (!Ext.fly('frmDummy')) {
 						var frm = document.createElement('form');
@@ -1578,7 +1579,7 @@ Ext.define('OCS.ProductGridWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -1634,27 +1635,11 @@ Ext.define('OCS.Window', {
 			var me = this;
 			if (me.backgrid)
 				me.backgrid.getStore().reload({callback: function() {
-				alert(me.title);
 					if (me.title == 'Products') {
 						var amount = 0;
 						me.backgrid.getStore().each(function(rec){
 							amount += rec.get('amount');
 						});
-						
-						if (me.backgrid.getStore().getCount() > 0)	{											
-							if (me.selected.get('stage') == 'lead' || me.selected.get('stage') == 'opportunity') {
-								me.selected.set('stage', 'quote');
-								Ext.Ajax.request({
-								   url: 'avia.php',
-								   params: {handle: 'web', table: 'crm_deals', action: 'update', values: "stage='quote'", where: 'deal_id='+me.selected.get('deal_id')},
-								   success: function(response, opts) {							  
-									 
-								   },
-								   failure: function(response, opts) {									 
-								   }
-								});	
-							}
-						}
 
 						me.selected.set('expected_revenue', amount);
 						views[pk].action.update(me.selected);
@@ -1694,7 +1679,7 @@ Ext.define('OCS.Window', {
 
 Ext.define('OCS.HelpWindow', {
 	extend : 'OCS.Window',
-	title: 'Help',
+	title: 'Тусламж',
 	width: 450,
 	height: 550,
 	maximizable: true,
@@ -1773,7 +1758,7 @@ Ext.define('OCS.AddProductWindow', {
 				name: '_date'
 			}],
 			buttons: [{
-				text: 'Commit',
+				text: 'Илгээх',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -1852,7 +1837,7 @@ Ext.define('OCS.MessageWindow', {
 				flex: 1 
 			}],
 			buttons: [{
-				text: 'Commit',
+				text: 'Илгээх',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -1892,10 +1877,10 @@ Ext.define('OCS.DropGridPanel', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls   : 'add',
-				text: 'New ...',
+				text: 'Нэмэх ...',
 				handler: function(widget, event) {
 					if (selectedQuote.get('quote_status') != 'draft') {
-					  Ext.MessageBox.alert('Status', 'Not available !', function() {});
+					  Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 					  return;
 					}
 					
@@ -1909,16 +1894,16 @@ Ext.define('OCS.DropGridPanel', {
 							}
 						}).show();
 					} else {
-						  Ext.MessageBox.alert('Status', 'No selection !', function() {});
+						  Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 					}
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				handler: function(widget, event) {
 					if (selectedQuote.get('quote_status') != 'draft') {
-					  Ext.MessageBox.alert('Status', 'Not available !', function() {});
+					  Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 					  return;
 					}
 					me.deleteRecord();
@@ -1972,7 +1957,7 @@ Ext.define('OCS.PropertyGrid', {
 			getRowClass: function(record) { 
 				var name = record.data.name.substring(2, record.data.name.length);
 				
-				if (name == 'notify' || name == 'mayDuplicate' || name == 'parent_crm_id' || name == 'customer_type' || name == 'crm_id' || name == 'case_id' || name == 'deal_id' || name == 'id' || name == 'userCode' || name == '_date' || name == 'personal' || name == 'service_id' || name == 'personal')
+				if (name == 'notify' || name == 'mayDuplicate' || name == 'parent_crm_id' || name == 'customer_type' || name == 'crm_id' || name == 'case_id' || name == 'deal_id' || name == 'id' || name == 'userCode' || name == '_date' || name == 'personal' || name == 'service_id')
 					return 'zero-adult-row';
 				
 				if (name == 'descr')
@@ -2038,7 +2023,7 @@ Ext.define('OCS.PropertyGrid', {
 				name: name
 			};
 		
-		if (name == 'precent' || name.indexOf('_p') != -1 || name == '_month' || name == '_year' || name == 'unit_size')
+		if (name == 'precent' || name.indexOf('_p') != -1 || name == '_month' || name == '_year' || name == 'unit_size' || name == 'discount')
 			return {
 				xtype: 'numberfield',
 				name: name
@@ -2775,6 +2760,23 @@ Ext.define('OCS.PropertyGrid', {
 			};
 		}
 		
+		if (name == 'pay_type')
+		{
+			return {
+			  xtype: 'combo',
+			  store: Ext.create('Ext.data.Store', {
+				 model: 'CRM_PREV',
+				 data: [{value: 'cash',name:'Бэлнээр'},{value: 'bank',name:'Бэлэн бусаар'}]
+			  }),
+			  name: name,
+			  queryMode: 'local',
+		      displayField: 'name',
+		      valueField: 'value',
+			  triggerAction: 'all',
+			  editable: false
+			};
+		}
+
 		if (name == 'resolution_type')
 		{
 			return {
@@ -2867,6 +2869,57 @@ Ext.define('OCS.PropertyGrid', {
 				xtype: 'numberfield',
 				name: name
 			};
+		
+		if (name == 'amount' || name == 'total_amount')
+			return {
+				xtype: 'numericfield',
+				value: 0,				
+				decimalPrecision: 2,
+			    allowNegative: true,
+				useThousandSeparator: true,
+		        currencySymbol:'₮',
+				name: name,
+				listeners: {
+					'change': function(v) {
+						if (v.getName() == 'amount') {					
+							var promo_code = me.store.getAt(5).get('value');
+							var promo_precent = me.store.getAt(7).get('value');
+							var value = v.getValue();
+							if (promo_code == 'U4') {
+								if (value >= 1000000 && value < 1500000)
+									promo_precent = 1;								
+								if (value >= 1500000 && value < 2000000)
+									promo_precent = 2;			
+								if (value >= 2000000)
+									promo_precent = 3;			
+								value = (value * 100)/(100-promo_precent);
+								me.store.getAt(7).set('value', promo_precent);
+							} else
+							if (promo_code == 'U3') {
+								var promo_amount = me.store.getAt(5).get('value');
+								value = (value * 100)/(100-promo_precent);
+								if (value >= promo_amount) {
+									if (value >= 1000000 && value < 1500000)
+										promo_precent = 1;								
+									if (value >= 1500000 && value < 2000000)
+										promo_precent = 2;			
+									if (value >= 2000000)
+										promo_precent = 3;	
+									
+									value = (value * 100)/(100-promo_precent);
+								}
+							} else
+							if (promo_code == 'U2') {
+								value = (value * 100)/(100-promo_precent);
+							} else
+							if (promo_code == 'U1') {
+								value = value;
+							}
+							me.store.getAt(9).set('value', value);
+						}
+					}
+				}
+			};
 
 		if (name == 'price' || name == 'amount' || name == 'budgeted_cost' || name == 'reported_revenue' || name == 'actual_cost' || name == 'expected_revenue' || name == 'amountTheshold')
 			return {
@@ -2950,8 +3003,8 @@ Ext.define('OCS.GridView', {
 	constructor: function(cnfg) {
         this.callParent(arguments);
         this.initConfig(cnfg);	
-    },
-	
+    },		
+
 	rangeData: function() {
 		var me = this;
 		if (me.start.length > 0) {
@@ -3000,7 +3053,7 @@ Ext.define('OCS.GridView', {
 					xtype: 'textfield',
 					width: 150,
 					hidden: !me.search,
-					emptyText: 'Search value...',
+					emptyText: 'Хайх утга...',
 					readOnly: false,
 					listeners: {
 						 change: {
@@ -3012,21 +3065,21 @@ Ext.define('OCS.GridView', {
 				},	
 				{
 					id: me.id+'_start',
-					text: 'Start date',
+					text: (me.start ? me.start:'Эхлэх'),
 					iconCls: 'calendar',
 					hidden: !me.feature,
 					menu: me.dateMenu1
 				},
 				{
 					id: me.id+'_end',
-					text: 'End date',
+					text: (me.end ? me.end:'Дуусах'),
 					iconCls: 'calendar',
 					hidden: !me.feature,
 					menu: me.dateMenu2
 				},
 				'-',
 				{
-					text: 'Reset',
+					text: 'Арилгах',
 					hidden: !me.feature,
 					iconCls: 'reset',
 					handler: function() {
@@ -3573,6 +3626,7 @@ Ext.define('OCS.BGridView', {
 	columnLines: true,
 	stripeRows: true,	
 	stateful: false,
+	search : true,
 	emptyText: 'No records.',
 	
 	constructor: function(cnfg) {
@@ -3589,6 +3643,38 @@ Ext.define('OCS.BGridView', {
 		me.contextMenu = Ext.create('Ext.menu.Menu', {
 			items: me.actions
 		});
+
+		me.bbar = Ext.create('Ext.PagingToolbar', {
+			store: me.store,
+			displayInfo: false,
+			displayMsg: '{0}-{1} of {2}',
+			emptyMsg: "Empty !",
+			items: [/*me.searchField, */{
+					xtype: 'textfield',
+					width: 150,
+					hidden: !me.search,
+					emptyText: 'Хайх утга...',
+					readOnly: false,
+					listeners: {
+						 change: {
+							 fn: me.onTextFieldChange_,
+							 scope: this,
+							 buffer: 200
+						 }
+					}
+				},					
+				'-',
+				{
+					iconCls: 'help',
+					handler: function() {
+						new OCS.HelpWindow({
+							id: 'crm_main_help'
+						}).show();
+					}
+				},
+				'->'
+			]
+		});		
 
 		me.viewConfig = {
 			emptyText: me.emptyText,
@@ -3647,5 +3733,18 @@ Ext.define('OCS.BGridView', {
 	loadStore: function() {
 		var me = this;
 		me.store.load();
-	}	
+	},
+
+	onTextFieldChange_: function(e) {
+		var me = this;		
+		var v = e.getValue();
+		if (v) {			
+			me.query = v;
+			me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where, query: me.query, views: me.views, start_date: me.start, end_date: me.end};
+			me.store.load();
+		} else {
+			me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where, views: me.views, start_date: me.start, end_date: me.end};
+			me.store.load();
+		}
+	}
 });

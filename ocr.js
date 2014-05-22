@@ -422,21 +422,21 @@ Ext.define('OCS.RetailPanel', {
 		me.customViews = [
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'Suspect List',
+				text: 'Харилцагч болоогүй',
 				handler: function(widget, event) {
 					me.filterData('Suspect List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'Prospect List',
+				text: 'Харилцагч болохоор төлөвлөгдөж байгаа',
 				handler: function(widget, event) {
 					me.filterData('Prospect List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'Customer List',
+				text: 'Харилцагчийн жагсаалт',
 				handler: function(widget, event) {
 					me.filterData('Customer List');
 				}
@@ -444,14 +444,14 @@ Ext.define('OCS.RetailPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'VIP List',
+				text: 'VIP жагсаалт',
 				handler: function(widget, event) {
 					me.filterData('VIP List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'EXPAT List',
+				text: 'Гадаад харилцагчийн жагсаалт',
 				handler: function(widget, event) {
 					me.filterData('EXPAT List');
 				}
@@ -459,42 +459,42 @@ Ext.define('OCS.RetailPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'My Company List',
+				text: 'Компаний харилцагчид',
 				handler: function(widget, event) {
 					me.filterData('My Company List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'All '+me.xlsName+' List',
+				text: 'Бүх харилцагчид',
 				handler: function(widget, event) {
 					me.filterData('All '+me.xlsName+' List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'Without Owner  List',
+				text: 'Хариуцагч байхгүй харилцагчийн жагсаалт',
 				handler: function(widget, event) {
 					me.filterData('Without Owner List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'My '+me.xlsName+' List',
+				text: 'Миний хариуцдаг харилцагчид',
 				handler: function(widget, event) {
 					me.filterData('My '+me.xlsName+' List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'My Created '+me.xlsName+' List',
+				text: 'Миний бүртгэсэн харилцагчид',
 				handler: function(widget, event) {
 					me.filterData('My Created '+me.xlsName+' List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'Recently Added List',
+				text: 'Сүүлийн үед үүссэн харилцагчид',
 				handler: function(widget, event) {
 					me.filterData('Recently Added List');
 				}
@@ -528,7 +528,7 @@ Ext.define('OCS.RetailPanel', {
 		me.actions = [			
 			Ext.create('Ext.Action', {
 				iconCls: 'list',
-				text: 'Views',
+				text: 'Харагдац',
 				menu: {
 					xtype: 'menu',
 					items: me.createSubActions()
@@ -537,7 +537,7 @@ Ext.define('OCS.RetailPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'add',
-				text: 'New...',
+				text: 'Шинэ харилцагч...',
 				disabled: permit(me.xlsName+'-new'),
 				handler: function(widget, event) {
 					if (me.modelName == 'CRM_RETAIL')					
@@ -550,7 +550,7 @@ Ext.define('OCS.RetailPanel', {
 			}),	
 			Ext.create('Ext.Action', {
 				iconCls   : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				disabled: permit(me.xlsName+'-expand'),
 				handler: function(widget, event) {					
 					if (me.recordSelected()) {					
@@ -569,13 +569,13 @@ Ext.define('OCS.RetailPanel', {
 			}),	
 			Ext.create('Ext.Action', {
 				iconCls  : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				menu: {
 					xtype: 'menu',
 					items: [
 						Ext.create('Ext.Action', {
 							iconCls   : 'delete',  
-							text: 'Delete for selected',
+							text: 'Сонгосонг устгах',
 							disabled: permit(me.xlsName+'-delete'),	
 							handler: function(widget, event) {
 								me.deleteRecord();
@@ -583,7 +583,7 @@ Ext.define('OCS.RetailPanel', {
 						}),
 						Ext.create('Ext.Action', {
 							iconCls   : 'delete',  
-							text: 'Delete all',
+							text: 'Бүгдийг устгах',
 							disabled: permit(me.xlsName+'-delete'),	
 							handler: function(widget, event) {
 								me.deleteRecord();
@@ -596,7 +596,7 @@ Ext.define('OCS.RetailPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'deal_assign',
-				text: 'Assign...',
+				text: 'Оноох...',
 				disabled: permit(me.xlsName+'-assign'),
 				handler: function(widget, event) {
 					if (user_level > 0 ) {												
@@ -607,12 +607,12 @@ Ext.define('OCS.RetailPanel', {
 								direction: me.xlsName
 							}).show();
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'merge',
-				text: 'Merge...',
+				text: 'Нэгтгэх...',
 				disabled: permit(me.xlsName+'-merge'),
 				handler: function(widget, event) {
 					if (user_level > 0) {					
@@ -623,14 +623,14 @@ Ext.define('OCS.RetailPanel', {
 								slave: me.grid.getView().getSelectionModel().getSelection()[1]
 							}).show();
 						} else
-							Ext.MessageBox.alert('Status', 'Master & Slave record !', function() {});
+							Ext.MessageBox.alert('Status', '2 бичлэг сонгох ёстой !', function() {});
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),				
 			Ext.create('Ext.Action', {
 				iconCls   : 'import',
-				text: 'Import...',
+				text: 'Импорт...',
 				handler: function(widget, event) {
 					new OCS.UploadWindow({
 						name: me.xlsName
@@ -639,7 +639,7 @@ Ext.define('OCS.RetailPanel', {
 			}),	
 			Ext.create('Ext.Action', {
 				iconCls   : 'export',
-				text: 'Export...',
+				text: 'Экспорт...',
 				disabled: (user_level == '0'),
 				handler: function(widget, event) {
 					if (!Ext.fly('frmDummy')) {
@@ -667,13 +667,13 @@ Ext.define('OCS.RetailPanel', {
 			'-',				
 			Ext.create('Ext.Action', {
 				iconCls: 'activity',
-				text: 'Activity',
+				text: 'Үйл ажиллагаа',
 				menu: {
 					xtype: 'menu',
 					items: [
 						Ext.create('Ext.Action', {
 							iconCls   : 'notes',  
-							text: 'Notes ...',
+							text: 'Тэмдэглэл ...',
 							handler: function(widget, event) {															
 								if (me.recordSelected())
 									new OCS.NotesWindow({
@@ -683,7 +683,7 @@ Ext.define('OCS.RetailPanel', {
 						}),
 						Ext.create('Ext.Action', {
 							iconCls   : 'task',  
-							text: 'Task ...',
+							text: 'Ажил ...',
 							handler: function(widget, event) {
 								if (me.recordSelected())
 									new OCS.TaskWindow({
@@ -693,7 +693,7 @@ Ext.define('OCS.RetailPanel', {
 						}),
 						Ext.create('Ext.Action', {
 							iconCls   : 'event',  
-							text: 'Appointment ...',
+							text: 'Уулзалт ...',
 							handler: function(widget, event) {
 								if (me.recordSelected())
 									new OCS.EventWindow({
@@ -703,7 +703,7 @@ Ext.define('OCS.RetailPanel', {
 						}),
 						Ext.create('Ext.Action', {
 							iconCls   : 'call', 
-							text: 'Phone call ...',
+							text: 'Утсаар ярьсан ...',
 							handler: function(widget, event) {
 								if (me.recordSelected())							
 									new OCS.CallLogWindow({
@@ -713,7 +713,7 @@ Ext.define('OCS.RetailPanel', {
 						}),
 						Ext.create('Ext.Action', {
 							iconCls   : 'email',  
-							text: 'Email ...',
+							text: 'И-майл илгээсэн ...',
 							handler: function(widget, event) {
 								if (me.recordSelected())
 									new OCS.EmailWindow({
@@ -726,19 +726,19 @@ Ext.define('OCS.RetailPanel', {
 			}),			
 			Ext.create('Ext.Action', {
 				iconCls   : 'complain', 
-				text: 'Case ...',
+				text: 'Үйлчилгээ ...',
 				handler: function(widget, event) {
 					if (me.recordSelected() && me.isCustomer())
 						new OCS.ComplainWindow({
 							selected: me.grid.getView().getSelectionModel().getSelection()[0]
 						}).createWindow();
 					else
-						Ext.MessageBox.alert('Status', 'Not available ! Only for customer level', function() {});
+						Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй ! Only for customer level', function() {});
 				}
 			}),	
 			Ext.create('Ext.Action', {
 				iconCls   : 'deal', 
-				text: 'Deal ...',
+				text: 'Хэлцэл ...',
 				handler: function(widget, event) {		
 					if (me.recordSelected())
 						new OCS.NewDealWindow({
@@ -748,7 +748,7 @@ Ext.define('OCS.RetailPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'campaign', 
-				text: 'Campaign ...',
+				text: 'Маркетинг ...',
 				menu: {
 					xtype: 'menu',
 					items: [{
@@ -786,22 +786,59 @@ Ext.define('OCS.RetailPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'service', 
-				text: 'Service ...',
-				handler: function(widget, event) {		
-					if (me.recordSelected())
-						new OCS.NewServiceWindow({
-							selected: me.grid.getView().getSelectionModel().getSelection()[0]
-						}).createWindow();
-				}
+				text: 'Борлуулалт',
+				menu: {
+					xtype: 'menu',
+					items: [{
+						text: 'Захиалга авах',
+						iconCls: 'order',
+						handler: function(widget, event) {		
+							if (me.recordSelected())
+								new OCS.NewServiceWindow({
+									selected: me.grid.getView().getSelectionModel().getSelection()[0]
+								}).createWindow();
+						}
+					},{
+						text: 'Төлөлт оруулах',
+						iconCls: 'bankir',
+						handler: function(widget, event) {		
+							if (me.recordSelected())
+								new OCS.ServicePayRollWindow({
+									selected: me.grid.getView().getSelectionModel().getSelection()[0],
+									values: 'crm_id'
+								}).createWindow();
+						}
+					},{
+						text: 'Буцаалт бүртгэх',
+						iconCls: 'return',
+						handler: function(widget, event) {		
+							if (me.recordSelected())
+								new OCS.NewServiceWindow({
+									selected: me.grid.getView().getSelectionModel().getSelection()[0],
+									service_stage : 'return'
+								}).createWindow();
+						}
+					},
+					'-',{
+						text: 'Үнийн өөрчлөлт оруулах',
+						iconCls: 'change',
+						handler: function(widget, event) {		
+							if (me.recordSelected())
+								new OCS.ChangePriceWindow({
+									selected: me.grid.getView().getSelectionModel().getSelection()[0]
+								}).createWindow();
+						}
+					}]
+				}				
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'tools', 
-				text: 'Tools ...',
+				text: 'Хэрэгслүүд ...',
 				menu: {
 					xtype: 'menu',
 					items: [{
 						iconCls: 'marker',
-						text: 'Location map...',
+						text: 'Газрын зураг...',
 						handler: function(widget, event) {
 							if (me.recordSelected())
 								new OCS.GMapWindow({
@@ -823,12 +860,21 @@ Ext.define('OCS.RetailPanel', {
 								}).show();
 						}
 					},{
-						text: 'Risk Management...',
+						text: 'Эрсдлийн үнэлгээ...',
 						iconCls: 'chart',
 						handler: function(widget, event) {		
 							new OCS.RiskResultWindow({
 								selected: me.grid.getView().getSelectionModel().getSelection()[0]
 							}).createWindow();
+						}
+					},{
+						text: 'Ложистик...',
+						iconCls: 'container',
+						handler: function(widget, event) {		
+							if (me.recordSelected())
+								new OCS.LogisticWindow({
+									selected: me.grid.getView().getSelectionModel().getSelection()[0]
+								}).show();
 						}
 					}]
 				}				
@@ -836,7 +882,7 @@ Ext.define('OCS.RetailPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help', 
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {		
 					new OCS.HelpWindow({
 						id: me.func
@@ -907,7 +953,7 @@ Ext.define('OCS.RetailPanel', {
 			items : [me.grid]			
 		});
 		
-		me.filterData('My Company List');
+		me.filterData('');
 		return me.panel;
 	}
 });
@@ -963,25 +1009,25 @@ Ext.define('OCS.CorporatePanel', {
 					})
 				);
 		}
-
+		
 		me.customViews = [
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'Suspect List',
+				text: 'Харилцагч болоогүй',
 				handler: function(widget, event) {
 					me.filterData('Suspect List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'Prospect List',
+				text: 'Харилцагч болохоор төлөвлөгдөж байгаа',
 				handler: function(widget, event) {
 					me.filterData('Prospect List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'Customer List',
+				text: 'Харилцагчийн жагсаалт',
 				handler: function(widget, event) {
 					me.filterData('Customer List');
 				}
@@ -989,35 +1035,35 @@ Ext.define('OCS.CorporatePanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'TOP 100 List',
+				text: 'TOP 100 харилцагчид',
 				handler: function(widget, event) {
 					me.filterData('TOP 100 List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'Corporate List',
+				text: 'Томоохон байгууллага',
 				handler: function(widget, event) {
 					me.filterData('Corporate List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'SME List',
+				text: 'Жижиг дунд байгууллага',
 				handler: function(widget, event) {
 					me.filterData('SME List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'Reseller List',
+				text: 'Гэрээт харилцагчид',
 				handler: function(widget, event) {
 					me.filterData('Reseller List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'External List',
+				text: 'Гадаада харилцагчид',
 				handler: function(widget, event) {
 					me.filterData('External List');
 				}
@@ -1025,42 +1071,42 @@ Ext.define('OCS.CorporatePanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'My Company List',
+				text: 'Компаний харилцагчид',
 				handler: function(widget, event) {
 					me.filterData('My Company List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'All '+me.xlsName+' List',
+				text: 'Бүх харилцагчид',
 				handler: function(widget, event) {
 					me.filterData('');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'Without Owner  List',
+				text: 'Хариуцагчгүй харилцагчид',
 				handler: function(widget, event) {
 					me.filterData('Without Owner List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'My '+me.xlsName+' List',
+				text: 'Миний хариуцдаг харилцагчид',
 				handler: function(widget, event) {
 					me.filterData('My '+me.xlsName+' List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'My Created '+me.xlsName+' List',
+				text: 'Миний бүртгэсэн харилцагчид',
 				handler: function(widget, event) {
 					me.filterData('My Created '+me.xlsName+' List');
 				}
 			}),
 			Ext.create('Ext.Action', {
 				icon   : '',  
-				text: 'Recently Added List',
+				text: 'Сүүлийн үед нэмэгдсэн харилцагчид',
 				handler: function(widget, event) {
 					me.filterData('Recently Added List');
 				}
@@ -1177,13 +1223,13 @@ Ext.define('OCS.ActivityGrid', {
 		var me = this;
 		var records = me.grid.getView().getSelectionModel().getSelection();
 		if (records.length == 0) {
-			 Ext.MessageBox.alert('Status', 'No selection !', function() {});
+			 Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 			 return;
 		}
 
 		me.selected = me.grid.getView().getSelectionModel().getSelection()[0];
 		if (!(me.selected.get('owner') == logged || me.selected.get('userCode') == logged)) {
-			Ext.MessageBox.alert('Error', 'Not available !', function() {});
+			Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 			return;
 		}
 		
@@ -1341,7 +1387,7 @@ Ext.define('OCS.ActivityGrid', {
 						new OCS.ActivityDetailWindow({
 							title: 'Activity detail',
 							record: record,
-							backgrid: me.grid
+							backgrid: me
 						}).show();							
 					}
 
@@ -1359,7 +1405,7 @@ Ext.define('OCS.ActivityGrid', {
 							backgrid: me.grid
 						}).createWindow();
 					else
-						Ext.MessageBox.alert('Status', 'Not available !', function() {});
+						Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
@@ -1372,7 +1418,7 @@ Ext.define('OCS.ActivityGrid', {
 							backgrid: me.grid
 						}).createWindow();
 					else
-						Ext.MessageBox.alert('Status', 'Not available !', function() {});
+						Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
@@ -1385,7 +1431,7 @@ Ext.define('OCS.ActivityGrid', {
 							backgrid: me.grid
 						}).createWindow();
 					else
-						Ext.MessageBox.alert('Status', 'Not available !', function() {});
+						Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
@@ -1398,7 +1444,7 @@ Ext.define('OCS.ActivityGrid', {
 							backgrid: me.grid
 						}).createWindow();
 					else
-						Ext.MessageBox.alert('Status', 'Not available !', function() {});
+						Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
@@ -1411,7 +1457,7 @@ Ext.define('OCS.ActivityGrid', {
 							backgrid: me.grid
 						}).createWindow();
 					else
-						Ext.MessageBox.alert('Status', 'Not available !', function() {});
+						Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			})
 		];
@@ -1676,11 +1722,11 @@ Ext.define('OCS.MyActivityGrid', {
 //					}).show();
 					var records = me.grid.getView().getSelectionModel().getSelection();
 					if (records.length == 0) {
-						 Ext.MessageBox.alert('Status', 'No selection !', function() {});
+						 Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 						 return;
 					}
 					if (records[0].get('owner') != logged) {
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						return;
 					}
 
@@ -1730,11 +1776,11 @@ Ext.define('OCS.MyActivityGrid', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls : 'calendar',
-				text: 'Calendar',
+				text: 'Календар',
 				handler: function(widget, event) {
 					var records = me.grid.getView().getSelectionModel().getSelection();
 					if (records.length == 0) {
-						 Ext.MessageBox.alert('Status', 'No selection !', function() {});
+						 Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 						 return;
 					}
 					googleEventDynamic(records[0]);
@@ -1743,7 +1789,7 @@ Ext.define('OCS.MyActivityGrid', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -1848,7 +1894,7 @@ Ext.define('OCS.CaseGrid', {
 		me.actions = [
 		/*	Ext.create('Ext.Action', {
 				iconCls : 'add',  
-				text: 'Add ...',
+				text: 'Нэмэх ...',
 				handler: function(widget, event) {
 					new OCS.ComplainWindow({
 						selected: me.selected
@@ -1904,7 +1950,7 @@ Ext.define('OCS.OpportunityGrid', {
 		me.actions = [
 			/*Ext.create('Ext.Action', {
 				iconCls  : 'add',  
-				text: 'Add ...',
+				text: 'Нэмэх ...',
 				handler: function(widget, event) {
 					new OCS.NewDealWindow({
 						selected: me.selected
@@ -1988,7 +2034,7 @@ Ext.define('OCS.CustomerCompany', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls  : 'add',  
-				text: 'Add ...',
+				text: 'Нэмэх ...',
 				handler: function(widget, event) {
 					if (campaigns_static.length > 0)
 						new OCS.CustomerCompanyWindowCheckList({
@@ -1996,12 +2042,12 @@ Ext.define('OCS.CustomerCompany', {
 							backgrid: me.grid
 						}).show();
 					else
-						Ext.MessageBox.alert('Status', 'Not available !', function() {});
+						Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls  : 'delete',  
-				text: 'Delete',
+				text: 'Устгах',
 				handler: function(widget, event) {
 					me.deleteRecord();
 				}
@@ -2070,7 +2116,7 @@ Ext.define('OCS.CustomerCampaigns', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls  : 'add',  
-				text: 'Add ...',
+				text: 'Нэмэх ...',
 				handler: function(widget, event) {
 					if (campaigns_static.length > 0)
 						new OCS.CustomerCampaignWindowCheckList({
@@ -2078,12 +2124,12 @@ Ext.define('OCS.CustomerCampaigns', {
 							backgrid: me.grid
 						}).show();
 					else
-						Ext.MessageBox.alert('Status', 'Not available !', function() {});
+						Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls  : 'delete',  
-				text: 'Delete',
+				text: 'Устгах',
 				handler: function(widget, event) {
 					me.deleteRecord();
 				}
@@ -2223,7 +2269,7 @@ Ext.define('OCS.DetailGrid', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls   : 'add',
-				text: 'Add ...',
+				text: 'Нэмэх ...',
 				handler: function(widget, event) {
 //					if (me.selected.get('type') == 'БАЙГУУЛЛАГА') {
 						new OCS.ContactNewWindow({
@@ -2231,12 +2277,12 @@ Ext.define('OCS.DetailGrid', {
 							backgrid: me.grid
 						}).show();
 //					} else
-//						Ext.MessageBox.alert('Status', 'Not available !', function() {});
+//						Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Remove from list ...',
+				text: 'Устгах ...',
 				handler: function(widget, event) {
 					var sel = me.grid.getView().getSelectionModel().getSelection();
 					if (sel.length > 0) {
@@ -2257,7 +2303,7 @@ Ext.define('OCS.DetailGrid', {
 							}	
 						});		
 					} else 
-						Ext.MessageBox.alert('Status', 'No selection !', function() {});
+						Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 				}
 			})
 		];
@@ -2435,19 +2481,19 @@ Ext.define('OCS.DealView', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				handler: function(widget, event) {
 					if (me.grid.getView().getSelectionModel().getSelection().length > 0) {
 						new OCS.NewDealWindow({
 							selected: me.grid.getView().getSelectionModel().getSelection()[0]
 						}).createWindow();
 					} else 
-						Ext.MessageBox.alert('Status', 'No selection !', function() {});
+						Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 				}
 			}),			
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				handler: function(widget, event) {
 					me.deleteRecord();
 				}
@@ -2455,7 +2501,7 @@ Ext.define('OCS.DealView', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'import',
-				text: 'Import...',
+				text: 'Импорт...',
 				handler: function(widget, event) {
 					new OCS.UploadWindow({
 						name: me.xlsName						
@@ -2464,7 +2510,7 @@ Ext.define('OCS.DealView', {
 			}),	
 			Ext.create('Ext.Action', {
 				iconCls  : 'export',
-				text: 'Export...',
+				text: 'Экспорт...',
 				disabled: (user_level == '0'),
 				handler: function(widget, event) {
 					if (!Ext.fly('frmDummy')) {
@@ -2502,7 +2548,7 @@ Ext.define('OCS.DealView', {
 								direction: me.xlsName
 							}).show();
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
@@ -2516,7 +2562,7 @@ Ext.define('OCS.DealView', {
 								direction: me.xlsName
 							}).show();
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
@@ -2530,13 +2576,13 @@ Ext.define('OCS.DealView', {
 								direction: me.xlsName
 							}).show();
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: 'crm_deal_process'
@@ -2597,6 +2643,7 @@ Ext.define('OCS.ServiceView', {
 	extend: 'OCS.DealView',
 	func: 'crm_service_list',	
 	sortField: '_date',
+	groupField: 'userCode',
 	table: 'crm_services',
 	tab: 'my_service_list',
 	title: 'All Services',
@@ -2609,41 +2656,48 @@ Ext.define('OCS.ServiceView', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls: 'list',
-				text: 'Views',
+				text: 'Харагдац',
 				menu: {
 					xtype: 'menu',
 					items: [
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'Open Services',
+							text: 'Нээлттэй',
 							handler: function(widget, event) {
 								me.filterData('Open Services');
 							}
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'Closed Services',
+							text: 'Шинээр ирсэн',
+							handler: function(widget, event) {
+								me.filterData('Incoming Services');
+							}
+						}),
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Олгосон',
+							handler: function(widget, event) {
+								me.filterData('Outgoing Services');
+							}
+						}),
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Хаагдсан',
 							handler: function(widget, event) {
 								me.filterData('Closed Services');
 							}
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'Reminded Services',
+							text: 'Хойшлогдсон',
 							handler: function(widget, event) {
 								me.filterData('Reminded Services');
 							}
-						}),
+						}),						
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'Recent Opened Services',
-							handler: function(widget, event) {
-								me.filterData('Recent Opened Services');
-							}
-						}),
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Campaign Services',
+							text: 'Урамшуулалттай',
 							handler: function(widget, event) {
 								me.filterData('Campaign Services');
 							}
@@ -2651,23 +2705,53 @@ Ext.define('OCS.ServiceView', {
 						'-',
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'My Owned Services',
+							text: 'Буцаалтанд ирсэн',
+							handler: function(widget, event) {
+								me.filterData('Returned Services');
+							}
+						}),	
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Хүлээн авсан буцаалтууд',
+							handler: function(widget, event) {
+								me.filterData('Accepted Returned Services');
+							}
+						}),	
+						'-',
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Миний',
 							handler: function(widget, event) {
 								me.filterData('My Owned Services');
 							}
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'My Created Services',
+							text: 'Миний үүсгэсэн',
 							handler: function(widget, event) {
 								me.filterData('My Created Services');
 							}
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'All services in current fiscal year',
+							text: 'Бүтэн жилийн',
 							handler: function(widget, event) {
 								me.filterData('All services in current fiscal year');
+							}
+						}),
+						'-',
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Замд яваа',
+							handler: function(widget, event) {
+								me.filterData('Transit services');
+							}
+						}),
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Хүлээн авсан',
+							handler: function(widget, event) {
+								me.filterData('Stocked services');
 							}
 						})
 					]
@@ -2676,27 +2760,53 @@ Ext.define('OCS.ServiceView', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'edit',
-				text: 'Expand...',
+				text: 'Дэлгэрэнгүй...',
 				handler: function(widget, event) {
 					if (me.grid.getView().getSelectionModel().getSelection().length > 0) {
 						new OCS.NewServiceWindow({
 							selected: me.grid.getView().getSelectionModel().getSelection()[0]
 						}).createWindow();
 					} else 
-						Ext.MessageBox.alert('Status', 'No selection !', function() {});
+						Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 				}
 			}),			
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				handler: function(widget, event) {
-					me.deleteRecord();
+					var record = me.grid.getView().getSelectionModel().getSelection()[0];
+					if (record.get('service_stage') == 'receipt' || record.get('service_stage') == 'return' || record.get('service_stage') == 'transit')										
+						me.deleteRecord();
+					else
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
+				}
+			}),
+			Ext.create('Ext.Action', {
+				iconCls   : 'merge',
+				text: 'Нэгтгэх...',
+				handler: function(widget, event) {
+					if (user_level > 0) {					
+						if (me.grid.getView().getSelectionModel().getSelection().length == 2){	
+							var rec1 = me.grid.getView().getSelectionModel().getSelection()[0];
+							var rec2 = me.grid.getView().getSelectionModel().getSelection()[1];
+							if (rec1.get('service_stage') == 'receipt' && rec2.get('service_stage') == 'receipt') {							
+								new OCS.MergeRecordsWindow({
+									name: me.xlsName,
+									master: me.grid.getView().getSelectionModel().getSelection()[0],
+									slave: me.grid.getView().getSelectionModel().getSelection()[1]
+								}).show();
+							} else
+								Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
+						} else
+							Ext.MessageBox.alert('Status', '2 бичлэг сонгох ёстой !', function() {});
+					} else
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'import',
-				text: 'Import...',
+				text: 'Импорт...',
 				handler: function(widget, event) {
 					new OCS.UploadWindow({
 						name: me.xlsName						
@@ -2705,7 +2815,7 @@ Ext.define('OCS.ServiceView', {
 			}),	
 			Ext.create('Ext.Action', {
 				iconCls  : 'export',
-				text: 'Export...',
+				text: 'Экспорт...',
 				disabled: (user_level == '0'),
 				handler: function(widget, event) {
 					if (!Ext.fly('frmDummy')) {
@@ -2733,7 +2843,7 @@ Ext.define('OCS.ServiceView', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'deal_assign',
-				text: 'Assign ...',
+				text: 'Оноох ...',
 				handler: function(widget, event) {
 					if (user_level > 0 ) {												
 						if (me.recordSelected())						
@@ -2743,12 +2853,50 @@ Ext.define('OCS.ServiceView', {
 								direction: me.xlsName
 							}).show();
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
+				}
+			}),
+			Ext.create('Ext.Action', {
+				iconCls   : 'deal_won',
+				text: 'Зөвшөөрөх ...',
+				handler: function(widget, event) {
+					if (user_level > 0 ) {												
+						if (me.recordSelected())						
+							new OCS.ServiceMultiAgreeWindow({
+								selected: me.grid.getView().getSelectionModel().getSelection()[0],
+								ids: me.selectedIds('service_id'),
+								direction: me.xlsName
+							}).show();
+					} else
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
+				}
+			}),
+			Ext.create('Ext.Action', {
+				iconCls   : 'deal_print',
+				text: 'Хэвлэх ...',
+				handler: function(widget, event) {
+					crm_id = me.grid.getView().getSelectionModel().getSelection()[0].get('crm_id');
+					owner = me.grid.getView().getSelectionModel().getSelection()[0].get('owner');
+					userCode = me.grid.getView().getSelectionModel().getSelection()[0].get('userCode');
+					service_stage = me.grid.getView().getSelectionModel().getSelection()[0].get('service_stage');
+					subject = me.grid.getView().getSelectionModel().getSelection()[0].get('subject');
+					pricetag = me.grid.getView().getSelectionModel().getSelection()[0].get('pricetag');
+					date = me.grid.getView().getSelectionModel().getSelection()[0].get('_date').split(' ')[0];
+					if (service_stage == 'service') {
+						if (userCode == 'amarjargal@cosmo')												
+							window.open('http://202.131.237.150/invzahon/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
+						else
+							window.open('http://202.131.237.150/invms/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
+					}
+					else
+					if (service_stage == 'inret') {
+						window.open('http://202.131.237.150/invbs/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
+					}					
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'deal_undo',
-				text: 'Undo ...',
+				text: 'Буцаах ...',
 				handler: function(widget, event) {
 					if (user_level > 0 ) {												
 						if (me.recordSelected())						
@@ -2757,13 +2905,13 @@ Ext.define('OCS.ServiceView', {
 								direction: me.xlsName
 							}).show();
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),			
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: 'crm_deal_process'
@@ -2801,10 +2949,36 @@ Ext.define('OCS.ServiceView', {
 				views['services'].action.select(record);				
 			}
 		);
+				
+		me.grid.start = me.today();
+		me.grid.end = me.tommorow();
 
-		me.filterData('Open Services');	
+		me.filterData('Incoming Services');	
 
 		return me.grid;
+	},
+
+	filterData: function(views) {
+		var me = this;		
+		me.title = views;
+		me.grid.views = views;
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, start_date: me.grid.start, end_date: me.grid.end, where: me.where, views: views};
+		me.store.loadPage(1);
+	},
+
+	today: function() {
+		var now = new Date();
+		return Ext.Date.format(now, 'Y-m-d');
+	},
+
+	tommorow: function() {
+		 var today = new Date();
+		 var d = today.getDate();
+		 var m = today.getMonth();
+		 var y = today.getFullYear();
+		 var nextDate= new Date(y, m, d+1);
+		 var ndate=Ext.Date.format(nextDate, 'Y-m-d');
+		 return ndate;
 	}
 });
 
@@ -3243,7 +3417,7 @@ Ext.define('OCS.DealAction', {
 								}).show();
 							}
 							else
-								Ext.MessageBox.alert('Error', 'Not available !', function() {});
+								Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						}
 					},'-', {
 						iconCls: 'deal_next_stage',
@@ -3258,7 +3432,7 @@ Ext.define('OCS.DealAction', {
 									productCount: me.dealProduct.productCount()
 								}).show();
 							} else 
-								Ext.MessageBox.alert('Error', 'Not available !', function() {});
+								Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						}
 					}, {
 						iconCls: 'deal_assign',
@@ -3271,7 +3445,7 @@ Ext.define('OCS.DealAction', {
 									selected: me.selected
 								}).show();
 							else
-								Ext.MessageBox.alert('Error', 'Not available !', function() {});
+								Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						}
 					},'-',
 					{
@@ -3296,7 +3470,7 @@ Ext.define('OCS.DealAction', {
 									title: 'Close as won'
 								}).show();
 							} else 
-								Ext.MessageBox.alert('Error', 'Not available !', function() {});
+								Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						}
 					},
 					{
@@ -3312,7 +3486,7 @@ Ext.define('OCS.DealAction', {
 									title: 'Close as lost'
 								}).show();
 							} else 
-								Ext.MessageBox.alert('Error', 'Not available !', function() {});
+								Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						}
 					}]
 				}],
@@ -3343,14 +3517,38 @@ Ext.define('OCS.ServiceAction', {
 	select: function(rec) {
 		var me = this;
 		if (rec) {		
-			me.selected = rec;
-			
+			me.selected = rec;	
+			me.panel.setTitle(me.selected.get('crm_name').split(',')[0]+' ('+me.selected.get('userCode')+')');
+
 			me.serviceContact.updateSource(rec);
 			me.servicePosts.updateSource(rec);
 			me.serviceActivity.updateSource(rec);
 			me.serviceProduct.updateSource(rec);
 			me.serviceCommission.updateSource(rec);
 			me.servicePayroll.updateSource(rec);
+			
+			Ext.getCmp('service_closewon').setText('Зөвшөөрөх');
+			if (me.selected.get('service_stage') == 'closed' || me.selected.get('service_stage') == 'instock' || me.selected.get('service_stage') == 'inret')
+			{
+				Ext.getCmp('service_closewon').setDisabled(true);
+				Ext.getCmp('service_assign').setDisabled(true);
+			} else 
+			if (me.selected.get('service_stage') == 'receipt')
+			{
+				Ext.getCmp('service_closewon').setDisabled(false);
+			} else
+			if (me.selected.get('service_stage') == 'service')
+			{
+				Ext.getCmp('service_closewon').setDisabled(true);
+			} else
+			if (me.selected.get('service_stage') == 'transit')
+			{
+				Ext.getCmp('service_closewon').setText('Хүлээн авах');
+			} else
+			if (me.selected.get('service_stage') == 'return')
+			{
+				Ext.getCmp('service_closewon').setText('Хүлээн авах');
+			}
 
 			me.panel.expand();			
 		} else
@@ -3369,7 +3567,7 @@ Ext.define('OCS.ServiceAction', {
 		me.servicePayroll = new OCS.ServicePayrollGrid();
 
 		me.tabs = Ext.widget('tabpanel', {
-			activeTab: 0,
+			activeTab: 3,
 			flex: 1,			
 			region: 'center',
 			tabPosition: 'top',	
@@ -3388,7 +3586,7 @@ Ext.define('OCS.ServiceAction', {
 			border: true,
 			flex: 0.45,
 			region: 'east',
-			title: 'Selected service',
+			title: 'Сонгосон захиалга',
 			collapsible: true,
 			collapsed: true,
 			split: true,
@@ -3399,8 +3597,8 @@ Ext.define('OCS.ServiceAction', {
 				dock: 'top',
 				items: [{
 					iconCls: 'deal_assign',
-					text: 'Assign...',
-					id: 'deal_assign',
+					text: 'Оноох...',
+					id: 'service_assign',
 					scope: this,
 					handler: function() {
 						if (me.selected.get('owner') == logged || user_level > 0)
@@ -3408,14 +3606,14 @@ Ext.define('OCS.ServiceAction', {
 								selected: me.selected
 							}).show();
 						else
-							Ext.MessageBox.alert('Error', 'Not available !', function() {});
+							Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 					}
 				},'-',
 				{
 					iconCls: 'deal_won',
-					text: 'Next stage',
+					text: 'Зөвшөөрөх',
 					id: 'service_closewon',
-					disabled: (me.selected && me.selected.get('service_stage') == 'closed'),
+					disabled: (me.selected && (me.selected.get('service_stage') == 'closed' || me.selected.get('service_stage') == 'service')),
 					scope: this,
 					handler: function() {
 						if (me.serviceActivity.openActivityCount() > 0) {
@@ -3423,13 +3621,13 @@ Ext.define('OCS.ServiceAction', {
 							return;
 						}
 
-						if (me.selected.get('owner') == logged) {				
+						if (user_level > 0) {							
 							new OCS.ServiceDescrWindow({
 								selected: me.selected,								
-								title: 'Next stage'
+								title: 'Зөвшөөрөх'
 							}).show();
 						} else 
-							Ext.MessageBox.alert('Error', 'Not available !', function() {});
+							Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 					}
 				}]
 			}]
@@ -3508,7 +3706,7 @@ Ext.define('OCS.ResellerAction', {
 								selected: me.selected
 							}).show();
 						else
-							Ext.MessageBox.alert('Error', 'Not available !', function() {});
+							Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 					}
 				},'-',
 				{
@@ -3529,7 +3727,7 @@ Ext.define('OCS.ResellerAction', {
 								title: 'Close as won'
 							}).show();
 						} else 
-							Ext.MessageBox.alert('Error', 'Not available !', function() {});
+							Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 					}
 				}]
 			}]
@@ -3603,19 +3801,19 @@ Ext.define('OCS.ResellerView', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				handler: function(widget, event) {
 					if (me.grid.getView().getSelectionModel().getSelection().length > 0) {
 						new OCS.NewDealWindow({
 							selected: me.grid.getView().getSelectionModel().getSelection()[0]
 						}).createWindow();
 					} else 
-						Ext.MessageBox.alert('Status', 'No selection !', function() {});
+						Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 				}
 			}),			
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				handler: function(widget, event) {
 					me.deleteRecord();
 				}
@@ -3623,7 +3821,7 @@ Ext.define('OCS.ResellerView', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'import',
-				text: 'Import...',
+				text: 'Импорт...',
 				handler: function(widget, event) {
 					new OCS.UploadWindow({
 						name: me.xlsName						
@@ -3632,7 +3830,7 @@ Ext.define('OCS.ResellerView', {
 			}),	
 			Ext.create('Ext.Action', {
 				iconCls  : 'export',
-				text: 'Export...',
+				text: 'Экспорт...',
 				disabled: (user_level == '0'),
 				handler: function(widget, event) {
 					if (!Ext.fly('frmDummy')) {
@@ -3670,7 +3868,7 @@ Ext.define('OCS.ResellerView', {
 								direction: me.xlsName
 							}).show();
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
@@ -3684,7 +3882,7 @@ Ext.define('OCS.ResellerView', {
 								direction: me.xlsName
 							}).show();
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			}),			
 			Ext.create('Ext.Action', {
@@ -3698,13 +3896,13 @@ Ext.define('OCS.ResellerView', {
 								direction: me.xlsName								
 							}).show();
 					} else
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
 			})
 			,'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: 'crm_reseller_process'
@@ -3894,6 +4092,7 @@ Ext.define('OCS.CaseView', {
 		var me = this;		
 		me.title = views;
 		me.views = views;
+
 		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where, views: views};
 		me.store.loadPage(1);
 	},
@@ -3965,32 +4164,31 @@ Ext.define('OCS.CaseView', {
 				iconCls   : 'add',
 				text: 'New...',
 				handler: function(widget, event) {
-					new OCS.NewCaseWindow({			
-						backgrid: me.grid
+					new OCS.NewCaseWindow({						
 					}).show();			
 				}
 			}),	
 			Ext.create('Ext.Action', {
 				iconCls   : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				handler: function(widget, event) {
 					if (me.grid.getView().getSelectionModel().getSelection().length > 0) {
 						new OCS.ComplainWindow({
 							selected: me.grid.getView().getSelectionModel().getSelection()[0]
 						}).createWindow();
 					} else 
-						Ext.MessageBox.alert('Status', 'No selection !', function() {});					
+						Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});					
 				}
 			}),			
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				handler: function(widget, event) {
 					var records = me.grid.getView().getSelectionModel().getSelection();
 					if (records.length > 0) {
 						var rec = records[0];
 						if (rec.get('case_stage') == 'resolve')
-							Ext.MessageBox.alert('Error', 'Not available !', function() {});
+							Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						else
 							me.deleteRecord();
 					}
@@ -3999,7 +4197,7 @@ Ext.define('OCS.CaseView', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: 'crm_case_process'
@@ -4221,7 +4419,7 @@ Ext.define('OCS.CaseAction', {
 									}).show();
 								}
 							} else
-								Ext.MessageBox.alert('Error', 'Not available !', function() {});
+								Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						}
 					}, {
 						iconCls: 'deal_assign',
@@ -4234,7 +4432,7 @@ Ext.define('OCS.CaseAction', {
 									selected: me.selected
 								}).show();
 							else
-								Ext.MessageBox.alert('Error', 'Not available !', function() {});
+								Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						}
 					},'-',
 					{
@@ -4253,7 +4451,7 @@ Ext.define('OCS.CaseAction', {
 									selected: me.selected
 								}).show();
 							else
-								Ext.MessageBox.alert('Error', 'Not available !', function() {});
+								Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						}
 					},
 					{
@@ -4281,7 +4479,7 @@ Ext.define('OCS.CaseAction', {
 								});		
 							}
 							else
-								Ext.MessageBox.alert('Error', 'Not available !', function() {});
+								Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						}
 					}]
 				}],
@@ -4466,11 +4664,12 @@ Ext.define('OCS.ProductPanel', {
 								layout: 'border',
 								items: [{
 										id : 'product_list',
-										title: '',
+										title: 'Бараа бүтээгдэхүүний жагсаалт',
 										flex: 1,
-										region: 'center',
+										region: 'west',
 										split: true,
-										closable: false,
+										closable: false,		
+										collapsible: true,
 										layout: 'border',
 										items: [
 											new Ext.create('OCS.ProductGridWithFormPanel', {
@@ -4482,7 +4681,7 @@ Ext.define('OCS.ProductPanel', {
 										id : 'warehouse_list',
 										title: '',
 										flex: 1,
-										region: 'east',
+										region: 'center',
 										split: true,
 										closable: false,
 										layout: 'border',
@@ -4493,7 +4692,9 @@ Ext.define('OCS.ProductPanel', {
 											flex: 0.5,
 											layout: 'border',
 											border: true,
-											split: true,
+											title: 'Агуулахын жагсаалт',
+											collapsible: true,
+											split: true,											
 											items: [
 												new Ext.create('OCS.WareHouseGridWithFormPanel', {
 													
@@ -4503,7 +4704,8 @@ Ext.define('OCS.ProductPanel', {
 											xtype: 'panel',
 											region: 'center',
 											flex: 1,
-											border: true,											
+											border: true,			
+											title: 'Агуулахын үлдэгдэл',
 											layout: 'border',
 											items: [
 												me.storagePanel.createGrid()
@@ -4567,7 +4769,6 @@ Ext.define('OCS.GoalsPanel', {
 										title: 'Planning',
 										table: 'crm_user_stat',
 										tab: 'my_crm_tat_list',
-										primary: 'id',
 										buttons: true,
 //										insert: (user_level==0),
 //										remove: (user_level==0),	
@@ -4605,7 +4806,6 @@ Ext.define('OCS.GoalsPanel', {
 											data: {
 												id: '0',
 												target: '0',
-												userCode: logged,
 												start_date: Ext.Date.format(new Date(),'Y-m-d'),
 												end_date: Ext.Date.format(new Date(),'Y-m-d')
 											}
@@ -4698,13 +4898,55 @@ Ext.define('OCS.Reports', {
 		me.actions = [		
 			Ext.create('Ext.Action', {
 				iconCls: 'list',
-				text: 'Report list',
+				text: 'Тайлангийн жагсаалт',
 				menu: {
 					xtype: 'menu',
-					items: [
+					items: [						
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'Deals revenue report',
+							text: 'Бүтээгдэхүүний нэгдсэн тайлан',
+							handler: function(widget, event) {
+								me.where = '';
+								me.values = '';
+								me.panelW.setVisible(false);
+								me.reconfigure('CRM_REPORT_PRODUCT', 'crm_report_product_list');
+							}
+						}),										
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Харилцагчийн нэгдсэн тайлан',
+							handler: function(widget, event) {
+								me.where = '';
+								me.values = '';
+								me.panelW.setVisible(false);
+								me.reconfigure('CRM_REPORT_CUSTOMER', 'crm_report_customer_list');
+							}
+						}),
+						'-',
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Агуулахын тайлан',
+							handler: function(widget, event) {
+								me.where = '';
+								me.values = '';
+								me.panelW.setVisible(false);
+								me.reconfigure('CRM_REPORT_STORAGE', 'crm_report_storage_list');
+							}
+						}),	
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Агуулахын тайлан өдрөөр',
+							handler: function(widget, event) {
+								me.where = '';
+								me.values = '';
+								me.panelW.setVisible(false);
+								me.reconfigure('CRM_REPORT_STORAGE_DAILY', 'crm_report_storage_daily_list');
+							}
+						}),
+						'-',
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Орлогын тайлан (хэлцэлээр)',
 							handler: function(widget, event) {
 								me.where = '';
 								me.values = '';
@@ -4714,7 +4956,7 @@ Ext.define('OCS.Reports', {
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'Deals report',
+							text: 'Хэлцэлийн тайлан',
 							handler: function(widget, event) {
 								me.where = '';
 								me.values = '';
@@ -4724,7 +4966,7 @@ Ext.define('OCS.Reports', {
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'Activity report',
+							text: 'Үйл ажиллагааны тайлан',
 							handler: function(widget, event) {
 								me.where = '';
 								me.values = '';
@@ -4734,49 +4976,7 @@ Ext.define('OCS.Reports', {
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'Product Report',
-							handler: function(widget, event) {
-								me.where = '';
-								me.values = '';
-								me.panelW.setVisible(false);
-								me.reconfigure('CRM_REPORT_PRODUCT', 'crm_report_product_list');
-							}
-						}),
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Product Report (Reseller)',
-							handler: function(widget, event) {
-								me.where = '';
-								me.values = '';
-								me.panelW.setVisible(false);
-								me.reconfigure('CRM_REPORT_PRODUCT', 'crm_report_reseller_product_list');
-							}
-						}),
-						'-',
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Reseller Report',
-							handler: function(widget, event) {
-								me.where = '';
-								me.values = '';
-								me.panelW.setVisible(false);
-								me.reconfigureStatic('CRM_REPORT_RESELLER', 'crm_report_reseller_list');
-							}
-						}),
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Direct Sales Report',
-							handler: function(widget, event) {
-								me.where = 'direct sales';
-								me.values = 'team';
-								me.panelW.setVisible(false);
-								me.reconfigureStatic('CRM_REPORT_DIRECT_SALES', 'crm_report_direct_sales_list');
-							}
-						}),
-						'-',
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Case Report',
+							text: 'Гомдол саналын тайлан',
 							handler: function(widget, event) {
 								me.panelW.setVisible(false);
 								me.reconfigureStatic('CRM_REPORT_CASE', 'crm_report_case_list');
@@ -4811,7 +5011,7 @@ Ext.define('OCS.Reports', {
 				})
 			},
 			{
-				text: 'Reset',
+				text: 'Арилгах',
 				iconCls: 'reset',
 				handler: function() {
 					me.report.getView().getFeature('group').disable();
@@ -4824,7 +5024,7 @@ Ext.define('OCS.Reports', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'export',
-				text: 'Export...',
+				text: 'Экспорт...',
 				disabled: (user_level == '0'),
 				handler: function(widget, event) {
 					if (!Ext.fly('frmDummy')) {
@@ -4859,6 +5059,9 @@ Ext.define('OCS.Reports', {
 		me.xlsName = modelName;
 		me.modelName = modelName;
 		me.func = func;
+		me.report.func = func;
+		me.report.start = me.start;
+		me.report.end = me.end;
 		me.createStore();
 		me.report.reconfigure(me.store, me.createColumns());
 		me.rangeData();
@@ -4869,6 +5072,9 @@ Ext.define('OCS.Reports', {
 		me.xlsName = modelName;
 		me.modelName = modelName;
 		me.func = func;
+		me.report.func = func;
+		me.report.start = me.start;
+		me.report.end = me.end;
 		me.createStore();
 		me.report.reconfigure(me.store, columns[modelName+'_COLUMNS']);
 		me.rangeData();
@@ -4902,7 +5108,7 @@ Ext.define('OCS.Reports', {
 		});
 
 		me.panel = Ext.create('Ext.Panel', {	
-			title: 'Report',
+			title: 'Тайлан',
 			tab: 'report_tab_list',
 			layout: 'border',
 			region: 'center',
@@ -4912,7 +5118,7 @@ Ext.define('OCS.Reports', {
 			]
 		});
 
-		me.reconfigure('CRM_REPORT_REVENUE', 'crm_opportunity_by_revenue_list');
+		me.reconfigure('CRM_REPORT_PRODUCT', 'crm_report_product_list');
 
 		return me.panel;
 	},
@@ -4968,10 +5174,10 @@ Ext.define('OCS.Dashboard', {
 		me.charts[1] = new OCS.CampaignChartSuccess();
 		me.charts[2] = new OCS.CasesByStatus();
 		me.charts[3] = new OCS.LeadBySource();
-		me.charts[4] = new OCS.StatUserChart();
+		me.charts[4] = new OCS.MapOnline();
 		me.charts[5] = new OCS.SalesStagePipeLine();
 		me.charts[6] = new OCS.AccountByIndustry();	
-		me.charts[8] = new OCS.SalesFunnel();
+		me.charts[8] = new OCS.SalesServiceFunnel();
 		me.charts[9] = new OCS.ProductChart();
 	},
 
@@ -5001,34 +5207,34 @@ Ext.define('OCS.Dashboard', {
 				padding: '5 5 5 5',
 				border: false,
 				items:[{
-					title:'Stage of Sales pipeline',		
+					title:'Борлуулалтын үе шат',		
 					layout: 'fit',
 					height: 400,
 					margin: '0 0 10 0',
 					columnWidth: 1/2,
 					collapsible: true,
 					tbar: [{
-						text: 'Views',
+						text: 'Харагдац',
 						iconCls: 'list',
 						menu: {
 							xtype: 'menu',
 							items: [{
-								text: 'Today',
+								text: 'Өнөөдөр',
 								handler: function() {
 									me.charts[8].rangeData(me.today(), me.tommorow());
 								}
 							},{
-								text: 'This week',
+								text: 'Энэ долоо хоног',
 								handler: function() {
 									me.charts[8].rangeData(me.monday(), me.tommorow());
 								}
 							},{
-								text: 'This month',
+								text: 'Энэ сар',
 								handler: function() {
 									me.charts[8].rangeData(me.month(), me.nextmonth());
 								}
 							},{
-								text: 'This year',
+								text: 'Энэ жил',
 								handler: function() {
 									me.charts[8].rangeData(me.year(), me.nextyear());
 								}
@@ -5059,7 +5265,7 @@ Ext.define('OCS.Dashboard', {
 							}
 						})
 					},{
-						text: 'Reset',
+						text: 'Арилгах',
 						iconCls: 'reset',
 						handler: function() {
 							Ext.getCmp('start_8').setText(me.month());
@@ -5083,32 +5289,32 @@ Ext.define('OCS.Dashboard', {
 				margin: '0 0 10 0',
 				border: false,
 				items:[{
-					title:'Leads by Source',		
+					title:'Харилцагчдын эх сурвалж',		
 					layout: 'fit',
 					collapsible: true,
 					height: 400,
 					tbar: [{
-						text: 'Views',
+						text: 'Харагдац',
 						iconCls: 'list',
 						menu: {
 							xtype: 'menu',
 							items: [{
-								text: 'Today',
+								text: 'Өнөөдөр',
 								handler: function() {
 									me.charts[3].rangeData(me.today(), me.tommorow());
 								}
 							},{
-								text: 'This week',
+								text: 'Энэ долоо хоног',
 								handler: function() {
 									me.charts[3].rangeData(me.monday(), me.tommorow());
 								}
 							},{
-								text: 'This month',
+								text: 'Энэ сар',
 								handler: function() {
 									me.charts[3].rangeData(me.month(), me.nextmonth());
 								}
 							},{
-								text: 'This year',
+								text: 'Энэ жил',
 								handler: function() {
 									me.charts[3].rangeData(me.year(), me.nextyear());
 								}
@@ -5139,7 +5345,7 @@ Ext.define('OCS.Dashboard', {
 							}
 						})
 					},{
-						text: 'Reset',
+						text: 'Арилгах',
 						iconCls: 'reset',
 						handler: function() {
 							Ext.getCmp('start_3').setText(me.month());
@@ -5155,39 +5361,39 @@ Ext.define('OCS.Dashboard', {
 				border: false,
 				items: [{
 					layout: 'fit',
-					title:'Deals by revenue',
+					title:'Борлуулалт борлуулагчаар',
 					collapsible: true,						
 					columnWidth: 1/2,
 					autoScroll: true,
 					height: 500,
 					tbar: [{
-						text: 'Views',
+						text: 'Харагдац',
 						iconCls: 'list',
 						menu: {
 							xtype: 'menu',
 							items: [{
-								text: 'Today',
+								text: 'Өнөөдөр',
 								handler: function() {
 									Ext.getCmp('start_7').setText(me.today());
 									Ext.getCmp('end_7').setText( me.tommorow());
 									me.charts[7].rangeData(me.today(), me.tommorow());
 								}
 							},{
-								text: 'This week',
+								text: 'Энэ долоо хоног',
 								handler: function() {
 									Ext.getCmp('start_7').setText(me.monday());
 									Ext.getCmp('end_7').setText( me.tommorow());
 									me.charts[7].rangeData(me.monday(), me.tommorow());
 								}
 							},{
-								text: 'This month',
+								text: 'Энэ сар',
 								handler: function() {
 									Ext.getCmp('start_7').setText(me.month());
 									Ext.getCmp('end_7').setText( me.nextmonth());
 									me.charts[7].rangeData(me.month(), me.nextmonth());
 								}
 							},{
-								text: 'This year',
+								text: 'Энэ жил',
 								handler: function() {
 									Ext.getCmp('start_7').setText(me.year());
 									Ext.getCmp('end_7').setText( me.nextyear());
@@ -5227,7 +5433,7 @@ Ext.define('OCS.Dashboard', {
 							}
 						})
 					},{
-						text: 'Reset',
+						text: 'Арилгах',
 						iconCls: 'reset',
 						handler: function() {
 							Ext.getCmp('start_7').setText(me.month());
@@ -5242,79 +5448,37 @@ Ext.define('OCS.Dashboard', {
 				padding: '5 5 5 5',
 				border: false,
 				items:[{
-					title:'Plan & Summary',	
-					collapsible: true,						
-					layout: 'fit',
-					height: 400,
-					tbar: [{
-						text: 'Views',
-						iconCls: 'list',
-						menu: {
-							xtype: 'menu',
-							items: [{
-								text: 'This month',
-								handler: function() {
-									me.charts[4].rangeData(me.yearValue(), me.monthValue());
-								}
-							},{
-								text: 'Last month',
-								handler: function() {
-									me.charts[4].rangeData(me.yearValue(), me.prevmonthValue());
-								}
-							},'-',
-							{
-								text: 'Filter ...',
-								handler: function() {
-									me.charts[4].createWindow();
-								}
-							}]
-						}
-					},'->',
-					{
-						text: 'Reset',
-						iconCls: 'reset',
-						handler: function() {
-							me.charts[4].rangeData(me.charts[4].yearValue(), me.charts[7].monthValue());
-						}
-					}],
-					items: me.charts[4]
-				}]
-			},{
-				columnWidth: 1,
-				padding: '5 5 5 5',
-				border: false,
-				items:[{
-					title:'Products by revenue',		
+					title:'Борлуулалт бүтээгдэхүүнээр',		
 					layout: 'fit',
 					height: 700,
 					tbar: [{
-						text: 'Views',
+						text: 'Харагдац',
 						iconCls: 'list',
 						menu: {
 							xtype: 'menu',
 							items: [{
-								text: 'Today',
+								text: 'Өнөөдөр',
 								handler: function() {
 									Ext.getCmp('start_9').setText(me.today());
 									Ext.getCmp('end_9').setText( me.tommorow());
 									me.charts[9].rangeData(me.today(), me.tommorow());
 								}
 							},{
-								text: 'This week',
+								text: 'Энэ долоо хоног',
 								handler: function() {
 									Ext.getCmp('start_9').setText(me.monday());
 									Ext.getCmp('end_9').setText( me.tommorow());
 									me.charts[9].rangeData(me.monday(), me.tommorow());
 								}
 							},{
-								text: 'This month',
+								text: 'Энэ сар',
 								handler: function() {
 									Ext.getCmp('start_9').setText(me.month());
 									Ext.getCmp('end_9').setText( me.nextmonth());
 									me.charts[9].rangeData(me.month(), me.nextmonth());
 								}
 							},{
-								text: 'This year',
+								text: 'Энэ жил',
 								handler: function() {
 									Ext.getCmp('start_9').setText(me.year());
 									Ext.getCmp('end_9').setText( me.nextyear());
@@ -5354,7 +5518,7 @@ Ext.define('OCS.Dashboard', {
 							}
 						})
 					},{
-						text: 'Reset',
+						text: 'Арилгах',
 						iconCls: 'reset',
 						handler: function() {
 							Ext.getCmp('start_9').setText(me.month());
@@ -5363,6 +5527,50 @@ Ext.define('OCS.Dashboard', {
 						}
 					}],
 					items: me.charts[9]
+				}]
+			},{
+				columnWidth: 1,
+				padding: '5 5 5 5',
+				border: false,				
+				items:[{
+					title:'Борлуулалгчдын байршил',
+					layout: 'border',
+					collapsible: true,
+					height: 700,					
+					items: me.charts[4],
+					tbar: [{
+						text: 'Харагдац',
+						iconCls: 'list',
+						menu: {
+							xtype: 'menu',
+							items: [{
+								text: 'Шүүлтүүр',
+								handler: function() {
+									me.charts[4].createWindow();
+								}
+							}]
+						}
+					},'->',
+					{
+						id: 'start_4',
+						text: me.today(),
+						iconCls: 'calendar',
+						menu: Ext.create('Ext.menu.DatePicker', {
+							handler: function(dp, date){
+								me.charts[4].start = Ext.Date.format(date, 'Y-m-d');
+								Ext.getCmp('start_4').setText(Ext.Date.format(date, 'Y-m-d'));
+								me.charts[4].reload(me.charts[4].start);
+							}
+						})
+					},
+					{
+						text: 'Арилгах',
+						iconCls: 'reset',
+						handler: function() {
+							Ext.getCmp('start_4').setText(me.month());
+							me.charts[4].rangeData(me.charts[4].month(), me.charts[4].nextmonth());
+						}
+					}]
 				}]
 			}]
 		});
@@ -5574,7 +5782,7 @@ Ext.define('OCS.CampaignActivityGrid', {
 										ids: me.selectedIds('id')
 									}).show();
 							} else
-								Ext.MessageBox.alert('Error', 'Not available !', function() {});
+								Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						}
 					},{
 						text: 'For all records',
@@ -5585,7 +5793,7 @@ Ext.define('OCS.CampaignActivityGrid', {
 									ids: 'all'
 								}).show();
 							} else
-								Ext.MessageBox.alert('Error', 'Not available !', function() {});
+								Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						}
 					}]
 				}	
@@ -5608,16 +5816,16 @@ Ext.define('OCS.CampaignActivityGrid', {
 			}),			
 			Ext.create('Ext.Action', {
 				iconCls  : 'edit',  
-				text: 'Expand...',
+				text: 'Засах...',
 				handler: function(widget, event) {
 					var records = me.grid.getView().getSelectionModel().getSelection();
 					if (records.length == 0) {
-						 Ext.MessageBox.alert('Status', 'No selection !', function() {});
+						 Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 						 return;
 					}
 
 					if (records[0].get('owner') != logged) {
-						Ext.MessageBox.alert('Error', 'Not available !', function() {});
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						return;
 					}
 
@@ -5856,14 +6064,14 @@ Ext.define('OCS.CampaignPanel', {
 		me.actions = [			
 			Ext.create('Ext.Action', {
 				iconCls : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				handler: function(widget, event) {
 					me.form.setVisible(true);
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				handler: function(widget, event) {
 					me.deleteRecord();
 				}
@@ -5880,7 +6088,7 @@ Ext.define('OCS.CampaignPanel', {
 					}
 
 					if (record.get('owner') != logged) {
-						Ext.MessageBox.alert('Status', 'Not available !', function() {});
+						Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						return;
 					}
 					
@@ -5917,7 +6125,7 @@ Ext.define('OCS.CampaignPanel', {
 					}
 
 					if (record.get('owner') != logged) {
-						Ext.MessageBox.alert('Status', 'Not available !', function() {});
+						Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 						return;
 					}
 					
@@ -5941,7 +6149,7 @@ Ext.define('OCS.CampaignPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -6074,7 +6282,7 @@ Ext.define('OCS.QuotePanel', {
 			}),	
 			Ext.create('Ext.Action', {
 				iconCls : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				handler: function(widget, event) {
 					var selection = me.grid.getSelectionModel().getSelection();
 					if (selection && selection.length == 1) {
@@ -6094,7 +6302,7 @@ Ext.define('OCS.QuotePanel', {
 			}),	
 			Ext.create('Ext.Action', {
 				iconCls : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				handler: function(widget, event) {
 					me.deleteRecord();
 				}
@@ -6122,15 +6330,15 @@ Ext.define('OCS.QuotePanel', {
 								}
 							});
 						} else
-						  Ext.MessageBox.alert('Status', 'Not available !', function() {});
+						  Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 					} else
-					  Ext.MessageBox.alert('Status', 'No selection !', function() {});
+					  Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 				}
 			}),
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -6198,14 +6406,14 @@ Ext.define('OCS.QuotePanel', {
 			flex: 1,
 			sealedColumns: true,
 			buttons: [{
-				text : 'Reset',
+				text : 'Арилгах',
 				iconCls: 'reset',
 				handler: function() {
 					me.initSource();
 					me.gridQuoteList.loadStore('nowhere');
 				}
 			},'->',{
-				text: 'Commit',
+				text: 'Илгээх',
 				iconCls: 'commit',
 				handler: function() {
 					me.commitRecord();
@@ -6371,7 +6579,7 @@ Ext.define('OCS.SalesPanel', {
 			}),			
 			Ext.create('Ext.Action', {
 				iconCls: 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				handler: function(widget, event) {
 					me.deleteRecord();
 				}
@@ -6385,7 +6593,7 @@ Ext.define('OCS.SalesPanel', {
 					if (selection.length > 0) {
 
 					} else
-					  Ext.MessageBox.alert('Status', 'No selection !', function() {});
+					  Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {
@@ -6398,13 +6606,13 @@ Ext.define('OCS.SalesPanel', {
 							selected: selection[0]
 						}).createWindow();
 					} else
-					  Ext.MessageBox.alert('Status', 'No selection !', function() {});
+					  Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 				}
 			}),			
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -6487,14 +6695,14 @@ Ext.define('OCS.MyGridWithFormPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				handler: function(widget, event) {
 					me.showForm();
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				disabled: me.remove,
 				handler: function(widget, event) {
 					me.deleteRecord();
@@ -6503,11 +6711,11 @@ Ext.define('OCS.MyGridWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'calendar',
-				text: 'Calendar',
+				text: 'Календар',
 				handler: function(widget, event) {
 					var records = me.grid.getView().getSelectionModel().getSelection();
 					if (records.length == 0) {
-						 Ext.MessageBox.alert('Status', 'No selection !', function() {});
+						 Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 						 return;
 					}
 					googleEventDynamic1(records[0]);
@@ -6536,7 +6744,7 @@ Ext.define('OCS.MyGridWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'export',
-				text: 'Export',
+				text: 'Экспорт',
 				handler: function(widget, event) {
 					if (!Ext.fly('frmDummy')) {
 						var frm = document.createElement('form');
@@ -6563,7 +6771,7 @@ Ext.define('OCS.MyGridWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -6627,14 +6835,14 @@ Ext.define('OCS.MyGoalWithFormPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				handler: function(widget, event) {
 					me.showForm();
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				disabled: me.remove,
 				handler: function(widget, event) {
 					me.deleteRecord();
@@ -6643,7 +6851,7 @@ Ext.define('OCS.MyGoalWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -6707,14 +6915,14 @@ Ext.define('OCS.MyPlanningWithFormPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				handler: function(widget, event) {
 					me.showForm();
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				disabled: me.remove,
 				handler: function(widget, event) {
 					me.deleteRecord();
@@ -6723,7 +6931,7 @@ Ext.define('OCS.MyPlanningWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -6770,7 +6978,7 @@ Ext.define('OCS.CompetitorGridWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'export',
-				text: 'Export',
+				text: 'Экспорт',
 				handler: function(widget, event) {
 					if (!Ext.fly('frmDummy')) {
 						var frm = document.createElement('form');
@@ -6797,7 +7005,7 @@ Ext.define('OCS.CompetitorGridWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -7060,7 +7268,7 @@ Ext.define('OCS.MyCalendar', {
 		me.panel = Ext.create('Ext.panel.Panel', {
 			layout: 'border',
 			border: true,
-			title: 'Calendar',
+			title: 'Календар',
 			collapsible: true,
 			region: 'center',
 			autoScroll: true,
@@ -7105,7 +7313,7 @@ Ext.define('OCS.UploadWindow', {
 
 Ext.define('OCS.MergeRecordsWindow', {
 	extend: 'OCS.Window',
-	title: 'Merge...',
+	title: 'Нэгтгэх...',
 	table: 'crm_customer',
 	maximizable: true,
 	width: 950,
@@ -7218,7 +7426,7 @@ Ext.define('OCS.CorporateNewWindow', {
 	table: 'crm_customer',
 	maximizable: true,
 	modal : true,
-	width: 650,
+	width: 700,
 	height: 560,
 
 	initComponent: function() {
@@ -7395,7 +7603,7 @@ Ext.define('OCS.LeadWindow', {
 				flex: 1 
 			}],
 			buttons: [{
-				text: 'Commit',
+				text: 'Илгээх',
 				iconCls: 'commit',
 				handler: function() {
 					var form = this.up('form').getForm();
@@ -7414,10 +7622,10 @@ Ext.define('OCS.LeadWindow', {
 	}
 });
 
-Ext.define('OCS.LeadImportWindow', {
+Ext.define('OCS.LeadИмпортWindow', {
 	extend: 'OCS.Window',
 	
-	title:  'Import leads',
+	title:  'Импорт leads',
 	id: 'lead_import_window',
 	maximizable: true,
 	width: 750,
@@ -7448,7 +7656,7 @@ Ext.define('OCS.LeadImportWindow', {
 						var selectedRecords = me.grid.getSelectionModel().getSelection();
 						if (selectedRecords.length == 0)
 						{
-							Ext.MessageBox.alert('Status', 'No selection !', function() {});
+							Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 							return;
 						}
 						Ext.MessageBox.show({
@@ -7485,7 +7693,7 @@ Ext.define('OCS.LeadImportWindow', {
 									   params: {handle: 'web', action: 'insert', table: 'crm_customer', func: '', values: values, fields: '', where: ''},
 									   success: function(response, opts) {
 										  me.store.removeAll();
-										  me.setTitle('Import leads');
+										  me.setTitle('Импорт leads');
 									   },
 									   failure: function(response, opts) {										   
 										  Ext.MessageBox.alert('Status', 'Error !', function() {});
@@ -7854,7 +8062,7 @@ Ext.define('OCS.PotentialWindow', {
 				flex: 1 
 			}],
 			buttons: [{
-				text: 'Commit',
+				text: 'Илгээх',
 				iconCls: 'commit',
 				handler: function() {
 					var form = this.up('form').getForm();					

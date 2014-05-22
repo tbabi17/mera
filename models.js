@@ -35,37 +35,38 @@ fields['CRM_RETAIL_FIELDS'] = [
 //   {name: 'campaign', text: 'Active campaign', width: 180, hidden: true, renderer: renderCampaign},
    {name: '_class', text: 'Class', width: 50, align: 'center', renderer: renderClass},     
    {name: 'regNo', text: 'Register', width: 80, hidden: true},   
-   {name: 'firstName', text: 'First name', width: 100, renderer: renderTip, primary: true},
-   {name: 'lastName', text: 'Last name', width: 100},
-   {name: 'crm_name', text: 'Full name', width: 180, hidden: true},
-   {name: 'engName', text: 'Latin', width: 140, hidden: true},
-   {name: 'birthday', text: 'Birth date', width: 70, align: 'center', hidden: true},
-   {name: 'gender', text: 'Gender', width: 60, hidden: true},
-   {name: 'work_status', text: 'Social status', width: 140, hidden: true},
-   {name: 'title', text: 'Company', width: 270, hidden: true},
-   {name: 'job_title', text: 'Position', width: 200, hidden: true},
-   {name: 'job_type', text: 'Job', width: 100, hidden: true},
-   {name: 'phone', text: 'Phone', width: 80, align: 'center', renderer: renderPhone},
-   {name: 'phone1', text: 'Phone B', width: 70, align: 'center', renderer: renderPhone},
-   {name: 'phone2', text: 'Phone C', width: 70, align: 'center', renderer: renderPhone, hidden: true},
-   {name: 'fax', text: 'Fax', width: 80, hidden: true},   
-   {name: 'email', text: 'Email', width: 120, renderer: renderMail},
-   {name: 'www', text: 'Web', width: 100, hidden: true},
-   {name: 'country', text: 'Country', width: 100, hidden: true},
-   {name: 'city', text: 'City', width: 100, hidden: true},
-   {name: 'district', text: 'District', width: 100, hidden: true},
-   {name: 'horoo', text: 'Khoroo', width: 100, hidden: true},
-   {name: 'address', text: 'Address', width: 150, hidden: true},
-   {name: 'descr', text: 'Note', width: 120, hidden: true},
-   {name: 'decision_maker', text: 'Decision', width: 120, hidden: true},
-   {name: 'owner', text: 'Owner', width: 120, renderer:renderOwner, hidden: true},
+   {name: 'firstName', text: 'Нэр', width: 100, renderer: renderTip, primary: true},
+   {name: 'lastName', text: 'Овог', width: 100},
+   {name: 'crm_name', text: 'Бүтэн нэр', width: 180, hidden: true},
+   {name: 'engName', text: 'Латин', width: 140, hidden: true},
+   {name: 'birthday', text: 'Төрсөн огноо', width: 70, align: 'center', hidden: true},
+   {name: 'gender', text: 'Хүйс', width: 60, hidden: true},
+   {name: 'work_status', text: 'Төлөв', width: 140, hidden: true},
+   {name: 'title', text: 'Компани', width: 270, hidden: true},
+   {name: 'job_title', text: 'Албан тушаал', width: 200, hidden: true},
+   {name: 'job_type', text: 'Мэргэжил', width: 100, hidden: true},
+   {name: 'phone', text: 'Утас', width: 80, align: 'center', renderer: renderPhone},
+   {name: 'phone1', text: 'Утас 1', width: 70, align: 'center', renderer: renderPhone},
+   {name: 'phone2', text: 'Утас 2', width: 70, align: 'center', renderer: renderPhone, hidden: true},
+   {name: 'fax', text: 'Факс', width: 80, hidden: true},   
+   {name: 'email', text: 'И-майл', width: 120, renderer: renderMail},
+   {name: 'www', text: 'Веб', width: 100, hidden: true},
+   {name: 'country', text: 'Улс', width: 100, hidden: true},
+   {name: 'city', text: 'Хот', width: 100, hidden: true},
+   {name: 'district', text: 'Дүүрэг', width: 100, hidden: true},
+   {name: 'horoo', text: 'Хороо', width: 100, hidden: true},
+   {name: 'address', text: 'Хаяг', width: 150, hidden: true},
+   {name: 'descr', text: 'Тайлбар', width: 120, hidden: true},
+   {name: 'decision_maker', text: 'Шийдвэр гаргагч', width: 120, hidden: true},
+   {name: 'owner', text: 'Хариуцагч', width: 120, renderer:renderOwner},
 //   {name: 'parent_crm_id', text: 'Parent CRM ID', width: 120, hidden: true},
-   {name: 'customer_type', text: 'c', width: 0, hidden: true},
-   {name: '_date', type: 'datetime', text: 'Created on', width: 100, align: 'center', renderer: renderCreatedDate},
-   {name: 'userCode', text: 'Created by', width: 120},
-   {name: 'mayDuplicate', text: 'Duplicate', width: 80, align: 'right', renderer: renderPrecent},
-   {name: 'priority', text: 'Priority', width: 60, align: 'center'},
-   {name: 'source', text: 'Source', width: 250}
+   {name: 'customer_type', text: 'Төрөл', width: 0, hidden: true},
+   {name: '_date', type: 'datetime', text: 'Үүссэн', width: 100, align: 'center', renderer: renderCreatedDate},
+   {name: 'userCode', text: 'Бүртгэсэн', width: 120},
+   {name: 'mayDuplicate', text: 'Давхцал', width: 80, align: 'right', renderer: renderPrecent},
+   {name: 'priority', text: 'Зэрэглэл', width: 60, align: 'center'},
+   {name: 'source', text: 'Эх сурвалж', width: 250, hidden: true},
+   {name: 'pricetag', text: 'Үнэ', width: 120, align: 'center', renderer: renderPriceName}
 ];
 
 Ext.define('CRM_RETAIL', {
@@ -101,38 +102,45 @@ fields['CRM_CORPORATE_FIELDS'] = [
    {name: 'type', text: 'CRM Type', width: 50, hidden:true},   
    {name: 'level', text: '#', width: 30, align: 'center', lock: true, renderer: renderCustomerLevel},
    {name: '_class', text: 'Class', width: 75, align: 'center', renderer: renderClass},      
-   {name: 'regNo', text: 'Register', width: 65, align: 'center'},   
-   {name: 'firstName', text: 'Name', width: 180, renderer: renderTip, primary: true},
-   {name: 'lastName', text: 'Parent name', width: 120},
-   {name: 'engName', text: 'Latin', width: 180, hidden: true},
-   {name: 'phone', text: 'Phone', width: 70, align: 'center', renderer: renderPhone},
-   {name: 'phone1', text: 'Phone B', width: 70, align: 'center', hidden: true, renderer: renderPhone},
-   {name: 'phone2', text: 'Phone C', width: 70, align: 'center', renderer: renderPhone, hidden: true},
-   {name: 'fax', text: 'Fax', width: 90, align: 'center'},
-   {name: 'email', text: 'E-mail', width: 100, hidden: true, renderer: renderMail},
-   {name: 'www', text: 'Web', width: 120, renderer: renderWWW},
-   {name: 'capital', text: 'Capital', type: 'float', width: 100, hidden: true, align: 'right', renderer: renderMoney},
-   {name: 'annual_revenue', text: 'Annual revenue', type: 'float', hidden: true, width: 100, align: 'right', renderer: renderMoney},
-   {name: 'tatvar', text: 'Tax amount', type: 'float', hidden: true, width: 100, align: 'right', renderer: renderMoney},
-   {name: 'company_torol', text: 'Type', width: 40, align: 'center'},
-   {name: 'industry', text: 'Industry', width: 150},
-   {name: 'industry_sub', text: 'Organization', width: 150},
-   {name: 'employees', text: 'Employees', width: 80, align: 'center'},
-   {name: 'sorog_huchin', text: 'Service provider', width: 150},
+   {name: 'regNo', text: 'Регистр', width: 65, align: 'center'},   
+   {name: 'firstName', text: 'Нэр', width: 220, renderer: renderTip, primary: true},
+   {name: 'lastName', text: 'Группын нэр', width: 120},
+   {name: 'engName', text: 'Латин', width: 180, hidden: true},
+   {name: 'company_torol', text: 'Төрөл', width: 60, align: 'center'},
+   {name: 'phone', text: 'Утас 1', width: 70, align: 'center', renderer: renderPhone},
+   {name: 'phone1', text: 'Утас 2', width: 70, align: 'center', hidden: true, renderer: renderPhone},
+   {name: 'phone2', text: 'Утас 3', width: 70, align: 'center', renderer: renderPhone, hidden: true},
+   {name: 'fax', text: 'Факс', width: 90, align: 'center'},
+   {name: 'email', text: 'И-майл', width: 100, hidden: true, renderer: renderMail},
+   {name: 'www', text: 'Веб', width: 120, renderer: renderWWW},
+
+   {name: 'promo_code', text: 'Урам.код', width: 80, align: 'center'},
+   {name: 'promo_precent', text: 'Хөнгө.%', type: 'float', width: 70, align: 'right', renderer: renderPrecent},
+   {name: 'promo_amount', text: 'Төлөвлөгөө', type: 'float', width: 100, align: 'right', renderer: renderMoney},
+
+   {name: 'capital', text: 'Хөрөнгө', type: 'float', width: 100, hidden: true, align: 'right', renderer: renderMoney},
+   {name: 'annual_revenue', text: 'Жилийн орлого', type: 'float', hidden: true, width: 100, align: 'right', renderer: renderMoney},
+   {name: 'tatvar', text: 'Татварын хэмжээ', type: 'float', hidden: true, width: 100, align: 'right', renderer: renderMoney},
+   
+   {name: 'industry', text: 'Ү/А төрөл', width: 150, hidden: true},
+   {name: 'industry_sub', text: 'Ү/А чиглэл', width: 150, hidden: true},
+   {name: 'employees', text: 'Ажилчдын тоо', width: 90, align: 'center', hidden: true},
+   {name: 'sorog_huchin', text: 'Service provider', width: 150, hidden: true},
   // {name: 'campaign', text: 'Active campaign', width: 180, hidden: true},
-   {name: 'country', text: 'Counry', width: 100, hidden: true},
-   {name: 'city', text: 'City', width: 100, hidden: true},
-   {name: 'district', text: 'District', width: 100, hidden: true},
-   {name: 'horoo', text: 'Khoroo', width: 100, hidden: true},
-   {name: 'address', text: 'Address', width: 150, hidden: true},   
-   {name: 'source', text: 'Source', width: 120},
-   {name: 'descr', text: 'Note', width: 120, hidden: true},
-   {name: 'owner', text: 'Owner', width: 120, renderer:renderOwner},
-   {name: 'userCode', text: 'Created by', width: 120, hidden: true},
+   {name: 'country', text: 'Улс', width: 100, hidden: true},
+   {name: 'city', text: 'Хот', width: 100, hidden: true},
+   {name: 'district', text: 'Дүүрэг', width: 100, hidden: true},
+   {name: 'horoo', text: 'Хороо', width: 100, hidden: true},
+   {name: 'address', text: 'Хаяг', width: 150, hidden: true},   
+   {name: 'source', text: 'Эх сурвалж', width: 120, hidden: true},
+   {name: 'descr', text: 'Тайлбар', width: 120, hidden: true},
+   {name: 'owner', text: 'Хариуцагч', width: 140, renderer:renderOwner},
+   {name: 'userCode', text: 'Бүртгэсэн', width: 120, hidden: true},
    {name: 'customer_type', text: 'c', width: 0, hidden: true},
-   {name: '_date', type: 'datetime', text: 'Created on', width: 120, align: 'center', renderer: renderCreatedDate},
-   {name: 'mayDuplicate', text: 'Duplicate', width: 80, renderer: renderPrecent, align: 'right'},
-   {name: 'priority', text: 'Priority', width: 60, align: 'center'}
+   {name: '_date', type: 'datetime', text: 'Үүсгэсэн', width: 120, align: 'center', renderer: renderCreatedDate},
+   {name: 'mayDuplicate', text: 'Давхцал', width: 80, renderer: renderPrecent, align: 'right'},
+   {name: 'priority', text: 'Зэрэглэл', width: 60, align: 'center'},
+   {name: 'pricetag', text: 'Үнэ', width: 120, align: 'center', renderer: renderPriceName}
 ];
 
 Ext.define('CRM_CORPORATE', {
@@ -300,23 +308,23 @@ Ext.define('CRM_MESSAGE', {
 fields['CRM_COMPLAIN_FIELDS'] = [
    {name: 'case_id', text: 'ID', width: 50, hidden:true}, 
    {name: 'complain_status', text: 'Status', width: 65, align: 'center', renderer: renderComplainStatus},   
-   {name: 'complain_reason', text: 'Case Reason', width: 200, primary: true, renderer: renderTopicName},   
-   {name: 'phone', text: 'Phone', align: 'center', width: 65},
+   {name: 'complain_reason', text: 'Гомдлын шалтгаан', width: 200, primary: true, renderer: renderTopicName},   
+   {name: 'phone', text: 'Утас', align: 'center', width: 65},
    {name: 'crm_id', text: 'CRM ID', hidden: true, width: 80},
-   {name: 'crm_name', text: 'Customer', width: 200, renderer: renderCRMName},
-   {name: 'case_stage', text: 'Stage', width: 70, renderer: renderCaseLevel},
-   {name: 'complain_origin', text: 'Origin', width: 65, align: 'center'},   
+   {name: 'crm_name', text: 'Харилцагч', width: 200, renderer: renderCRMName},
+   {name: 'case_stage', text: 'Үе шат', width: 70, renderer: renderCaseLevel},
+   {name: 'complain_origin', text: 'Суваг', width: 65, align: 'center'},   
    {name: 'complain_type', text: 'Type', width: 100, align: 'center'},
-   {name: 'calltype', text: 'Direction', align: 'center', width: 65},
-   {name: 'call_from', text: 'Call center', align: 'center', width: 70},
-   {name: 'priority', text: 'Priority', width: 60, align: 'center'},
-   {name: 'descr', text: 'Description', width: 200, hidden: true},
-   {name: 'owner', text: 'Owner', width: 110, renderer:renderOwner},   
-   {name: 'userCode', text: 'Created by', width: 100, hidden: true},
+   {name: 'calltype', text: 'Урсгал', align: 'center', width: 65},
+   {name: 'call_from', text: 'Хаанаас', align: 'center', width: 70},
+   {name: 'priority', text: 'Зэрэглэл', width: 60, align: 'center'},
+   {name: 'descr', text: 'Тайлбар', width: 200, hidden: true},
+   {name: 'owner', text: 'Хариуцагч', width: 110, renderer:renderOwner},   
+   {name: 'userCode', text: 'Бүртгэсэн', width: 100, hidden: true},
    {name: 'resolution_type', text: 'Resolution type', width: 120, hidden: true},
    {name: 'resolution', text: 'Resolution', width: 220, hidden: true},
-   {name: 'closing_date', text: 'Close date', dateFormat: 'Y-m-d', width: 80},
-   {name: '_date', text: 'Created on', dateFormat: 'Y-m-d', width: 120, renderer: renderCreatedDate},
+   {name: 'closing_date', text: 'Хаагдах огноо', dateFormat: 'Y-m-d', width: 80},
+   {name: '_date', text: 'Үүссэн', dateFormat: 'Y-m-d', width: 120, renderer: renderCreatedDate},
    {name: 'groupId', text: 'Case ID', width: 100},
    {name: 'notify', text: 'Notify', hidden: true}
 ];
@@ -331,13 +339,13 @@ fields['CRM_NOTES_FIELDS'] = [
    {name: 'crm_id', text: 'CRM ID', width: 50, hidden: true},   
    {name: 'deal_id', text: 'Deal ID', width: 50, hidden: true},   
    {name: 'case_id', text: 'Case ID', width: 50, hidden: true}, 
-   {name: 'crm_name', text: 'Customer', width: 200, renderer: renderCRMName},
-   {name: 'deal_name', text: 'Topic Name', width: 200, renderer: renderDealName},
-   {name: 'descr', text: 'Note', width: 200, primary: true},
-   {name: 'www', text: 'Attach link', width: 150, renderer: renderLink},
-   {name: 'owner', text: 'Owner', width: 100, renderer: renderOwner, hidden: true},
-   {name: 'userCode', text: 'Created by', width: 100, renderer: renderOwner},
-   {name: '_date', text: 'Created on', dateFormat: 'Y-m-d', width: 120, renderer: renderCreatedDate}
+   {name: 'crm_name', text: 'Харилцагч', width: 200, renderer: renderCRMName},
+   {name: 'deal_name', text: 'Гарчиг', width: 200, renderer: renderDealName},
+   {name: 'descr', text: 'Тэмдэглэл', width: 200, primary: true},
+   {name: 'www', text: 'Холбоос', width: 150, renderer: renderLink},
+   {name: 'owner', text: 'Хариуцагч', width: 100, renderer: renderOwner, hidden: true},
+   {name: 'userCode', text: 'Бүртгэсэн', width: 100, renderer: renderOwner},
+   {name: '_date', text: 'Үүссэн', dateFormat: 'Y-m-d', width: 120, renderer: renderCreatedDate}
 ];
 
 Ext.define('CRM_NOTES', {
@@ -349,11 +357,11 @@ fields['CRM_POSTS_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
    {name: 'deal_id', text: 'Deal ID', width: 50, hidden: true},   
    {name: 'case_id', text: 'Case ID', width: 50, hidden: true},
-   {name: 'message', text: 'Note', width: 200, primary: true},
+   {name: 'message', text: 'Мессеж', width: 200, primary: true},
    {name: 'level', type: 'int', text: 'level', width: 50, hidden: true},
-   {name: 'owner', text: 'Owner', width: 100, renderer: renderOwner},
-   {name: 'userCode', text: 'Created by', width: 100, hidden: true},
-   {name: '_date', text: 'Created on', dateFormat: 'Y-m-d', width: 120, renderer: renderCreatedDate}
+   {name: 'owner', text: 'Хариуцагч', width: 100, renderer: renderOwner},
+   {name: 'userCode', text: 'Бүртгэсэн', width: 100, hidden: true},
+   {name: '_date', text: 'Үүссэн', dateFormat: 'Y-m-d', width: 120, renderer: renderCreatedDate}
 ];
 
 Ext.define('CRM_POSTS', {
@@ -426,12 +434,17 @@ fields['CRM_DEAL_PRODUCTS_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
    {name: 'deal_id', text: 'Deal ID', hidden: true},
    {name: 'crm_id', text: 'CRM ID', hidden: true},
+   {name: 'product_id', text: 'PID', width: 50, hidden: true, align:'center'}, 
+   {name: 'product_code', text: 'Code', width: 50, align:'center'}, 
    {name: 'product_name', text: 'Product name', width: 200}, 
+   {name: 'type', text: 'Type', align: 'center', width: 70},
    {name: 'precent',  type:'float', text: 'Precent', width: 100, align: 'right'}, 
+   {name: 'warehouse_id', text: 'Warehouse ID', width: 100, hidden: true, align: 'right'}, 
    {name: 'qty', text: 'Qty', type:'float', align: 'right', width: 80, summaryType: 'sum'},
    {name: 'price', text: 'Price', width: 90, type: 'float', align: 'right', renderer: renderMoney},
    {name: 'amount', text: 'Amount (Discount)', type: 'float', width: 100, align: 'right', renderer: renderMoney, summaryRenderer: renderTMoney, summaryType: 'sum'},
-   {name: '_date', text: 'Created on', dateFormat: 'Y-m-d', width: 120, renderer: renderCreatedDate}
+   {name: '_date', text: 'Created on', dateFormat: 'Y-m-d', width: 120, renderer: renderCreatedDate},
+   {name: 'unit_size', text: 'Unit size', width: 80, renderer: renderNumber, align: 'right'}
 ];
 
 Ext.define('CRM_DEAL_PRODUCTS', {
@@ -444,10 +457,10 @@ fields['CRM_DEAL_PAYROLL_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
    {name: 'deal_id', text: 'Deal ID', hidden: true},
    {name: 'deal_name', text: 'Topic Name', width: 250, renderer: renderDealName},
-   {name: 'pay_date', text: 'Date', width: 120, align: 'center'}, 
-   {name: 'amount', text: 'Amount', type:'float', align: 'right', width: 120, summaryType: 'sum', renderer: renderMoney, summaryRenderer: renderTMoney},
-   {name: 'userCode', text: 'Created by', width: 100, renderer: renderOwner},
-   {name: '_date', text: 'Created on', dateFormat: 'Y-m-d', width: 120, renderer: renderCreatedDate}
+   {name: 'pay_date', text: 'Төлөлт хийсэн', width: 120, align: 'center'}, 
+   {name: 'amount', text: 'Дүн', type:'float', align: 'right', width: 120, summaryType: 'sum', renderer: renderMoney, summaryRenderer: renderTMoney},
+   {name: 'userCode', text: 'Бүртгэсэн', width: 100, renderer: renderOwner},
+   {name: '_date', text: 'Үүссэн', dateFormat: 'Y-m-d', width: 120, renderer: renderCreatedDate}
 ];
 
 Ext.define('CRM_DEAL_PAYROLL', {
@@ -458,17 +471,37 @@ Ext.define('CRM_DEAL_PAYROLL', {
 
 fields['CRM_SERVICE_PAYROLL_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
+   {name: 'crm_id', text: 'CRM ID', width: 50, hidden:true}, 
    {name: 'service_id', text: 'Service ID', hidden: true},
-   {name: 'service_name', text: 'Topic Name', width: 250, renderer: renderServiceName},
-   {name: 'pay_date', text: 'Date', width: 120, align: 'center'}, 
-   {name: 'amount', text: 'Amount', type:'float', align: 'right', width: 120, summaryType: 'sum', renderer: renderMoney, summaryRenderer: renderTMoney},
-   {name: 'userCode', text: 'Created by', width: 100, renderer: renderOwner},
-   {name: '_date', text: 'Created on', dateFormat: 'Y-m-d', width: 120, renderer: renderCreatedDate}
+   {name: 'service_name', text: 'Захиалагын дугаар', width: 250, renderer: renderServiceName},
+   {name: 'pay_type', text: 'Төлөлтийн хэлбэр', width: 120, renderer: renderPayType, align: 'center'}, 
+   {name: 'pay_date', text: 'Огноо', width: 120, align: 'center'}, 
+   {name: 'promo_code', text: 'Урам.код', width: 80, align: 'center'}, 
+   {name: 'promo_amount', text: 'Төлөвлөгөө', width: 80, align: 'center'}, 
+   {name: 'precent', text: 'Хөнгөлөлтийн %', width: 90, renderer: renderNumber, align: 'center'}, 
+   {name: 'amount', text: 'Төлсөн', type:'float', align: 'right', width: 120, summaryType: 'sum', renderer: renderMoney, summaryRenderer: renderTMoney},
+   {name: 'total_amount', text: 'Хөнг.хасаасгүй', type:'float', align: 'right', width: 120, summaryType: 'sum', renderer: renderMoney, summaryRenderer: renderTMoney},
+   {name: 'userCode', text: 'Бүртгэсэн', width: 150, renderer: renderOwner},
+   {name: '_date', text: 'Үүссэн', dateFormat: 'Y-m-d', width: 120, renderer: renderCreatedDate}
 ];
 
 Ext.define('CRM_SERVICE_PAYROLL', {
 	extend: 'Ext.data.Model',
 	fields: fields['CRM_SERVICE_PAYROLL_FIELDS']
+});
+
+fields['CRM_CHANGEPRICE_FIELDS'] = [
+   {name: 'id', text: 'ID', width: 50, hidden:true}, 
+   {name: 'crm_id', text: 'CRM ID', width: 50, hidden:true}, 
+   {name: 'change_date', text: 'Огноо', width: 120, align: 'center'}, 
+   {name: 'amount', text: 'Дүн', type:'float', align: 'right', width: 120, summaryType: 'sum', renderer: renderMoney, summaryRenderer: renderTMoney},
+   {name: 'userCode', text: 'Бүртгэсэн', width: 150, renderer: renderOwner},
+   {name: '_date', text: 'Үүссэн', dateFormat: 'Y-m-d', width: 120, renderer: renderCreatedDate}
+];
+
+Ext.define('CRM_CHANGEPRICE', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_CHANGEPRICE_FIELDS']
 });
 
 fields['CRM_CASE_PRODUCTS_FIELDS'] = [
@@ -602,13 +635,30 @@ Ext.define('CRM_SALES', {
 
 fields['CRM_PRODUCT_FIELDS'] = [
    {name: 'product_id', text: 'ID', width: 50, hidden:true}, 
-   {name: 'product_name', text: 'Name', width: 250, primary: true}, 
-   {name: 'product_type', text: 'Type', width: 120},
-   {name: 'price', text: 'Price', type: 'float', width: 90, renderer: renderMoney, align: 'right'},
-   {name: 'unit_type', text: 'Unit type', width: 60, hidden: true},
-   {name: 'unit_size', text: 'Unit size', type: 'float', width: 60, hidden: true},
-   {name: 'company', text: 'Company', width: 120}
+   {name: 'product_code', text: 'Код', width: 80, align:'center', primary: true}, 
+   {name: 'product_barcode', text: 'Баркод', align:'center', width: 90, primary: true}, 
+   {name: 'product_name', text: 'Нэр', width: 250, primary: true},   
+   {name: 'product_type', text: 'Type', width: 100},
+   {name: 'product_brand', text: 'Бренд', width: 180},
+   {name: 'product_vendor', text: 'Үйлдвэрлэгч', width: 250},
+   {name: 'discount', text: 'Хөнгө%', type: 'float', width: 80, renderer: renderPrecent, align: 'right'},
+   {name: 'price', text: 'Үнэ', type: 'float', width: 80, renderer: renderMoney, align: 'right'},
+   {name: 'price1', text: price_text[1], type: 'float', width: 80, renderer: renderMoney, align: 'right'},
+   {name: 'price2', text: price_text[2], type: 'float', width: 80, renderer: renderMoney, align: 'right'},
+   {name: 'price3', text: price_text[3], type: 'float', width: 80, renderer: renderMoney, align: 'right'},
+   {name: 'price4', text: price_text[4], type: 'float', width: 80, renderer: renderMoney, align: 'right'},
+   {name: 'price5', text: price_text[5], type: 'float', width: 80, renderer: renderMoney, align: 'right'},
+   {name: 'price6', text: price_text[6], type: 'float', width: 80, renderer: renderMoney, align: 'right'},
+   {name: 'price7', text: price_text[7], type: 'float', width: 80, renderer: renderMoney, align: 'right'},
+   {name: 'price8', text: price_text[8], type: 'float', width: 80, renderer: renderMoney, align: 'right'},
+   {name: 'price9', text: price_text[9], type: 'float', width: 80, renderer: renderMoney, align: 'right'},
+   {name: 'price10', text: price_text[10], type: 'float', width: 80, renderer: renderMoney, align: 'right'},
+   {name: 'warehouse_id', text: 'Агуулах', type: 'int', width: 70, align: 'center'},
+   {name: 'unit_type', text: 'Нэгж', width: 40},
+   {name: 'unit_size', text: 'Хэмжээ', type: 'float', width: 40},
+   {name: 'company', text: 'Компани', width: 120}  
 ];
+
 
 Ext.define('CRM_PRODUCT', {
 	extend: 'Ext.data.Model',
@@ -616,7 +666,7 @@ Ext.define('CRM_PRODUCT', {
 });
 
 fields['CRM_WAREHOUSE_FIELDS'] = [
-   {name: 'warehouse_id', text: 'ID', width: 50, hidden:true}, 
+   {name: 'warehouse_id', text: 'ID', width: 30, align: 'right'}, 
    {name: 'name', text: 'Name', width: 150, primary: true}, 
    {name: 'location', text: 'Location', width: 120},
    {name: 'capacity', text: 'Capacity', type: 'float', width: 90, renderer: renderNumber, align: 'right'},
@@ -634,16 +684,17 @@ Ext.define('CRM_WAREHOUSE', {
 
 fields['CRM_STORAGE_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
-   {name: 'warehouse_id', text: 'ID', width: 50, hidden:true}, 
-   {name: 'product_id', text: 'Product ID', width: 50, primary: true, hidden:true}, 
-   {name: 'product_name', text: 'Product name', width: 200, summaryType: 'count', summaryRenderer: renderTNumber},
-   {name: 'qty', text: 'Qty', type: 'float', width: 90, renderer: renderNumber, align: 'right', summaryType: 'sum', summaryRenderer: renderTNumber},
-   {name: 'pty', text: 'Pty', type: 'float', width: 90, renderer: renderNumber, align: 'right', summaryType: 'sum', summaryRenderer: renderTNumber},
-   {name: 'price', text: 'Price', width: 120, renderer:renderMoney, hidden: true},
-   {name: 'amount', text: 'Amount', width: 110, renderer:renderMoney, hidden: true}, 
-   {name: 'warehouse_name', text: 'Ware house', width: 150}, 
-   {name: 'descr', text: 'Description', width: 120, hidden: true},
-   {name: '_date', type: 'datetime', dateFormat: 'Y-m-d', text: 'Created on', width: 120, renderer: renderCreatedDate}
+   {name: 'warehouse_id', text: 'Агуулах', width: 50, hidden:true}, 
+   {name: 'product_id', text: 'ID', width: 50, primary: true, hidden:true}, 
+   {name: 'product_code', text: 'Код', width: 50, primary: true, align: 'center'}, 
+   {name: 'product_name', text: 'Нэр', width: 250, summaryType: 'count', summaryRenderer: renderTNumber},
+   {name: 'qty', text: 'Тоо', type: 'float', width: 90, renderer: renderNumber, align: 'right', summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'pty', text: 'Хайрцаг', type: 'float', width: 90, renderer: renderNumber, align: 'right', summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'price', text: 'Үнэ', width: 120, renderer:renderMoney, hidden: true},
+   {name: 'amount', text: 'Дүн', width: 110, renderer:renderMoney, hidden: true}, 
+   {name: 'warehouse_name', text: 'Агуулах', width: 150}, 
+   {name: 'descr', text: 'Тайлбар', width: 120, hidden: true},
+   {name: '_date', type: 'datetime', dateFormat: 'Y-m-d', text: 'Огноо', width: 120, renderer: renderCreatedDate}
 ];
 
 Ext.define('CRM_STORAGE', {
@@ -675,17 +726,20 @@ Ext.define('CRM_STAT', {
 
 fields['CRM_USERS_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
-   {name: 'owner', text: 'User name', width: 130, primary: true}, 
-   {name: 'password', text: 'Password', width: 90, hidden: true, renderer: renderPassword, primary: true},
-   {name: 'fullName', text: 'Full name', width: 120},
-   {name: 'section', text: 'Section', width: 150},
-   {name: 'team', text: 'Team', width: 150},
-   {name: 'position', text: 'Position', width: 150},
-   {name: 'company', text: 'Company', width: 150},
-   {name: 'gmailAccount', text: 'Goolge Account', width: 120},
-   {name: 'user_type', text: 'Direction', width: 100, hidden: true},
-   {name: 'user_level', text: 'Level', width: 80, renderer: renderUserLevel},
-   {name: 'permission', text: 'Permissions', width: 250, hidden: true}   
+   {name: 'owner', text: 'Хэрэглэгчийн нэр', width: 130, primary: true}, 
+   {name: 'password', text: 'Нууц үг', width: 90, hidden: true, renderer: renderPassword, primary: true},
+   {name: 'fullName', text: 'Овог нэр', width: 120},
+   {name: 'phone', text: 'Утас', width: 80},
+   {name: 'section', text: 'Алба', width: 150},
+   {name: 'team', text: 'Хэсэг', width: 150},
+   {name: 'position', text: 'Албан тушаал', width: 150},
+   {name: 'manager', text: 'Менежер', width: 150},
+   {name: 'company', text: 'Компани', width: 150},
+   {name: 'gmailAccount', text: 'Gmail Account', width: 120},
+   {name: 'user_type', text: 'Чиглэл', width: 100},
+   {name: 'user_level', text: 'Түвшин', width: 80, renderer: renderUserLevel},
+   {name: 'permission', text: 'Хандалт', width: 250, hidden: true},
+   {name: 'partner', text: 'Жолооч', width: 100}
 ];
 
 Ext.define('CRM_USERS', {
@@ -803,19 +857,23 @@ Ext.define('CRM_DEAL', {
 
 fields['CRM_SERVICE_FIELDS'] = [
    {name: 'service_id', text: 'ID', width: 50, hidden:true}, 
-   {name: 'subject', text: 'Topic Name', width: 250, primary: true, renderer: renderTopicName},   
-   {name: 'service_stage', text: 'Stage', width: 85, align: 'center', renderer: renderDealLevel},
+   {name: 'service_stage', text: 'Үе шат', width: 85, align: 'center', renderer: renderServiceLevel},
+   {name: '_date', text: 'Огноо', width: 120, renderer: renderCreatedDate},
    {name: 'crm_id', text: 'CRM ID', hidden: true, width: 80},
-   {name: 'crm_name', text: 'Potential customer', width: 200, renderer: renderCRMName},
-   {name: 'phone', text: 'Phone', width: 80, hidden: true, primary: true},
-   {name: 'service_revenue', text: 'Revenue', type:'float', width: 120, align: 'right', summaryType:'sum', summaryRenderer: renderTMoney, renderer: renderMoney},
-   {name: '_date', text: 'Created on', width: 120, renderer: renderCreatedDate},
-   {name: 'closing_date', text: 'Close date', dateFormat: 'Y-m-d', width: 120, align: 'center'},   
-   {name: 'remind_date', text: 'Remind date', dateFormat: 'Y-m-d', width: 85, align: 'center', renderer: renderDate}, 
-   {name: 'descr', text: 'Description', width: 200, hidden: true},
-   {name: 'owner', text: 'Owner', width: 130, renderer: renderOwner},
-   {name: 'campaign', text: 'Campaign', width: 200},   
-   {name: 'userCode', text: 'Created by', width: 80, hidden: true}
+   {name: 'crm_name', text: 'Харилцагч', width: 250, renderer: renderCRMName},
+   {name: 'phone', text: 'Утас', width: 80, hidden: true, primary: true},
+   {name: 'service_revenue', text: 'Дүн', type:'float', width: 100, align: 'right', summaryType:'sum', summaryRenderer: renderTMoney, renderer: renderMoney},
+   {name: 'service_debt', text: 'Авлага', type:'float', width: 100, align: 'right', summaryType:'sum', summaryRenderer: renderTMoney, renderer: renderMoney},
+   {name: 'service_precent', text: '%', type:'float', width: 50, align: 'right', summaryType:'sum', summaryRenderer: renderTPrecent, renderer: renderPrecent},
+   {name: 'userCode', text: 'Бүртгэсэн', width: 140},
+   {name: 'owner', text: 'Хариуцагч', width: 130, renderer: renderOwner},
+   {name: 'closing_date', text: 'Хаагдах огноо', dateFormat: 'Y-m-d', width: 120, align: 'center'},   
+   {name: 'remind_date', text: 'Хойшлогдсон', dateFormat: 'Y-m-d', width: 85, align: 'center', renderer: renderDate}, 
+   {name: 'subject', text: 'Гүйлгээний дугаар', width: 150, primary: true, renderer: renderTopicName},   
+   {name: 'descr', text: 'Тайлбар', width: 200, hidden: true},
+   {name: 'campaign', text: 'Campaign', width: 200},
+   {name: 'partner', text: 'Жолооч', width: 0, hidden: true},
+   {name: 'pricetag', text: 'Үнэ', width: 0, hidden: true}
 ];
 
 Ext.define('CRM_SERVICE', {
@@ -830,7 +888,6 @@ fields['CRM_RESELLER_FIELDS'] = [
    {name: 'deal', text: 'Topic Name', width: 250, primary: true, renderer: renderTopicName},
    {name: 'crm_id', text: 'CRM ID', hidden: true, width: 80},
    {name: 'crm_name', text: 'Potential customer', width: 250, renderer: renderCRMName},
-   {name: 'expected_revenue', text: 'Expected revenue', type:'float', width: 120, align: 'right', summaryType:'sum', summaryRenderer: renderTMoney, renderer: renderMoney},
    {name: 'closing_date', text: 'Close date', dateFormat: 'Y-m-d', width: 85, align: 'center'},   
    {name: '_date', text: 'Created on', width: 120, renderer: renderCreatedDate},
    {name: 'descr', text: 'Description', width: 200, hidden: true},
@@ -951,16 +1008,127 @@ Ext.define('CRM_REPORT', {
 
 
 fields['CRM_REPORT_PRODUCT_FIELDS'] = [
-   {name: 'product_name', text: 'Product name', width: 250}, 
-   {name: 'qty', text: 'Qty', type: 'float', width: 85, align: 'right', renderer: renderNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-   {name: 'amount', align: 'right', type:'float', text: 'Amount', width: 150, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney}, 
-   {name: 'precent', hidden: true, text: 'Precent', type:'float',  width: 80, align: 'center', renderer: renderPrecent, summaryType: 'average', summaryRenderer: renderTPrecent}
+   {name: 'product_id', text: 'ID', width: 50, hidden: true}, 
+   {name: 'product_code', text: 'Код', width: 50, align: 'center'}, 
+   {name: 'product_barcode', text: 'Баркод', width: 90, align: 'center'}, 
+   {name: 'product_brand', text: 'Бренд', width: 150}, 
+   {name: 'product_name', text: 'Нэр', width: 250}, 
+   {name: 'unit_size', text: 'Нэгж', width: 50, align: 'center'}, 
+   {name: 'qty', text: 'Ширхэг', type: 'float', width: 85, align: 'right', renderer: renderNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'pty', text: 'Хайрцаг', type: 'float', width: 85, align: 'right', renderer: renderNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'amount', align: 'right', type:'float', text: 'Дүн', width: 150, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney}, 
+   {name: 'avg_price', text: 'Дундаж үнэ', type:'float',  width: 90, align: 'right', renderer: renderMoney, summaryType: 'average', summaryRenderer: renderTMoney}
 ];
 
 Ext.define('CRM_REPORT_PRODUCT', {
 	extend: 'Ext.data.Model',
 	fields: fields['CRM_REPORT_PRODUCT_FIELDS']
 });
+
+fields['CRM_REPORT_CUSTOMER_PRODUCT_FIELDS'] = [
+   {name: 'crm_id', text: 'ID', width: 50, hidden: true}, 
+   {name: 'crm_name', text: 'Харилцагч', width: 250}, 
+   {name: 'product_id', text: 'ID', width: 50, hidden: true}, 
+   {name: 'product_code', text: 'Код', width: 50, align: 'center'}, 
+   {name: 'product_brand', text: 'Бренд', width: 150}, 
+   {name: 'product_name', text: 'Нэр', width: 250}, 
+   {name: 'unit_size', text: 'Нэгж', width: 50, align: 'center'}, 
+   {name: 'qty', text: 'Ширхэг', type: 'float', width: 85, align: 'right', renderer: renderNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'pty', text: 'Хайрцаг', type: 'float', width: 85, align: 'right', renderer: renderNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'amount', align: 'right', type:'float', text: 'Борлуулалт', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney}
+];
+
+Ext.define('CRM_REPORT_CUSTOMER_PRODUCT', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_REPORT_CUSTOMER_PRODUCT_FIELDS']
+});
+
+fields['CRM_REPORT_CUSTOMER_FIELDS'] = [
+   {name: 'crm_id', text: 'ID', width: 50, hidden: true}, 
+   {name: 'crm_name', text: 'Харилцагч', width: 250}, 
+   {name: 'first', text: 'Эхний үлдэгдэл', type:'float',  width: 110, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'amount1', align: 'right', type:'float', text: 'Хүнс', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'amount2', align: 'right', type:'float', text: 'Гоо сайхан', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'amount', align: 'right', type:'float', text: 'Нийт', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'paid', text: 'Төлсөн', type:'float',  width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'ret', text: 'Буцаалт', type:'float',  width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'changeprice', text: 'Үнэ өөрчлөлт', type:'float',  width: 110, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'discount', text: 'Хөнгөлөлт', type:'float',  width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'last', text: 'Эцсийн үлдэгдэл', type:'float',  width: 110, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+];
+
+Ext.define('CRM_REPORT_CUSTOMER', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_REPORT_CUSTOMER_FIELDS']
+});
+
+fields['CRM_REPORT_STORAGE_FIELDS'] = [
+   {name: 'product_id', text: 'ID', width: 50, hidden: true}, 
+   {name: 'product_code', text: 'Код', width: 50, align: 'center'}, 
+   {name: 'product_barcode', text: 'Баркод', width: 90, align: 'center'}, 
+   {name: 'product_brand', text: 'Бренд', width: 150}, 
+   {name: 'product_name', text: 'Нэр', width: 250}, 
+   {name: 'unit_size', text: 'Нэгж', width: 50, align: 'center'}, 
+   {name: 'first', type: 'float', width: 85, text: 'Эхний үлдэгдэл', width: 110, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'incoming', type: 'float', width: 85, text: 'Нэмэгдсэн', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'ret', type: 'float', width: 85, text: 'Буцаалт', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'sales', type: 'float', width: 85, text: 'Борлуулалт', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'promo', type: 'float', width: 85, text: 'Урамшуулал', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'last', type: 'float', width: 85, text: 'Эцсийн үлдэгдэл', width: 110, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber}
+];
+
+Ext.define('CRM_REPORT_STORAGE', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_REPORT_STORAGE_FIELDS']
+});
+
+
+fields['CRM_REPORT_STORAGE_DAILY_FIELDS'] = [
+   {name: 'product_id', text: 'ID', width: 50, hidden: true}, 
+   {name: 'product_code', text: 'Код', width: 50, align: 'center'}, 
+   {name: 'product_barcode', text: 'Баркод', width: 90, align: 'center'}, 
+   {name: 'product_brand', text: 'Бренд', width: 150}, 
+   {name: 'product_name', text: 'Нэр', width: 250}, 
+   {name: 'unit_size', text: 'Нэгж', width: 50, align: 'center'}, 
+   {name: 'first', type: 'float', width: 85, text: 'Эхний үлдэгдэл', width: 110, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'incoming', type: 'float', width: 85, text: 'Нэмэгдсэн', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'ret', type: 'float', width: 85, text: 'Буцаалт', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'sales', type: 'float', width: 85, text: 'Борлуулалт', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'promo', type: 'float', width: 85, text: 'Урамшуулал', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   
+   {name: 'bm3', type: 'float', width: 85, text: 'BM3', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'bm4', type: 'float', width: 85, text: 'BM4', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'shop', type: 'float', width: 85, text: 'Shop', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'last', type: 'float', width: 85, text: 'Эцсийн үлдэгдэл', width: 120, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+
+   {name: 'total', type: 'float', width: 85, text: 'Нийт үлдэгдэл', width: 110, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber}
+];
+
+Ext.define('CRM_REPORT_STORAGE_DAILY', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_REPORT_STORAGE_DAILY_FIELDS']
+});
+
+
+columns['CRM_REPORT_STORAGE_TRANSFER_COLUMNS'] = [
+   {dataIndex: 'product_id', text: 'ID', width: 50, hidden: true}, 
+   {dataIndex: 'product_code', text: 'Код', width: 50, align: 'center'}, 
+   {dataIndex: 'product_brand', text: 'Бренд', width: 150}, 
+   {dataIndex: 'product_name', text: 'Нэр', width: 250}, 
+   {dataIndex: 'unit_size', text: 'Нэгж', width: 50, align: 'center'}, 
+   {
+	   text: 'Хүнс',
+	   columns: [{dataIndex:'w11', text: 'Ширхэг', width: 90, align: 'right', renderer: renderIntNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+				 {dataIndex:'w12', text: 'Хайрцаг', width: 90, align: 'right', renderer: renderIntNumber, summaryType: 'sum', summaryRenderer: renderTNumber}
+				]
+   },
+   {
+	   text: 'Гоо сайхан',
+	   columns: [{dataIndex:'w21', text: 'Ширхэг', width: 90, align: 'right', renderer: renderIntNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+				 {dataIndex:'w22', text: 'Хайрцаг', width: 90, align: 'right', renderer: renderIntNumber, summaryType: 'sum', summaryRenderer: renderTNumber}
+				]
+   }
+];
 
 fields['CRM_CAMPAIGN_RESULT_FIELDS'] = [
    {name: 'owner', text: 'Owner', width: 120}, 
@@ -992,82 +1160,6 @@ Ext.define('CRM_REPORT_REVENUE', {
 	fields: fields['CRM_REPORT_REVENUE_FIELDS']
 });
 
-fields['CRM_REPORT_RESELLER_FIELDS'] = [
-   {name: 'crm_name', text: 'Reseller name', width: 250, summaryType: 'count', summaryRenderer: renderTReportNumber}, 
-   {name: 'owner', text: 'Owner', width: 130}, 
-   {name: 'meeting', text: 'Meeting', type:'int', align: 'center', width: 90}, 
-   {name: 'phonecall', text: 'Call', type:'int', width: 90, align: 'center'},
-   {name: 'email', text: 'Email', type:'int', width: 90, align: 'center'},
-   {name: 'p1_qty', type:'int'},
-   {name: 'p1_amount', type:'float'},
-   {name: 'p2_qty', type:'int'},
-   {name: 'p2_amount', type:'float'},
-   {name: 'p3_qty', type:'int'},
-   {name: 'p3_amount', type:'float'},
-   {name: 'p4_qty', type:'int'},
-   {name: 'p4_amount', type:'float'},
-   {name: 'p5_qty', type:'int'},
-   {name: 'p5_amount', type:'float'},
-   {name: 'total_amount', text: 'Amount', type:'float', width: 120, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
-   {name: 'total_qty', text: 'Qty', type:'int', align: 'right', width: 80, summaryType: 'sum', summaryRenderer: renderTNumber}
-];
-
-Ext.define('CRM_REPORT_RESELLER', {
-	extend: 'Ext.data.Model',
-	fields: fields['CRM_REPORT_RESELLER_FIELDS']
-});
-
-fields['CRM_REPORT_DIRECT_SALES_FIELDS'] = [
-   {name: 'owner', text: 'Owner', width: 250}, 
-   {name: 'section', text: 'Section', width: 150}, 
-   {name: 'c_p', type:'int', text: 'Pending', align: 'center', width: 60}, 
-   {name: 'c_r', type:'int', text: 'Remind', align: 'center', width: 60}, 
-   {name: 'c_s', type:'int', text: 'Success', align: 'center', width: 90}, 
-   {name: 'a_m', type:'int', text: 'Meeting', align: 'center', width: 90}, 
-   {name: 'a_p', type:'int', text: 'Phone call', align: 'center', width: 90}, 
-   {name: 'a_e', type:'int', text: 'Email', align: 'center', width: 90}, 
-   {name: 'd_l', type:'int', text: 'Meeting', align: 'center', width: 90}, 
-   {name: 'd_o', type:'int', text: 'Phone call', align: 'center', width: 90}, 
-   {name: 'd_q', type:'int', text: 'Email', align: 'center', width: 90}, 
-   {name: 'd_c', type:'int', text: 'Email', align: 'center', width: 90}, 
-   {name: 'total_qty', type:'int', text: 'Qty', align: 'center', width: 90}, 
-   {name: 'total_amount', type:'int', text: 'Amount', align: 'center', width: 90}
-];
-
-Ext.define('CRM_REPORT_DIRECT_SALES', {
-	extend: 'Ext.data.Model',
-	fields: fields['CRM_REPORT_DIRECT_SALES_FIELDS']
-});
-
-columns['CRM_REPORT_DIRECT_SALES_COLUMNS'] = [
-   {dataIndex: 'owner', text: 'Owner', width: 150}, 
-   {dataIndex: 'section', text: 'Team', width: 150}, 
-   {
-	   text: 'Campaign',
-	   columns: [{dataIndex:'c_p', text: 'Pending', width: 90, align: 'center', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-				 {dataIndex:'c_r', text: 'Remind', width: 90, align: 'center', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-				 {dataIndex:'c_s', text: 'Success', width: 90, align: 'center', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber}]
-   },
-   {
-	   text: 'Activity',
-	   columns: [{dataIndex:'a_m', text: 'Meting', width: 90, align: 'center', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-				 {dataIndex:'a_p', text: 'Phone call', width: 90, align: 'center', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-				 {dataIndex:'a_e', text: 'Email', width: 90, align: 'center', renderer: renderPrecent}]
-   },
-   {
-	   text: 'Deal',
-	   columns: [{dataIndex:'d_l', text: 'Lead', width: 70, align: 'center', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-				 {dataIndex:'d_o', text: 'Opportunity', width: 70, align: 'center', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-				 {dataIndex:'d_q', text: 'Quote', width: 70, align: 'center', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-				 {dataIndex:'d_c', text: 'Closed', width: 70, align: 'center', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber}]
-   },
-   {
-	   text: 'Total',
-	   columns: [{dataIndex:'total_qty', text: 'Qty', width: 90, align: 'center', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-				 {dataIndex:'total_amount', text: 'Amount', width: 120, align: 'center', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney}]
-   }
-];
-
 
 fields['CRM_REPORT_CASE_FIELDS'] = [
    {name: 'owner', text: 'Owner', width: 250}, 
@@ -1077,8 +1169,6 @@ fields['CRM_REPORT_CASE_FIELDS'] = [
    {name: 'c3', type:'int', text: 'Success', align: 'center', width: 90}, 
    {name: 'c4', type:'int', text: 'Success', align: 'center', width: 90}, 
    {name: 'c5', type:'int', text: 'Success', align: 'center', width: 90}, 
-   {name: 'c6', type:'int', text: 'Success', align: 'center', width: 90}, 
-   {name: 'c7', type:'int', text: 'Success', align: 'center', width: 90}, 
    {name: 'p1', type:'int', text: 'Meeting', align: 'center', width: 90}, 
    {name: 'p2', type:'int', text: 'Phone call', align: 'center', width: 90}, 
    {name: 'p3', type:'int', text: 'Email', align: 'center', width: 90}, 
@@ -1107,8 +1197,6 @@ columns['CRM_REPORT_CASE_COLUMNS'] = [
 				 {dataIndex:'c2', text: 'Мэдээлэл хүссэн хүмүүсийн бүртгэл', width: 120, align: 'center', renderer: renderIntNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
 				 {dataIndex:'c3', text: 'Санал гомдлын бүртгэл', width: 120, align: 'center', renderer: renderIntNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
 				 {dataIndex:'c4', text: 'Мэдээлэл хүргүүлсэн бүртгэл', width: 120, align: 'center', renderer: renderIntNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-				 {dataIndex:'c6', text: 'Problem solved', width: 120, align: 'center', renderer: renderIntNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-				 {dataIndex:'c7', text: 'Information provided', width: 120, align: 'center', renderer: renderIntNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
 				 {dataIndex:'c5', text: 'Бусад', width: 60, align: 'center', renderer: renderIntNumber, summaryType: 'sum', summaryRenderer: renderTNumber}
 				]
    },
@@ -1346,6 +1434,39 @@ function renderDealLevel(v) {
 	return v;
 }
 
+function renderSalesType(v) {
+	if (v == 'cash')
+		return '<span style="color:green">бэлэн</span>';
+	if (v == 'loan')
+		return '<span style="color:blue">зээл</span>';
+	if (v == 'plan')
+		return '<span style="color:magenta">ирж байгаа</span>';
+	if (v == 'back')
+		return '<span style="color:red">буцаалт</span>';
+	
+	return v;
+}
+
+function renderServiceLevel(v) {
+	if (v == 'receipt')
+		return '<span style="color:magenta">ирсэн</span>';
+	if (v == 'service')
+		return '<span style="color:orange">олгосон</span>';
+	if (v == 'closed')
+		return '<span style="color:green">хаагдсан</span>';
+	
+	if (v == 'return')
+		return '<span style="color:red">буцаалт</span>';
+
+	if (v == 'transit')
+		return '<span style="color:blue">замд яваа</span>';
+	if (v == 'instock')
+		return '<span style="color:green">хүлээн авсан</span>';
+	
+	return v;
+}
+
+
 function renderCaseLevel(v) {
 	if (v == 'identify')
 		return '<span style="color:magenta">'+v+'</span>';
@@ -1509,6 +1630,14 @@ function renderServiceName(v) {
 	return v;
 }
 
+function renderPayType(v) {
+	if (v == 'cash')
+		return '<span style="color:green">Бэлнээр</span>';
+	if (v == 'bank')
+		return '<span style="color:orange">Бэлэн бусаар</span>';
+	return v;
+}
+
 function renderCallStatus(v) {
 	if (v == 'success')
 		return '<span style="color:green">success</span>';
@@ -1610,6 +1739,9 @@ function renderIntNumber(v) {
 }
 
 function renderNumber(v) {
+	if (v < 0)
+		return '<span style="color:red">'+Ext.util.Format.number(v, '00,00,000.00')+'</span>';
+
 	return Ext.util.Format.number(v, '00,00,000.00');
 }
 
@@ -1628,6 +1760,32 @@ function renderTReportNumber(v) {
 	if (v == 0)
 		return '';
 	return '<strong>'+Ext.util.Format.number(v, '00,00,000.00')+'</strong>';
+}
+
+
+function renderPriceName(v) {
+	if (v == 'price')
+		return 'Үндсэн үнэ';
+	if (v == 'price1')
+		return 'BM1';
+	if (v == 'price2')
+		return 'BM2';
+	if (v == 'price3')
+		return 'BM3';
+	if (v == 'price4')
+		return 'BM4';
+	if (v == 'price5')
+		return 'Жижиглэн';
+	if (v == 'price6')
+		return 'Миний дэлгүүр';
+	if (v == 'price7')
+		return 'Номин';
+	if (v == 'price8')
+		return 'Макс';
+	if (v == 'price9')
+		return 'Оргил';
+	if (v == 'price10')
+		return 'Орон нутаг';
 }
 
 
@@ -1667,30 +1825,30 @@ function renderCreatedDate(time) {
 	}
 	var time_formats = [
 		[60, 'seconds', 1], // 60
-		[120, '1 minute ago', '1 minute from now'], // 60*2
-		[3600, 'minutes', 60], // 60*60, 60
-		[7200, '1 hour ago', '1 hour from now'], // 60*60*2
-		[86400, 'hours', 3600], // 60*60*24, 60*60
-		[172800, 'Yesterday', 'Tomorrow'], // 60*60*24*2
-		[604800, 'days', 86400], // 60*60*24*7, 60*60*24
-		[1209600, 'Last week', 'Next week'], // 60*60*24*7*4*2
-		[2419200, 'weeks', 604800], // 60*60*24*7*4, 60*60*24*7
-		[4838400, 'Last month', 'Next month'], // 60*60*24*7*4*2
-		[29030400, 'months', 2419200], // 60*60*24*7*4*12, 60*60*24*7*4
-		[58060800, 'Last year', 'Next year'], // 60*60*24*7*4*12*2
-		[2903040000, 'years', 29030400], // 60*60*24*7*4*12*100, 60*60*24*7*4*12
+		[120, '1 минутын өмнө', '1 minute from now'], // 60*2
+		[3600, 'минутын', 60], // 60*60, 60
+		[7200, '1 цагийн өмнө', '1 hour from now'], // 60*60*2
+		[86400, 'цагийн', 3600], // 60*60*24, 60*60
+		[172800, 'Өчигдөр', 'Маргааш'], // 60*60*24*2
+		[604800, 'өдрийн', 86400], // 60*60*24*7, 60*60*24
+		[1209600, 'Өнгөрсөн 7 хоног', 'Next week'], // 60*60*24*7*4*2
+		[2419200, 'долоо хоног', 604800], // 60*60*24*7*4, 60*60*24*7
+		[4838400, 'Өнгөрсөн сар', 'Next month'], // 60*60*24*7*4*2
+		[29030400, 'сарын', 2419200], // 60*60*24*7*4*12, 60*60*24*7*4
+		[58060800, 'Өнгөрсөн жил', 'Next year'], // 60*60*24*7*4*12*2
+		[2903040000, 'жилийн', 29030400], // 60*60*24*7*4*12*100, 60*60*24*7*4*12
 		[5806080000, 'Last century', 'Next century'], // 60*60*24*7*4*12*100*2
 		[58060800000, 'centuries', 2903040000] // 60*60*24*7*4*12*100*20, 60*60*24*7*4*12*100
 	];
 	var seconds = (+new Date() - time) / 1000,
-		token = 'ago', list_choice = 1;
+		token = 'өмнө', list_choice = 1;
 
-	if (seconds < 5*60) {
-		return '<span class="gray">Just now</span>'
+	if (seconds < 1*60) {
+		return '<span class="gray">Дөнгөж сая</span>'
 	}
 	if (seconds < 0) {
 		seconds = Math.abs(seconds);
-		token = 'from now';
+		token = 'одоогоос';
 		list_choice = 2;
 	}
 	var i = 0, format;

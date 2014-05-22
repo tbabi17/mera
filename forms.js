@@ -97,7 +97,7 @@ Ext.define('OCS.RetailForm', {
 
 		me.items = [{
 				xtype: 'fieldset',
-				title: 'Main information',
+				title: 'Үндсэн мэдээлэл',
 				collapsible: true,
 				defaultType: 'textfield',
 				layout: 'anchor',
@@ -107,7 +107,7 @@ Ext.define('OCS.RetailForm', {
 				},
 				items: [{
 					xtype: 'fieldcontainer',
-					fieldLabel: 'Contact',
+					fieldLabel: 'Харилцагч',
 					layout: 'hbox',
 					combineErrors: true,
 					defaultType: 'textfield',
@@ -125,7 +125,7 @@ Ext.define('OCS.RetailForm', {
 					},{
 						id: 'firstName',
 						name: 'firstName',
-						fieldLabel: 'First',
+						fieldLabel: 'Нэр',
 						flex: 0.5,
 						labelWidth: 70,
 						focused: true,
@@ -151,7 +151,7 @@ Ext.define('OCS.RetailForm', {
 					},{
 						id: 'lastName',
 						name: 'lastName',
-						fieldLabel: 'Last',
+						fieldLabel: 'Овог',
 						flex: 0.5,
 						margins: '0 0 0 6',
 						maskRe : /[а-яөүА-ЯӨҮёЁ]/,
@@ -178,7 +178,7 @@ Ext.define('OCS.RetailForm', {
 						fieldLabel: 'engName',
 						flex: 0.5,
 						margins: '0 0 0 6',
-						emptyText: 'Latin'
+						emptyText: 'Латин'
 					}]
 				},{
 					xtype: 'container',
@@ -186,7 +186,7 @@ Ext.define('OCS.RetailForm', {
 					defaultType: 'textfield',
 					items: [{
 						name: 'birthday',
-						fieldLabel: 'Birth date',
+						fieldLabel: 'Төрсөн өдөр',
 						labelWidth: 70,
 						flex: 0.5,
 						hideLabel: false,
@@ -196,7 +196,7 @@ Ext.define('OCS.RetailForm', {
 					},{
 						name: 'gender',
 						flex: 0.3,
-						fieldLabel: 'Gender',
+						fieldLabel: 'Хүйс',
 						labelWidth: 40,
 						margins: '0 0 0 6',
 						xtype: 'combo',
@@ -213,7 +213,7 @@ Ext.define('OCS.RetailForm', {
 					},{
 						id: 'regNo',
 						name: 'regNo',
-						fieldLabel: 'Register №',
+						fieldLabel: 'Регистр №',
 						hideLabel: false,
 						labelWidth: 70,
 						flex:0.5,
@@ -237,7 +237,7 @@ Ext.define('OCS.RetailForm', {
 					layout: 'hbox',
 					defaultType: 'textfield',
 					items: [{
-						fieldLabel: 'Level',
+						fieldLabel: 'Түвшин',
 						xtype: 'combo',
 						labelWidth: 70,
 						name: 'level',
@@ -253,7 +253,7 @@ Ext.define('OCS.RetailForm', {
 					    allowBlank: false,
 						flex: 0.5
 					},{
-						fieldLabel: 'Priority',
+						fieldLabel: 'Зэрэглэл',
 						xtype: 'combo',
 						name: 'priority',
 						labelWidth: 50,
@@ -270,7 +270,7 @@ Ext.define('OCS.RetailForm', {
 					    allowBlank: false,
 						flex: 0.5
 					},{
-						fieldLabel: 'Type',
+						fieldLabel: 'Төрөл',
 						xtype: 'combo',
 						name: '_class',
 						margins: '0 0 0 6',
@@ -300,7 +300,7 @@ Ext.define('OCS.RetailForm', {
 						flex: 0.5
 					},{
 						name: 'source',
-						fieldLabel: 'Source',
+						fieldLabel: 'Эх сурвалж',
 						xtype: 'combo',
 						labelWidth: 50,
 						value: 'employee referral',
@@ -320,7 +320,7 @@ Ext.define('OCS.RetailForm', {
 					layout: 'hbox',
 					defaultType: 'textfield',
 					items: [{
-						fieldLabel: 'Social status',
+						fieldLabel: 'Н.Байдал',
 						xtype: 'combo',
 						labelWidth: 70,
 						value: 'ажилладаг',
@@ -336,7 +336,7 @@ Ext.define('OCS.RetailForm', {
 						editable: false,
 						flex: 0.5
 					},{
-						fieldLabel: 'Company',
+						fieldLabel: 'Ажлын газар',
 						labelWidth: 60,
 						xtype: 'searchcombo',
 						name: 'title',
@@ -344,7 +344,7 @@ Ext.define('OCS.RetailForm', {
 						margins: '0 0 0 6',
 						flex: 0.75
 					}, {
-						emptyText: 'Position',
+						emptyText: 'Албан тушаал',
 						xtype: 'searchcombo',
 						table: 'crm_customer',
 						name: 'job_title',
@@ -362,7 +362,7 @@ Ext.define('OCS.RetailForm', {
 				}]
 			},{
 				xtype: 'fieldset',
-				title: 'Contact information',
+				title: 'Холбоо барих',
 				defaultType: 'textfield',
 				layout: 'anchor',
 				collapsible: true,
@@ -376,7 +376,7 @@ Ext.define('OCS.RetailForm', {
 						defaultType: 'textfield',
 						items: [{
 							id: 'phone',
-							fieldLabel: 'Phone 1',
+							fieldLabel: 'Утас 1',
 							labelWidth: 70,
 							name: 'phone',
 							flex: 0.5,
@@ -397,7 +397,7 @@ Ext.define('OCS.RetailForm', {
 								}
 							}
 						}, {
-							fieldLabel: 'Phone 2',
+							fieldLabel: 'Утас 2',
 							labelWidth: 60,
 							name: 'phone1',
 							flex: 0.5,
@@ -407,7 +407,7 @@ Ext.define('OCS.RetailForm', {
 							maxLength: 8,
 							regexText: 'Must be in the format xxx-xxx-xxxx'
 						}, {
-							fieldLabel: 'Fax',
+							fieldLabel: 'Факс',
 							labelWidth: 40,
 							name: 'fax',
 							flex: 0.5,
@@ -422,14 +422,14 @@ Ext.define('OCS.RetailForm', {
 						layout: 'hbox',
 						defaultType: 'textfield',
 						items: [{
-							fieldLabel: 'Email',
+							fieldLabel: 'И-майл',
 							labelWidth: 70,
 							name: 'email',
 							vtype: 'email',
 							maxLength: 60,
 							flex: 1
 						}, {
-							fieldLabel: 'Social link',
+							fieldLabel: 'FB хаяг',
 							name: 'www',
 //							vtype: 'url',
 							labelWidth: 70,
@@ -437,7 +437,7 @@ Ext.define('OCS.RetailForm', {
 							flex: 1
 						},{
 							xtype: 'textfield',
-							fieldLabel: 'Post code',
+							fieldLabel: 'Шуудан код',
 							labelWidth: 60,
 							name: 'postalCode',
 							width: 150,
@@ -450,7 +450,7 @@ Ext.define('OCS.RetailForm', {
 						items: [{
 							xtype: 'searchcombo',
 							name: 'country',							
-							fieldLabel: 'Country',
+							fieldLabel: 'Улс',
 							value: 'Монгол',
 							table: 'crm_customer',
 							labelWidth: 70,
@@ -458,7 +458,7 @@ Ext.define('OCS.RetailForm', {
 						}, {
 							xtype: 'searchcombo',
 							name: 'city',							
-							fieldLabel: 'City',
+							fieldLabel: 'Хот',
 							value: 'Улаанбаатар',
 							table: 'crm_customer',
 							labelWidth: 50,
@@ -478,7 +478,7 @@ Ext.define('OCS.RetailForm', {
 						items: [{
 							labelWidth: 70,
 							xtype: 'searchcombo',
-							fieldLabel: 'Khoroo',
+							fieldLabel: 'Хороо',
 							table: 'crm_customer',
 							name: 'horoo',
 							flex: 0.5
@@ -512,7 +512,7 @@ Ext.define('OCS.RetailForm', {
 				}]					
 			},{
 				xtype: 'fieldset',
-				title: 'Note',
+				title: 'Нэмэлт мэдээлэл',
 				collapsible: true,
 				collapsed: false,
 				defaultType: 'textfield',
@@ -522,8 +522,8 @@ Ext.define('OCS.RetailForm', {
 				},
 				items: [{
 					xtype: 'textarea',
-					fieldLabel: 'Note',
-					emptyText: 'Note...',
+					fieldLabel: 'Тайлбар',
+					emptyText: 'Тайлбар...',
 					labelWidth: 70,
 					name: 'descr',
 					flex: 1
@@ -550,12 +550,12 @@ Ext.define('OCS.RetailForm', {
 			labelWidth: 140,
 			id: 'autoclose',
 			checked: true,
-			boxLabel: 'automatically close after commit',
+			boxLabel: 'илгээсний дараа автоматаар хаагдах',
 			handler: function (field, value) {
 				me.autoClose = field.getValue();
 			}
 		},'->',{
-			text : 'Reset',
+			text : 'Арилгах',
 			iconCls: 'reset',
 			handler: function() {
 				var form = this.up('form').getForm();
@@ -563,7 +563,7 @@ Ext.define('OCS.RetailForm', {
 			}
 		},{
 			iconCls: 'commit',
-			text: 'Commit',
+			text: 'Илгээх',
 			handler: function() {
 				var form = this.up('form').getForm();
 				if (form.isValid())	{
@@ -730,7 +730,7 @@ Ext.define('OCS.CorporateForm', {
 					items: [{
 						id: 'firstName',
 						name: 'firstName',
-						fieldLabel: 'Name',
+						fieldLabel: 'Нэр',
 						hideLabel: false,
 						flex: 0.5,
 						maskRe : /[а-яөүА-ЯӨҮёЁ0-9 ]/,
@@ -754,7 +754,7 @@ Ext.define('OCS.CorporateForm', {
 						}
 					},{
 						name: 'lastName',
-						fieldLabel: 'Group',
+						fieldLabel: 'Групп',
 						flex: 0.4,
 						maskRe : /[а-яөүА-ЯӨҮёЁ0-9 ]/,
 						margins: '0 0 0 6',
@@ -772,7 +772,7 @@ Ext.define('OCS.CorporateForm', {
 						fieldLabel: 'engName',
 						flex: 0.4,
 						margins: '0 0 0 6',
-						emptyText: 'Latin'
+						emptyText: 'Латин'
 					},{
 						name: 'company_torol',
 						width: 60,
@@ -795,7 +795,7 @@ Ext.define('OCS.CorporateForm', {
 					layout: 'hbox',
 					defaultType: 'textfield',
 					items: [{
-						fieldLabel: 'Type',
+						fieldLabel: 'Төрөл',
 						xtype: 'combo',
 						name: '_class',
 						allowBlank: false,
@@ -810,7 +810,7 @@ Ext.define('OCS.CorporateForm', {
 						editable: false,
 						flex: 0.5
 					},{
-						fieldLabel: 'Priority',
+						fieldLabel: 'Зэрэглэл',
 						xtype: 'combo',
 						name: 'priority',
 						labelWidth: 50,
@@ -827,7 +827,7 @@ Ext.define('OCS.CorporateForm', {
 					    allowBlank: false,
 						flex: 0.5
 					},{
-						fieldLabel: 'Level',
+						fieldLabel: 'Түвшин',
 						xtype: 'combo',
 						name: 'level',
 						labelWidth: 40,
@@ -845,7 +845,7 @@ Ext.define('OCS.CorporateForm', {
 					},{
 						id: 'regNo',
 						name: 'regNo',
-						fieldLabel: 'Register №',
+						fieldLabel: 'Регистр №',
 						hideLabel: false,
 						width: 180,
 						labelWidth: 70,
@@ -871,7 +871,7 @@ Ext.define('OCS.CorporateForm', {
 					items: [{
 						name: 'industry',
 						flex: 0.5,
-						fieldLabel: 'Industry',
+						fieldLabel: 'Ү/А төрөл',
 						xtype: 'combo',
 						store: Ext.create('Ext.data.Store', {
 						  model: 'CRM_ITEM',
@@ -887,10 +887,10 @@ Ext.define('OCS.CorporateForm', {
 						margins: '0 0 0 6',
 						xtype: 'searchcombo',
 						name: 'industry_sub',							
-						emptyText: 'Organization',
+						emptyText: 'Ү/А чиглэл',
 						table: 'crm_corporate_types'
 					},{
-						emptyText: 'Employees',
+						emptyText: 'Ажилчд.тоо',
 						xtype: 'combo',
 						name: 'employees',
 						margins: '0 0 0 6',
@@ -910,20 +910,20 @@ Ext.define('OCS.CorporateForm', {
 					layout: 'hbox',
 					defaultType: 'textfield',
 					items: [{
-						fieldLabel: 'Capital',
+						fieldLabel: 'Хөрөнгө',
 						xtype: 'currencyfield',
 						name: 'capital',
 						value: 0,
 						flex: 0.5
 					},{
-						fieldLabel: 'Revenue',
+						fieldLabel: 'Орлого',
 						xtype: 'currencyfield',
 						name: 'annual_revenue',
 						margins: '0 0 0 6',
 						value: 0,
 						flex: 0.5
 					},{
-						fieldLabel: 'Tax',
+						fieldLabel: 'Татвар',
 						xtype: 'currencyfield',
 						name: 'tatvar',
 						margins: '0 0 0 6',
@@ -934,7 +934,7 @@ Ext.define('OCS.CorporateForm', {
 				}]
 			},{
 				xtype: 'fieldset',
-				title: 'Contact information',
+				title: 'Холбоо барих',
 				defaultType: 'textfield',
 				layout: 'anchor',
 				collapsible: true,
@@ -949,7 +949,7 @@ Ext.define('OCS.CorporateForm', {
 							defaultType: 'textfield',
 							items: [{
 								id: 'phone',
-								fieldLabel: 'Phone 1',
+								fieldLabel: 'Утас 1',
 								labelWidth: 60,
 								name: 'phone',
 								flex: 0.5,
@@ -970,7 +970,7 @@ Ext.define('OCS.CorporateForm', {
 									}
 								}
 							}, {
-								fieldLabel: 'Phone 2',
+								fieldLabel: 'Утас 2',
 								labelWidth: 60,
 								name: 'phone1',
 								flex: 0.5,
@@ -980,7 +980,7 @@ Ext.define('OCS.CorporateForm', {
 								maxLength: 8,
 								regexText: 'Must be in the format xxx-xxx-xxxx'
 							}, {
-								fieldLabel: 'Fax',
+								fieldLabel: 'Факс',
 								labelWidth: 40,
 								name: 'fax',
 								flex: 0.5,
@@ -995,13 +995,13 @@ Ext.define('OCS.CorporateForm', {
 							layout: 'hbox',
 							defaultType: 'textfield',
 							items: [{
-								fieldLabel: 'Email',
+								fieldLabel: 'И-майл',
 								name: 'email',
 								vtype: 'email',
 								maxLength: 60,
 								flex: 0.5
 							}, {
-								fieldLabel: 'Web',
+								fieldLabel: 'Веб',
 								name: 'www',
 //								vtype: 'url',
 								labelWidth: 50,
@@ -1009,7 +1009,7 @@ Ext.define('OCS.CorporateForm', {
 								flex: 0.5
 							},{
 								xtype: 'textfield',
-								fieldLabel: 'Post code',
+								fieldLabel: 'Шуудан код',
 								labelWidth: 60,
 								name: 'postalCode',
 								width: 150,
@@ -1022,14 +1022,14 @@ Ext.define('OCS.CorporateForm', {
 							items: [{
 								xtype: 'searchcombo',
 								name: 'country',							
-								fieldLabel: 'Country',
+								fieldLabel: 'Улс',
 								value: 'Монгол',
 								table: 'crm_customer',
 								flex: 1
 							}, {
 								xtype: 'searchcombo',
 								name: 'city',							
-								fieldLabel: 'City',
+								fieldLabel: 'Хот',
 								table: 'crm_customer',
 								value: 'Улаанбаатар',
 								labelWidth: 50,
@@ -1037,7 +1037,7 @@ Ext.define('OCS.CorporateForm', {
 							},{
 								xtype: 'searchcombo',
 								name: 'district',							
-								fieldLabel: 'District',
+								fieldLabel: 'Дүүрэг',
 								table: 'crm_customer',
 								labelWidth: 50,
 								flex: 1
@@ -1048,13 +1048,13 @@ Ext.define('OCS.CorporateForm', {
 							defaultType: 'textfield',
 							items: [{
 								xtype: 'searchcombo',
-								fieldLabel: 'Khoroo',
+								fieldLabel: 'Хороо',
 								table: 'crm_customer',
 								name: 'horoo',
 								flex: 0.5
 							},{
 								labelWidth: 50,
-								fieldLabel: 'Address',
+								fieldLabel: 'Хаяг',
 								name: 'address',
 								flex: 1
 							},{
@@ -1070,7 +1070,79 @@ Ext.define('OCS.CorporateForm', {
 				]
 			},{
 				xtype: 'fieldset',
-				title: 'Note',
+				title: 'Урамшуулалын мэдээлэл ба Үнийн сонголт',
+				collapsible: true,
+				collapsed: false,
+				defaultType: 'textfield',
+				layout: 'anchor',
+				defaults: {
+					anchor: '100%',
+					margin: '15 15 15 15',
+					labelWidth: 100
+				},
+				items: [{
+					xtype: 'container',
+					layout: 'hbox',
+					height: 30,
+					defaultType: 'textfield',
+					items: [{
+						xtype: 'combo',
+						store: Ext.create('Ext.data.Store', {
+							 model: 'CRM_PREV',
+							 data: [{value: 'U1',name:'Нийлүүлэлтээс /сарын/'},{value: 'U2',name:'Төлөлтийн дүнгээс'},{value: 'U3',name:'Нийлүүлэлт+Төлөвлөгөөт'},{value: 'U4', name:'Бэлэн борлуулалтын хувьд'}] 
+						}),
+						name: 'promo_code',
+						queryMode: 'local',
+						fieldLabel: 'Урам.код',
+						displayField: 'name',
+						valueField: 'value',
+						triggerAction: 'all',
+						editable: false
+					},{
+						fieldLabel: 'Хөнгө %',
+						xtype: 'textfield',
+						name: 'promo_precent',
+						margins: '0 0 0 6',
+						value: 0,
+						flex: 0.5
+					},{
+						fieldLabel: 'Төлөвлөгөө',
+						xtype: 'currencyfield',
+						name: 'promo_amount',
+						margins: '0 0 0 6',
+						labelWidth: 70,
+						value: 0,
+						flex: 0.5
+					},{
+						emptyText: 'Үнийн соноголт',
+						xtype: 'combo',
+						name: 'pricetag',
+						margins: '0 0 0 6',
+						store: Ext.create('Ext.data.Store', {
+						  model: 'CRM_PREV',
+						  data: [{value: 'price', name: 'Үндсэн үнэ'},
+								 {value: 'price1', name: 'BM1'},
+								 {value: 'price2', name: 'BM2'},
+								 {value: 'price3', name: 'BM3'},
+								 {value: 'price4', name: 'BM1'},
+								 {value: 'price5', name: 'Жижиглэн'},							  
+								 {value: 'price6', name: 'Миний дэлгүүр'},
+								 {value: 'price7', name: 'Номин'},
+								 {value: 'price8', name: 'Макс'},
+								 {value: 'price9', name: 'Оргил'},
+								 {value: 'price10', name: 'Орон нутаг'}]
+						}),
+						queryMode: 'local',
+						displayField: 'name',
+						valueField: 'value',
+						triggerAction: 'all',
+						editable: false,
+						flex: 0.3
+					}]
+				}]					
+			},{
+				xtype: 'fieldset',
+				title: 'Нэмэлт мэдээлэл',
 				collapsible: true,
 				collapsed: false,
 				defaultType: 'textfield',
@@ -1080,14 +1152,14 @@ Ext.define('OCS.CorporateForm', {
 				},
 				items: [{
 					xtype: 'textarea',
-					fieldLabel: 'Note',
-					emptyText: 'Note...',
+					fieldLabel: 'Тайлбар',
+					emptyText: 'Тайлбар...',
 					labelWidth: 70,
 					name: 'descr',
 					flex: 1
 				}]					
 			}
-		];
+		];				
 
 		me.buttons = [{
 			itemId: 'customer_duplicate_warning',
@@ -1100,19 +1172,19 @@ Ext.define('OCS.CorporateForm', {
 			labelWidth: 140,
 			id: 'autoclose',
 			checked: true,
-			boxLabel: 'automatically close after commit',
+			boxLabel: 'илгээсний дараа автоматаар цонхыг хаах',
 			handler: function (field, value) {
 				me.autoClose = field.getValue();
 			}
 		},'->',{
-			text : 'Reset',
+			text : 'Арилгах',
 			iconCls: 'reset',
 			handler: function() {
 				var form = this.up('form').getForm();
 				form.reset();
 			}
 		},{
-			text: 'Commit',
+			text: 'Илгээх',
 			iconCls: 'commit',
 			handler: function() {
 				var form = this.up('form').getForm();
@@ -1293,7 +1365,7 @@ Ext.define('OCS.ContactForm', {
 
 		me.items = [{
 				xtype: 'fieldset',
-				title: 'Main information',
+				title: 'Үндсэн мэдээлэл',
 				collapsible: true,
 				defaultType: 'textfield',
 				layout: 'anchor',
@@ -1338,7 +1410,7 @@ Ext.define('OCS.ContactForm', {
 					},{
 						id: 'lastName',
 						name: 'lastName',
-						fieldLabel: 'Нэр',
+						fieldLabel: 'Овог',
 						flex: 0.5,
 						value: '',
 						margins: '0 0 0 6',
@@ -1365,11 +1437,11 @@ Ext.define('OCS.ContactForm', {
 						fieldLabel: 'engName',
 						flex: 0.5,
 						margins: '0 0 0 6',
-						emptyText: 'Latin'
+						emptyText: 'Латин'
 					},{
 						name: 'gender',
 						width: 60,
-						emptyText: 'Gender',
+						emptyText: 'Хүйс',
 						margins: '0 0 0 6',
 						xtype: 'combo',
 						store: Ext.create('Ext.data.Store', {
@@ -1388,14 +1460,14 @@ Ext.define('OCS.ContactForm', {
 					layout: 'hbox',
 					defaultType: 'textfield',
 					items: [{
-						fieldLabel: 'Email',
+						fieldLabel: 'И-майл',
 						name: 'email',
 						vtype: 'email',
 						maxLength: 60,
 						flex: 0.5
 					}, {
 						id: 'phone',
-						fieldLabel: 'Phone 1',
+						fieldLabel: 'Утас 1',
 						labelWidth: 60,
 						name: 'phone',
 						width: 160,
@@ -1419,7 +1491,7 @@ Ext.define('OCS.ContactForm', {
 						name: 'source',
 						labelWidth: 50,
 						flex: 0.5,
-						fieldLabel: 'Source',
+						fieldLabel: 'Эх сурвалж',
 						margins: '0 0 0 6',
 						xtype: 'combo',
 						value: 'employee referral',
@@ -1438,7 +1510,7 @@ Ext.define('OCS.ContactForm', {
 					layout: 'hbox',
 					defaultType: 'textfield',
 					items: [{
-						fieldLabel: 'Level',
+						fieldLabel: 'Түвшин',
 						xtype: 'combo',
 						value: 'suspect',
 						name: 'level',
@@ -1454,7 +1526,7 @@ Ext.define('OCS.ContactForm', {
 						editable: false,
 						flex: 0.5
 					},{
-						fieldLabel: 'Rank',
+						fieldLabel: 'Ранк',
 						xtype: 'combo',
 						allowBlank: false,
 						name: 'decision_maker',
@@ -1469,7 +1541,7 @@ Ext.define('OCS.ContactForm', {
 						editable: false,
 						flex: 0.6
 					},{
-						fieldLabel: 'Social status',
+						fieldLabel: 'Н.Байдал',
 						xtype: 'combo',
 						value: 'ажилладаг',
 						name: 'work_status',
@@ -1506,7 +1578,7 @@ Ext.define('OCS.ContactForm', {
 						width: 40,
 						value: me.parent_crm_id
 					},{
-						emptyText: 'Position',
+						emptyText: 'Албан тушаал',
 						xtype: 'searchcombo',
 						table: 'crm_customer',
 						name: 'job_title',
@@ -1526,14 +1598,14 @@ Ext.define('OCS.ContactForm', {
 		];
 
 		me.buttons = [{
-			text : 'Reset',
+			text : 'Арилгах',
 			iconCls: 'reset',
 			handler: function() {
 				var form = this.up('form').getForm();
 				form.reset();
 			}
 		},{
-			text: 'Commit',
+			text: 'Илгээх',
 			iconCls: 'commit',
 			handler: function() {
 				var form = this.up('form').getForm();
@@ -1631,14 +1703,14 @@ Ext.define('OCS.CustomerCampaignForm', {
 		];
 
 		me.buttons = [{
-			text : 'Reset',
+			text : 'Арилгах',
 			iconCls: 'reset',
 			handler: function() {
 				var form = this.up('form').getForm();
 				form.reset();
 			}
 		},{
-			text: 'Commit',
+			text: 'Илгээх',
 			iconCls: 'commit',
 			handler: function() {
 				var form = this.up('form').getForm();
@@ -1720,14 +1792,14 @@ Ext.define('OCS.CustomerCompanyForm', {
 		];
 
 		me.buttons = [{
-			text : 'Reset',
+			text : 'Арилгах',
 			iconCls: 'reset',
 			handler: function() {
 				var form = this.up('form').getForm();
 				form.reset();
 			}
 		},{
-			text: 'Commit',
+			text: 'Илгээх',
 			iconCls: 'commit',
 			handler: function() {
 				var form = this.up('form').getForm();
@@ -2075,7 +2147,7 @@ Ext.define('OCS.ContactFormWithDeal', {
 		];
 
 		me.buttons = [{
-			text : 'Reset',
+			text : 'Арилгах',
 			iconCls: 'reset',
 			handler: function() {
 				var form = this.up('form').getForm();
@@ -2343,14 +2415,14 @@ Ext.define('OCS.CompotetorForm', {
 			text: '',
 			cls: 'warning'
 		},'->',{
-			text : 'Reset',
+			text : 'Арилгах',
 			iconCls:'reset',
 			handler: function() {
 				var form = this.up('form').getForm();
 				form.reset();
 			}
 		},{
-			text: 'Commit',
+			text: 'Илгээх',
 			iconCls:'commit',
 			handler: function() {
 				var form = this.up('form').getForm();
@@ -2415,7 +2487,7 @@ Ext.define('OCS.UploadForm', {
         }];
 		
 		me.buttons = [{
-            text: 'Import',
+            text: 'Импорт',
 			iconCls: 'commit',
             handler: function(){
                 var form = this.up('form').getForm();
@@ -2424,6 +2496,9 @@ Ext.define('OCS.UploadForm', {
                         url: 'avia.php',
 						params: {handle: 'file', action:'import', where: form.findField('upload-name').getValue()},
                         waitMsg: 'Uploading your data...',
+						headers: {
+							'MSISDN': '19840717703599101790'
+						},
 						standardSubmit: false,
                         success: function(fp, o) {
 							var data = Ext.decode(o.response.responseText);
@@ -2449,7 +2524,7 @@ Ext.define('OCS.UploadForm', {
 			handler: function() {
 			}
 		},{
-            text: 'Reset',
+            text: 'Арилгах',
 			iconCls: 'reset',
             handler: function() {
                 this.up('form').getForm().reset();
@@ -2469,6 +2544,7 @@ Ext.define('OCS.MergeRecordForm', {
 	autoScroll: true,
 	bodyPadding: '10 10 0',		
 	table: 'crm_customer',
+	key: 'crm_id',
 
 	constructor: function(cnfg) {
         this.callParent(arguments);
@@ -2484,8 +2560,17 @@ Ext.define('OCS.MergeRecordForm', {
 		if (me.name == 'Account')		
 			me.fields = 'firstName,lastName,company_torol,regNo,industry,industry_sub,capital,annual_revenue,tatvar,phone,phone1,fax,email,www,country,city,district,horoo,address,descr,source';
 		else
-		if (me.name == 'Product')
+		if (me.name == 'Product') {
 			me.fields = 'product_name,product_type,price';
+			me.table = 'crm_products';
+			me.key = 'product_id';
+		}
+		else
+		if (me.name == 'Service') {
+			me.fields = 'subject';
+			me.table = 'crm_services';
+			me.key = 'service_id';
+		}
 
 		me.fs = me.fields.split(',');
 		me.items = [];
@@ -2501,7 +2586,7 @@ Ext.define('OCS.MergeRecordForm', {
 		}
 		
 		me.buttons = [{
-            text: 'Commit',
+            text: 'Илгээх',
 			iconCls: 'commit',
             handler: function(){
                 var form = this.up('form').getForm();
@@ -2514,18 +2599,9 @@ Ext.define('OCS.MergeRecordForm', {
 					values = values.substring(0, values.length - 1);
 					Ext.Ajax.request({
 					   url: 'avia.php',					   
-					   params : {handle: 'web', action: 'merge_records', func: '', table: me.table, values:values, where: me.master.get('crm_id')+','+me.slave.get('crm_id')},
+					   params : {handle: 'web', action: 'merge_records', func: '', table: me.table, values:values, where: me.master.get(me.key)+','+me.slave.get(me.key)},
 					   success: function(response, opts) {						  
-						  Ext.MessageBox.alert('Status', 'Success !', function() {
-							  /*if (pk == 'retail')							  
-								  views['retail'].store.loadPage(1);
-							  else
-							  if (pk == 'corporate')							  
-								  views['corporate'].store.loadPage(1);
-							  else
-							  if (pk == 'product')
-								  views['product'].store.loadPage(1);*/
-
+						  Ext.MessageBox.alert('Status', 'Success !', function() {							
 							  views[pk].store.loadPage(1);
 							  me.win.close();
 						  });
@@ -2539,7 +2615,7 @@ Ext.define('OCS.MergeRecordForm', {
                 }
             }
         },{
-            text: 'Reset',
+            text: 'Арилгах',
 			iconCls: 'reset',
             handler: function() {
                 this.up('form').getForm().reset();

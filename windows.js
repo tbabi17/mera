@@ -23,7 +23,7 @@ Ext.define('OCS.ComplainWindow', {
 		me.actions = [			
 			Ext.create('Ext.Action', {
 				iconCls : 'add',
-				text: 'New ...',
+				text: 'Нэмэх ...',
 				disabled: permit(me.xlsName+'_new'),
 				handler: function(widget, event) {
 					if (me.modelName == 'CRM_NOTES') {
@@ -39,14 +39,14 @@ Ext.define('OCS.ComplainWindow', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				handler: function(widget, event) {
 					me.showForm();
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				handler: function(widget, event) {
 					me.deleteRecord();
 				}
@@ -54,7 +54,7 @@ Ext.define('OCS.ComplainWindow', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'calendar',
-				text: 'Calendar',
+				text: 'Календар',
 				handler: function(widget, event) {
 					var rec = me.grid.getView().getSelectionModel().getSelection()[0];
 					googleEvent(rec, me.func);
@@ -63,7 +63,7 @@ Ext.define('OCS.ComplainWindow', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -119,26 +119,7 @@ Ext.define('OCS.ComplainWindow', {
 			listeners: {
 				'close': function() {
 					if (me.backgrid)
-						me.backgrid.getStore().reload({callback: function() {					
-							if (pk == 'deals' && (me.title.indexOf('Call') != -1 || me.title.indexOf('Email') != -1 || me.title.indexOf('Appointment') != -1))  
-							{
-								if (me.backgrid.getStore().getCount() > 0) {										
-									if (me.selected.get('stage') == 'lead') {
-										me.selected.set('stage', 'opportunity');
-										Ext.Ajax.request({
-										   url: 'avia.php',
-										   params: {handle: 'web', table: 'crm_deals', action: 'update', values: "stage='opportunity'", where: 'deal_id='+me.selected.get('deal_id')},
-										   success: function(response, opts) {							  
-											 
-										   },
-										   failure: function(response, opts) {									 
-										   }
-										});	
-									}
-									views[pk].action.update(me.selected);
-								}
-							}
-						}});
+						me.backgrid.getStore().reload();
 				}
 			}
 		});
@@ -166,7 +147,7 @@ Ext.define('OCS.NewDealWindow', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls   : 'add',
-				text: 'New ...',
+				text: 'Нэмэх ...',
 				disabled: permit(me.xlsName+'-new'),
 				handler: function(widget, event) {
 					me.updateSource(me.defaultRec);
@@ -175,14 +156,14 @@ Ext.define('OCS.NewDealWindow', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				handler: function(widget, event) {
 					me.showForm();
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				handler: function(widget, event) {
 					me.deleteRecord();
 				}
@@ -190,7 +171,7 @@ Ext.define('OCS.NewDealWindow', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'calendar',
-				text: 'Calendar',
+				text: 'Календар',
 				handler: function(widget, event) {
 					var rec = me.grid.getView().getSelectionModel().getSelection()[0];
 					googleEvent(rec, me.func);
@@ -199,7 +180,7 @@ Ext.define('OCS.NewDealWindow', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help', 
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {		
 					new OCS.HelpWindow({
 						id: me.func
@@ -267,13 +248,14 @@ Ext.define('OCS.NewServiceWindow', {
 	primary: 'service_id',
 	xlsName: 'service',
 	windowed: true,
+	service_stage : 'receipt',
 
 	createActions: function() {
 		var me = this;
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls   : 'add',
-				text: 'New ...',
+				text: 'Нэмэх ...',
 				disabled: permit(me.xlsName+'-new'),
 				handler: function(widget, event) {
 					me.updateSource(me.defaultRec);
@@ -282,14 +264,14 @@ Ext.define('OCS.NewServiceWindow', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'edit',
-				text: 'Expand...',
+				text: 'Засах...',
 				handler: function(widget, event) {
 					me.showForm();
 				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'delete',
-				text: 'Delete',
+				text: 'Устгах',
 				handler: function(widget, event) {
 					me.deleteRecord();
 				}
@@ -297,7 +279,7 @@ Ext.define('OCS.NewServiceWindow', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'calendar',
-				text: 'Calendar',
+				text: 'Календар',
 				handler: function(widget, event) {
 					var rec = me.grid.getView().getSelectionModel().getSelection()[0];
 					googleEvent(rec, me.func);
@@ -306,7 +288,7 @@ Ext.define('OCS.NewServiceWindow', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help', 
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {		
 					new OCS.HelpWindow({
 						id: me.func
@@ -326,11 +308,16 @@ Ext.define('OCS.NewServiceWindow', {
 				crm_id : me.selected.get('crm_id'),
 				_date : Ext.Date.format(new Date(),'Y-m-d h:m:s'),
 				closing_date : Ext.Date.format(new Date(),'Y-m-d'),
+				remind_date : '0000-00-00',
 				userCode : logged,				
 				owner: logged,
-				service_stage: 'receipt',
+				phone: me.selected.get('phone'),
+				subject: Date.now(),
+				service_precent: (me.selected.get('service_stage') == 'receipt' ? me.selected.get('promo_precent') : 0),
+				service_stage: me.service_stage,
 				service_revenue: '0',
-				campaign: me.selected.get('campaign')
+				campaign: me.selected.get('campaign'),
+				pricetag: me.selected.get('pricetag')
 			}			
 		}
 
@@ -583,7 +570,7 @@ Ext.define('OCS.ActivityWindow', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'calendar',
-				text: 'Calendar',
+				text: 'Календар',
 				handler: function(widget, event) {
 					var rec = me.grid.getView().getSelectionModel().getSelection()[0];
 					googleEvent(rec, me.func);
@@ -592,7 +579,7 @@ Ext.define('OCS.ActivityWindow', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -921,7 +908,7 @@ Ext.define('OCS.PayRollWindow', {
 Ext.define('OCS.ServicePayRollWindow', {
 	extend: 'OCS.ComplainWindow',
 	func : 'crm_service_payroll_list', 
-	title: 'Payments',
+	title: 'Төлөлт',
 	table: 'crm_service_payroll',
 	groupField: '',
 	sortField: '_date',
@@ -931,17 +918,51 @@ Ext.define('OCS.ServicePayRollWindow', {
 
 	initSource: function() {
 		var me = this;
+
 		me.defaultRec = {
 			data: {
 				id: '0',
 				crm_id:  me.selected.get('crm_id'),
 				service_id: me.selected.get('service_id'),
+				amount: me.selected.get('service_debt'),		
+				pay_type: 'cash',
+				pay_date: Ext.Date.format(new Date(),'Y-m-d'),
+				userCode: logged,				
+				promo_code: me.selected.get('promo_code'),
+				precent: me.selected.get('promo_precent'),
+				_date: Ext.Date.format(new Date(),'Y-m-d H:m:s')
+			}			
+		}
+
+		me.where = me.selected.get(me.values);
+	}
+});
+
+Ext.define('OCS.ChangePriceWindow', {
+	extend: 'OCS.ComplainWindow',
+	func : 'crm_changeprice_list', 
+	title: 'Үнийн-өөрчлөлт',
+	table: 'crm_changeprice',
+	groupField: '',
+	sortField: '_date',
+	values: 'crm_id',
+	modelName: 'CRM_CHANGEPRICE',
+	primary: 'id',
+
+	initSource: function() {
+		var me = this;
+		me.defaultRec = {
+			data: {
+				id: '0',
+				crm_id:  me.selected.get('crm_id'),
+				amount: 0,
+				change_date: Ext.Date.format(new Date(),'Y-m-d'),
 				userCode: logged,				
 				_date: Ext.Date.format(new Date(),'Y-m-d H:m:s')
 			}			
 		}
 
-		me.where = me.selected.get('service_id');
+		me.where = me.selected.get('crm_id');
 	}
 });
 
@@ -1035,14 +1056,14 @@ Ext.define('OCS.CaseStageWindow', {
 							xtype: 'combo',
 							fieldLabel: 'Resolution type',
 							valueField: 'value',
-							displayField: 'name',
+							displayField: 'value',
 							name: 'resolution_type',
 							allowBlank: false,
 							forceSelection: true,
 							queryMode: 'local',
 							store: Ext.create('Ext.data.Store', {
-							  model: 'CRM_PREV',
-							  data: [{value: 'calls',name:'Дуудлагын бүртгэл'},{value: 'information request',name:'Мэдээлэл хүссэн хүмүүсийн бүртгэл'},{value: 'complaints',name:'Санал гомдлын бүртгэл'},{value: 'information submitted', name:'Мэдээлэл хүргүүлсэн бүртгэл'},{value: 'problem solved', name: 'Problem solved'},{value: 'information provided', name: 'Information provided'},{value: 'other', name: 'Бусад'}] 
+							  model: 'CRM_ITEM',
+							  data: [{value: 'problem solved'},{value: 'information provided'}]
 							})
 						},							
 						{
@@ -1092,7 +1113,7 @@ Ext.define('OCS.CaseStageWindow', {
 				}
 			],
 			buttons: [{
-				text: 'Commit',
+				text: 'Илгээх',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -1189,7 +1210,7 @@ Ext.define('OCS.CaseAssignWindow', {
 				flex: 1 
 			}],
 			buttons: [{
-				text: 'Commit',
+				text: 'Илгээх',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -1209,7 +1230,7 @@ Ext.define('OCS.CaseAssignWindow', {
 							   }
 							});											
 						} else
-						  Ext.MessageBox.alert('Status', 'Not available !', function() {});
+						  Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 					}
 					else
 					  Ext.MessageBox.alert('Status', 'Invalid data !', function() {});
@@ -1286,7 +1307,7 @@ Ext.define('OCS.CustomerAssignWindow', {
 			}],
 			buttons: [{
 				iconCls: 'commit',
-				text: 'Commit',
+				text: 'Илгээх',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -1366,7 +1387,7 @@ Ext.define('OCS.DealAssignWindow', {
 			}],
 			buttons: [{
 				iconCls: 'commit',
-				text: 'Commit',
+				text: 'Илгээх',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -1443,11 +1464,17 @@ Ext.define('OCS.ServiceMultiAssignWindow', {
 			}],
 			buttons: [{
 				iconCls: 'commit',
-				text: 'Commit',
+				text: 'Илгээх',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
 						var values = form.getValues(true);
+						var owner = form.findField('owner').getValue();
+						if (owner.indexOf('@') == -1) {
+							 Ext.MessageBox.alert('Status', 'Хариуцагч буруу байна !', function() {});
+							 return;
+						}
+
 						values = form.findField('owner').getValue()+","+form.findField('selected').getValue()+","+form.findField('descr').getValue();
 								
 						Ext.Ajax.request({
@@ -1455,6 +1482,240 @@ Ext.define('OCS.ServiceMultiAssignWindow', {
 						   params: {handle: 'web', table: 'crm_services', action: 'update_services_owner', values: values},
 						   success: function(response, opts) {
 								views['services'].reload();
+								me.close();
+						   },
+						   failure: function(response, opts) {										   
+							  Ext.MessageBox.alert('Status', 'Error !', function() {});
+						   }
+						});											
+					}
+					else
+					  Ext.MessageBox.alert('Status', 'Invalid data !', function() {});
+				}
+			}]
+		});
+		
+		me.items = [me.form];		
+		me.callParent(arguments);
+	}
+});
+
+
+Ext.define('OCS.ServiceMultiAgreeWindow', {
+	extend: 'OCS.Window',
+	
+	title: 'Assign to',
+	maximizable: false,
+	height: 300,
+	width: 300,	
+
+	initComponent: function() {
+		var me = this;
+		me.title = 'Зөвшөөрөх ('+(me.ids.split(':').length-1)+' бичлэг)';
+		me.form = Ext.create('OCS.FormPanel', {
+			id : 'service_assign_to',				
+			title: 'Assign to',	
+			region: 'center',
+			hidden: false,
+			closable: false,
+			title: '',
+			items: [{
+				xtype: 'textfield',
+				fieldLabel: 'Selected '+me.direction,				
+				name: 'selected',
+				value: me.ids
+			},	
+			{
+			  xtype: 'combo',
+			  store: Ext.create('Ext.data.Store', {
+  				  model: 'CRM_PREV',
+ 				  data: [{value: 'receipt', name: 'Ирсэн'},{value: 'service', name: 'Олгосон'},{value: 'remind', name: 'Хойшлогдсон'},{value: 'closed', name: 'Хаагдсан'}]
+              }),
+			  name: 'service_stage',
+			  queryMode: 'local',
+			  value: 'service',
+		      displayField: 'name',
+			  valueField: 'value',
+			  triggerAction: 'all',
+			  value: 'service',
+			  fieldLabel: 'Үе шат',
+			  editable: false,
+			  listeners: {
+					'change': function(v) {
+						var form = this.up('form').getForm();
+						form.findField('remind_date').setVisible(v.getValue() == 'remind');
+					}
+			  }
+			},
+			{
+				xtype: 'datefield',
+				fieldLabel: 'Remind date',				
+				name: 'remind_date',
+				value: new Date(),
+				hidden: true,
+				format: 'Y-m-d'
+			},
+			{
+				xtype: 'searchcombo',
+				table: 'crm_users',
+				fieldLabel: 'Хариуцагч',				
+				allowBlank: false,
+				name: 'owner'
+			},	
+			{
+				xtype: 'textarea',
+				fieldLabel: 'Description',				
+				name: 'descr',
+				flex: 1,
+				empty: 'Note...'
+			},
+			{
+				xtype: 'textfield',
+				fieldLabel: 'Created by',				
+				name: 'userCode',
+				value: logged,
+				hidden: true,
+				readOnly: true
+			}],
+			buttons: [{
+				iconCls: 'commit',
+				text: 'Илгээх',
+				handler: function() {
+					var form = this.up('form').getForm();
+					if (form.isValid())	{
+						var owner = form.findField('owner').getValue();
+						if (owner.indexOf('@') == -1) {
+							 Ext.MessageBox.alert('Status', 'Хариуцагч буруу байна !', function() {});
+							 return;
+						}
+						var values = form.getValues(true);
+						values = form.findField('owner').getValue()+","+form.findField('selected').getValue()+","+form.findField('descr').getValue()+","+form.findField('service_stage').getValue();
+								
+						Ext.Ajax.request({
+						   url: 'avia.php',
+						   params: {handle: 'web', table: 'crm_services', action: 'update_services_next_stage', values: values},
+						   success: function(response, opts) {
+								views['services'].reload();
+								me.close();
+						   },
+						   failure: function(response, opts) {										   
+							  Ext.MessageBox.alert('Status', 'Error !', function() {});
+						   }
+						});											
+					}
+					else
+					  Ext.MessageBox.alert('Status', 'Invalid data !', function() {});
+				}
+			}]
+		});
+		
+		me.items = [me.form];		
+		me.callParent(arguments);
+	}
+});
+
+Ext.define('OCS.LogisticWindow', {
+	extend: 'OCS.Window',
+	
+	title: 'Ложистик',
+	maximizable: false,
+	height: 300,
+	width: 450,	
+
+	initComponent: function() {
+		var me = this;
+		me.form = Ext.create('OCS.FormPanel', {
+			id : 'logistic',				
+			title: '',	
+			region: 'center',
+			hidden: false,
+			closable: false,
+			title: '',
+			items: [{
+				xtype: 'textfield',
+				name: 'crm_id',
+				fieldLabel: 'CRM ID',
+				value: me.selected.get('crm_id')
+			},
+			{
+				xtype: 'textfield',
+				fieldLabel: 'Дугаар №',	
+				allowBlank: false,
+				name: 'subject'
+			},
+			{
+				xtype: 'searchcombo',
+				fieldLabel: 'Нийлүүлэгч',				
+				name: 'product_vendor',
+				editAble: false,
+				table: 'crm_products'				
+			},
+			{
+			  xtype: 'combo',
+			  store: Ext.create('Ext.data.Store', {
+  				  model: 'CRM_PREV',
+ 				  data: [{value: 'transit', name: 'Замд яваа'},{value: 'instock', name: 'Хүлээн авсан'},{value: 'remind', name: 'Хойшлогдсон'}]
+              }),
+			  name: 'service_stage',
+			  queryMode: 'local',
+			  value: me.selected.get('service_stage'),
+		      displayField: 'name',
+			  valueField: 'value',
+			  triggerAction: 'all',
+			  value: 'transit',
+			  fieldLabel: 'Үе шат',
+			  editable: false,
+			  listeners: {
+					'change': function(v) {
+						var form = this.up('form').getForm();
+						form.findField('remind_date').setVisible(v.getValue() == 'remind');
+					}
+			  }
+			},
+			{
+				xtype: 'datefield',
+				fieldLabel: 'Ирэх өдөр',				
+				name: 'closing_date',
+				value: new Date(),			
+				format: 'Y-m-d'
+			},
+			{
+				xtype: 'searchcombo',
+				table: 'crm_users',
+				fieldLabel: 'Хариуцагч',				
+				allowBlank: false,
+				value: logged,
+				name: 'owner'
+			},	
+			{
+				xtype: 'textarea',
+				fieldLabel: 'Тайлбар',				
+				name: 'descr',
+				flex: 1,
+				empty: 'Тайлбар...'
+			},
+			{
+				xtype: 'textfield',
+				fieldLabel: 'Created by',				
+				name: 'userCode',
+				value: logged,
+				hidden: true,
+				readOnly: true
+			}],
+			buttons: [{
+				iconCls: 'commit',
+				text: 'Илгээх',
+				handler: function() {
+					var form = this.up('form').getForm();
+					if (form.isValid())	{
+						var values = form.getValues(true);
+						values = "crm_id="+form.findField('crm_id').getValue()+"&subject="+form.findField('subject').getValue()+"&owner="+form.findField('owner').getValue()+"&descr="+form.findField('descr').getValue()+"&service_stage="+form.findField('service_stage').getValue()+"&closing_date="+Ext.Date.format(form.findField('closing_date').getValue(),'Y-m-d')+"&userCode="+form.findField('userCode').getValue()+"&product_vendor="+form.findField('product_vendor').getValue();
+								
+						Ext.Ajax.request({
+						   url: 'avia.php',
+						   params: {handle: 'web', table: 'crm_services', action: 'insert', values: values},
+						   success: function(response, opts) {			
+							    Ext.MessageBox.alert('Status', 'Амжилттай !', function() {});
 								me.close();
 						   },
 						   failure: function(response, opts) {										   
@@ -1524,7 +1785,7 @@ Ext.define('OCS.CampaignActivityAssignWindow', {
 			}],
 			buttons: [{
 				iconCls: 'commit',
-				text: 'Commit',
+				text: 'Илгээх',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -1595,7 +1856,7 @@ Ext.define('OCS.DealUndoWindow', {
 			}],
 			buttons: [{
 				iconCls: 'commit',
-				text: 'Commit',
+				text: 'Илгээх',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -1665,7 +1926,7 @@ Ext.define('OCS.ServiceUndoWindow', {
 			}],
 			buttons: [{
 				iconCls: 'commit',
-				text: 'Commit',
+				text: 'Илгээх',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -1737,7 +1998,7 @@ Ext.define('OCS.DealMoveWindow', {
 			}],
 			buttons: [{
 				iconCls: 'commit',
-				text: 'Commit',
+				text: 'Илгээх',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -1811,7 +2072,7 @@ Ext.define('OCS.DealProductMoveWindow', {
 			}],
 			buttons: [{
 				iconCls: 'commit',
-				text: 'Commit',
+				text: 'Илгээх',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -1880,7 +2141,7 @@ Ext.define('OCS.ResellerUndoWindow', {
 			}],
 			buttons: [{
 				iconCls: 'commit',
-				text: 'Commit',
+				text: 'Илгээх',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -1952,14 +2213,14 @@ Ext.define('OCS.CaseResolveWindow', {
 				xtype: 'combo',
 				fieldLabel: 'Resolution type',
 				valueField: 'value',
-				displayField: 'name',
+				displayField: 'value',
 				name: 'resolution_type',
 				allowBlank: false,
 				forceSelection: true,
 				queryMode: 'local',
 				store: Ext.create('Ext.data.Store', {
-				  model: 'CRM_PREV',
-				  data: [{value: 'calls',name:'Дуудлагын бүртгэл'},{value: 'information request',name:'Мэдээлэл хүссэн хүмүүсийн бүртгэл'},{value: 'complaints',name:'Санал гомдлын бүртгэл'},{value: 'information submitted', name:'Мэдээлэл хүргүүлсэн бүртгэл'},{value: 'problem solved', name: 'Problem solved'},{value: 'information provided', name: 'Information provided'},{value: 'other', name: 'Бусад'}] 
+				  model: 'CRM_ITEM',
+				  data: [{value: 'problem solved'},{value: 'information provided'}]
 				})
 			},{
 				xtype: 'textarea',
@@ -1971,7 +2232,7 @@ Ext.define('OCS.CaseResolveWindow', {
 				flex: 1 
 			}],
 			buttons: [{
-				text: 'Commit',
+				text: 'Илгээх',
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -2058,7 +2319,7 @@ Ext.define('OCS.MarkCompleteWindow', {
 				}
 			],
 			buttons: [{
-				text: 'Commit',
+				text: 'Илгээх',
 				iconCls: 'commit',
 				handler: function() {
 					var form = this.up('form').getForm();
@@ -2313,13 +2574,13 @@ Ext.define('OCS.ActivityDetailWindow', {
 			}],
 			buttons: [{
 				iconCls: 'delete',
-				text: 'Delete',				
+				text: 'Устгах',				
 				handler: function() {//fqD1S4
 					me.deleteActivity();
 				}
 			},'->',{
 				iconCls: 'calendar',
-				text: 'Calendar',				
+				text: 'Календар',				
 				handler: function() {
 					googleEventDynamic(me.selected);
 				}
@@ -2373,7 +2634,7 @@ Ext.define('OCS.ActivityDetailWindow', {
 	deleteActivity: function() {
 		var me = this;
 		if (me.selected.get('owner') != logged) {
-			Ext.MessageBox.alert('Error', 'Not available !', function() {});
+			Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 			return;
 		}
 		
@@ -2446,7 +2707,7 @@ Ext.define('OCS.ActivityDetailWindow', {
 		var me = this;
 		if (user_level != 3) {
 			if (!(me.selected.get('owner') == logged || me.selected.get('userCode') == logged)) {
-				Ext.MessageBox.alert('Error', 'Not available !', function() {});
+				Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				return;
 			}
 		}
@@ -2549,7 +2810,7 @@ Ext.define('OCS.ActivityDetailWindow', {
 	remindActivity: function() {
 		var me = this;
 		if (me.selected.get('owner') != logged) {
-			Ext.MessageBox.alert('Error', 'Not available !', function() {});
+			Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 			return;
 		}
 		
@@ -2583,7 +2844,7 @@ Ext.define('OCS.ActivityDetailWindow', {
 			   }
 			});
 		} else
-			Ext.MessageBox.alert('Status', 'Not available !', function() {});
+			Ext.MessageBox.alert('Status', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 	}
 });
 
@@ -2656,14 +2917,14 @@ Ext.define('OCS.CommissionWindow', {
 			}],
 			buttons: [{
 				iconCls: 'reset',
-				text: 'Reset',				
+				text: 'Арилгах',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					form.reset();
 				}
 			},{
 				iconCls: 'commit',
-				text: 'Commit',				
+				text: 'Илгээх',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					var values = form.getValues(true);
@@ -2783,14 +3044,14 @@ Ext.define('OCS.ServiceCommissionWindow', {
 			}],
 			buttons: [{
 				iconCls: 'reset',
-				text: 'Reset',				
+				text: 'Арилгах',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					form.reset();
 				}
 			},{
 				iconCls: 'commit',
-				text: 'Commit',				
+				text: 'Илгээх',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					var values = form.getValues(true);
@@ -2958,14 +3219,14 @@ Ext.define('OCS.DealAddProductWindow', {
 			}],
 			buttons: [{
 				iconCls: 'reset',
-				text: 'Reset',				
+				text: 'Арилгах',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					form.reset();
 				}
 			},{
 				iconCls: 'commit',
-				text: 'Commit',				
+				text: 'Илгээх',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					me.addProduct(form);
@@ -3071,6 +3332,9 @@ Ext.define('OCS.ServiceAddProductWindow', {
 				}
 			}
 		});
+		me.type = 'loan';
+		if (me.selected.get('service_stage') == 'return')		
+			me.type = 'back';
 
 		me.form = Ext.create('OCS.FormPanel', {
 			region: 'center',
@@ -3085,21 +3349,23 @@ Ext.define('OCS.ServiceAddProductWindow', {
 				disabled: true,
 				hidden: true,
 				allowBlank: false,
-				//value: me.selected.get('crm_id'),
+				value: me.selected.get('crm_id'),
 				name: 'crm_id'
 			},{
 				xtype: 'textfield',
 				fieldLabel: 'Product ID',
 				readOnly: true,
-				hidden: true,
+				value: (me.record ? me.record.get('product_id'):''),
 				name: 'product_id'
 			},{
 				xtype: 'warecombo',
-				fieldLabel: 'Warehoues',
-				name: 'warehouse_id'
+				fieldLabel: 'Агуулах',
+				name: 'warehouse_id',
+				disabled: (me.record ? true:false),
+				value: me.selected.get('warehouse_id')
 			},{
 				xtype: 'textfield',
-				fieldLabel: 'Product',
+				fieldLabel: 'Бүтээгдэхүүн',
 				readOnly: true,
 				name: 'product_name'
 			},{
@@ -3113,32 +3379,33 @@ Ext.define('OCS.ServiceAddProductWindow', {
 			},{
 				xtype: 'numberfield',
 				value: 0,
-				hidden: true,
-				fieldLabel: 'Precent',
+				fieldLabel: 'Хөнгө%',
 				name: 'precent'				
 			},{
 			  xtype: 'combo',
 			  store: Ext.create('Ext.data.Store', {
-				 model: 'CRM_ITEM',
-				 data: [{value: 'cash'},{value: 'loan'}]
+				 model: 'CRM_PREV',
+				 data: [{value: 'cash', name: 'Бэлнээр'},{value: 'loan', name: 'Зээлээр'},{value: 'plan', name: 'Зам яваа'},{value: 'back', name: 'Буцаалт'}]
 			  }),
-			  fieldLabel: 'Type',
-			  value: 'cash',
+			  fieldLabel: 'Төрөл',
+			  value: me.type,
+			  disabled: (((me.record && (me.record.get('type') == 'plan' || me.record.get('type'))) || (me.type == 'plan' || me.type == 'back')) ? true:false),
 			  name: 'type',
 			  queryMode: 'local',
-		      displayField: 'value',
+		      displayField: 'name',
 		      valueField: 'value',
 			  triggerAction: 'all',
 			  editable: false
 			},{
 				xtype: 'numberfield',
 				readOnly: true,
-				fieldLabel: 'Unit',
+				fieldLabel: 'Нэгж',
+				value: me.selected.get('unit_size'),
 				name: 'unit_size'
 			},{
 				xtype: 'numberfield',
-				value: 1,
-				fieldLabel: 'Pty',
+				value: 0,
+				fieldLabel: 'Хайрцагаар',
 				name: 'pty',
 				listeners: {
 					'change': function(v) {
@@ -3148,8 +3415,8 @@ Ext.define('OCS.ServiceAddProductWindow', {
 				}
 			},{
 				xtype: 'numberfield',
-				value: 1,
-				fieldLabel: 'Qty',
+				value: 0,
+				fieldLabel: 'Ширхэгээр',
 				name: 'qty',
 				listeners: {
 					'change': function(v) {
@@ -3164,7 +3431,7 @@ Ext.define('OCS.ServiceAddProductWindow', {
 			    allowNegative: true,
 				useThousandSeparator: true,
 		        currencySymbol:'₮',
-				fieldLabel: 'Price',
+				fieldLabel: 'Үнэ',
 				name: 'price',
 				listeners: {
 					'change': function(v) {
@@ -3180,7 +3447,7 @@ Ext.define('OCS.ServiceAddProductWindow', {
 				useThousandSeparator: true,
 		        currencySymbol:'₮',
 //				readOnly: true,
-				fieldLabel: 'Amount',
+				fieldLabel: 'Дүн',
 				name: 'amount' 
 			},{
 				xtype: 'textfield',
@@ -3197,14 +3464,14 @@ Ext.define('OCS.ServiceAddProductWindow', {
 			}],
 			buttons: [{
 				iconCls: 'reset',
-				text: 'Reset',				
+				text: 'Арилгах',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					form.reset();
 				}
 			},{
 				iconCls: 'commit',
-				text: 'Commit',				
+				text: 'Илгээх',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					me.addProduct(form);
@@ -3227,11 +3494,17 @@ Ext.define('OCS.ServiceAddProductWindow', {
 		
 		me.productList.grid.on('itemclick', function(dv, record, item, index, e) {
 				if (me.form) {
-					me.form.getForm().findField('price').setValue(record.get('price'));
-					me.form.getForm().findField('amount').setValue(record.get('price')*me.form.getForm().findField('qty').getValue());
+					var price = record.get(me.selected.get('pricetag'));
+					me.form.getForm().findField('price').setValue(price);
+					me.form.getForm().findField('amount').setValue(price*me.form.getForm().findField('qty').getValue());
 					me.form.getForm().findField('product_name').setValue(record.get('product_name'));	
 					me.form.getForm().findField('product_id').setValue(record.get('product_id'));
+					me.form.getForm().findField('warehouse_id').setValue(record.get('warehouse_id'));
 					me.form.getForm().findField('unit_size').setValue(record.get('unit_size'));
+					if (me.selected.get('pricetag') == 'price1' || me.selected.get('pricetag') == 'price3' || me.selected.get('pricetag') == 'price10')					
+						me.form.getForm().findField('precent').setValue(record.get('discount'));
+					else
+						me.form.getForm().findField('precent').setValue(0);
 				}				
 			}
 		);
@@ -3243,14 +3516,14 @@ Ext.define('OCS.ServiceAddProductWindow', {
 		var me = this;
 		var values = form.getValues(true);
 		if (!form.findField('product_name').getValue()) {
-			Ext.MessageBox.alert('Status', 'Please select a product !', function() {});
+			Ext.MessageBox.alert('Status', 'Мэдээлэл буруу байна !', function() {});
 			return;
 		}
 		
-		if (form.findField('precent').getValue() > 0 || form.findField('amount').getValue() > 0) {					
+		if (form.findField('precent').getValue() > 0 || form.findField('amount').getValue() > 0) {			
 			if (me.record && me.record.get('id')) {
 				var descr = form.findField('descr').getValue();
-				values = "warehouse_id="+form.findField('warehouse_id').getValue()+"&product_id="+form.findField('product_id').getValue()+"&product_name='"+form.findField('product_name').getValue()+"'&precent="+form.findField('precent').getValue()+"&pty="+form.findField('pty').getValue()+"&qty="+form.findField('qty').getValue()+"&price="+form.findField('price').getValue()+"&amount="+form.findField('amount').getValue()+"&type='"+form.findField('type').getValue()+"'";
+				values = "warehouse_id="+form.findField('warehouse_id').getValue()+"&product_id="+form.findField('product_id').getValue()+"&precent="+form.findField('precent').getValue()+"&pty="+form.findField('pty').getValue()+"&qty="+form.findField('qty').getValue()+"&price="+form.findField('price').getValue()+"&amount="+form.findField('amount').getValue()+"&type='"+form.findField('type').getValue();
 				Ext.Ajax.request({
 				   url: 'avia.php',
 				   params: {handle: 'web', table: 'crm_deal_products', action: 'update', values: values, where: 'id='+me.record.get('id')},
@@ -3264,7 +3537,16 @@ Ext.define('OCS.ServiceAddProductWindow', {
 				});	
 			} else {
 				var descr = form.findField('descr').getValue();
-				values = "warehouse_id="+form.findField('warehouse_id').getValue()+"&product_id="+form.findField('product_id').getValue()+"&service_id="+me.selected.get('service_id')+"&crm_id="+me.selected.get('crm_id')+"&product_name="+form.findField('product_name').getValue()+"&precent="+form.findField('precent').getValue()+"&pty="+form.findField('pty').getValue()+"&qty="+form.findField('qty').getValue()+"&price="+form.findField('price').getValue()+"&amount="+form.findField('amount').getValue()+"&type="+form.findField('type').getValue();
+				var product_id = form.findField('product_id').getValue();
+				var have = false;
+				me.backgrid.getStore().each(function(rec){
+					if (product_id == rec.get('product_id')) have = true;					
+				});
+				if (have) {
+					Ext.MessageBox.alert('Status', 'Уг барааг оруулсан байна !', function() {});
+					return;
+				}
+				values = "warehouse_id="+form.findField('warehouse_id').getValue()+"&product_id="+form.findField('product_id').getValue()+"&service_id="+me.selected.get('service_id')+"&crm_id="+me.selected.get('crm_id')+"&precent="+form.findField('precent').getValue()+"&pty="+form.findField('pty').getValue()+"&qty="+form.findField('qty').getValue()+"&price="+form.findField('price').getValue()+"&amount="+form.findField('amount').getValue()+"&type="+form.findField('type').getValue();
 				Ext.Ajax.request({
 				   url: 'avia.php',
 				   params: {handle: 'web', table: 'crm_deal_products', action: 'insert', values: values, where: ''},
@@ -3278,7 +3560,7 @@ Ext.define('OCS.ServiceAddProductWindow', {
 				});	
 			}
 		} else
-			 Ext.MessageBox.alert('Status', 'Amount is empty !', function() {});
+			 Ext.MessageBox.alert('Status', 'Дүн буруу байна !', function() {});
 	}
 });
 
@@ -3391,14 +3673,14 @@ Ext.define('OCS.StorageAddProductWindow', {
 			}],
 			buttons: [{
 				iconCls: 'reset',
-				text: 'Reset',				
+				text: 'Арилгах',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					form.reset();
 				}
 			},{
 				iconCls: 'commit',
-				text: 'Commit',				
+				text: 'Илгээх',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					me.addProduct(form);
@@ -3562,14 +3844,14 @@ Ext.define('OCS.DealAddCompetitorWindow', {
 			}],
 			buttons: [{
 				iconCls: 'reset',
-				text: 'Reset',				
+				text: 'Арилгах',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					form.reset();
 				}
 			},{
 				iconCls: 'commit',
-				text: 'Commit',				
+				text: 'Илгээх',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					var values = form.getValues(true);
@@ -3685,14 +3967,14 @@ Ext.define('OCS.ResellerCreateWindow', {
 			}],
 			buttons: [{
 				iconCls: 'reset',
-				text: 'Reset',				
+				text: 'Арилгах',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					form.reset();
 				}
 			},{
 				iconCls: 'commit',
-				text: 'Commit',				
+				text: 'Илгээх',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -3780,14 +4062,14 @@ Ext.define('OCS.AddToCampaignWindow', {
 			}],
 			buttons: [{
 				iconCls: 'reset',
-				text: 'Reset',				
+				text: 'Арилгах',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					form.reset();
 				}
 			},{
 				iconCls: 'commit',
-				text: 'Commit',				
+				text: 'Илгээх',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -3867,14 +4149,14 @@ Ext.define('OCS.ChangePasswordWindow', {
 			}],
 			buttons: [{
 				iconCls: 'reset',
-				text: 'Reset',				
+				text: 'Арилгах',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					form.reset();
 				}
 			},{
 				iconCls: 'commit',
-				text: 'Commit',				
+				text: 'Илгээх',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
@@ -4002,14 +4284,14 @@ Ext.define('OCS.PermissionWindow', {
 			}],
 			buttons: [{
 				iconCls: 'reset',
-				text: 'Reset',				
+				text: 'Арилгах',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					form.reset();
 				}
 			},{
 				iconCls: 'commit',
-				text: 'Commit',				
+				text: 'Илгээх',				
 				handler: function() {
 					var form = this.up('form').getForm();
                     if (form.isValid()){
@@ -4101,14 +4383,14 @@ Ext.define('OCS.AddNoteWindow', {
 			}],
 			buttons: [{
 				iconCls: 'reset',
-				text: 'Reset',				
+				text: 'Арилгах',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					form.reset();
 				}
 			},{
 				iconCls: 'commit',
-				text: 'Commit',				
+				text: 'Илгээх',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					if(form.isValid()){
@@ -4124,7 +4406,7 @@ Ext.define('OCS.AddNoteWindow', {
 								});
 							},
 							failure: function(form, action) {
-								
+								alert('failed');
 							}
 						});
 					}
@@ -4262,14 +4544,14 @@ Ext.define('OCS.CreateDealWindow', {
 			}],
 			buttons: [{
 				iconCls: 'reset',
-				text: 'Reset',				
+				text: 'Арилгах',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					form.reset();
 				}
 			},{
 				iconCls: 'commit',
-				text: 'Commit',				
+				text: 'Илгээх',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					if(form.isValid()){
@@ -4352,14 +4634,14 @@ Ext.define('OCS.ActivityUpdateWindow', {
 				}
 			},'->',{
 				iconCls: 'reset',
-				text: 'Reset',				
+				text: 'Арилгах',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					form.reset();
 				}
 			},{
 				iconCls: 'commit',
-				text: 'Commit',				
+				text: 'Илгээх',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					if(form.isValid()){
@@ -4548,14 +4830,14 @@ Ext.define('OCS.NewCaseWindow', {
 				}
 			},'->',{
 				iconCls: 'reset',
-				text: 'Reset',				
+				text: 'Арилгах',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					form.reset();
 				}
 			},{
 				iconCls: 'commit',
-				text: 'Commit',				
+				text: 'Илгээх',				
 				handler: function() {
 					var form = this.up('form').getForm();
 					if(form.isValid()){
@@ -4565,13 +4847,12 @@ Ext.define('OCS.NewCaseWindow', {
 						   params: {handle: 'web', table: 'crm_complain', action: 'insert', values: values, where: ''},
 						   success: function(response, opts) {							  							  
 							   views['cases'].reload();
-							   me.close();
 						   },
 						   failure: function(response, opts) {										   
 							  Ext.MessageBox.alert('Status', 'Error !', function() {});
 						   }
 						});
-									
+												
 						me.close();
 					}
 				}
@@ -4607,13 +4888,13 @@ Ext.define('OCS.GMapWindow', {
 			buttons : ['->',
 				{
 					iconCls: 'commit',
-					text: 'Commit',
+					text: 'Илгээх',
 					handler: function() {
 					}
 				},
 				{
 					iconCls: 'reset',
-					text: 'Reset',
+					text: 'Арилгах',
 					handler: function() {
 					}
 				}
@@ -4659,7 +4940,7 @@ Ext.define('OCS.RiskResultWindow', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'help',
-				text: 'Help',
+				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
 						id: me.func
@@ -4824,7 +5105,7 @@ Ext.define('OCS.ScatterWindow', {
 
 Ext.define('OCS.UrgencyWindow', {
 	extend: 'OCS.Window',
-	title: 'Urgency & Importance window',
+	title: 'Urgency & Импортance window',
 	maximizable: true,
 	height: 700,
 	modal: false,
@@ -4883,7 +5164,7 @@ Ext.define('OCS.UrgencyWindow', {
 				position: 'bottom',
 				fields: ['priority'],
 				grid: true,
-				title: 'Importance'
+				title: 'Импортance'
 			}],
             series: [{
 				type: 'scatter',

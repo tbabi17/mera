@@ -2881,7 +2881,7 @@ Ext.define('OCS.ServiceView', {
 					service_stage = me.grid.getView().getSelectionModel().getSelection()[0].get('service_stage');
 					subject = me.grid.getView().getSelectionModel().getSelection()[0].get('subject');
 					pricetag = me.grid.getView().getSelectionModel().getSelection()[0].get('pricetag');
-					date = me.grid.getView().getSelectionModel().getSelection()[0].get('_date').split(' ')[0];
+					date = me.grid.getView().getSelectionModel().getSelection()[0].get('_date').split(' ')[0]; 
 
 					if (service_stage == 'service') {
 						if (userCode == 'amarjargal@cosmo')												

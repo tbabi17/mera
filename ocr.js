@@ -5549,7 +5549,7 @@ Ext.define('OCS.Dashboard', {
 						menu: {
 							xtype: 'menu',
 							items: [{
-								text: 'Одоогийн мэдээ',
+								text: 'Одоогийн байршил',
 								handler: function() {
 									me.charts[4].initload(me.today());
 								}

@@ -3614,10 +3614,11 @@ Ext.define('OCS.StorageAddProductWindow', {
 			},{
 				xtype: 'warecombo',
 				fieldLabel: 'Source',
+				hidden: true,
 				name: 'source_warehouse_id'				
 			},{
 				xtype: 'textfield',
-				fieldLabel: 'Ware house',
+				fieldLabel: 'Агуулахын нэр',
 				readOnly: true,
 				name: 'warehouse_name',
 				value: me.selected.get('name')
@@ -3650,13 +3651,13 @@ Ext.define('OCS.StorageAddProductWindow', {
 			},{
 				xtype: 'numberfield',
 				value: 0,
-				fieldLabel: 'Unit size',
+				fieldLabel: 'Нэгж',
 				readOnly: true,
 				name: 'unit_size'				
 			},{
 				xtype: 'numberfield',
 				value: 0,
-				fieldLabel: 'Qty',
+				fieldLabel: 'Тоо',
 				name: 'qty'				
 			},{
 				xtype: 'textfield',

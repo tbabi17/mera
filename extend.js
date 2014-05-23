@@ -1172,7 +1172,7 @@ Ext.define('OCS.UserGridWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'key',
-				text: 'Change password ...',
+				text: 'Нууц үг өөрчлөх ...',
 				handler: function(widget, event) {
 					if (me.recordSelected())
 						new OCS.ChangePasswordWindow({
@@ -1183,7 +1183,7 @@ Ext.define('OCS.UserGridWithFormPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'case_grid',
-				text: 'Permission ...',
+				text: 'Эрхийн зохицуулалт ...',
 				disabled: (user_level < 2),
 				handler: function(widget, event) {
 					if (me.recordSelected())
@@ -1202,7 +1202,7 @@ Ext.define('OCS.UserGridWithFormPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'backup',
-				text: 'Backup...',
+				text: 'Нөөц авах...',
 				handler: function(widget, event) {
 					Ext.getBody().mask('Backup processing...');
 					Ext.Ajax.request({

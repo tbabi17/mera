@@ -3263,7 +3263,7 @@ Ext.define('OCS.DealAddProductWindow', {
 		var me = this;
 		var values = form.getValues(true);
 		if (!form.findField('product_name').getValue()) {
-			Ext.MessageBox.alert('Status', 'Please select a product !', function() {});
+			Ext.MessageBox.alert('Status', 'Бараа сонгоно уу !', function() {});
 			return;
 		}
 		
@@ -3718,7 +3718,7 @@ Ext.define('OCS.StorageAddProductWindow', {
 		var me = this;
 		var values = form.getValues(true);
 		if (!form.findField('product_name').getValue()) {
-			Ext.MessageBox.alert('Status', 'Please select a product !', function() {});
+			Ext.MessageBox.alert('Status', 'Бараа сонгоно уу !', function() {});
 			return;
 		}
 		/*
@@ -3857,7 +3857,7 @@ Ext.define('OCS.DealAddCompetitorWindow', {
 					var form = this.up('form').getForm();
 					var values = form.getValues(true);
 					if (!form.findField('competitor_name').getValue()) {
-						Ext.MessageBox.alert('Status', 'Please select a competitor !', function() {});
+						Ext.MessageBox.alert('Status', 'Өрсөлдөгч сонгоно уу !', function() {});
 						return;
 					}
 

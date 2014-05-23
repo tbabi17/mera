@@ -1401,7 +1401,6 @@ Ext.define('OCS.StorageGridWithFormPanel', {
 	loadStore: function(selected) {
 		var me = this;
 		me.selected = selected;
-		me.where = '1';
 		if (me.selected)		
 			me.where = me.selected.get('warehouse_id');
 		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where};

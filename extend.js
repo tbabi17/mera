@@ -1412,7 +1412,7 @@ Ext.define('OCS.StorageGridWithFormPanel', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls   : 'add',
-				text: 'Нэмэх...',
+				text: 'Орлогодох/Зарлагадах...',
 				disabled: me.insert,
 				handler: function(widget, event) {
 					if (me.selected)
@@ -1423,15 +1423,7 @@ Ext.define('OCS.StorageGridWithFormPanel', {
 					else
 						Ext.MessageBox.alert('Status', 'Та агуулах сонгоно уу !', function() {});
 				}
-			}),			
-			Ext.create('Ext.Action', {
-				iconCls   : 'delete',
-				text: 'Хасах',
-				disabled: me.remove,
-				handler: function(widget, event) {
-					me.deleteRecord();
-				}
-			}),
+			}),						
 			'-',			
 			Ext.create('Ext.Action', {
 				iconCls   : 'import',

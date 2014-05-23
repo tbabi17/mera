@@ -3624,7 +3624,7 @@ Ext.define('OCS.StorageAddProductWindow', {
 				value: me.selected.get('name')
 			},{
 				xtype: 'textfield',
-				fieldLabel: 'Product',
+				fieldLabel: 'Бараа',
 				readOnly: true,
 				name: 'product_name'
 			},{

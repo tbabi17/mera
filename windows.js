@@ -3546,7 +3546,7 @@ Ext.define('OCS.ServiceAddProductWindow', {
 					Ext.MessageBox.alert('Status', 'Уг барааг оруулсан байна !', function() {});
 					return;
 				}
-				values = "warehouse_id="+form.findField('warehouse_id').getValue()+"&product_id="+form.findField('product_id').getValue()+"&service_id="+me.selected.get('service_id')+"&crm_id="+me.selected.get('crm_id')+"&precent="+form.findField('precent').getValue()+"&pty="+form.findField('pty').getValue()+"&qty="+form.findField('qty').getValue()+"&price="+form.findField('price').getValue()+"&amount="+form.findField('amount').getValue()+"&type="+form.findField('type').getValue();
+				values = "warehouse_id="+form.findField('warehouse_id').getValue()+"&product_id="+form.findField('product_id').getValue()+"&service_id="+me.selected.get('service_id')+"&crm_id="+me.selected.get('crm_id')+"&precent="+form.findField('precent').getValue()+"&pty="+form.findField('pty').getValue()+"&qty="+form.findField('qty').getValue()+"&price="+form.findField('price').getValue()+"&amount="+form.findField('amount').getValue()+"&type="+form.findField('type').getValue()+"&descr="+me.selected.get('subject')+"&userCode="+me.selected.get('userCode');
 				Ext.Ajax.request({
 				   url: 'avia.php',
 				   params: {handle: 'web', table: 'crm_deal_products', action: 'insert', values: values, where: ''},

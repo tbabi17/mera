@@ -3735,7 +3735,7 @@ Ext.define('OCS.StorageAddProductWindow', {
 		if (form.findField('qty').getValue() > 0) {								
 			var descr = form.findField('descr').getValue();
 			var pty = form.findField('qty').getValue()/form.findField('unit_size').getValue();
-			values = "qty="+form.findField('qty').getValue()+"&type=0&pty="+pty+"&price=0&warehouse_id="+form.findField('warehouse_id').getValue()+"&product_id="+form.findField('product_id').getValue()+"&crm_id=0&owner="+logged+"&amount=0&descr="+descr;
+			values = "qty="+form.findField('qty').getValue()+"&type=0&pty="+pty+"&price=0&product_id="+form.findField('product_id').getValue()+"&crm_id=0&warehouse_id="+form.findField('warehouse_id').getValue()+"&owner="+logged+"&amount=0&descr="+descr;
 			Ext.Ajax.request({
 			   url: 'avia.php',
 			   params: {handle: 'web', func: 'crm_finance_fun', table: 'storage', action: 'balance', values: values, where: ''},
@@ -3747,7 +3747,7 @@ Ext.define('OCS.StorageAddProductWindow', {
 			   }
 			});	
 			
-			values = "qty=-"+form.findField('qty').getValue()+"&type=0&pty="+pty+"&price=0&warehouse_id="+form.findField('source_warehouse_id').getValue()+"&product_id="+form.findField('product_id').getValue()+"&crm_id=0&owner="+logged+"&amount=0&descr="+descr;
+			values = "qty=-"+form.findField('qty').getValue()+"&type=0&pty="+pty+"&price=0&product_id="+form.findField('product_id').getValue()+"&crm_id=0&warehouse_id="+form.findField('source_warehouse_id').getValue()+"&owner="+logged+"&amount=0&descr="+descr;
 			Ext.Ajax.request({
 			   url: 'avia.php',
 			   params: {handle: 'web', func: 'crm_finance_fun', table: 'storage', action: 'balance', values: values, where: ''},

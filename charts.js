@@ -1273,7 +1273,7 @@ Ext.define('OCS.MapOnline', {
 					var size = 24;
 					var dt = renderCreatedDate(rec.data['_date']);
 					var url = 'images/greendot.png';
-					if (dt.indexOf('минут') == -1 || dt.indexOf('дөнгөж') == -1) {
+					if (dt.indexOf('дөнгөж') == -1) {
 							url = 'images/greendot.png';
 							size = 16;
 					}

@@ -2876,7 +2876,7 @@ Ext.define('OCS.ServiceView', {
 				text: 'Хэвлэх ...',
 				handler: function(widget, event) {
 					crm_id = me.grid.getView().getSelectionModel().getSelection()[0].get('crm_id');
-					owner = me.grid.getView().getSelectionModel().getSelection()[0].get(logged.indexOf('cosmo') != -1 ?'owner':'userCode');
+					owner = me.grid.getView().getSelectionModel().getSelection()[0].get('owner');
 					userCode = me.grid.getView().getSelectionModel().getSelection()[0].get('userCode');
 					service_stage = me.grid.getView().getSelectionModel().getSelection()[0].get('service_stage');
 					subject = me.grid.getView().getSelectionModel().getSelection()[0].get('subject');
@@ -2886,13 +2886,17 @@ Ext.define('OCS.ServiceView', {
 					if (service_stage == 'service') {
 						if (userCode == 'amarjargal@cosmo')												
 							window.open('http://'+ip+'/invzahon/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
-						else
-							window.open('http://'+ip+'/invms/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
+						else {
+							if (logged.indexOf('cosmo') != -1)
+								window.open('http://'+ip+'/invms/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
+							else
+								window.open('http://'+ip+'/invms/?values='+userCode+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
+						}
 					}
 					else
 					if (service_stage == 'inret') {
 						window.open('http://'+ip+'/invbs/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,''); 
-					}					
+					}
 				}
 			}),
 			Ext.create('Ext.Action', {

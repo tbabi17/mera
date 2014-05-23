@@ -1274,7 +1274,7 @@ Ext.define('OCS.MapOnline', {
 					var dt = renderCreatedDate(rec.data['_date']);
 					var url = 'images/greendot.png';
 					if (dt.indexOf('минут') == -1 || dt.indexOf('дөнгөж') == -1) {
-							url = 'images/greedot.png';
+							url = 'images/greendot.png';
 							size = 16;
 					}
 

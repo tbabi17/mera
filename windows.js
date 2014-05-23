@@ -3732,7 +3732,7 @@ Ext.define('OCS.StorageAddProductWindow', {
 		v[7] - amount
 		v[8] - descr
 		*/
-		if (form.isValid()) {								
+		if (form.findField('qty').getValue() != 0) {								
 			var descr = form.findField('descr').getValue();
 			var pty = form.findField('qty').getValue()/form.findField('unit_size').getValue();
 			values = "qty="+form.findField('qty').getValue()+"&type=0&pty="+pty+"&price=0&product_id="+form.findField('product_id').getValue()+"&crm_id=0&warehouse_id="+form.findField('warehouse_id').getValue()+"&owner="+logged+"&amount=0&descr="+descr;

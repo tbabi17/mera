@@ -1421,7 +1421,7 @@ Ext.define('OCS.StorageGridWithFormPanel', {
 							backgrid: me.grid
 						}).show();
 					else
-						Ext.MessageBox.alert('Status', 'You must select a ware house !', function() {});
+						Ext.MessageBox.alert('Status', 'Та агуулах сонгоно уу !', function() {});
 				}
 			}),			
 			Ext.create('Ext.Action', {

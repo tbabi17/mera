@@ -1238,7 +1238,7 @@ Ext.define('OCS.MapOnline', {
 		me.items = [me.map];
 
 		setTimeout(function() {
-			 me.reload(me.today());
+			 me.initload(me.today());
 		}, 2000);
 
 		me.callParent(arguments);
@@ -1251,12 +1251,31 @@ Ext.define('OCS.MapOnline', {
 				me.markers[i].setMap(null);
 			}
 		}	
-
-		//me.map.getMap().clearOverlays();
-
-		me.markers = [];
+		me.markers = [];		
 		me.polylines = [];
+
+		if (me.overlay) {		
+			for (i = 0; i < me.overlay.length; i++) {
+				me.overlay[i].setMap(null);
+			}
+		}	
+		
 		me.overlay = [];
+	},
+	
+	initload: function(start) {
+		var me = this;			
+		me.start = start;
+		end = new Date(start);
+		end.setDate(end.getDate()+1);
+		end = Ext.Date.format(end, 'Y-m-d');
+		i = 0;
+		me.removeMarkers();
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_gps_last_list', sort:'_date', dir: 'asc', start_date: start, end_date: end, values: me.values, where: me.where};
+		me.store.load({callback: function() {			
+				me.put(false);				
+			}
+		});
 	},
 
 	reload: function(start) {
@@ -1269,77 +1288,91 @@ Ext.define('OCS.MapOnline', {
 		me.removeMarkers();
 		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_gps_list', sort:'_date', dir: 'asc', start_date: start, end_date: end, values: me.values, where: me.where};
 		me.store.load({callback: function() {			
-				me.store.each(function(rec){
-					var size = 24;
-					var dt = renderCreatedDate(rec.data['_date']);
-					var url = 'images/greendot.png';
-					if (dt.indexOf('дөнгөж') == -1) {
-							url = 'images/greendot.png';
-							size = 16;
-					}
-
-					if (i == me.store.getCount() - 1) {
-							url = 'images/users/'+rec.data['owner']+'.jpg';
-							size = 24;
-					}
-
-					var icon = new google.maps.MarkerImage(	    		
-						url,
-						new google.maps.Size(size, size), //size
-						new google.maps.Point(0,0), //origin
-						new google.maps.Point(size/2, size),
-						new google.maps.Size(size, size)//scale 
-					);
-					
-
-					var marker = {
-						lat: rec.data['lat'],
-						lng: rec.data['lng'],					
-						title: rec.data['owner'],			
-						_date: rec.data['_date'],
-						icon: icon,
-						listeners: {
-							'click': function(m) {
-								var dt = renderCreatedDate(this._date);
-								me.infowindow.setContent(this.title+'</br>'+dt);
-								me.infowindow.open(me.map.gmap, this);
-							}
-						}
-					};		
-					
-					me.polylines.push(new google.maps.LatLng(rec.data['lat'], rec.data['lng']));
-					
-					if (me.polylines.length == 2) {		
-						var lineSymbol = {
-						   path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
-						};
-
-						me.flightPath = new google.maps.Polyline({
-							path: me.polylines,
-							geodesic: true,
-							strokeColor: '#ff6633',
-							strokeOpacity: 1.0,
-							icons: [{
-							  icon: lineSymbol,
-							  offset: '50%'
-							}],
-							strokeWeight: 2
-						});
-
-						me.flightPath.setMap(me.map.gmap);
-						me.overlay.push(me.flightPath);
-						me.polylines.splice(0, 1);
-						me.lineCount++;
-					}
-
-					me.infowindow = new google.maps.InfoWindow({
-						content: rec.data['owner']+'</br>'+renderCreatedDate(rec.data['_date'])
-					});
-
-					me.markers.push(me.map.addMarker(marker));
-				});					
+				me.put(true);				
 			}
 		});
+	},
+
+	put: function(link) {
+		var me = this;
+		me.store.each(function(rec){
+			var size = 24;
+			var dt = renderCreatedDate(rec.data['_date']);
+			var url = 'images/greendot.png';
+			if (dt.indexOf('дөнгөж') == -1) {
+					url = 'images/greendot.png';
+					size = 16;
+			}
+
+			if (i == me.store.getCount() - 1) {
+				url = 'images/users/'+rec.data['owner']+'.png';
+				size = 32;
+			}
+
+			if (link == false)
+			{
+				url = 'images/users/'+rec.data['owner']+'.png';
+				size = 32;
+			}
+
+			var icon = new google.maps.MarkerImage(	    		
+				url,
+				new google.maps.Size(size, size), //size
+				new google.maps.Point(0,0), //origin
+				new google.maps.Point(size/2, size),
+				new google.maps.Size(size, size)//scale 
+			);
+			
+
+			var marker = {
+				lat: rec.data['lat'],
+				lng: rec.data['lng'],					
+				title: rec.data['owner'],			
+				_date: rec.data['_date'],
+				icon: icon,
+				listeners: {
+					'click': function(m) {
+						var dt = renderCreatedDate(this._date);
+						me.infowindow.setContent(this.title+'</br>'+dt);
+						me.infowindow.open(me.map.gmap, this);
+					}
+				}
+			};		
+			
+			if (link)
+			{			
+				me.polylines.push(new google.maps.LatLng(rec.data['lat'], rec.data['lng']));
+				
+				if (me.polylines.length == 2) {		
+					var lineSymbol = {
+					   path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
+					};
+
+					me.flightPath = new google.maps.Polyline({
+						path: me.polylines,
+						geodesic: true,
+						strokeColor: '#ff6633',
+						strokeOpacity: 1.0,
+						icons: [{
+						  icon: lineSymbol,
+						  offset: '50%'
+						}],
+						strokeWeight: 2
+					});
+
+					me.flightPath.setMap(me.map.gmap);
+					me.overlay.push(me.flightPath);
+					me.polylines.splice(0, 1);
+					me.lineCount++;
+				}
+			}
+
+			me.infowindow = new google.maps.InfoWindow({
+				content: rec.data['owner']+'</br>'+renderCreatedDate(rec.data['_date'])
+			});
+
+			me.markers.push(me.map.addMarker(marker));
+		});	
 	},
 
 	today: function() {

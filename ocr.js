@@ -5549,6 +5549,11 @@ Ext.define('OCS.Dashboard', {
 						menu: {
 							xtype: 'menu',
 							items: [{
+								text: 'Одоогийн мэдээ',
+								handler: function() {
+									me.charts[4].initload(me.today());
+								}
+							},'-',{
 								text: 'Шүүлтүүр',
 								handler: function() {
 									me.charts[4].createWindow();

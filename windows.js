@@ -3759,7 +3759,7 @@ Ext.define('OCS.StorageAddProductWindow', {
 			   }
 			});	
 		} else
-			 Ext.MessageBox.alert('Status', 'Qty is empty !', function() {});
+			 Ext.MessageBox.alert('Status', 'Тоогоо оруулна уу !', function() {});
 	}
 });
 

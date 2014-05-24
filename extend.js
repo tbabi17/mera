@@ -1,3 +1,5 @@
+var product_sort_field = '_date';
+
 Ext.define('OCS.Module', {
 	modelName: '',
 	remoteSort : true,
@@ -1486,6 +1488,7 @@ Ext.define('OCS.ProductGridWithFormPanel', {
 	buttons: !(user_level==0),
 	feature: true,
 	merge: true,
+	sortField: product_sort_field,
 	insert: (user_level==0),
 	remove: (user_level==0),	
 	defaultRec: {

@@ -1047,8 +1047,8 @@ fields['CRM_REPORT_CUSTOMER_FIELDS'] = [
    {name: 'crm_id', text: 'ID', width: 50, hidden: true}, 
    {name: 'crm_name', text: 'Харилцагч', width: 250}, 
    {name: 'first', text: 'Эхний үлдэгдэл', type:'float',  width: 110, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
-   {name: 'amount1', align: 'right', type:'float', text: 'Хүнс', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
-   {name: 'amount2', align: 'right', type:'float', text: 'Гоо сайхан', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'amount1', align: 'right', type:'float', text: ware_text[0], width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'amount2', align: 'right', type:'float', text: ware_text[1], width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
    {name: 'amount', align: 'right', type:'float', text: 'Нийт', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
    {name: 'paid', text: 'Төлсөн', type:'float',  width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
    {name: 'ret', text: 'Буцаалт', type:'float',  width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
@@ -1096,9 +1096,9 @@ fields['CRM_REPORT_STORAGE_DAILY_FIELDS'] = [
    {name: 'sales', type: 'float', width: 85, text: 'Борлуулалт', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
    {name: 'promo', type: 'float', width: 85, text: 'Урамшуулал', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
    
-   {name: 'bm3', type: 'float', width: 85, text: 'BM3', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-   {name: 'bm4', type: 'float', width: 85, text: 'BM4', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-   {name: 'shop', type: 'float', width: 85, text: 'Shop', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'bm3', type: 'float', width: 85, text: ware_text[2], width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'bm4', type: 'float', width: 85, text: ware_text[3], width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'shop', type: 'float', width: 85, text: ware_text[4], width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
    {name: 'last', type: 'float', width: 85, text: 'Эцсийн үлдэгдэл', width: 120, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
 
    {name: 'total', type: 'float', width: 85, text: 'Нийт үлдэгдэл', width: 110, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber}

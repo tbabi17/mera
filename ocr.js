@@ -2690,6 +2690,13 @@ Ext.define('OCS.ServiceView', {
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
+							text: 'Амжилтгүй',
+							handler: function(widget, event) {
+								me.filterData('Failed Services');
+							}
+						}),
+						Ext.create('Ext.Action', {
+							icon   : '',  
 							text: 'Хойшлогдсон',
 							handler: function(widget, event) {
 								me.filterData('Reminded Services');

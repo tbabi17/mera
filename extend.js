@@ -1,6 +1,5 @@
 var product_sort_field = '_date';
 
-
 Ext.define('OCS.Module', {
 	modelName: '',
 	remoteSort : true,

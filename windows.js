@@ -3307,7 +3307,7 @@ Ext.define('OCS.ServiceAddProductWindow', {
 	maximizable: true,
 	height: 400,
 	modal: false,
-	width: 850,	
+	width: 950,	
 	modal: true,	
 		
 	initComponent: function() {

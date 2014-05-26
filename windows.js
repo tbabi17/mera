@@ -317,7 +317,8 @@ Ext.define('OCS.NewServiceWindow', {
 				service_stage: me.service_stage,
 				service_revenue: '0',
 				campaign: me.selected.get('campaign'),
-				pricetag: me.selected.get('pricetag')
+				pricetag: me.selected.get('pricetag'),
+				warehouse_id: warehouse_id
 			}			
 		}
 

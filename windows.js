@@ -3405,7 +3405,6 @@ Ext.define('OCS.ServiceAddProductWindow', {
 				value: me.selected.get('unit_size'),
 				name: 'unit_size'
 			},{
-				id: 'pty',
 				xtype: 'numberfield',
 				value: 0,				
 				fieldLabel: 'Хайрцагаар',

@@ -3404,14 +3404,18 @@ Ext.define('OCS.ServiceAddProductWindow', {
 				name: 'unit_size'
 			},{
 				xtype: 'numberfield',
-				value: 0,
+				value: 0,				
 				fieldLabel: 'Хайрцагаар',
 				name: 'pty',
+				hasfocus:true,
 				listeners: {
 					'change': function(v) {
 						var form = this.up('form').getForm();
 						form.findField('qty').setValue(v.getValue()*form.findField('unit_size').getValue());
-					}
+					},
+					afterrender: function(field) {
+			            field.focus();
+			        }
 				}
 			},{
 				xtype: 'numberfield',

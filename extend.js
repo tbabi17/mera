@@ -1398,7 +1398,7 @@ Ext.define('OCS.WareHouseProductGridWithFormPanel', {
 	loadStore: function(selected) {
 		var me = this;
 		me.selected = selected;
-		if (me.selected)		
+		if (me.selected)	
 			me.where = me.selected.get('warehouse_id');
 		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where};
 		me.store.loadPage(1);

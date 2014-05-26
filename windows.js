@@ -3323,6 +3323,7 @@ Ext.define('OCS.ServiceAddProductWindow', {
 			feature: false,
 			tbar: false,
 			title: '',
+			where: me.selected.get('warehouse_id'),
 			insert: (user_level==0),
 			remove: (user_level==0),	
 			defaultRec: {

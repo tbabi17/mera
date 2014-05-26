@@ -3313,7 +3313,7 @@ Ext.define('OCS.ServiceAddProductWindow', {
 	initComponent: function() {
 		var me = this;				
 		
-		me.productList = new Ext.create('OCS.GridWithFormPanel', {
+		me.productList = new Ext.create('OCS.WareHouseProductGridWithFormPanel', {
 			modelName:'CRM_PRODUCT',
 			func:'crm_product_list',
 			title: 'Products',

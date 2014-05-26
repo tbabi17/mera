@@ -1379,6 +1379,33 @@ Ext.define('OCS.WareHouseGridWithFormPanel', {
 	}
 });
 
+Ext.define('OCS.WareHouseProductGridWithFormPanel', {	
+	extend: 'OCS.GridWithFormPanel',	
+	values: 'warehouse_id',
+	buttons: !(user_level==0),
+	feature: true,
+	merge: true,
+	insert: (user_level==0),
+	remove: (user_level==0),	
+	xlsName: 'Storage',
+	defaultRec: {
+		data: {
+			warehouse_id: '0',
+			_date: Ext.Date.format(new Date(),'Y-m-d h:m:s')
+		}
+	},
+	
+	loadStore: function(selected) {
+		var me = this;
+		me.selected = selected;
+		if (me.selected)		
+			me.where = me.selected.get('warehouse_id');
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where};
+		me.store.loadPage(1);
+	}
+});
+
+
 Ext.define('OCS.StorageGridWithFormPanel', {	
 	extend: 'OCS.GridWithFormPanel',	
 	modelName:'CRM_STORAGE',

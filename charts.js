@@ -1344,8 +1344,8 @@ Ext.define('OCS.MapOnline', {
 							var dt = renderCreatedDate(this._date);
 							v = this.title;
 							if (v.indexOf(' ') != -1) {
-								v = rec.data['owner'].substring(0, rec.data['owner'].indexOf(' '))+'</br>Дүн:'+
-									renderMoney(rec.data['owner'].substring(rec.data['owner'].lastIndexOf(' ')+1, rec.data['owner'].length));
+								v = rec.data['owner'].substring(0, rec.data['owner'].indexOf(';'))+'</br>Дүн:'+
+									renderMoney(rec.data['owner'].substring(rec.data['owner'].lastndexOf(';')+1, rec.data['owner'].length));
 							}
 
 							me.infowindow.setContent(v+'</br>'+dt);
@@ -1384,8 +1384,8 @@ Ext.define('OCS.MapOnline', {
 				
 				v = rec.data['owner'];
 				if (rec.data['owner'].indexOf(' ') != -1) {
-					v = rec.data['owner'].substring(0, rec.data['owner'].indexOf(' '))+' '+
-						renderMoney(rec.data['owner'].substring(rec.data['owner'].lastIndexOf(' ')+1, rec.data['owner'].length));
+					v = rec.data['owner'].substring(0, rec.data['owner'].indexOf(';'))+' '+
+						renderMoney(rec.data['owner'].substring(rec.data['owner'].indexOf(';')+1, rec.data['owner'].length));
 				}
 				
 				me.infowindow = new google.maps.InfoWindow({

@@ -3405,6 +3405,7 @@ Ext.define('OCS.ServiceAddProductWindow', {
 				value: me.selected.get('unit_size'),
 				name: 'unit_size'
 			},{
+				id: 'pty',
 				xtype: 'numberfield',
 				value: 0,				
 				fieldLabel: 'Хайрцагаар',
@@ -3414,10 +3415,7 @@ Ext.define('OCS.ServiceAddProductWindow', {
 					'change': function(v) {
 						var form = this.up('form').getForm();
 						form.findField('qty').setValue(v.getValue()*form.findField('unit_size').getValue());
-					},
-					afterrender: function(field) {
-			            field.focus();
-			        }
+					}
 				}
 			},{
 				xtype: 'numberfield',
@@ -3511,6 +3509,8 @@ Ext.define('OCS.ServiceAddProductWindow', {
 						me.form.getForm().findField('precent').setValue(record.get('discount'));
 					else
 						me.form.getForm().findField('precent').setValue(0);
+
+					me.form.getForm().findField('pty').focus(false, 200);
 				}				
 			}
 		);

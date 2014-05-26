@@ -3405,6 +3405,7 @@ Ext.define('OCS.ServiceAddProductWindow', {
 				value: me.selected.get('unit_size'),
 				name: 'unit_size'
 			},{
+				id: 'add_service_product_pty',
 				xtype: 'numberfield',
 				value: 0,				
 				fieldLabel: 'Хайрцагаар',
@@ -3509,7 +3510,7 @@ Ext.define('OCS.ServiceAddProductWindow', {
 					else
 						me.form.getForm().findField('precent').setValue(0);
 
-					me.form.getForm().findField('pty').focus(false, 200);
+					Ext.getCmp('add_service_product_pty').focus(false, 200);
 				}				
 			}
 		);

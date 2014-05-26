@@ -873,6 +873,7 @@ fields['CRM_SERVICE_FIELDS'] = [
    {name: 'descr', text: 'Тайлбар', width: 200, hidden: true},
    {name: 'campaign', text: 'Campaign', width: 200},
    {name: 'partner', text: 'Жолооч', width: 0, hidden: true},
+   {name: 'warehouse_id', text: 'Агуулах', width: 0, hidden: true},
    {name: 'pricetag', text: 'Үнэ', width: 0, hidden: true}
 ];
 

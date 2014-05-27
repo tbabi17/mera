@@ -1436,7 +1436,7 @@ function renderUserLevel(v) {
 
 function renderGPSName(v) {
 	if (v.indexOf(';') != -1)
-		v = v.substring(0, v.indexOf(';'))+' <b>'+renderMoney(v.substring(v.lastndexOf(';')+1, v.length))+'</b>';	
+		v = v.substring(0, v.indexOf(';'))+' <b>'+renderMoney(v.substring(v.lastIndexOf(';')+1, v.length))+'</b>';	
 
 	return v;
 }

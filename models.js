@@ -764,8 +764,8 @@ Ext.define('CRM_COMPETITOR', {
 fields['CRM_GPS_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
    {name: 'owner', text: 'Мэдээлэл', width: 250, renderer: renderGPSName},
-   {name: 'lat', text: 'Lng', width: 80},
-   {name: 'lng', text: 'Lng', width: 80},
+   {name: 'lat', text: 'Lng', width: 80, hidden: true},
+   {name: 'lng', text: 'Lng', width: 80, hidden: true},
    {name: '_date', type: 'datetime', dateFormat: 'Y-m-d', text: 'Created on', width: 120, renderer: renderCreatedDate}
 ];
 

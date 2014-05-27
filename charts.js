@@ -1342,12 +1342,12 @@ Ext.define('OCS.MapOnline', {
 		me.gps_grid.loadStoreSpec('crm_chart_gps_list', start, end, me.values, me.where);
 	},
 	
-	add: function(rec, link) {
+	add: function(data, link) {
 		var me = this;
-		if (rec.data['lat'] > 0)
+		if (data['lat'] > 0)
 		{			
 			var size = 24;
-			var dt = renderCreatedDate(rec.data['_date']);
+			var dt = renderCreatedDate(data['_date']);
 			var url = 'images/greendot.png';
 			if (dt.indexOf('дөнгөж') == -1) {
 					url = 'images/greendot.png';
@@ -1359,7 +1359,7 @@ Ext.define('OCS.MapOnline', {
 //				size = 32;
 			}
 
-			if (rec.data['owner'].indexOf('@') == -1)
+			if (data['owner'].indexOf('@') == -1)
 			{
 				url = 'images/home.png';
 				size = 32;
@@ -1368,7 +1368,7 @@ Ext.define('OCS.MapOnline', {
 
 			if (link == false)
 			{
-				url = 'images/users/'+rec.data['owner']+'.png';
+				url = 'images/users/'+data['owner']+'.png';
 				size = 32;
 			}
 
@@ -1382,18 +1382,18 @@ Ext.define('OCS.MapOnline', {
 			
 
 			var marker = {
-				lat: rec.data['lat'],
-				lng: rec.data['lng'],					
-				title: rec.data['owner'],			
-				_date: rec.data['_date'],
+				lat: data['lat'],
+				lng: data['lng'],					
+				title: data['owner'],			
+				_date: data['_date'],
 				icon: icon,
 				listeners: {
 					'click': function(m) {
 						var dt = renderCreatedDate(this._date);
 						v = this.title;
 						if (v.indexOf(' ') != -1) {
-							v = rec.data['owner'].substring(0, rec.data['owner'].indexOf(';'))+'</br>Дүн:'+
-								renderMoney(rec.data['owner'].substring(rec.data['owner'].lastndexOf(';')+1, rec.data['owner'].length));
+							v = data['owner'].substring(0, data['owner'].indexOf(';'))+'</br>Дүн:'+
+								renderMoney(data['owner'].substring(data['owner'].lastndexOf(';')+1, data['owner'].length));
 						}
 
 						me.infowindow.setContent(v+'</br>'+dt);
@@ -1402,9 +1402,9 @@ Ext.define('OCS.MapOnline', {
 				}
 			};		
 			
-			if (link && rec.data['owner'].indexOf('@') != -1)
+			if (link && data['owner'].indexOf('@') != -1)
 			{			
-				me.polylines.push(new google.maps.LatLng(rec.data['lat'], rec.data['lng']));
+				me.polylines.push(new google.maps.LatLng(data['lat'], data['lng']));
 				
 				if (me.polylines.length == 2) {		
 					var lineSymbol = {
@@ -1430,14 +1430,14 @@ Ext.define('OCS.MapOnline', {
 				}
 			}
 			
-			v = rec.data['owner'];
-			if (rec.data['owner'].indexOf(' ') != -1) {
-				v = rec.data['owner'].substring(0, rec.data['owner'].indexOf(';'))+' '+
-					renderMoney(rec.data['owner'].substring(rec.data['owner'].indexOf(';')+1, rec.data['owner'].length));
+			v = data['owner'];
+			if (data['owner'].indexOf(' ') != -1) {
+				v = data['owner'].substring(0, data['owner'].indexOf(';'))+' '+
+					renderMoney(data['owner'].substring(data['owner'].indexOf(';')+1, data['owner'].length));
 			}
 			
 			me.infowindow = new google.maps.InfoWindow({
-				content: v+'</br>'+renderCreatedDate(rec.data['_date'])
+				content: v+'</br>'+renderCreatedDate(data['_date'])
 			});
 
 			me.markers.push(me.map.addMarker(marker));
@@ -1447,7 +1447,8 @@ Ext.define('OCS.MapOnline', {
 	put: function(link) {
 		var me = this;
 		me.store.each(function(rec){
-			me.add(rec, link);
+			var data = rec.data;
+			me.add(data, link);
 		});	
 	},
 

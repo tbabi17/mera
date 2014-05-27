@@ -7450,7 +7450,7 @@ Ext.define('OCS.CorporateNewWindow', {
 	maximizable: true,
 	modal : true,
 	width: 750,
-	height: 560,
+	height: 600,
 
 	initComponent: function() {
 		var me = this;

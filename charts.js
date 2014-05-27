@@ -1229,6 +1229,8 @@ Ext.define('OCS.MapOnline', {
 
 		me.grid =  new Ext.create('OCS.GridWithFormPanel', {
 			modelName:'CRM_GPS',
+			region: 'west',
+			flex: 0.5,
 			func:'crm_chart_gps_last_list',
 			title: 'Цэгүүд',
 			insert: false,

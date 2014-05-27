@@ -739,7 +739,7 @@ fields['CRM_USERS_FIELDS'] = [
    {name: 'user_type', text: 'Чиглэл', width: 100},
    {name: 'user_level', text: 'Түвшин', width: 80, renderer: renderUserLevel},
    {name: 'permission', text: 'Хандалт', width: 250, hidden: true},
-   {name: 'warehouse_id', text: 'Агуулах', width: 100, hidden: true},
+   {name: 'warehouse_id', text: 'Агуулах', width: 100, hidden: true, primary: true},
    {name: 'partner', text: 'Жолооч', width: 100}
 ];
 

@@ -1336,15 +1336,21 @@ Ext.define('OCS.MapOnline', {
 		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_gps_list', sort:'_date', dir: 'asc', start_date: start, end_date: end, values: me.values, where: me.where};
 		me.store.load({callback: function() {			
 				me.put(true);				
+				me.count = 0;
 			}
 		});
 
 		me.gps_grid.loadStoreSpec('crm_chart_gps_list', start, end, me.values, me.where);
 	},
 	
+	count: 0,
+
 	putMarker: function(data, link) {
 		var me = this;
 		var i = 0;
+		if (me.count == 0)
+			me.removeMarkers();
+		me.count++;
 		if (data['lat'] > 0)
 		{			
 			var size = 24;

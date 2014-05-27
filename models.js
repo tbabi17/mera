@@ -763,7 +763,7 @@ Ext.define('CRM_COMPETITOR', {
 
 fields['CRM_GPS_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
-   {name: 'owner', text: 'Мэдээлэл', width: 250},
+   {name: 'owner', text: 'Мэдээлэл', width: 250, renderer: renderGPSName},
    {name: 'lat', text: 'Lng', width: 80},
    {name: 'lng', text: 'Lng', width: 80},
    {name: '_date', type: 'datetime', dateFormat: 'Y-m-d', text: 'Created on', width: 120, renderer: renderCreatedDate}
@@ -1434,6 +1434,12 @@ function renderUserLevel(v) {
 	return v;
 }
 
+function renderGPSName(v) {
+	if (v.indexOf(';') != -1)
+		v = v.substring(0, v.indexOf(';'))+'</br>Дүн:'+renderMoney(v.substring(v.lastndexOf(';')+1, v.length));	
+
+	return v;
+}
 
 function renderDealLevel(v) {
 	if (v == 'lead')

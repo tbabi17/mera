@@ -1255,8 +1255,9 @@ Ext.define('OCS.MapOnline', {
 		me.items = [{
 			xtype: 'panel',
 			region: 'west',
-			flex: 0.5,
-			items: me.grid
+			border: false,
+			flex: 0.25,
+			items: [me.grid]
 		}, me.map];
 
 		setTimeout(function() {

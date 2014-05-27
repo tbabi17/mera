@@ -1394,7 +1394,7 @@ Ext.define('OCS.MapOnline', {
 						v = this.title;
 						if (v.indexOf(' ') != -1) {
 							v = data['owner'].substring(0, data['owner'].indexOf(';'))+'</br>Дүн:'+
-								renderMoney(data['owner'].substring(data['owner'].lastndexOf(';')+1, data['owner'].length));
+								renderMoney(data['owner'].substring(data['owner'].lastIndexOf(';')+1, data['owner'].length));
 						}
 
 						me.infowindow.setContent(v+'</br>'+dt);
@@ -1499,7 +1499,7 @@ Ext.define('OCS.MapOnline', {
 							v = this.title;
 							if (v.indexOf(' ') != -1) {
 								v = data['owner'].substring(0, data['owner'].indexOf(';'))+'</br>Дүн:'+
-									renderMoney(data['owner'].substring(data['owner'].lastndexOf(';')+1, data['owner'].length));
+									renderMoney(data['owner'].substring(data['owner'].lastIndexOf(';')+1, data['owner'].length));
 							}
 
 							me.infowindow.setContent(v+'</br>'+dt);

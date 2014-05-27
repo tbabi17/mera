@@ -1225,7 +1225,7 @@ Ext.define('OCS.MapOnline', {
 				extraParams: {handle: 'web', action: 'select', func: 'crm_chart_product_list'}
 			}
 		});
-/*
+
 		me.gps_grid =  new Ext.create('OCS.GridWithFormPanel', {
 			modelName:'CRM_GPS',
 			func:'crm_chart_gps_last_list',
@@ -1240,7 +1240,7 @@ Ext.define('OCS.MapOnline', {
 				}
 			},
 			tab: 'my_crm_gps_list'
-		});*/
+		});
 
 		me.map = Ext.create('Ext.ux.GMapPanel', {
 			region: 'center',

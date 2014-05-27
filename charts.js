@@ -1252,7 +1252,13 @@ Ext.define('OCS.MapOnline', {
 			markers: me.markers			
 		});
 		
-		me.items = [me.map];
+		me.items = [{
+			xtype: 'panel',
+			region: 'west',
+			flex: 0.5,
+			border: false,
+			items: [me.gps_grid]
+		},me.map];
 
 		setTimeout(function() {
 			 me.initload(me.today());

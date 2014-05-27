@@ -5566,7 +5566,7 @@ Ext.define('OCS.Dashboard', {
 									me.charts[4].createWindow();
 								}
 							},{
-								text: 'Борлуулалт',
+								text: 'Цэвэрлэх',
 								handler: function() {
 									me.charts[4].removeMarkers();
 								}

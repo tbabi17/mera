@@ -1256,6 +1256,7 @@ Ext.define('OCS.MapOnline', {
 			xtype: 'panel',
 			region: 'west',
 			flex: 0.5,
+			layout: 'border',
 			border: false,
 			items: [me.gps_grid.createGrid()]
 		},me.map];

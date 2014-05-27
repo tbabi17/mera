@@ -1099,11 +1099,12 @@ Ext.define('OCS.CorporateForm', {
 						triggerAction: 'all',
 						editable: false
 					},{
-						fieldLabel: 'Хөнгө %',
+						fieldLabel: 'Хөнгө%',
 						xtype: 'textfield',
 						name: 'promo_precent',
 						margins: '0 0 0 6',
 						value: 0,
+						labelWidth: 40,
 						flex: 0.5
 					},{
 						fieldLabel: 'Төлөвлөгөө',
@@ -1124,6 +1125,7 @@ Ext.define('OCS.CorporateForm', {
 						emptyText: 'Төлбөрийн хэлбэр',
 						displayField: 'name',
 						flex: 0.3,
+						margins: '0 0 0 6',
 						valueField: 'value',
 						triggerAction: 'all',
 						editable: false

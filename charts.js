@@ -1255,7 +1255,7 @@ Ext.define('OCS.MapOnline', {
 		me.items = [{
 			xtype: 'panel',
 			region: 'west',
-			flex: 0.5,
+			flex: 0.4,
 			layout: 'border',
 			border: false,
 			items: [me.gps_grid.createGrid()]

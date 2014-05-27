@@ -1344,6 +1344,7 @@ Ext.define('OCS.MapOnline', {
 	
 	putMarker: function(data, link) {
 		var me = this;
+		var i = 0;
 		if (data['lat'] > 0)
 		{			
 			var size = 24;

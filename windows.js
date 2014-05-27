@@ -3535,6 +3535,7 @@ Ext.define('OCS.ServiceAddProductWindow', {
 				   params: {handle: 'web', table: 'crm_deal_products', action: 'update', values: values, where: 'id='+me.record.get('id')},
 				   success: function(response, opts) {
 //					  me.close();
+					  me.form.reset();
 					  me.backgrid.getStore().reload();					  
 				   },
 				   failure: function(response, opts) {										   
@@ -3557,7 +3558,8 @@ Ext.define('OCS.ServiceAddProductWindow', {
 				   url: 'avia.php',
 				   params: {handle: 'web', table: 'crm_deal_products', action: 'insert', values: values, where: ''},
 				   success: function(response, opts) {			
-//					  me.close();					   
+//					  me.close();				
+					  me.form.reset();
 					  me.backgrid.getStore().reload();
 				   },
 				   failure: function(response, opts) {										   

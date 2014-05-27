@@ -3557,8 +3557,8 @@ Ext.define('OCS.ServiceAddProductWindow', {
 				   url: 'avia.php',
 				   params: {handle: 'web', table: 'crm_deal_products', action: 'insert', values: values, where: ''},
 				   success: function(response, opts) {			
-					  me.close();					   
-//					  me.backgrid.getStore().reload();
+//					  me.close();					   
+					  me.backgrid.getStore().reload();
 				   },
 				   failure: function(response, opts) {										   
 					  Ext.MessageBox.alert('Status', 'Error !', function() {});

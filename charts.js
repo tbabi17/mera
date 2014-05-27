@@ -1249,7 +1249,6 @@ Ext.define('OCS.MapOnline', {
 				me1.grid.getSelectionModel().on({
 					selectionchange: function(sm, selections) {
 						if (selections.length) {
-							me.removeMarkers();
 							me.putMarker(selections[0].data, false);
 						} else {
 					

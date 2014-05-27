@@ -1226,9 +1226,10 @@ Ext.define('OCS.MapOnline', {
 			}
 		});
 
-		me.grid =  new Ext.create('OCS.GridWithFormPanel', {
+		me.gps_grid =  new Ext.create('OCS.GridWithFormPanel', {
 			modelName:'CRM_GPS',
 			func:'crm_chart_gps_last_list',
+			table: '',
 			title: 'Цэгүүд',
 			insert: false,
 			remove: false,

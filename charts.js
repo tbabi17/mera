@@ -1243,6 +1243,21 @@ Ext.define('OCS.MapOnline', {
 				var me = this;
 				me.actions = [];
 				return me.actions;
+			},
+			selection: function() {
+				var me = this;
+				me.grid.getSelectionModel().on({
+					selectionchange: function(sm, selections) {
+						if (selections.length) {
+							alert(1);							
+						} else {
+							alert(1);					
+						}				
+					},			
+					rowselect: function(sm, rowIdx, r) {
+						alert(1);
+					}
+				});
 			}
 		});
 

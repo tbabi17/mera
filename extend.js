@@ -840,6 +840,13 @@ Ext.define('OCS.GridWithFormPanel', {
 		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where};
 		me.store.loadPage(1);
 	},
+	
+	loadStoreSpec: function(func, start, end, values, where) {
+		var me = this;
+		me.where = where;		
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: func, sort:'_date', dir: 'asc', start_date: start, end_date: end, values: values, where: where};
+		me.store.loadPage(1);
+	},
 
 	onTextFieldChange: function(v, field) {
 		var me = this;			

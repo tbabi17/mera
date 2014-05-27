@@ -1305,6 +1305,9 @@ Ext.define('OCS.MapOnline', {
 				me.put(false);				
 			}
 		});
+		
+		me.grid.loadStore();
+		me.gps_grid.loadStoreSpec('crm_chart_gps_last_list', start, end, me.values, me.where);
 	},
 
 	reload: function(start) {
@@ -1320,6 +1323,8 @@ Ext.define('OCS.MapOnline', {
 				me.put(true);				
 			}
 		});
+
+		me.gps_grid.loadStoreSpec('crm_chart_gps_list', start, end, me.values, me.where);
 	},
 
 	put: function(link) {

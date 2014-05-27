@@ -2144,6 +2144,24 @@ Ext.define('OCS.PropertyGrid', {
 			};
 		}
 
+		if (name == 'warehouse_id')
+		{
+			return {
+			  xtype: 'combo',
+			  store: Ext.create('Ext.data.Store', {
+  				  model: 'CRM_PREV',
+ 				  data: [{value: 1, name: ware_text[0]},{value: 2, name: ware_text[1]}]
+              }),
+			  name: name,
+			  queryMode: 'local',
+		      displayField: 'name',
+			  valueField: 'value',
+			  triggerAction: 'all',
+			  editable: false
+			};
+		}
+
+
 		if (name == 'stage')
 		{
 			return {

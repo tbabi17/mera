@@ -1245,12 +1245,12 @@ Ext.define('OCS.MapOnline', {
 				return me.actions;
 			},
 			selection: function() {
-				var me = this;
-				me.grid.getSelectionModel().on({
+				var me1 = this;
+				me1.grid.getSelectionModel().on({
 					selectionchange: function(sm, selections) {
 						if (selections.length) {
 							me.removeMarkers();
-							me.add(selections[0]);
+							me.putMarker(selections[0].data, false);
 						} else {
 					
 						}				
@@ -1342,7 +1342,7 @@ Ext.define('OCS.MapOnline', {
 		me.gps_grid.loadStoreSpec('crm_chart_gps_list', start, end, me.values, me.where);
 	},
 	
-	add: function(data, link) {
+	putMarker: function(data, link) {
 		var me = this;
 		if (data['lat'] > 0)
 		{			

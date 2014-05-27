@@ -1226,7 +1226,6 @@ Ext.define('OCS.MapOnline', {
 			}
 		});
 
-/*
 		me.grid =  new Ext.create('OCS.GridWithFormPanel', {
 			modelName:'CRM_GPS',
 			func:'crm_chart_gps_last_list',
@@ -1240,7 +1239,7 @@ Ext.define('OCS.MapOnline', {
 				}
 			},
 			tab: 'my_crm_gps_list'
-		});*/
+		});
 
 		me.map = Ext.create('Ext.ux.GMapPanel', {
 			region: 'center',
@@ -1252,7 +1251,13 @@ Ext.define('OCS.MapOnline', {
 			markers: me.markers			
 		});
 		
-		me.items = [me.map];
+		me.items = [{
+			xtype: 'panel',
+			region: 'west',
+			border: false,
+			flex: 0.25,
+			items: [me.grid.createGrid()]
+		}, me.map];
 
 		setTimeout(function() {
 			 me.initload(me.today());

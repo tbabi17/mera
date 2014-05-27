@@ -1274,7 +1274,7 @@ Ext.define('OCS.MapOnline', {
 		me.items = [{
 			xtype: 'panel',
 			region: 'west',
-			width: 280,
+			width: 330,
 			split: true,
 			layout: 'border',
 			border: false,

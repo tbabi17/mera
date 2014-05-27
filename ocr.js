@@ -7449,7 +7449,7 @@ Ext.define('OCS.CorporateNewWindow', {
 	table: 'crm_customer',
 	maximizable: true,
 	modal : true,
-	width: 700,
+	width: 750,
 	height: 560,
 
 	initComponent: function() {

@@ -1114,6 +1114,19 @@ Ext.define('OCS.CorporateForm', {
 						value: 0,
 						flex: 0.5
 					},{
+						xtype: 'combo',
+						store: Ext.create('Ext.data.Store', {
+							 model: 'CRM_PREV',
+							 data: [{value: 'loan',name:'Зээлийн'},{value: 'cash', name: 'Бэлэн'}] 
+						}),
+						name: 'payment_type',
+						queryMode: 'local',
+						fieldLabel: 'Хэлбэр',
+						displayField: 'name',
+						valueField: 'value',
+						triggerAction: 'all',
+						editable: false
+					},{
 						emptyText: 'Үнийн соноголт',
 						xtype: 'combo',
 						name: 'pricetag',

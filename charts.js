@@ -1392,7 +1392,7 @@ Ext.define('OCS.MapOnline', {
 					'click': function(m) {
 						var dt = renderCreatedDate(this._date);
 						v = this.title;
-						if (v.indexOf(' ') != -1) {
+						if (v.indexOf(';') != -1) {
 							v = data['owner'].substring(0, data['owner'].indexOf(';'))+'</br>Дүн:'+
 								renderMoney(data['owner'].substring(data['owner'].lastIndexOf(';')+1, data['owner'].length));
 						}
@@ -1432,7 +1432,7 @@ Ext.define('OCS.MapOnline', {
 			}
 			
 			v = data['owner'];
-			if (data['owner'].indexOf(' ') != -1) {
+			if (data['owner'].indexOf(';') != -1) {
 				v = data['owner'].substring(0, data['owner'].indexOf(';'))+' '+
 					renderMoney(data['owner'].substring(data['owner'].indexOf(';')+1, data['owner'].length));
 			}
@@ -1497,7 +1497,7 @@ Ext.define('OCS.MapOnline', {
 						'click': function(m) {
 							var dt = renderCreatedDate(this._date);
 							v = this.title;
-							if (v.indexOf(' ') != -1) {
+							if (v.indexOf(';') != -1) {
 								v = data['owner'].substring(0, data['owner'].indexOf(';'))+'</br>Дүн:'+
 									renderMoney(data['owner'].substring(data['owner'].lastIndexOf(';')+1, data['owner'].length));
 							}
@@ -1537,7 +1537,7 @@ Ext.define('OCS.MapOnline', {
 				}
 				
 				v = data['owner'];
-				if (data['owner'].indexOf(' ') != -1) {
+				if (data['owner'].indexOf(';') != -1) {
 					v = data['owner'].substring(0, data['owner'].indexOf(';'))+' '+
 						renderMoney(data['owner'].substring(data['owner'].indexOf(';')+1, data['owner'].length));
 				}

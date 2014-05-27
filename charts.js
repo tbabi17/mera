@@ -1230,7 +1230,6 @@ Ext.define('OCS.MapOnline', {
 			modelName:'CRM_GPS',
 			func:'crm_chart_gps_last_list',
 			table: '',
-			title: 'Цэгүүд',
 			insert: false,
 			remove: false,
 			buttons: false,

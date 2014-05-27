@@ -1361,18 +1361,18 @@ Ext.define('OCS.MapOnline', {
 //				size = 32;
 			}
 
-			if (data['owner'].indexOf('@') == -1)
-			{
-				url = 'images/home.png';
-				size = 32;
-			}
-			
 
 			if (link == false)
 			{
 				url = 'images/users/'+data['owner']+'.png';
 				size = 32;
-			}
+			} 
+
+			if (data['owner'].indexOf('@') == -1)
+			{
+				url = 'images/home.png';
+				size = 32;
+			}		
 
 			var icon = new google.maps.MarkerImage(	    		
 				url,

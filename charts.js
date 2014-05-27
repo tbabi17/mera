@@ -1300,10 +1300,6 @@ Ext.define('OCS.MapOnline', {
 			}
 		});
 
-		me.grid.grid.getStore().getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_gps_last_list', sort:'_date', dir: 'asc', start_date: start, end_date: end, values: me.values, where: me.where};
-		me.grid.grid.getStore().load({callback: function() {
-			}
-		});
 	},
 
 	reload: function(start) {

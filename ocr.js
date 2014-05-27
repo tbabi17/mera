@@ -5565,6 +5565,11 @@ Ext.define('OCS.Dashboard', {
 								handler: function() {
 									me.charts[4].createWindow();
 								}
+							},{
+								text: 'Борлуулалт',
+								handler: function() {
+									me.charts[4].removeMarkers();
+								}
 							}]
 						}
 					},'->',

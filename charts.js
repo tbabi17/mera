@@ -1356,12 +1356,6 @@ Ext.define('OCS.MapOnline', {
 					size = 16;
 			}
 
-			if (i == me.store.getCount() - 1) {
-			//	url = 'images/users/'+rec.data['owner']+'.png';
-//				size = 32;
-			}
-
-
 			if (link == false)
 			{
 				url = 'images/users/'+data['owner']+'.png';

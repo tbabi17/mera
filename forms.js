@@ -1104,7 +1104,7 @@ Ext.define('OCS.CorporateForm', {
 						name: 'promo_precent',
 						margins: '0 0 0 6',
 						value: 0,
-						labelWidth: 40,
+						labelWidth: 50,
 						flex: 0.5
 					},{
 						fieldLabel: 'Төлөвлөгөө',

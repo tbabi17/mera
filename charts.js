@@ -1249,13 +1249,14 @@ Ext.define('OCS.MapOnline', {
 				me.grid.getSelectionModel().on({
 					selectionchange: function(sm, selections) {
 						if (selections.length) {
-							alert(1);							
+							me.removeMarkers();
+							me.add(selections[0]);
 						} else {
-							alert(1);					
+					
 						}				
 					},			
 					rowselect: function(sm, rowIdx, r) {
-						alert(1);
+
 					}
 				});
 			}
@@ -1340,108 +1341,113 @@ Ext.define('OCS.MapOnline', {
 
 		me.gps_grid.loadStoreSpec('crm_chart_gps_list', start, end, me.values, me.where);
 	},
+	
+	add: function(rec) {
+		var me = this;
+		if (rec.data['lat'] > 0)
+		{			
+			var size = 24;
+			var dt = renderCreatedDate(rec.data['_date']);
+			var url = 'images/greendot.png';
+			if (dt.indexOf('дөнгөж') == -1) {
+					url = 'images/greendot.png';
+					size = 16;
+			}
+
+			if (i == me.store.getCount() - 1) {
+			//	url = 'images/users/'+rec.data['owner']+'.png';
+//				size = 32;
+			}
+
+			if (rec.data['owner'].indexOf('@') == -1)
+			{
+				url = 'images/home.png';
+				size = 32;
+			}
+			
+
+			if (link == false)
+			{
+				url = 'images/users/'+rec.data['owner']+'.png';
+				size = 32;
+			}
+
+			var icon = new google.maps.MarkerImage(	    		
+				url,
+				new google.maps.Size(size, size), //size
+				new google.maps.Point(0,0), //origin
+				new google.maps.Point(size/2, size),
+				new google.maps.Size(size, size)//scale 
+			);
+			
+
+			var marker = {
+				lat: rec.data['lat'],
+				lng: rec.data['lng'],					
+				title: rec.data['owner'],			
+				_date: rec.data['_date'],
+				icon: icon,
+				listeners: {
+					'click': function(m) {
+						var dt = renderCreatedDate(this._date);
+						v = this.title;
+						if (v.indexOf(' ') != -1) {
+							v = rec.data['owner'].substring(0, rec.data['owner'].indexOf(';'))+'</br>Дүн:'+
+								renderMoney(rec.data['owner'].substring(rec.data['owner'].lastndexOf(';')+1, rec.data['owner'].length));
+						}
+
+						me.infowindow.setContent(v+'</br>'+dt);
+						me.infowindow.open(me.map.gmap, this);
+					}
+				}
+			};		
+			
+			if (link && rec.data['owner'].indexOf('@') != -1)
+			{			
+				me.polylines.push(new google.maps.LatLng(rec.data['lat'], rec.data['lng']));
+				
+				if (me.polylines.length == 2) {		
+					var lineSymbol = {
+					   path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
+					};
+
+					me.flightPath = new google.maps.Polyline({
+						path: me.polylines,
+						geodesic: true,
+						strokeColor: '#ff6633',
+						strokeOpacity: 1.0,
+						icons: [{
+						  icon: lineSymbol,
+						  offset: '50%'
+						}],
+						strokeWeight: 2
+					});
+
+					me.flightPath.setMap(me.map.gmap);
+					me.overlay.push(me.flightPath);
+					me.polylines.splice(0, 1);
+					me.lineCount++;
+				}
+			}
+			
+			v = rec.data['owner'];
+			if (rec.data['owner'].indexOf(' ') != -1) {
+				v = rec.data['owner'].substring(0, rec.data['owner'].indexOf(';'))+' '+
+					renderMoney(rec.data['owner'].substring(rec.data['owner'].indexOf(';')+1, rec.data['owner'].length));
+			}
+			
+			me.infowindow = new google.maps.InfoWindow({
+				content: v+'</br>'+renderCreatedDate(rec.data['_date'])
+			});
+
+			me.markers.push(me.map.addMarker(marker));
+		}
+	},
 
 	put: function(link) {
 		var me = this;
 		me.store.each(function(rec){
-			if (rec.data['lat'] > 0)
-			{			
-				var size = 24;
-				var dt = renderCreatedDate(rec.data['_date']);
-				var url = 'images/greendot.png';
-				if (dt.indexOf('дөнгөж') == -1) {
-						url = 'images/greendot.png';
-						size = 16;
-				}
-
-				if (i == me.store.getCount() - 1) {
-				//	url = 'images/users/'+rec.data['owner']+'.png';
-	//				size = 32;
-				}
-
-				if (rec.data['owner'].indexOf('@') == -1)
-				{
-					url = 'images/home.png';
-					size = 32;
-				}
-				
-
-				if (link == false)
-				{
-					url = 'images/users/'+rec.data['owner']+'.png';
-					size = 32;
-				}
-
-				var icon = new google.maps.MarkerImage(	    		
-					url,
-					new google.maps.Size(size, size), //size
-					new google.maps.Point(0,0), //origin
-					new google.maps.Point(size/2, size),
-					new google.maps.Size(size, size)//scale 
-				);
-				
-
-				var marker = {
-					lat: rec.data['lat'],
-					lng: rec.data['lng'],					
-					title: rec.data['owner'],			
-					_date: rec.data['_date'],
-					icon: icon,
-					listeners: {
-						'click': function(m) {
-							var dt = renderCreatedDate(this._date);
-							v = this.title;
-							if (v.indexOf(' ') != -1) {
-								v = rec.data['owner'].substring(0, rec.data['owner'].indexOf(';'))+'</br>Дүн:'+
-									renderMoney(rec.data['owner'].substring(rec.data['owner'].lastndexOf(';')+1, rec.data['owner'].length));
-							}
-
-							me.infowindow.setContent(v+'</br>'+dt);
-							me.infowindow.open(me.map.gmap, this);
-						}
-					}
-				};		
-				
-				if (link && rec.data['owner'].indexOf('@') != -1)
-				{			
-					me.polylines.push(new google.maps.LatLng(rec.data['lat'], rec.data['lng']));
-					
-					if (me.polylines.length == 2) {		
-						var lineSymbol = {
-						   path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
-						};
-
-						me.flightPath = new google.maps.Polyline({
-							path: me.polylines,
-							geodesic: true,
-							strokeColor: '#ff6633',
-							strokeOpacity: 1.0,
-							icons: [{
-							  icon: lineSymbol,
-							  offset: '50%'
-							}],
-							strokeWeight: 2
-						});
-
-						me.flightPath.setMap(me.map.gmap);
-						me.overlay.push(me.flightPath);
-						me.polylines.splice(0, 1);
-						me.lineCount++;
-					}
-				}
-				
-				v = rec.data['owner'];
-				if (rec.data['owner'].indexOf(' ') != -1) {
-					v = rec.data['owner'].substring(0, rec.data['owner'].indexOf(';'))+' '+
-						renderMoney(rec.data['owner'].substring(rec.data['owner'].indexOf(';')+1, rec.data['owner'].length));
-				}
-				
-				me.infowindow = new google.maps.InfoWindow({
-					content: v+'</br>'+renderCreatedDate(rec.data['_date'])
-				});
-
-				me.markers.push(me.map.addMarker(marker));
-			}
+			me.add(rec);
 		});	
 	},
 

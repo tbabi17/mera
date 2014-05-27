@@ -561,7 +561,7 @@ Ext.define('OCS.RetailPanel', {
 							}).show();
 						else
 							new OCS.CorporateNewWindow({
-								title: 'Edit Account',
+								title: 'Харилцагч засах',
 								selected: me.grid.getView().getSelectionModel().getSelection()[0]
 							}).show();
 					}
@@ -7445,7 +7445,7 @@ Ext.define('OCS.ContactNewWindow', {
 
 Ext.define('OCS.CorporateNewWindow', {
 	extend: 'OCS.Window',
-	title: 'New account',
+	title: 'Шинэ харилцагч',
 	table: 'crm_customer',
 	maximizable: true,
 	modal : true,

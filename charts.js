@@ -1239,7 +1239,12 @@ Ext.define('OCS.MapOnline', {
 					id: '0',
 				}
 			},
-			tab: 'my_crm_gps_list'
+			tab: 'my_crm_gps_list',
+			createActions: function(actions) {
+				var me = this;
+				me.actions = [];
+				return me.actions;
+			}
 		});
 
 		me.map = Ext.create('Ext.ux.GMapPanel', {

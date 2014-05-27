@@ -1121,8 +1121,9 @@ Ext.define('OCS.CorporateForm', {
 						}),
 						name: 'payment_type',
 						queryMode: 'local',
-						fieldLabel: 'Хэлбэр',
+						emptyText: 'Төлбөрийн хэлбэр',
 						displayField: 'name',
+						flex: 0.3,
 						valueField: 'value',
 						triggerAction: 'all',
 						editable: false

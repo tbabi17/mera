@@ -5548,7 +5548,7 @@ Ext.define('OCS.Dashboard', {
 					title:'Борлуулалгчдын байршил',
 					layout: 'border',
 					collapsible: true,
-					height: 700,					
+					height: 800,					
 					items: me.charts[4],
 					tbar: [{
 						text: 'Харагдац',

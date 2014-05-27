@@ -114,7 +114,7 @@ fields['CRM_CORPORATE_FIELDS'] = [
    {name: 'email', text: 'И-майл', width: 100, hidden: true, renderer: renderMail},
    {name: 'www', text: 'Веб', width: 120, renderer: renderWWW},
 
-   {name: 'payment_type', text: 'Хэлбэр', width: 80, align: 'center', renderer: renderSalesType},
+   {name: 'payment_type', text: 'Хэлбэр', width: 60, align: 'center', renderer: renderSalesType},
    {name: 'promo_code', text: 'Урам.код', width: 80, align: 'center'},
    {name: 'promo_precent', text: 'Хөнгө.%', type: 'float', width: 70, align: 'right', renderer: renderPrecent},
    {name: 'promo_amount', text: 'Төлөвлөгөө', type: 'float', width: 100, align: 'right', renderer: renderMoney},

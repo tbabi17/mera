@@ -1225,6 +1225,23 @@ Ext.define('OCS.MapOnline', {
 				extraParams: {handle: 'web', action: 'select', func: 'crm_chart_product_list'}
 			}
 		});
+
+
+		me.grid =  new Ext.create('OCS.GridWithFormPanel', {
+			modelName:'CRM_GPS',
+			func:'crm_chart_gps_last_list',
+			title: 'Цэгүүд',
+			insert: false,
+			remove: false,
+			buttons: false,
+			defaultRec: {
+				data: {
+					id: '0',
+				}
+			},
+			tab: 'my_crm_gps_list'
+		});
+
 		me.map = Ext.create('Ext.ux.GMapPanel', {
 			region: 'center',
 			border: false,
@@ -1235,7 +1252,7 @@ Ext.define('OCS.MapOnline', {
 			markers: me.markers			
 		});
 		
-		me.items = [me.map];
+		me.items = [me.grid, me.map];
 
 		setTimeout(function() {
 			 me.initload(me.today());

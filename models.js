@@ -761,6 +761,20 @@ Ext.define('CRM_COMPETITOR', {
 	fields: fields['CRM_COMPETITOR_FIELDS']
 });
 
+fields['CRM_GPS_FIELDS'] = [
+   {name: 'id', text: 'ID', width: 50, hidden:true}, 
+   {name: 'owner', text: 'Мэдээлэл', width: 120},
+   {name: 'lat', text: 'Lng', width: 50},
+   {name: 'lang', text: 'Lng', width: 50},
+   {name: '_date', type: 'datetime', dateFormat: 'Y-m-d', text: 'Created on', width: 120, renderer: renderCreatedDate}
+];
+
+Ext.define('CRM_GPS', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_GPS_FIELDS']
+});
+
+
 fields['CRM_COMMISSION_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
    {name: 'crm_id', text: '', hidden: true},

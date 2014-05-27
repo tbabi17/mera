@@ -1176,7 +1176,7 @@ Ext.define('OCS.ProductChart', {
 		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_product_list', start_date: e1, end_date: e2, sort:'_date', dir: 'asc'};
 		me.store.load({callback: function() {
 				me.refresh();
-				me.redraw();
+				//me.redraw();
 			}
 		});
 	},

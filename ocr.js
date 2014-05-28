@@ -2891,7 +2891,7 @@ Ext.define('OCS.ServiceView', {
 					date = me.grid.getView().getSelectionModel().getSelection()[0].get('_date').split(' ')[0]; 
 
 					if (service_stage == 'service') {
-						if (userCode == 'amarjargal@cosmo')												
+						if (userCode == 'amarjargal@cosmo' || userCode == 'amarjargalgoo@cosmo')												
 							window.open('http://'+ip+'/invzahon/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
 						else {
 							if (logged.indexOf('cosmo') != -1)

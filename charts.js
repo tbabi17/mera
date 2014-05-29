@@ -1542,7 +1542,7 @@ Ext.define('OCS.MapOnline', {
 				}
 				
 				me.infowindow = new google.maps.InfoWindow({
-					content: v+'</br>'+renderCreatedDate(data['_date'])
+					content: v+'</br>'+(data['_date'])
 				});
 
 				me.markers.push(me.map.addMarker(marker));

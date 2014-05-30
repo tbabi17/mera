@@ -1436,8 +1436,11 @@ function renderUserLevel(v) {
 }
 
 function renderGPSName(v) {
-	if (v.indexOf(';') != -1)
-		v = v.substring(0, v.indexOf(';'))+' <b>'+renderMoney(v.substring(v.lastIndexOf(';')+1, v.length))+'</b>';	
+	if (v.indexOf(';') != -1) {
+		var money = renderMoney(v.substring(v.lastIndexOf(';')+1, v.length));
+		if (money == '') money = '<span style="color:red">амжилтгүй</span>';		
+		v = v.substring(0, v.indexOf(';'))+' <b>'+money+'</b>';	
+	}
 
 	return v;
 }

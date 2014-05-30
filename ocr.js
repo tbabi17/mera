@@ -809,6 +809,12 @@ Ext.define('OCS.RetailPanel', {
 								}).createWindow();
 						}
 					},{
+						text: 'Нэгдсэн төлөлт оруулах',
+						iconCls: 'bankir',
+						handler: function(widget, event) {		
+							
+						}
+					},{
 						text: 'Буцаалт бүртгэх',
 						iconCls: 'return',
 						handler: function(widget, event) {		

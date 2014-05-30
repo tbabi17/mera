@@ -767,7 +767,7 @@ fields['CRM_GPS_FIELDS'] = [
    {name: 'owner', text: 'Мэдээлэл', width: 250, renderer: renderGPSName},
    {name: 'lat', text: 'Lng', width: 80, hidden: true},
    {name: 'lng', text: 'Lng', width: 80, hidden: true},
-   {name: '_date', type: 'datetime', dateFormat: 'Y-m-d', text: 'Created on', width: 120, renderer: renderCreatedDate}
+   {name: '_date', type: 'datetime', dateFormat: 'Y-m-d', text: 'Created on', width: 120}
 ];
 
 Ext.define('CRM_GPS', {

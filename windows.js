@@ -3572,6 +3572,221 @@ Ext.define('OCS.ServiceAddProductWindow', {
 	}
 });
 
+Ext.define('OCS.ServiceLoanGroupWindow', {
+	extend: 'OCS.Window',
+	title: 'Зээл төлөлт нэгтгэж оруулах',
+	maximizable: true,
+	height: 400,
+	modal: false,
+	width: 950,	
+	modal: true,	
+		
+	initComponent: function() {
+		var me = this;				
+		
+		me.customerList = new Ext.create('OCS.GridWithFormPanel', {
+			modelName:'CRM_LOANED_CUSTOMER',
+			func:'crm_loaned_customer_list',
+			title: '',
+			table: 'crm_loaned_customer',
+			tab: 'loan_crm_customer_list',
+			buttons: true,
+			feature: true,
+			tbar: false,
+			query: me.selected.get('lastName'),
+			insert: (user_level==0),
+			remove: (user_level==0),	
+			defaultRec: {
+				data: {
+				}
+			},
+			createActions: function() {
+				var me = this;
+				me.actions = [];
+
+				return me.actions;
+			}
+		});		
+
+		me.form = Ext.create('OCS.FormPanel', {
+			region: 'center',
+			hidden: false,
+			closable: false,			
+			title: '',
+			flex: 0.65,
+			items: [{
+				xtype: 'datefield',
+				fieldLabel: 'Төлөлт хийсэн',				
+				name: 'pay_date',
+				value : Ext.Date.format(new Date(),'Y-m-d'),		
+				format: 'Y-m-d'
+			},{
+			  fieldLabel: 'Төлөлтийн хэлбэр',
+			  xtype: 'combo',
+			  store: Ext.create('Ext.data.Store', {
+				 model: 'CRM_PREV',
+				 data: [{value: 'cash',name:'Бэлнээр'},{value: 'bank',name:'Бэлэн бусаар'}]
+			  }),
+			  name: 'pay_type',
+			  value: 'bank',
+			  queryMode: 'local',
+		      displayField: 'name',
+		      valueField: 'value',
+			  triggerAction: 'all',
+			  editable: false
+			},{
+				xtype: 'numericfield',
+				decimalPrecision: 2,
+			    allowNegative: true,
+				useThousandSeparator: true,
+		        currencySymbol:'₮',		
+				fieldLabel: 'Төлөвлөгөө',
+				readOnly: true,
+				name: 'promo_amount',
+				value: me.selected.get('promo_amount')
+			},{
+				xtype: 'textfield',				
+				fieldLabel: 'Урам.код',
+				readOnly: true,
+				name: 'promo_code',
+				value: me.selected.get('promo_code')
+			},{
+				xtype: 'numericfield',
+				name: 'promo_precent',
+				fieldLabel: 'Хөнгө %',
+				//readOnly: true,
+				value: me.selected.get('promo_precent')
+			},{
+				xtype: 'numericfield',
+				decimalPrecision: 2,
+			    allowNegative: true,
+				useThousandSeparator: true,
+		        currencySymbol:'₮',
+				fieldLabel: 'Төлж байгаа',
+				value: 0,
+				name: 'amount',
+				listeners: {
+					'change': function(v) {			
+						var promo_code = me.selected.get('promo_code');
+						var promo_precent = me.selected.get('promo_precent');
+						var value = v.getValue();
+						if (promo_code == 'U4') {
+							if (value >= 1000000 && value < 1500000)
+								promo_precent = 1;								
+							if (value >= 1500000 && value < 2000000)
+								promo_precent = 2;			
+							if (value >= 2000000)
+								promo_precent = 3;			
+							value = (value * 100)/(100-promo_precent);
+							me.form.getForm().findField('total_amount').setValue(promo_precent);
+						} else
+						if (promo_code == 'U3') {
+							var promo_amount = me.selected.get('promo_amount');
+							value = (value * 100)/(100-promo_precent);
+							if (value >= promo_amount) {
+								if (value >= 1000000 && value < 1500000)
+									promo_precent = 1;								
+								if (value >= 1500000 && value < 2000000)
+									promo_precent = 2;			
+								if (value >= 2000000)
+									promo_precent = 3;	
+								
+								value = (value * 100)/(100-promo_precent);
+							}
+						} else
+						if (promo_code == 'U2') {
+							value = (value * 100)/(100-promo_precent);
+						} else
+						if (promo_code == 'U1') {
+							value = value;
+						}
+						me.form.getForm().findField('total_amount').setValue(value);		
+					}
+			   }
+			},{
+				xtype: 'numericfield',
+				decimalPrecision: 2,
+			    allowNegative: true,
+				useThousandSeparator: true,
+		        currencySymbol:'₮',
+				fieldLabel: 'Хөнгөлөлт хасаагүй',
+				value: 0,
+				name: 'total_amount'
+			}],
+			buttons: [{
+				iconCls: 'reset',
+				text: 'Арилгах',				
+				handler: function() {
+					var form = this.up('form').getForm();
+					form.reset();
+				}
+			},{
+				iconCls: 'commit',
+				text: 'Илгээх',				
+				handler: function() {
+					var form = this.up('form').getForm();
+					me.addLoan(form);
+				}
+			}]
+		});
+
+		me.items = [{
+			xtype: 'panel',
+			layout: 'border',
+			region: 'west',
+			flex: 1,
+			border: false,
+			split: true,
+			items: me.customerList.createGrid()
+		}, me.form];					
+
+		me.callParent(arguments);
+	},
+
+	addLoan: function(form) {
+		var me = this;
+		var values = form.getValues(true);	
+		var store = me.customerList.store;
+		if (store.getCount() == 0) {
+			Ext.MessageBox.alert('Status', 'Харилцагч сонгогдоогүй байна !', function() {});
+			return;
+		}
+
+		if (form.findField('amount').getValue() > 0) {		
+			var amount = form.findField('amount').getValue();
+			var total_amount = form.findField('total_amount').getValue();
+			var	promo_precent = form.findField('promo_precent').getValue();
+			store.each(function(rec){		
+				var debt = rec.data['service_debt'];
+				if (debt > 0 && total_amount > 0) {				
+					if (total_amount > debt) {
+						amount1 = debt - debt * promo_precent/100;
+						total_amount1 = debt;
+					} else {
+						amount1 = total_amount - total_amount * promo_precent / 100;
+						total_amount1 = total_amount;
+					}
+					total_amount -= debt;
+
+					var values = "crm_id="+rec.data['crm_id']+"&pay_date="+Ext.Date.format(form.findField('pay_date').getValue(),'Y-m-d')+"&pay_type="+form.findField('pay_type').getValue()+"&precent="+form.findField('promo_precent').getValue()+"&promo_code="+form.findField('promo_code').getValue()+"&amount="+amount1+"&total_amount="+total_amount1+"&userCode="+logged;
+					Ext.Ajax.request({
+					   url: 'avia.php',
+					   params: {handle: 'web', table: 'crm_service_payroll', action: 'insert', values: values, where: ''},
+					   success: function(response, opts) {		
+						    form.reset();
+							me.customerList.reload();
+					   },
+					   failure: function(response, opts) {										   
+						  Ext.MessageBox.alert('Status', 'Error !', function() {});
+					   }
+					});	
+				}				
+			});
+		} else
+			 Ext.MessageBox.alert('Status', 'Дүн буруу байна !', function() {});
+	}
+});
+
 Ext.define('OCS.StorageAddProductWindow', {
 	extend: 'OCS.Window',
 	title: 'Products',

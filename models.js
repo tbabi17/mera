@@ -305,6 +305,17 @@ Ext.define('CRM_MESSAGE', {
 	fields: fields['CRM_MESSAGE_FIELDS']
 });
 
+fields['CRM_LOANED_CUSTOMER_FIELDS'] = [
+   {name: 'crm_id', text: 'ID', width: 50, hidden: true},         
+   {name: 'crm_name', text: 'Харилцагч', width: 250, renderer: renderCRMName},
+   {name: 'service_debt', text: 'Авлага', type:'float', align: 'right', width: 120, renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney}
+];
+
+Ext.define('CRM_LOANED_CUSTOMER', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_LOANED_CUSTOMER_FIELDS']
+});
+
 
 fields['CRM_COMPLAIN_FIELDS'] = [
    {name: 'case_id', text: 'ID', width: 50, hidden:true}, 

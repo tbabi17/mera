@@ -812,7 +812,9 @@ Ext.define('OCS.RetailPanel', {
 						text: 'Нэгдсэн төлөлт оруулах',
 						iconCls: 'bankir',
 						handler: function(widget, event) {		
-							
+							new OCS.ServiceLoanGroupWindow({
+								selected: me.grid.getView().getSelectionModel().getSelection()[0],
+							}).show();
 						}
 					},'-',{
 						text: 'Буцаалт бүртгэх',

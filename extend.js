@@ -920,6 +920,7 @@ Ext.define('OCS.GridWithFormPanel', {
 			feature: me.feature,
 			hidden: me.hidden,
 			tbarable: me.tbarable,	
+			query: me.query,
 			listeners : {
 				scope: this,
 				single: true,
@@ -3046,7 +3047,8 @@ Ext.define('OCS.GridView', {
 	cls : 'custom-grid',
 	trackMouseOver: true,	
 	views: '',
-	
+	query: '',
+
 	constructor: function(cnfg) {
         this.callParent(arguments);
         this.initConfig(cnfg);	
@@ -3102,6 +3104,7 @@ Ext.define('OCS.GridView', {
 					hidden: !me.search,
 					emptyText: 'Хайх утга...',
 					readOnly: false,
+					value: me.query,
 					listeners: {
 						 change: {
 							 fn: me.onTextFieldChange_,
@@ -3266,7 +3269,8 @@ Ext.define('OCS.GridView', {
 			}];
 		} else
 			me.features = [];
-
+		
+		me.onTextFieldChange_();
 		me.callParent(arguments);
 	},
 	
@@ -3301,7 +3305,10 @@ Ext.define('OCS.GridView', {
 
 	onTextFieldChange_: function(e) {
 		var me = this;		
-		var v = e.getValue();
+		var v = '';
+		if (e) v = e.getValue();
+		else v = me.query;
+
 		if (v) {			
 			me.query = v;
 			me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where, query: me.query, views: me.views};

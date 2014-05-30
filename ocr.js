@@ -798,7 +798,7 @@ Ext.define('OCS.RetailPanel', {
 									selected: me.grid.getView().getSelectionModel().getSelection()[0]
 								}).createWindow();
 						}
-					},{
+					},'-',{
 						text: 'Төлөлт оруулах',
 						iconCls: 'bankir',
 						handler: function(widget, event) {		
@@ -814,7 +814,7 @@ Ext.define('OCS.RetailPanel', {
 						handler: function(widget, event) {		
 							
 						}
-					},{
+					},'-',{
 						text: 'Буцаалт бүртгэх',
 						iconCls: 'return',
 						handler: function(widget, event) {		

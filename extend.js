@@ -3269,8 +3269,8 @@ Ext.define('OCS.GridView', {
 			}];
 		} else
 			me.features = [];
-		alert(me.query);
-		if (me.query != '')		
+
+		if (me.query && me.query != '')		
 			me.onTextFieldChange_();
 
 		me.callParent(arguments);

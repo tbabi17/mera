@@ -3576,7 +3576,7 @@ Ext.define('OCS.ServiceLoanGroupWindow', {
 	extend: 'OCS.Window',
 	title: 'Зээл төлөлт нэгтгэж оруулах',
 	maximizable: true,
-	height: 400,
+	height: 500,
 	modal: false,
 	width: 950,	
 	modal: true,	
@@ -3605,7 +3605,18 @@ Ext.define('OCS.ServiceLoanGroupWindow', {
 			},
 			createActions: function() {
 				var me = this;
-				me.actions = [];
+				me.actions = [{
+					text: 'Төлөлтийн түүх',
+					iconCls: 'bankir',
+					hidden: true,
+					handler: function(widget, event) {		
+						if (me.recordSelected())
+							new OCS.ServicePayRollWindow({
+								selected: me.grid.getView().getSelectionModel().getSelection()[0],
+								values: 'crm_id'
+							}).createWindow();
+					}
+				}];
 
 				return me.actions;
 			}

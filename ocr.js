@@ -801,6 +801,7 @@ Ext.define('OCS.RetailPanel', {
 					},'-',{
 						text: 'Төлөлт оруулах',
 						iconCls: 'bankir',
+						hidden: true,
 						handler: function(widget, event) {		
 							if (me.recordSelected())
 								new OCS.ServicePayRollWindow({
@@ -809,7 +810,7 @@ Ext.define('OCS.RetailPanel', {
 								}).createWindow();
 						}
 					},{
-						text: 'Нэгдсэн төлөлт оруулах',
+						text: 'Төлөлт оруулах',
 						iconCls: 'bankir',
 						handler: function(widget, event) {		
 							new OCS.ServiceLoanGroupWindow({

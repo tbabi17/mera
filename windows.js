@@ -3576,9 +3576,9 @@ Ext.define('OCS.ServiceLoanGroupWindow', {
 	extend: 'OCS.Window',
 	title: 'Зээл төлөлт нэгтгэж оруулах',
 	maximizable: true,
-	height: 500,
+	height: 400,
 	modal: false,
-	width: 950,	
+	width: 900,	
 	modal: true,	
 		
 	initComponent: function() {

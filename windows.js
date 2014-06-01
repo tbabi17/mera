@@ -3608,7 +3608,6 @@ Ext.define('OCS.ServiceLoanGroupWindow', {
 				me.actions = [{
 					text: 'Төлөлтийн түүх',
 					iconCls: 'bankir',
-					hidden: true,
 					handler: function(widget, event) {		
 						if (me.recordSelected())
 							new OCS.ServicePayRollWindow({

@@ -3742,7 +3742,11 @@ Ext.define('OCS.ServiceLoanGroupWindow', {
 				text: 'Илгээх',				
 				handler: function() {
 					var form = this.up('form').getForm();
-					me.addLoan(form);
+					Ext.Msg.confirm('Warning ','Та зээл төлөлтийн мэдээллийг оруулахдаа итгэлтэй байна уу?',function(btn){
+						if(btn === 'yes'){
+							me.addLoan(form);
+						}
+					});
 				}
 			}]
 		});

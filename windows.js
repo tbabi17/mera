@@ -916,6 +916,7 @@ Ext.define('OCS.ServicePayRollWindow', {
 	values: 'service_id',
 	modelName: 'CRM_SERVICE_PAYROLL',
 	primary: 'id',
+	insert: false,
 
 	initSource: function() {
 		var me = this;
@@ -934,7 +935,7 @@ Ext.define('OCS.ServicePayRollWindow', {
 				_date: Ext.Date.format(new Date(),'Y-m-d H:m:s')
 			}			
 		}
-
+		
 		me.where = me.selected.get(me.values);
 	}
 });

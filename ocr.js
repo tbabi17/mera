@@ -817,7 +817,7 @@ Ext.define('OCS.RetailPanel', {
 								selected: me.grid.getView().getSelectionModel().getSelection()[0],
 							}).show();
 						}
-					},'-',{
+					},{
 						text: 'Буцаалт бүртгэх',
 						iconCls: 'return',
 						handler: function(widget, event) {		

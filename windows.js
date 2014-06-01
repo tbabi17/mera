@@ -916,7 +916,7 @@ Ext.define('OCS.ServicePayRollWindow', {
 	values: 'service_id',
 	modelName: 'CRM_SERVICE_PAYROLL',
 	primary: 'id',
-	insert: false,
+	insert: true,
 
 	initSource: function() {
 		var me = this;

@@ -3583,7 +3583,10 @@ Ext.define('OCS.ServiceLoanGroupWindow', {
 		
 	initComponent: function() {
 		var me = this;				
-		
+		me.query = me.selected.get('lastName');
+		if (me.query == '')
+			me.query = me.selected.get('firstName');
+
 		me.customerList = new Ext.create('OCS.GridWithFormPanel', {
 			modelName:'CRM_LOANED_CUSTOMER',
 			func:'crm_loaned_customer_list',
@@ -3593,7 +3596,7 @@ Ext.define('OCS.ServiceLoanGroupWindow', {
 			buttons: true,
 			feature: true,
 			tbar: false,
-			query: me.selected.get('lastName'),
+			query: me.query,
 			insert: (user_level==0),
 			remove: (user_level==0),	
 			defaultRec: {

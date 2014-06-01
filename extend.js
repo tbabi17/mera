@@ -3269,7 +3269,7 @@ Ext.define('OCS.GridView', {
 			}];
 		} else
 			me.features = [];
-		
+		alert(me.query);
 		if (me.query != '')		
 			me.onTextFieldChange_();
 

@@ -937,6 +937,98 @@ Ext.define('OCS.ServicePayRollWindow', {
 		}
 		
 		me.where = me.selected.get(me.values);
+	},
+	
+	createActions: function(actions) {
+		var me = this;
+
+		me.actions = [
+			Ext.create('Ext.Action', {
+				iconCls   : 'add',
+				text: 'Нэмэх...',
+				disabled: me.insert,
+				handler: function(widget, event) {
+					me.form.updateSource(me.defaultRec);
+					me.form.setVisible(true);
+				}
+			}),
+			Ext.create('Ext.Action', {
+				iconCls   : 'edit',
+				text: 'Засах...',
+				disabled: me.insert,
+				handler: function(widget, event) {
+					me.showForm();
+				}
+			}),
+			Ext.create('Ext.Action', {
+				iconCls   : 'delete',
+				text: 'Устгах',
+				disabled: me.remove,
+				handler: function(widget, event) {
+					me.deleteRecord();
+				}
+			}),
+			'-',
+			Ext.create('Ext.Action', {
+				iconCls   : 'merge',
+				text: 'Нэгтгэх...',
+				disabled: !me.merge,
+				handler: function(widget, event) {
+					if (user_level > 0) {					
+						if (me.grid.getView().getSelectionModel().getSelection().length == 2){					
+							new OCS.MergeRecordsWindow({
+								width: 650,
+								height: 200,
+								table: 'crm_products',
+								name: 'Product',
+								master: me.grid.getView().getSelectionModel().getSelection()[0],
+								slave: me.grid.getView().getSelectionModel().getSelection()[1]
+							}).show();
+						} else
+							Ext.MessageBox.alert('Status', 'Master & Slave record !', function() {});
+					} else
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
+				}
+			}),
+			Ext.create('Ext.Action', {
+				iconCls   : 'export',
+				text: 'Экспорт',
+				handler: function(widget, event) {
+					if (!Ext.fly('frmDummy')) {
+						var frm = document.createElement('form');
+						frm.id = 'frmDummy';
+						frm.name = 'url-post';
+						frm.className = 'x-hidden';
+						document.body.appendChild(frm);
+					}
+
+					Ext.Ajax.request({
+					   url: 'avia.php',
+					   isUpload: true,
+					   form: Ext.fly('frmDummy'),
+					   params: {handle: 'file', action:'export', where: me.title},					
+					   success: function(response, opts) {					
+						  Ext.MessageBox.alert('Status', 'Success !', function() {});
+					   },
+					   failure: function(response, opts) {
+						  Ext.MessageBox.alert('Status', 'Error !', function() {});
+					   }
+					});	
+				}
+			}),
+			'-',
+			Ext.create('Ext.Action', {
+				iconCls   : 'help',
+				text: 'Тусламж',
+				handler: function(widget, event) {
+					new OCS.HelpWindow({
+						id: me.func
+					}).show();
+				}
+			})			
+		];
+
+		return me.actions;
 	}
 });
 

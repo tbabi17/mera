@@ -936,7 +936,6 @@ Ext.define('OCS.ServicePayRollWindow', {
 		}
 
 		me.where = me.selected.get(me.values);
-		alert(me.where);
 	}
 });
 

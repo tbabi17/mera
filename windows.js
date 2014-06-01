@@ -919,7 +919,7 @@ Ext.define('OCS.ServicePayRollWindow', {
 
 	initSource: function() {
 		var me = this;
-
+		
 		me.defaultRec = {
 			data: {
 				id: '0',
@@ -936,6 +936,7 @@ Ext.define('OCS.ServicePayRollWindow', {
 		}
 
 		me.where = me.selected.get(me.values);
+		alert(me.where);
 	}
 });
 

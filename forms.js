@@ -1089,7 +1089,7 @@ Ext.define('OCS.CorporateForm', {
 						xtype: 'combo',
 						store: Ext.create('Ext.data.Store', {
 							 model: 'CRM_PREV',
-							 data: [{value: 'U1',name:'Нийлүүлэлтээс /сарын/'},{value: 'U2',name:'Төлөлтийн дүнгээс'},{value: 'U3',name:'Нийлүүлэлт+Төлөвлөгөөт'},{value: 'U4', name:'Бэлэн борлуулалтын хувьд'}] 
+							 data: [{value: 'U0',name:' '},{value: 'U1',name:'Нийлүүлэлтээс /сарын/'},{value: 'U2',name:'Төлөлтийн дүнгээс'},{value: 'U3',name:'Нийлүүлэлт+Төлөвлөгөөт'},{value: 'U4', name:'Бэлэн борлуулалтын хувьд'}] 
 						}),
 						name: 'promo_code',
 						queryMode: 'local',

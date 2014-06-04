@@ -3055,7 +3055,6 @@ Ext.define('OCS.GridView', {
 	tbarable: false,
 	feature: true,
 	search : true,
-	invalidateScrollerOnRefresh: false,
 	emptyText: 'No records.',
 	cls : 'custom-grid',
 	trackMouseOver: true,	
@@ -3179,7 +3178,6 @@ Ext.define('OCS.GridView', {
 			trackMouseOver: true,
 			stripeRows: false,
 			preserveScrollOnRefresh: true,
-			invalidateScrollerOnRefresh: false,
 			loadMask: false,
 			listeners: {
 				itemcontextmenu: function(view, rec, node, index, e) {

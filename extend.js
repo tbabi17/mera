@@ -3179,7 +3179,7 @@ Ext.define('OCS.GridView', {
 			trackMouseOver: true,
 			stripeRows: false,
 			preserveScrollOnRefresh: true,
-			loadMask: me.mask,
+			loadMask: false,
 			listeners: {
 				viewready: function() {
 					this.getView().scrollState.top=300;

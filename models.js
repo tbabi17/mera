@@ -132,7 +132,7 @@ fields['CRM_CORPORATE_FIELDS'] = [
    {name: 'city', text: 'Хот', width: 100, hidden: true},
    {name: 'district', text: 'Дүүрэг', width: 100, hidden: true},
    {name: 'horoo', text: 'Хороо', width: 100, hidden: true},
-   {name: 'address', text: 'Хаяг', width: 150, hidden: true},   
+   {name: 'address', text: 'Хаяг', width: 150},   
    {name: 'source', text: 'Эх сурвалж', width: 120, hidden: true},
    {name: 'descr', text: 'Тайлбар', width: 120, hidden: true},
    {name: 'owner', text: 'Хариуцагч', width: 140, renderer:renderOwner},

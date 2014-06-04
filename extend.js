@@ -922,8 +922,8 @@ Ext.define('OCS.GridWithFormPanel', {
 			tbarable: me.tbarable,	
 			query: me.query,
 			listeners : {
-				scope: this,
-				single: true,
+				//scope: this,
+				//single: true,
 				itemdblclick: function(dv, record, item, index, e) {
 					if (me.form)				
 						me.showForm();	

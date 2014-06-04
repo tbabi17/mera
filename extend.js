@@ -3179,6 +3179,7 @@ Ext.define('OCS.GridView', {
 			trackMouseOver: true,
 			stripeRows: false,
 			preserveScrollOnRefresh: true,
+			invalidateScrollerOnRefresh: false,
 			listeners: {
 				itemcontextmenu: function(view, rec, node, index, e) {
 					e.stopEvent();

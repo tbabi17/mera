@@ -1572,6 +1572,15 @@ Ext.define('OCS.ProductGridWithFormPanel', {
 				}
 			}),
 			Ext.create('Ext.Action', {
+				iconCls   : 'chart',
+				text: 'Зураг оруулах',
+				handler: function(widget, event) {
+					new OCS.UploadWindow({
+						name: me.xlsName
+					}).show();
+				}
+			}),
+			Ext.create('Ext.Action', {
 				iconCls   : 'import',
 				text: 'Импорт',
 				handler: function(widget, event) {

@@ -7359,7 +7359,7 @@ Ext.define('OCS.ImageUploadWindow', {
 			width: 128,
 			border: false,
 			html: '<img src="product_images/'+me.selected.get('product_barcode')+'.gif"/>',
-			region: 'center'
+			bodyStyle: "background-image:url(product_images/"+me.selected.get('product_barcode')+".gif) !important"
 		});
 
 		me.form = Ext.create('OCS.UploadImageForm', {

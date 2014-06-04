@@ -7347,7 +7347,7 @@ Ext.define('OCS.ImageUploadWindow', {
 	extend: 'OCS.Window',
 	title: 'Upload from image',
 	maximizable: true,
-	width: 470,
+	width: 600,
 	height: 160,
 
 	initComponent: function() {

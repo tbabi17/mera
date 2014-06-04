@@ -1001,7 +1001,7 @@ Ext.define('OCS.GridWithFormPanel', {
 //					me.form.setVisible(true);
 				} else {
 					me.form.updateSource(me.defaultRec);
-					me.form.setVisible(false);
+//					me.form.setVisible(false);
 				}				
 			},			
 			rowselect: function(sm, rowIdx, r) {

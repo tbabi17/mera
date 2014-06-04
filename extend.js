@@ -3055,7 +3055,6 @@ Ext.define('OCS.GridView', {
 	tbarable: false,
 	feature: true,
 	search : true,
-	mask: true,
 	emptyText: 'No records.',
 	cls : 'custom-grid',
 	trackMouseOver: true,	

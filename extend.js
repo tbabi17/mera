@@ -21,7 +21,7 @@ Ext.define('OCS.Module', {
 		var me = this;
 		me.store = Ext.create('Ext.data.Store', {
 			model: me.modelName,
-			pageSize: 50,
+			pageSize: 80,
 			autoLoad: true,
 			remoteSort: me.remoteSort,
 			groupField: me.groupField,
@@ -3055,6 +3055,7 @@ Ext.define('OCS.GridView', {
 	tbarable: false,
 	feature: true,
 	search : true,
+	invalidateScrollerOnRefresh: false,
 	emptyText: 'No records.',
 	cls : 'custom-grid',
 	trackMouseOver: true,	

@@ -7357,6 +7357,7 @@ Ext.define('OCS.ImageUploadWindow', {
 			id : 'upload_form',
 			region: 'center',
 			name: this.name,
+			selected: me.selected,
 			win: this
 		});
 

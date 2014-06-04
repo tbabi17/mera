@@ -7343,6 +7343,28 @@ Ext.define('OCS.UploadWindow', {
 	}
 });
 
+Ext.define('OCS.ImageUploadWindow', {
+	extend: 'OCS.Window',
+	title: 'Upload from image',
+	maximizable: true,
+	width: 470,
+	height: 160,
+
+	initComponent: function() {
+		var me = this;
+
+		me.form = Ext.create('OCS.UploadImageForm', {
+			id : 'upload_form',
+			region: 'center',
+			name: this.name,
+			win: this
+		});
+
+		me.items = [me.form];
+		me.callParent(arguments);
+	}
+});
+
 Ext.define('OCS.MergeRecordsWindow', {
 	extend: 'OCS.Window',
 	title: 'Нэгтгэх...',

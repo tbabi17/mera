@@ -1575,11 +1575,12 @@ Ext.define('OCS.ProductGridWithFormPanel', {
 				iconCls   : 'chart',
 				text: 'Зураг оруулах',
 				handler: function(widget, event) {
-					new OCS.UploadWindow({
-						name: me.xlsName
+					new OCS.ImageUploadWindow({
+						name: 'Product'
 					}).show();
 				}
 			}),
+			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'import',
 				text: 'Импорт',

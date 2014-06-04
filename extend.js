@@ -1575,9 +1575,10 @@ Ext.define('OCS.ProductGridWithFormPanel', {
 				iconCls   : 'chart',
 				text: 'Зураг оруулах',
 				handler: function(widget, event) {
-					new OCS.ImageUploadWindow({
-						name: 'Product'
-					}).show();
+					if (me.recordSelected())
+						new OCS.ImageUploadWindow({
+							selected: me.grid.getView().getSelectionModel().getSelection()[0]
+						}).show();
 				}
 			}),
 			'-',

@@ -7352,6 +7352,15 @@ Ext.define('OCS.ImageUploadWindow', {
 
 	initComponent: function() {
 		var me = this;
+		
+		me.panel = Ext.create('Ext.panel.Panel', {
+			layout: 'fit',
+			region: 'west',
+			width: 128,
+			border: false,
+			html: '<img src="product_images/'+me.selected.get('product_barcode')+'.gif"/>',
+			region: 'center'
+		});
 
 		me.form = Ext.create('OCS.UploadImageForm', {
 			id : 'upload_form',
@@ -7361,7 +7370,7 @@ Ext.define('OCS.ImageUploadWindow', {
 			win: this
 		});
 
-		me.items = [me.form];
+		me.items = [me.panel, me.form];
 		me.callParent(arguments);
 	}
 });

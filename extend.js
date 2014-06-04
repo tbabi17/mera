@@ -968,7 +968,7 @@ Ext.define('OCS.GridWithFormPanel', {
 						text: 'Илгээх',
 						listeners: {
 							mouseover: function(){
-//								me.form.doLayout();
+								me.form.doLayout();
 							}
 						},
 						handler: function() {

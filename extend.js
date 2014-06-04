@@ -3055,6 +3055,7 @@ Ext.define('OCS.GridView', {
 	tbarable: false,
 	feature: true,
 	search : true,
+	mask: true,
 	emptyText: 'No records.',
 	cls : 'custom-grid',
 	trackMouseOver: true,	
@@ -3178,8 +3179,13 @@ Ext.define('OCS.GridView', {
 			trackMouseOver: true,
 			stripeRows: false,
 			preserveScrollOnRefresh: true,
-			loadMask: false,
+			loadMask: me.mask,
 			listeners: {
+				viewready: function() {
+					this.getView().scrollState.top=300;
+					this.getView().restoreScrollState();
+					// this.getView().focusRow(30);
+				},
 				itemcontextmenu: function(view, rec, node, index, e) {
 					e.stopEvent();
 

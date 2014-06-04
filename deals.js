@@ -976,6 +976,7 @@ Ext.define('OCS.ServiceProductGrid', {
 			collapsed: me.collapsed,
 			func: me.func,
 			feature: true,
+			mask: false,
 			actions: me.createActions(),
 			tbarable: false
 		});

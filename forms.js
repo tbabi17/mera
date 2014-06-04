@@ -2579,7 +2579,7 @@ Ext.define('OCS.UploadImageForm', {
             id: 'form-file',
             emptyText: 'Select an file',
             fieldLabel: 'File',
-            name: 'xls-path',
+            name: 'file-path',
 			width: 430,
             buttonText: '',
             buttonConfig: {

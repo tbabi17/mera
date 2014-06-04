@@ -140,7 +140,7 @@ fields['CRM_CORPORATE_FIELDS'] = [
    {name: 'customer_type', text: 'c', width: 0, hidden: true},
    {name: '_date', type: 'datetime', text: 'Үүсгэсэн', width: 120, align: 'center', renderer: renderCreatedDate},
    {name: 'mayDuplicate', text: 'Давхцал', width: 80, renderer: renderPrecent, align: 'right'},
-   {name: 'priority', text: 'Зэрэглэл', width: 60, align: 'center'},
+   {name: 'priority', text: 'Зэрэглэл', width: 60, align: 'center', hidden: true},
    {name: 'pricetag', text: 'Үнэ', width: 120, align: 'center', renderer: renderPriceName}
 ];
 

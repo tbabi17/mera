@@ -406,7 +406,7 @@ Ext.define('OCS.Module', {
 			   params: {handle: 'web', action: action, func: me.func, table: me.table, values:values, where: me.where},
 			   success: function(response, opts) {
 				  Ext.getBody().unmask();				
-  				  me.store.loadPage(1);
+  				  me.store.reload();
 			   },
 			   failure: function(response, opts) {										   
 				  Ext.MessageBox.alert('Status', 'Error !', function() {});
@@ -423,7 +423,7 @@ Ext.define('OCS.Module', {
 			   params: {handle: 'web', action: action, func: me.func, table: me.table, values:values1, where: captcha},
 			   success: function(response, opts) {
 				  Ext.getBody().unmask();
-				  me.store.loadPage(1);									  
+				  me.store.reload();									  
 				  if (me.grid)				
 						me.grid.getSelectionModel().clearSelections();
 

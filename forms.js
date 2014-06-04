@@ -2572,7 +2572,7 @@ Ext.define('OCS.UploadImageForm', {
 			name: 'upload-name',
             xtype: 'textfield',
             fieldLabel: 'Name',
-			value: me.selected.get('product_code'),
+			value: me.selected.get(product_image_field),
 			width: 430
         },{
             xtype: 'filefield',

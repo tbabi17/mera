@@ -650,7 +650,7 @@ fields['CRM_PRODUCT_FIELDS'] = [
    {name: 'product_code', text: 'Код', width: 80, align:'center', primary: true}, 
    {name: 'product_barcode', text: 'Баркод', align:'center', width: 90, primary: true}, 
    {name: 'product_name', text: 'Нэр', width: 250, primary: true},   
-   {name: 'product_type', text: 'Type', width: 200},
+   {name: 'product_type', text: 'Төрөл', width: 200},
    {name: 'product_brand', text: 'Бренд', width: 180},
    {name: 'product_vendor', text: 'Үйлдвэрлэгч', width: 250},
    {name: 'discount', text: 'Хөнгө%', type: 'float', width: 80, renderer: renderPrecent, align: 'right'},

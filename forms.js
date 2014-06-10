@@ -1140,7 +1140,7 @@ Ext.define('OCS.CorporateForm', {
 								 {value: 'price1', name: 'BM1'},
 								 {value: 'price2', name: 'BM2'},
 								 {value: 'price3', name: 'BM3'},
-								 {value: 'price4', name: 'BM1'},
+								 {value: 'price4', name: 'BM4'},
 								 {value: 'price5', name: 'Жижиглэн'},							  
 								 {value: 'price6', name: 'Миний дэлгүүр'},
 								 {value: 'price7', name: 'Номин'},

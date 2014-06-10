@@ -2792,7 +2792,7 @@ Ext.define('OCS.PropertyGrid', {
 			  xtype: 'combo',
 			  store: Ext.create('Ext.data.Store', {
 				 model: 'CRM_ITEM',
-				 data: [{value: 'ш'},{value: 'кг'},{value: 'л'}]
+				 data: [{value: 'ш'},{value: 'кг'},{value: 'л'},{value: 'хр'}]
 			  }),
 			  name: name,
 			  queryMode: 'local',

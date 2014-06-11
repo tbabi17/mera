@@ -856,6 +856,15 @@ Ext.define('OCS.RetailPanel', {
 								}).show();
 						}
 					},{
+						iconCls: 'marker',
+						text: 'Чиглэл засах...',
+						handler: function(widget, event) {
+							if (me.recordSelected())
+								new OCS.UpdateRouteWindow({
+									ids: me.selectedIds()
+								}).show();
+						}
+					},'-',{
 						text: 'Эрсдлийн үнэлгээ...',
 						iconCls: 'chart',
 						handler: function(widget, event) {		

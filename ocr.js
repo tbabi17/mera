@@ -4552,7 +4552,6 @@ Ext.define('OCS.SettingsPanel', {
 		me.userGroup = new Ext.create('OCS.GridWithFormPanel', {
 							modelName:'CRM_USERS_GROUP',
 							func:'crm_user_group_list',
-							title: 'Group members',
 							table: 'crm_user_groups',
 							insert: (user_level==0),
 							remove: (user_level==0),
@@ -4604,6 +4603,7 @@ Ext.define('OCS.SettingsPanel', {
 								hidden: !(user_level > 0),
 								region: 'east',
 								flex: 1,
+								title: 'Групп',
 								split: true,
 								closable: false,
 								collapsible: true,

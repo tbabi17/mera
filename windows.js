@@ -5222,6 +5222,7 @@ Ext.define('OCS.GMapWindow', {
 					iconCls: 'reset',
 					text: 'Арилгах',
 					handler: function() {
+
 					}
 				}
 			]

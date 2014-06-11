@@ -4687,10 +4687,10 @@ Ext.define('OCS.ProductPanel', {
 										id : 'product_list',
 										title: 'Бараа бүтээгдэхүүний жагсаалт',
 										flex: 1,
-										region: 'west',
+										region: 'center',
 										split: true,
 										closable: false,		
-										collapsible: true,
+										collapsible: false,
 										layout: 'border',
 										items: [
 											new Ext.create('OCS.ProductGridWithFormPanel', {
@@ -4702,10 +4702,11 @@ Ext.define('OCS.ProductPanel', {
 										id : 'warehouse_list',
 										title: '',
 										flex: 1,
-										region: 'center',
+										region: 'east',
 										split: true,
 										closable: false,
 										layout: 'border',
+										collapsible: true,
 										border: false,
 										items: [{
 											xtype: 'panel',

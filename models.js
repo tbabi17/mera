@@ -744,18 +744,18 @@ fields['CRM_USERS_FIELDS'] = [
    {name: 'owner', text: 'Хэрэглэгчийн нэр', width: 130, primary: true}, 
    {name: 'password', text: 'Нууц үг', width: 90, hidden: true, renderer: renderPassword, primary: true},
    {name: 'fullName', text: 'Овог нэр', width: 120},
-   {name: 'phone', text: 'Утас', width: 80},
-   {name: 'section', text: 'Алба', width: 150},
-   {name: 'team', text: 'Хэсэг', width: 150},
+   {name: 'phone', text: 'Утас', width: 70},
+   {name: 'section', text: 'Алба', width: 120},
+   {name: 'team', text: 'Хэсэг', width: 80},
    {name: 'position', text: 'Албан тушаал', width: 150},
-   {name: 'manager', text: 'Менежер', width: 150},
-   {name: 'company', text: 'Компани', width: 150},
+   {name: 'manager', text: 'Менежер', width: 120},
+   {name: 'company', text: 'Компани', width: 120},
    {name: 'gmailAccount', text: 'Gmail Account', width: 120},
-   {name: 'user_type', text: 'Чиглэл', width: 100, renderer: renderUserType}, 
-   {name: 'user_level', text: 'Түвшин', width: 80, renderer: renderUserLevel},
+   {name: 'user_type', text: 'Чиглэл', width: 80, renderer: renderUserType}, 
+   {name: 'user_level', text: 'Түвшин', width: 100, renderer: renderUserLevel},
    {name: 'permission', text: 'Хандалт', width: 250, hidden: true},
    {name: 'warehouse_id', text: 'Агуулах', width: 100, hidden: true, primary: true},
-   {name: 'partner', text: 'Жолооч', width: 100}
+   {name: 'partner', text: 'Жолооч', width: 120}
 ];
 
 Ext.define('CRM_USERS', {

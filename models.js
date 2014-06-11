@@ -137,13 +137,13 @@ fields['CRM_CORPORATE_FIELDS'] = [
    {name: 'source', text: 'Эх сурвалж', width: 120, hidden: true},
    {name: 'owner', text: 'Хариуцагч', width: 140, renderer:renderOwner},
    {name: 'userCode', text: 'Бүртгэсэн', width: 120, hidden: true},
-   {name: 'lat', text: 'Lat', width: 40, hidden: true},
-   {name: 'lng', text: 'Lng', width: 40, hidden: true},
    {name: 'customer_type', text: 'c', width: 0, hidden: true},
    {name: '_date', type: 'datetime', text: 'Үүсгэсэн', width: 120, align: 'center', renderer: renderCreatedDate},
    {name: 'mayDuplicate', text: 'Давхцал', width: 80, renderer: renderPrecent, align: 'right'},
    {name: 'priority', text: 'Зэрэглэл', width: 60, align: 'center', hidden: true},
-   {name: 'pricetag', text: 'Үнэ', width: 120, align: 'center', renderer: renderPriceName}
+   {name: 'pricetag', text: 'Үнэ', width: 120, align: 'center', renderer: renderPriceName},
+   {name: 'lat', text: 'Lat', width: 80},
+   {name: 'lng', text: 'Lng', width: 80}
 ];
 
 Ext.define('CRM_CORPORATE', {

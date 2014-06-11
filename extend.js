@@ -2315,6 +2315,23 @@ Ext.define('OCS.PropertyGrid', {
 			};
 		}
 
+		if (name == 'user_type')
+		{
+			return {
+			  xtype: 'combo',
+			  store: Ext.create('Ext.data.Store', {
+  				  model: 'CRM_PREV',
+ 				  data: [{value: 'VAN SELLING'},{value: 'corporate', name: 'PRE SELLING'}]
+              }),
+			  name: name,
+			  queryMode: 'local',
+		      displayField: 'value',
+			  valueField: 'value',			  
+			  triggerAction: 'all',
+			  editable: false
+			};
+		}
+
 		if (name == 'campaign_type')
 		{
 			return {

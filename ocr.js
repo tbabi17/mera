@@ -4606,6 +4606,8 @@ Ext.define('OCS.SettingsPanel', {
 								flex: 1,
 								split: true,
 								closable: false,
+								collapsible: true,
+								collapsed: true,
 								layout: 'border',
 								items: [
 									me.userGroup.createGrid()

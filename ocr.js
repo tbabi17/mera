@@ -856,7 +856,7 @@ Ext.define('OCS.RetailPanel', {
 								}).show();
 						}
 					},{
-						iconCls: 'marker',
+						iconCls: 'expand',
 						text: 'Чиглэл засах...',
 						handler: function(widget, event) {
 							if (me.recordSelected())

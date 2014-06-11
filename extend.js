@@ -1186,7 +1186,7 @@ Ext.define('OCS.UserGridWithFormPanel', {
 				text: 'Зураг оруулах',
 				handler: function(widget, event) {
 					if (me.recordSelected())
-						new OCS.ImageUploadWindow({
+						new OCS.ImageUserUploadWindow({
 							selected: me.grid.getView().getSelectionModel().getSelection()[0]
 						}).show();
 				}

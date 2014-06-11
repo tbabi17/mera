@@ -926,6 +926,7 @@ Ext.define('OCS.RetailPanel', {
 		var result = [];
 		for (i = 0; i < recs.length; i++) {
 			result[i] = {
+				crm_id: recs[i].get('crm_id'),
 				lat: recs[i].get('lat'),
 				lng: recs[i].get('lng'),
 				draggable: true,

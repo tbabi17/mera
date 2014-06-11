@@ -4686,7 +4686,7 @@ Ext.define('OCS.ProductPanel', {
 								items: [{
 										id : 'product_list',
 										title: 'Бараа бүтээгдэхүүний жагсаалт',
-										flex: 1,
+										flex: 1.5,
 										region: 'center',
 										split: true,
 										closable: false,		

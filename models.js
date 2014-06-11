@@ -1456,7 +1456,7 @@ function renderWeekDays(v) {
 		return 'Мягмар';
 	if (v == 'wed')
 		return 'Лхагва';
-	if (v == 'thus')
+	if (v == 'thur')
 		return 'Пүрэв';
 	if (v == 'fri')
 		return 'Баасан';

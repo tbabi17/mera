@@ -1450,6 +1450,8 @@ function renderUserLevel(v) {
 }
 
 function renderWeekDays(v) {
+	if (v == 'all')
+		return '';
 	if (v == 'mon')
 		return 'Даваа';
 	if (v == 'thue')

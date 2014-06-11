@@ -7399,7 +7399,7 @@ Ext.define('OCS.ImageUserUploadWindow', {
 			bodyStyle: "background-image:url(/"+me.selected.get('owner')+".png) no-repeat center center fixed;"
 		});
 
-		me.form = Ext.create('OCS.UploadImageForm', {
+		me.form = Ext.create('OCS.UploadManImageForm', {
 			id : 'upload_form',
 			region: 'center',
 			name: this.name,

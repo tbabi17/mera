@@ -839,14 +839,7 @@ Ext.define('OCS.RetailPanel', {
 						}
 					}]
 				}				
-			}),
-			Ext.create('Ext.Action', {
-				iconCls   : 'tools', 
-				text: 'Чиглэл засах',
-				handler : function(widget, event) {
-
-				}
-			}),
+			}),			
 			Ext.create('Ext.Action', {
 				iconCls   : 'tools', 
 				text: 'Хэрэгслүүд ...',
@@ -860,10 +853,10 @@ Ext.define('OCS.RetailPanel', {
 								new OCS.GMapWindow({
 									ids: me.selectedIds(),
 									markers: [{
-										lat: 47.919078,
-										lng: 106.91754,
+										lat: me.grid.getView().getSelectionModel().getSelection()[0].get('lat'),
+										lng: me.grid.getView().getSelectionModel().getSelection()[0].get('lng'),
 										draggable: true,
-										title: 'Sukhbaatar Square',
+										title: me.grid.getView().getSelectionModel().getSelection()[0].get('firstName'),
 										listeners: {
 											'dragend': function(marker) {
 												var latLng = marker.latLng;

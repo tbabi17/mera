@@ -5109,6 +5109,84 @@ Ext.define('OCS.NewCaseWindow', {
 	}
 });
 
+Ext.define('OCS.UpdateRouteWindow', {
+	extend: 'OCS.Window',
+	title: 'Чиглэлийн мэдээлэл засах',
+	maximizable: true,
+	height: 450,
+	modal: false,
+	width: 400,	
+	modal: true,
+
+	initComponent: function() {
+		var me = this;								
+
+		me.form = Ext.create('OCS.FormPanel', {
+			id: 'new_case_form',
+			region: 'center',
+			hidden: false,
+			closable: false,			
+			title: '',
+			flex: 1,
+			items: [{
+			  xtype: 'combo',
+			  store: Ext.create('Ext.data.Store', {
+  				  model: 'CRM_PREV',
+ 				  data: [{value: 'all', name: 'Бүх өдөр'}, {value: 'mon', name: 'Даваа'},{value: 'mon', name: 'Мягмар'},
+					     {value: 'mon', name: 'Лхагва'},{value: 'mon', name: 'Пүрэв'},
+					     {value: 'mon', name: 'Баасан'},{value: 'mon', name: 'Бямба'}]
+              }),
+			  name: 'sorog_huchin',
+			  queryMode: 'local',
+			  fieldLabel: 'Өдөр',
+			  value: 'all',
+		      displayField: 'name',
+			  valueField: 'value',
+			  triggerAction: 'all',
+			  editable: false
+			},{
+				xtype: 'searchcombo',
+				table: 'crm_customer',
+				fieldLabel: 'descr',
+				name: 'descr'
+			}],
+			buttons: [{
+				iconCls: 'reset',
+				text: 'Арилгах',				
+				handler: function() {
+					var form = this.up('form').getForm();
+					form.reset();
+				}
+			},{
+				iconCls: 'commit',
+				text: 'Илгээх',				
+				handler: function() {
+					var form = this.up('form').getForm();
+					if(form.isValid()){
+						var values = form.getValues(true);						
+						 /*Ext.Ajax.request({
+						   url: 'avia.php',
+						   params: {handle: 'web', table: 'crm_complain', action: 'insert', values: values, where: ''},
+						   success: function(response, opts) {							  							  
+							   views['cases'].reload();
+						   },
+						   failure: function(response, opts) {										   
+							  Ext.MessageBox.alert('Status', 'Error !', function() {});
+						   }
+						});*/
+												
+						me.close();
+					}
+				}
+			}]
+		});
+
+		me.items = [me.form];	
+		me.callParent(arguments);
+	}
+});
+
+
 Ext.define('OCS.GMapWindow', {
 	extend: 'OCS.Window',
 	autoShow: true,
@@ -5122,7 +5200,7 @@ Ext.define('OCS.GMapWindow', {
 
 	initComponent: function() {
 		var me = this;				
-
+		
 		me.items = [{
 			region: 'center',
 			xtype: 'gmappanel',
@@ -5135,6 +5213,7 @@ Ext.define('OCS.GMapWindow', {
 					iconCls: 'commit',
 					text: 'Илгээх',
 					handler: function() {
+
 					}
 				},
 				{

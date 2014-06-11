@@ -842,7 +842,10 @@ Ext.define('OCS.RetailPanel', {
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'tools', 
-				text: 'Чиглэл засах'				
+				text: 'Чиглэл засах',
+				handler : function(widget, event) {
+
+				}
 			}),
 			Ext.create('Ext.Action', {
 				iconCls   : 'tools', 

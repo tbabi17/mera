@@ -842,7 +842,7 @@ Ext.define('OCS.RetailPanel', {
 			}),			
 			Ext.create('Ext.Action', {
 				iconCls   : 'tools', 
-				text: 'Хэрэгслүүд ...',
+				text: 'Чиглэл, байршил ...',
 				menu: {
 					xtype: 'menu',
 					items: [{
@@ -864,7 +864,14 @@ Ext.define('OCS.RetailPanel', {
 									ids: me.selectedIds()
 								}).show();
 						}
-					},'-',{
+					}
+				}
+			}),			
+			Ext.create('Ext.Action', {
+				iconCls   : 'tools', 
+				text: 'Хэрэгслүүд ...',
+				menu: {
+					{
 						text: 'Эрсдлийн үнэлгээ...',
 						iconCls: 'chart',
 						handler: function(widget, event) {		

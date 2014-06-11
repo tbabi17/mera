@@ -5113,7 +5113,7 @@ Ext.define('OCS.UpdateRouteWindow', {
 	extend: 'OCS.Window',
 	title: 'Чиглэлийн мэдээлэл засах',
 	maximizable: true,
-	height: 250,
+	height: 200,
 	modal: false,
 	width: 400,	
 	modal: true,

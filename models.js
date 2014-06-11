@@ -751,7 +751,7 @@ fields['CRM_USERS_FIELDS'] = [
    {name: 'manager', text: 'Менежер', width: 150},
    {name: 'company', text: 'Компани', width: 150},
    {name: 'gmailAccount', text: 'Gmail Account', width: 120},
-   {name: 'user_type', text: 'Чиглэл', width: 100},
+   {name: 'user_type', text: 'Чиглэл', width: 100, renderer: renderUserType},
    {name: 'user_level', text: 'Түвшин', width: 80, renderer: renderUserLevel},
    {name: 'permission', text: 'Хандалт', width: 250, hidden: true},
    {name: 'warehouse_id', text: 'Агуулах', width: 100, hidden: true, primary: true},
@@ -1432,19 +1432,29 @@ function renderExpiredDate1(v) {
 
 function renderUserLevel(v) {
 	if (v == -1)
-		return 'unemployed man';
+		return 'Ажлаас гарсан';
 	if (v == 0)
-		return 'sales man';
+		return 'Борлуулагч';
 	if (v == 1)
-		return 'manager';
+		return 'Менежер';
 	if (v == 2)
-		return 'head';
+		return 'Ахлах';
 	if (v == 3)
-		return 'admin';
+		return 'Администратор';
 	if (v == 5)
-		return 'ceo';
+		return 'Захирал';
 	if (v == 10)
-		return 'president';
+		return 'Эзэн';
+	
+	return v;
+}
+
+
+function renderUserType(v) {
+	if (v == 'retail')
+		return 'VAN SELLING';
+	if (v == 'corporate')
+		return 'PRE SELLING';
 	
 	return v;
 }

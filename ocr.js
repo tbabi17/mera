@@ -7350,7 +7350,7 @@ Ext.define('OCS.UploadWindow', {
 
 Ext.define('OCS.ImageUploadWindow', {
 	extend: 'OCS.Window',
-	title: 'Upload from image',
+	title: 'Барааны зураг солих',
 	maximizable: true,
 	width: 600,
 	height: 160,
@@ -7382,7 +7382,7 @@ Ext.define('OCS.ImageUploadWindow', {
 
 Ext.define('OCS.ImageUserUploadWindow', {
 	extend: 'OCS.Window',
-	title: 'Upload from image',
+	title: 'Борлуулалгчийн зураг солих',
 	maximizable: true,
 	width: 600,
 	height: 160,

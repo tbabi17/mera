@@ -108,7 +108,7 @@ fields['CRM_CORPORATE_FIELDS'] = [
    {name: 'engName', text: 'Латин', width: 180, hidden: true},
    {name: 'company_torol', text: 'Төрөл', width: 60, align: 'center'},
    {name: 'descr', text: 'Чиглэл', width: 120},
-   {name: 'sorog_huchin', text: 'Гараг', width: 70},
+   {name: 'sorog_huchin', text: 'Гараг', width: 70, renderer: renderWeekDays},
    {name: 'phone', text: 'Утас 1', width: 70, align: 'center', renderer: renderPhone},
    {name: 'phone1', text: 'Утас 2', width: 70, align: 'center', hidden: true, renderer: renderPhone},
    {name: 'phone2', text: 'Утас 3', width: 70, align: 'center', renderer: renderPhone, hidden: true},
@@ -1449,6 +1449,24 @@ function renderUserLevel(v) {
 	return v;
 }
 
+function renderWeekDays(v) {
+	if (v == 'mon')
+		return 'Даваа';
+	if (v == 'thue')
+		return 'Мягмар';
+	if (v == 'wed')
+		return 'Лхагва';
+	if (v == 'thus')
+		return 'Пүрэв';
+	if (v == 'fri')
+		return 'Баасан';
+	if (v == 'sat')
+		return 'Бямба';
+	if (v == 'sun')
+		return 'Ням';
+	
+	return v;
+}
 
 function renderUserType(v) {
 	if (v == 'retail')

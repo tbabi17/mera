@@ -864,7 +864,7 @@ Ext.define('OCS.RetailPanel', {
 									ids: me.selectedIds()
 								}).show();
 						}
-					}
+					}]
 				}
 			}),			
 			Ext.create('Ext.Action', {

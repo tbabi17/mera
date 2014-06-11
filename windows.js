@@ -5147,7 +5147,7 @@ Ext.define('OCS.UpdateRouteWindow', {
 			},{
 				xtype: 'searchcombo',
 				table: 'crm_customer',
-				fieldLabel: 'descr',
+				fieldLabel: 'Чиглэлийн нэр',
 				name: 'descr'
 			}],
 			buttons: [{

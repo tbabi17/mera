@@ -3042,6 +3042,7 @@ Ext.define('OCS.Services', {
 				region: 'center',
 				layout: 'border',				
 				title: '',
+				flex: 1,
 				border: false,
 				collapsible: false,
 				items: [

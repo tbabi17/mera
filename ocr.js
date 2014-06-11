@@ -3071,12 +3071,7 @@ Ext.define('OCS.Services', {
 						flex: 0.6,
 						layout: 'border',	 		 			
 						items: [me.services.createView()]
-					}, {
-						region: 'east',
-						flex: 0.4,
-						layout: 'border',
-						items: [me.action.createPanel()]
-					}
+					}, me.action.createPanel()
 				]
 			}]
 		});
@@ -3631,8 +3626,8 @@ Ext.define('OCS.ServiceAction', {
 		me.panel = Ext.create('Ext.Panel', {	
 			layout: 'border',
 			border: true,
-			flex: 1,
-			region: 'center',
+			flex: 0.45,
+			region: 'east',
 			title: 'Сонгосон захиалга',
 			collapsible: true,
 			collapsed: true,

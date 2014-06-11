@@ -751,7 +751,7 @@ fields['CRM_USERS_FIELDS'] = [
    {name: 'manager', text: 'Менежер', width: 150},
    {name: 'company', text: 'Компани', width: 150},
    {name: 'gmailAccount', text: 'Gmail Account', width: 120},
-   {name: 'user_type', text: 'Чиглэл', width: 100, renderer: renderUserType},
+   {name: 'user_type', text: 'Чиглэл', width: 100, renderer: renderUserType}, 
    {name: 'user_level', text: 'Түвшин', width: 80, renderer: renderUserLevel},
    {name: 'permission', text: 'Хандалт', width: 250, hidden: true},
    {name: 'warehouse_id', text: 'Агуулах', width: 100, hidden: true, primary: true},

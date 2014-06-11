@@ -5129,6 +5129,13 @@ Ext.define('OCS.UpdateRouteWindow', {
 			title: '',
 			flex: 1,
 			items: [{
+				xtype: 'textfield',
+				fieldLabel: 'CRM ID',	
+				allowBlank: true,
+				readOnly: true,
+				value: me.ids,
+				name: 'ids'
+			},{
 			  xtype: 'combo',
 			  store: Ext.create('Ext.data.Store', {
   				  model: 'CRM_PREV',

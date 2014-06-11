@@ -3050,12 +3050,7 @@ Ext.define('OCS.Services', {
 						flex: 0.6,
 						layout: 'border',	 					
 						items: [me.services.createView()]
-					}, {
-						flex: 0.4,
-						region: 'east',
-						layout: 'border',
-						items: [me.action.createPanel()]
-					}
+					}, me.action.createPanel()
 				]
 			}]
 		});

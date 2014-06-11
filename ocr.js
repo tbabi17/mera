@@ -4535,7 +4535,7 @@ Ext.define('OCS.SettingsPanel', {
 							modelName:'CRM_USERS',
 							func:'crm_users_list',
 							table: 'crm_users',
-							title: 'Users',
+							title: 'Хэрэглэгчдийн жагсаалт',
 							insert: (user_level==0),
 							remove: (user_level==0),
 							buttons: true,

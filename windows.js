@@ -5116,7 +5116,7 @@ Ext.define('OCS.GMapWindow', {
 	title: 'GMap Window',
 	closeAction: 'hide',
 	maximizable: true,
-	width:450,
+	width:750,
 	height:450,
 	border: false,
 

@@ -5113,14 +5113,14 @@ Ext.define('OCS.UpdateRouteWindow', {
 	extend: 'OCS.Window',
 	title: 'Чиглэлийн мэдээлэл засах',
 	maximizable: true,
-	height: 450,
+	height: 250,
 	modal: false,
 	width: 400,	
 	modal: true,
 
 	initComponent: function() {
 		var me = this;								
-
+		
 		me.form = Ext.create('OCS.FormPanel', {
 			id: 'new_case_form',
 			region: 'center',
@@ -5213,7 +5213,9 @@ Ext.define('OCS.GMapWindow', {
 					iconCls: 'commit',
 					text: 'Илгээх',
 					handler: function() {
-						new OCS.UpdateRouteWindow().show();
+						new OCS.UpdateRouteWindow({
+							ids: me.ids
+						}).show();
 					}
 				},
 				{

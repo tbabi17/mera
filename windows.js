@@ -5171,7 +5171,7 @@ Ext.define('OCS.UpdateRouteWindow', {
 					var form = this.up('form').getForm();
 					if(form.isValid()){
 						var values = form.getValues(true);	
-						var crm_ids = me.ids.split(',');
+						var crm_ids = me.ids.split(':');
 						for (i = 0; i < crm_ids.length; i++) {
 							var crm_id = crm_ids[i];
 							Ext.Ajax.request({
@@ -5185,7 +5185,7 @@ Ext.define('OCS.UpdateRouteWindow', {
 							   }
 							});
 						}
-						views['corporate'].reload();											
+						views['corporate'].store.reload();	
 						me.close();
 					}
 				}

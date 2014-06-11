@@ -5213,7 +5213,7 @@ Ext.define('OCS.GMapWindow', {
 					iconCls: 'commit',
 					text: 'Илгээх',
 					handler: function() {
-
+						new OCS.UpdateRouteWindow().show();
 					}
 				},
 				{

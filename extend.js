@@ -1182,6 +1182,16 @@ Ext.define('OCS.UserGridWithFormPanel', {
 			}),
 			'-',
 			Ext.create('Ext.Action', {
+				iconCls   : 'chart',
+				text: 'Зураг оруулах',
+				handler: function(widget, event) {
+					if (me.recordSelected())
+						new OCS.ImageUploadWindow({
+							selected: me.grid.getView().getSelectionModel().getSelection()[0]
+						}).show();
+				}
+			}),
+			Ext.create('Ext.Action', {
 				iconCls   : 'key',
 				text: 'Нууц үг өөрчлөх ...',
 				handler: function(widget, event) {
@@ -1192,6 +1202,7 @@ Ext.define('OCS.UserGridWithFormPanel', {
 						}).show();
 				}
 			}),
+			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'case_grid',
 				text: 'Эрхийн зохицуулалт ...',

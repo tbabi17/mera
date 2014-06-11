@@ -852,20 +852,7 @@ Ext.define('OCS.RetailPanel', {
 							if (me.recordSelected())
 								new OCS.GMapWindow({
 									ids: me.selectedIds(),
-									markers: [{
-										lat: me.grid.getView().getSelectionModel().getSelection()[0].get('lat'),
-										lng: me.grid.getView().getSelectionModel().getSelection()[0].get('lng'),
-										draggable: true,
-										title: me.grid.getView().getSelectionModel().getSelection()[0].get('firstName'),
-										listeners: {
-											'dragend': function(marker) {
-												var latLng = marker.latLng;
-												var lat = latLng.lat();
-												var lng = latLng.lng();
-												console.log(marker);
-											}
-										}
-									}]
+									markers: me.selectedMarkers()
 								}).show();
 						}
 					},{
@@ -928,6 +915,30 @@ Ext.define('OCS.RetailPanel', {
 		var result = '';
 		for (i = 0; i < recs.length; i++) {
 			result += recs[i].get('crm_id')+':';
+		}
+
+		return result;
+	},
+	
+	selectedMarkers: function() {
+		var me = this;
+		var recs = me.grid.getView().getSelectionModel().getSelection();
+		var result = [];
+		for (i = 0; i < recs.length; i++) {
+			result[i] = {
+				lat: recs[i].get('lat'),
+				lng: recs[i].get('lng'),
+				draggable: true,
+				title: recs[i].get('firstName'),
+				listeners: {
+					'dragend': function(marker) {
+						var latLng = marker.latLng;
+						var lat = latLng.lat();
+						var lng = latLng.lng();
+						console.log(marker);
+					}
+				}
+			};
 		}
 
 		return result;

@@ -4692,7 +4692,7 @@ Ext.define('OCS.ProductPanel', {
 										closable: false,		
 										collapsible: false,
 										layout: 'border',
-										items: [
+										items: [ 
 											new Ext.create('OCS.ProductGridWithFormPanel', {
 												
 											}).createGrid()

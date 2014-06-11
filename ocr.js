@@ -7380,6 +7380,39 @@ Ext.define('OCS.ImageUploadWindow', {
 	}
 });
 
+Ext.define('OCS.ImageUserUploadWindow', {
+	extend: 'OCS.Window',
+	title: 'Upload from image',
+	maximizable: true,
+	width: 600,
+	height: 160,
+
+	initComponent: function() {
+		var me = this;
+		
+		me.panel = Ext.create('Ext.panel.Panel', {
+			layout: 'fit',
+			region: 'west',
+			width: 128,
+			border: true, 
+			html: '<img src="images/users'+me.selected.get('owner')+'.png"/>',
+			bodyStyle: "background-image:url(/"+me.selected.get('owner')+".png) no-repeat center center fixed;"
+		});
+
+		me.form = Ext.create('OCS.UploadImageForm', {
+			id : 'upload_form',
+			region: 'center',
+			name: this.name,
+			selected: me.selected,
+			win: this
+		});
+
+		me.items = [me.panel, me.form];
+		me.callParent(arguments);
+	}
+});
+
+
 Ext.define('OCS.MergeRecordsWindow', {
 	extend: 'OCS.Window',
 	title: 'Нэгтгэх...',

@@ -5163,18 +5163,22 @@ Ext.define('OCS.UpdateRouteWindow', {
 				handler: function() {
 					var form = this.up('form').getForm();
 					if(form.isValid()){
-						var values = form.getValues(true);						
-						 /*Ext.Ajax.request({
-						   url: 'avia.php',
-						   params: {handle: 'web', table: 'crm_complain', action: 'insert', values: values, where: ''},
-						   success: function(response, opts) {							  							  
-							   views['cases'].reload();
-						   },
-						   failure: function(response, opts) {										   
-							  Ext.MessageBox.alert('Status', 'Error !', function() {});
-						   }
-						});*/
-												
+						var values = form.getValues(true);	
+						var crm_ids = me.ids.split(',');
+						for (i = 0; i < crm_ids.length; i++) {
+							var crm_id = crm_ids[i];
+							Ext.Ajax.request({
+							   url: 'avia.php',
+							   params: {handle: 'web', table: 'crm_customer', action: 'update', values: "sorog_huchin='"+form.findField('sorog_huchin').getValue()+"'", where: 'crm_id='+crm_id},
+							   success: function(response, opts) {							  							  
+								   
+							   },
+							   failure: function(response, opts) {										   
+								  Ext.MessageBox.alert('Status', 'Error !', function() {});
+							   }
+							});
+						}
+						views['corporate'].reload();											
 						me.close();
 					}
 				}

@@ -5176,7 +5176,7 @@ Ext.define('OCS.UpdateRouteWindow', {
 							var crm_id = crm_ids[i];
 							Ext.Ajax.request({
 							   url: 'avia.php',
-							   params: {handle: 'web', table: 'crm_customer', action: 'update', values: "sorog_huchin='"+form.findField('sorog_huchin').getValue()+"'", where: 'crm_id='+crm_id},
+							   params: {handle: 'web', table: 'crm_customer', action: 'update', values: "sorog_huchin='"+form.findField('sorog_huchin').getValue()+"',descr='"+form.findField('descr').getValue()+"'", where: 'crm_id='+crm_id},
 							   success: function(response, opts) {							  							  
 								   
 							   },

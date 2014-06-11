@@ -841,7 +841,7 @@ Ext.define('OCS.RetailPanel', {
 				}				
 			}),			
 			Ext.create('Ext.Action', {
-				iconCls   : 'tools', 
+				iconCls   : 'cmem', 
 				text: 'Чиглэл, байршил ...',
 				menu: {
 					xtype: 'menu',

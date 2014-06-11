@@ -668,7 +668,7 @@ fields['CRM_PRODUCT_FIELDS'] = [
    {name: 'warehouse_id', text: 'Агуулах', type: 'int', width: 70, align: 'center'},
    {name: 'unit_type', text: 'Нэгж', width: 40},
    {name: 'unit_size', text: 'Хэмжээ', type: 'float', width: 40},
-   {name: 'company', text: 'Компани', width: 120}  
+   {name: 'company', text: 'Тайлбар', width: 120}  
 ];
 
 

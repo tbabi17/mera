@@ -7395,7 +7395,7 @@ Ext.define('OCS.ImageUserUploadWindow', {
 			region: 'west',
 			width: 128,
 			border: true, 
-			html: '<img src="images/users'+me.selected.get('owner')+'.png"/>',
+			html: '<img src="images/users/'+me.selected.get('owner')+'.png"/>',
 			bodyStyle: "background-image:url(images/users/"+me.selected.get('owner')+".png) no-repeat center center fixed;"
 		});
 

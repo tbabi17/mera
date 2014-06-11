@@ -871,7 +871,8 @@ Ext.define('OCS.RetailPanel', {
 				iconCls   : 'tools', 
 				text: 'Хэрэгслүүд ...',
 				menu: {
-					{
+					xtype: 'menu',
+					items: [{
 						text: 'Эрсдлийн үнэлгээ...',
 						iconCls: 'chart',
 						handler: function(widget, event) {		

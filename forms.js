@@ -733,7 +733,7 @@ Ext.define('OCS.CorporateForm', {
 						fieldLabel: 'Нэр',
 						hideLabel: false,
 						flex: 0.5,
-						maskRe : /[а-яөүА-ЯӨҮёЁ0-9 ]/,
+						maskRe : /[а-яөүА-ЯӨҮёЁ0-9- ]/,
 						focused: true,
 						emptyText: 'Нэр',
 						allowBlank: false,

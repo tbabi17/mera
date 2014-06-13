@@ -3509,7 +3509,7 @@ Ext.define('OCS.ServiceAddProductWindow', {
 					me.form.getForm().findField('product_id').setValue(record.get('product_id'));
 					me.form.getForm().findField('warehouse_id').setValue(record.get('warehouse_id'));
 					me.form.getForm().findField('unit_size').setValue(record.get('unit_size'));
-					if (me.selected.get('pricetag') == 'price1' || me.selected.get('pricetag') == 'price3' || me.selected.get('pricetag') == 'price10')					
+					if (me.selected.get('pricetag') == 'price1' || me.selected.get('pricetag') == 'price3' || me.selected.get('pricetag') == 'price10' || me.selected.get('pricetag') == 'price2' || me.selected.get('pricetag') == 'price4')
 						me.form.getForm().findField('precent').setValue(record.get('discount'));
 					else
 						me.form.getForm().findField('precent').setValue(0);

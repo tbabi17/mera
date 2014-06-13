@@ -5197,7 +5197,6 @@ Ext.define('OCS.UpdateRouteWindow', {
 	}
 });
 
-
 Ext.define('OCS.GMapWindow', {
 	extend: 'OCS.Window',
 	autoShow: true,

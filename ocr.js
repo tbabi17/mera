@@ -3618,8 +3618,7 @@ Ext.define('OCS.ServiceAction', {
 		me.servicePayroll = new OCS.ServicePayrollGrid();
 
 		me.tabs = Ext.widget('tabpanel', {
-			activeTab: 3,
-			flex: 1,			
+			activeTab: 3,			
 			region: 'center',
 			tabPosition: 'top',	
 			items: [

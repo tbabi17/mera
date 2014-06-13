@@ -3267,7 +3267,7 @@ Ext.define('OCS.GridView', {
 			emptyText: me.emptyText,
 			trackOver: true,
 			trackMouseOver: true,
-			stripeRows: false,
+			stripeRows: true,
 			preserveScrollOnRefresh: true,
 			loadMask: true, 
 			listeners: {				

@@ -745,6 +745,13 @@ fields['CRM_USERS_FIELDS'] = [
    {name: 'password', text: 'Нууц үг', width: 90, hidden: true, renderer: renderPassword, primary: true},
    {name: 'fullName', text: 'Овог нэр', width: 120},
    {name: 'phone', text: 'Утас', width: 70},
+   {name: 'mon', text: 'Даваа', width: 120},
+   {name: 'thue', text: 'Мягмар', width: 120},
+   {name: 'wed', text: 'Лхагва', width: 120},
+   {name: 'thur', text: 'Пүрэв', width: 120},
+   {name: 'fri', text: 'Баасан', width: 120},
+   {name: 'sat', text: 'Бямба', width: 120},
+   {name: 'sun', text: 'Ням', width: 120},
    {name: 'section', text: 'Алба', width: 120},
    {name: 'team', text: 'Хэсэг', width: 80},
    {name: 'position', text: 'Албан тушаал', width: 150},
@@ -756,13 +763,6 @@ fields['CRM_USERS_FIELDS'] = [
    {name: 'permission', text: 'Хандалт', width: 250, hidden: true},
    {name: 'warehouse_id', text: 'Агуулах', width: 100, hidden: true, primary: true},
    {name: 'partner', text: 'Жолооч', width: 120},
-   {name: 'mon', text: 'Даваа', width: 120},
-   {name: 'thue', text: 'Мягмар', width: 120},
-   {name: 'wed', text: 'Лхагва', width: 120},
-   {name: 'thur', text: 'Пүрэв', width: 120},
-   {name: 'fri', text: 'Баасан', width: 120},
-   {name: 'sat', text: 'Бямба', width: 120},
-   {name: 'sun', text: 'Ням', width: 120}
 ];
 
 Ext.define('CRM_USERS', {

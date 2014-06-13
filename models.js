@@ -755,7 +755,14 @@ fields['CRM_USERS_FIELDS'] = [
    {name: 'user_level', text: 'Түвшин', width: 100, renderer: renderUserLevel},
    {name: 'permission', text: 'Хандалт', width: 250, hidden: true},
    {name: 'warehouse_id', text: 'Агуулах', width: 100, hidden: true, primary: true},
-   {name: 'partner', text: 'Жолооч', width: 120}
+   {name: 'partner', text: 'Жолооч', width: 120},
+   {name: 'mon', text: 'Даваа', width: 120},
+   {name: 'thue', text: 'Мягмар', width: 120},
+   {name: 'wed', text: 'Лхагва', width: 120},
+   {name: 'thur', text: 'Пүрэв', width: 120},
+   {name: 'fri', text: 'Баасан', width: 120},
+   {name: 'sat', text: 'Бямба', width: 120},
+   {name: 'sun', text: 'Ням', width: 120}
 ];
 
 Ext.define('CRM_USERS', {

@@ -584,6 +584,7 @@ Ext.define('OCS.RetailPanel', {
 						Ext.create('Ext.Action', {
 							iconCls   : 'delete',  
 							text: 'Бүгдийг устгах',
+							disabled: user_level != 3,
 							disabled: permit(me.xlsName+'-delete'),	
 							handler: function(widget, event) {
 								me.deleteRecord();

@@ -1182,6 +1182,13 @@ Ext.define('OCS.UserGridWithFormPanel', {
 			}),
 			'-',
 			Ext.create('Ext.Action', {
+				iconCls   : 'merge',
+				text: 'Чиглэл шилжүүлэх...',
+				handler: function(widget, event) {
+					
+				}
+			}),
+			Ext.create('Ext.Action', {
 				iconCls   : 'chart',
 				text: 'Зураг оруулах',
 				handler: function(widget, event) {

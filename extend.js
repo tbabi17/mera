@@ -871,6 +871,7 @@ Ext.define('OCS.GridWithFormPanel', {
 	windowed: false,
 	views: '',
 	title: '',
+	exportName: '',
 
 	constructor: function(config) {
         this.initConfig(config);
@@ -1142,7 +1143,7 @@ Ext.define('OCS.GridWithFormPanel', {
 					   url: 'avia.php',
 					   isUpload: true,
 					   form: Ext.fly('frmDummy'),
-					   params: {handle: 'file', action:'export', where: me.title},					
+					   params: {handle: 'file', action:'export', where: me.exportName},					
 					   success: function(response, opts) {					
 						  Ext.MessageBox.alert('Status', 'Success !', function() {});
 					   },
@@ -1600,7 +1601,7 @@ Ext.define('OCS.ProductGridWithFormPanel', {
 		}
 	},
 	xlsName: 'Product',
-	title: 'Products',
+	exportName: 'Products',
 
 	createActions: function(actions) {
 		var me = this;

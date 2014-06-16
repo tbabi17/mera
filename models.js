@@ -992,13 +992,14 @@ Ext.define('CRM_CAMPAIGN', {
 
 fields['CRM_USER_PLANNING_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
-   {name: 'owner', text: 'Owner', width: 150}, 
-   {name: 'team', text: 'Team', width: 150}, 
-   {name: 'start_date', text: 'Start date', dateFormat: 'Y-m-d', width: 80},
-   {name: 'end_date', text: 'End date', dateFormat: 'Y-m-d',width: 80},
-   {name: 'amountTheshold', text: 'Target', type: 'float', width: 120, renderer: renderMoney, align: 'right'},
-   {name: 'userCode', text: 'Created By', width: 100, renderer:renderOwner},   
-   {name: '_date', text: 'Created on', dateFormat: 'Y-m-d', width: 120, hidden: true}
+   {name: 'owner', text: 'Борлуулагч', width: 150}, 
+   {name: 'team', text: 'Хэсэг', width: 150}, 
+   {name: 'start_date', text: 'Эхлэх', dateFormat: 'Y-m-d', width: 80},
+   {name: 'end_date', text: 'Дуусах', dateFormat: 'Y-m-d',width: 80},
+   {name: 'product_id', text: 'Бараа', dateFormat: 'Y-m-d',width: 80},
+   {name: 'amountTheshold', text: 'Төлөвлөгөө', type: 'float', width: 120, renderer: renderMoney, align: 'right'},
+   {name: 'userCode', text: 'Бүртгэсэн', width: 100, renderer:renderOwner},   
+   {name: '_date', text: 'Үүссэн', dateFormat: 'Y-m-d', width: 120, hidden: true}
 ];
 
 Ext.define('CRM_USER_PLANNING', {

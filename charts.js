@@ -1233,6 +1233,7 @@ Ext.define('OCS.MapOnline', {
 			insert: false,
 			remove: false,
 			buttons: false,
+			feature: false,
 			defaultRec: {
 				data: {
 					id: '0',

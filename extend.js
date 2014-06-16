@@ -1600,6 +1600,7 @@ Ext.define('OCS.ProductGridWithFormPanel', {
 		}
 	},
 	xlsName: 'Product',
+	title: 'Products',
 
 	createActions: function(actions) {
 		var me = this;

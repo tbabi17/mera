@@ -2726,7 +2726,8 @@ Ext.define('OCS.ServiceView', {
 							handler: function(widget, event) {
 								me.filterData('Closed Services');
 							}
-						}),						
+						}),	
+						'-',
 						Ext.create('Ext.Action', {
 							icon   : '',  
 							text: 'Амжилтгүй',
@@ -2747,7 +2748,8 @@ Ext.define('OCS.ServiceView', {
 							handler: function(widget, event) {
 								me.filterData('Reminded Services');
 							}
-						}),						
+						}),
+						'-',							
 						Ext.create('Ext.Action', {
 							icon   : '',  
 							text: 'Урамшуулалттай',

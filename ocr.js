@@ -4853,6 +4853,7 @@ Ext.define('OCS.GoalsPanel', {
 								region: 'center',
 								flex: 1,
 								split: true,
+								hidden: true,
 								closable: false,
 								layout: 'border',
 							//	hidden: !(user_level > 0),

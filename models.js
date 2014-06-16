@@ -787,7 +787,7 @@ fields['CRM_GPS_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
    {name: 'owner', text: 'Мэдээлэл', width: 250, renderer: renderGPSName},
    {name: 'must', text: 'Орох ёстой', width: 70, align: 'right', renderer: renderNumber},
-   {name: 'enter', text: 'Орсон', width: 70, renderer: renderNumber},
+   {name: 'enter', text: 'Орсон', width: 70, align: 'right', renderer: renderNumber},
    {name: 'lat', text: 'Lng', width: 80, hidden: true},
    {name: 'lng', text: 'Lng', width: 80, hidden: true},
    {name: '_date', type: 'datetime', dateFormat: 'Y-m-d', text: 'Created on', width: 180}

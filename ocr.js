@@ -2722,16 +2722,23 @@ Ext.define('OCS.ServiceView', {
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'Хаагдсан',
+							text: 'Амжилттай хаагдсан',
 							handler: function(widget, event) {
 								me.filterData('Closed Services');
 							}
-						}),
+						}),						
 						Ext.create('Ext.Action', {
 							icon   : '',  
 							text: 'Амжилтгүй',
 							handler: function(widget, event) {
 								me.filterData('Failed Services');
+							}
+						}),
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Орох ёстой',
+							handler: function(widget, event) {
+								me.filterData('Closed Services');
 							}
 						}),
 						Ext.create('Ext.Action', {

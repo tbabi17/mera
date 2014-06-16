@@ -2739,7 +2739,7 @@ Ext.define('OCS.ServiceView', {
 							icon   : '',  
 							text: 'Орох ёстой',
 							handler: function(widget, event) {
-								me.filterData('Closed Services');
+								me.filterData('Goal Services');
 							}
 						}),
 						Ext.create('Ext.Action', {

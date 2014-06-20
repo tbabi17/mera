@@ -994,9 +994,10 @@ fields['CRM_USER_PLANNING_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
    {name: 'owner', text: 'Борлуулагч', width: 150}, 
    {name: 'team', text: 'Хэсэг', width: 150}, 
+   {name: 'product_name', text: 'Бараа', width: 120},
    {name: 'start_date', text: 'Эхлэх', dateFormat: 'Y-m-d', width: 80},
    {name: 'end_date', text: 'Дуусах', dateFormat: 'Y-m-d',width: 80},
-   {name: 'product_id', text: 'Бараа', dateFormat: 'Y-m-d',width: 80},
+   {name: 'product_id', text: 'Бараа', width: 80, hidden: true},
    {name: 'amountTheshold', text: 'Төлөвлөгөө', type: 'float', width: 120, renderer: renderMoney, align: 'right'},
    {name: 'userCode', text: 'Бүртгэсэн', width: 100, renderer:renderOwner},   
    {name: '_date', text: 'Үүссэн', dateFormat: 'Y-m-d', width: 120, hidden: true}

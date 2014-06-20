@@ -3618,7 +3618,7 @@ Ext.define('OCS.ServiceAction', {
 
 	createPanel: function() {
 		var me = this;
-		me.createTmpl();
+		//me.createTmpl();
 				
 		me.servicePosts = new OCS.ServicePostGrid();
 		me.serviceContact = new OCS.ServiceContactGrid();
@@ -3638,7 +3638,20 @@ Ext.define('OCS.ServiceAction', {
 				me.serviceProduct.createPanel(),
 				me.servicePayroll.createPanel(),
 				me.serviceCommission.createPanel()
-			],
+			]			
+		});				
+
+		me.panel = Ext.create('Ext.Panel', {	
+			layout: 'border',
+			border: true,
+			flex: 0.4,
+			region: 'east',
+			title: 'Сонгосон захиалга',
+			collapsible: true,
+			collapsed: true,
+			split: true,
+			bodyPadding: 4,
+			items: [me.tabs],
 			dockedItems:[{
 				xtype: 'toolbar',
 				dock: 'top',
@@ -3677,20 +3690,7 @@ Ext.define('OCS.ServiceAction', {
 							Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 					}
 				}]
-			}] 
-		});				
-
-		me.panel = Ext.create('Ext.Panel', {	
-			layout: 'border',
-			border: true,
-			flex: 0.4,
-			region: 'east',
-			title: 'Сонгосон захиалга',
-			collapsible: true,
-			collapsed: true,
-			split: true,
-			bodyPadding: 4,
-			items: [me.tabs]			
+			}]
 		});		
 
 		return me.panel;

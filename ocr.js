@@ -4834,7 +4834,6 @@ Ext.define('OCS.GoalsPanel', {
 										table: 'crm_user_stat',
 										tab: 'my_crm_tat_list',
 										buttons: true,
-										groupField: 'owner',
 //										insert: (user_level==0),
 //										remove: (user_level==0),	
 										defaultRec: {
@@ -4865,6 +4864,7 @@ Ext.define('OCS.GoalsPanel', {
 										table: 'crm_user_planning',
 										tab: 'my_crm_user_planning_list',
 										buttons: true,
+										groupField: 'owner',
 										insert: (user_level==0),
 										remove: (user_level==0),
 										defaultRec: {

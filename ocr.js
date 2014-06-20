@@ -4824,6 +4824,8 @@ Ext.define('OCS.GoalsPanel', {
 								region: 'east',
 								split: true,
 								closable: false,
+								collapsible: true,
+								collapsed: true,
 								layout: 'border',
 								//hidden: !(user_level == 0),
 								items: [

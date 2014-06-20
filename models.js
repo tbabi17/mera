@@ -999,7 +999,7 @@ fields['CRM_USER_PLANNING_FIELDS'] = [
    {name: 'start_date', text: 'Эхлэх', dateFormat: 'Y-m-d', width: 80},
    {name: 'end_date', text: 'Дуусах', dateFormat: 'Y-m-d',width: 80},
    {name: 'product_id', text: 'Бараа', width: 80, hidden: true},
-   {name: 'amountTheshold', text: 'Төлөвлөгөө', type: 'float', width: 120, renderer: renderMoney, align: 'right'},
+   {name: 'amountTheshold', text: 'Төлөвлөгөө', type: 'float', width: 120, renderer: renderMoney, align: 'right', summaryRenderer: renderTMoney, summaryType: 'sum'},
    {name: 'userCode', text: 'Бүртгэсэн', width: 100, renderer:renderOwner},      
    {name: '_date', text: 'Үүссэн', dateFormat: 'Y-m-d', width: 120, hidden: true}
 ];

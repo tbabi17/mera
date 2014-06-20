@@ -3644,7 +3644,7 @@ Ext.define('OCS.ServiceAction', {
 		me.panel = Ext.create('Ext.Panel', {	
 			layout: 'border',
 			border: true,
-			flex: 0.45,
+			flex: 0.4,
 			region: 'east',
 			title: 'Сонгосон захиалга',
 			collapsible: true,

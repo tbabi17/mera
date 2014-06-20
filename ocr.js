@@ -3638,20 +3638,7 @@ Ext.define('OCS.ServiceAction', {
 				me.serviceProduct.createPanel(),
 				me.servicePayroll.createPanel(),
 				me.serviceCommission.createPanel()
-			]			
-		});				
-
-		me.panel = Ext.create('Ext.Panel', {	
-			layout: 'border',
-			border: true,
-			flex: 0.4,
-			region: 'east',
-			title: 'Сонгосон захиалга',
-			collapsible: true,
-			collapsed: true,
-			split: true,
-			bodyPadding: 4,
-			items: [me.tabs],
+			],
 			dockedItems:[{
 				xtype: 'toolbar',
 				dock: 'top',
@@ -3691,6 +3678,19 @@ Ext.define('OCS.ServiceAction', {
 					}
 				}]
 			}]
+		});				
+
+		me.panel = Ext.create('Ext.Panel', {	
+			layout: 'border',
+			border: true,
+			flex: 0.4,
+			region: 'east',
+			title: 'Сонгосон захиалга',
+			collapsible: true,
+			collapsed: true,
+			split: true,
+			bodyPadding: 4,
+			items: [me.tabs]			
 		});		
 
 		return me.panel;

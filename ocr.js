@@ -3677,7 +3677,7 @@ Ext.define('OCS.ServiceAction', {
 							Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 					}
 				}]
-			}]
+			}] 
 		});				
 
 		me.panel = Ext.create('Ext.Panel', {	

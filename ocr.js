@@ -6872,20 +6872,20 @@ Ext.define('OCS.MyGoalWithFormPanel', {
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls: 'list',
-				text: 'Views',
+				text: 'Харагдац',
 				menu: {
 					xtype: 'menu',
 					items: [
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'Active Goals',
+							text: 'Идэвхтэй төлөвлөгөө',
 							handler: function(widget, event) {
 								me.filterData('Active Goals');
 							}
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'Closed Goals',
+							text: 'Хаагдсан төлөвлөгөө',
 							handler: function(widget, event) {
 								me.filterData('Closed Goals');
 							}
@@ -6893,7 +6893,7 @@ Ext.define('OCS.MyGoalWithFormPanel', {
 						'-',
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'All Goals',
+							text: 'Бүх төлөвлөгөө',
 							handler: function(widget, event) {
 								me.filterData('All Goals');
 							}
@@ -6904,7 +6904,7 @@ Ext.define('OCS.MyGoalWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'add',
-				text: 'New...',
+				text: 'Нэмэх...',
 				disabled: me.insert,
 				handler: function(widget, event) {
 					me.form.updateSource(me.defaultRec);

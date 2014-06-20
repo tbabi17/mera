@@ -3088,6 +3088,7 @@ Ext.define('OCS.Services', {
 						region: 'center',	
 						flex: 0.6,
 						layout: 'border',	 		 			
+						split: true,
 						items: [me.services.createView()]
 					}, me.action.createPanel()
 				]

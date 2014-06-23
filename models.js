@@ -753,7 +753,7 @@ fields['CRM_USERS_FIELDS'] = [
    {name: 'sat', text: 'Бямба', width: 160},
    {name: 'sun', text: 'Ням', width: 160},
    {name: 'section', text: 'Алба', width: 120, hidden: true},
-   {name: 'team', text: 'Хэсэг', width: 80, hidden: true},
+   {name: 'team', text: 'Хэсэг', width: 80},
    {name: 'position', text: 'Албан тушаал', width: 150},
    {name: 'manager', text: 'Менежер', width: 120},
    {name: 'company', text: 'Компани', width: 120, hidden: true},

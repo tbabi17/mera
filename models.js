@@ -994,7 +994,7 @@ fields['CRM_USER_PLANNING_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
    {name: 'plan_name', text: 'Төлөвлөгөөний нэр', width: 120},
    {name: 'owner', text: 'Борлуулагч', width: 150}, 
-   {name: 'team', text: 'Хэсэг', width: 150, hidden: true}, 
+   {name: 'team', text: 'Хэсэг', width: 150}, 
    {name: 'product_name', text: 'Бараа', width: 150},
    {name: 'start_date', text: 'Эхлэх', dateFormat: 'Y-m-d', width: 80},
    {name: 'end_date', text: 'Дуусах', dateFormat: 'Y-m-d',width: 80},

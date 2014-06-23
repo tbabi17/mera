@@ -1003,7 +1003,7 @@ fields['CRM_USER_PLANNING_FIELDS'] = [
    {name: 'amountTheshold', text: 'Төлөвлөгөө', type: 'float', width: 120, renderer: renderMoney, align: 'right', summaryRenderer: renderTMoney, summaryType: 'sum'},
    {name: 'performCount', text: 'Г.тоо', type: 'float', width: 120, renderer: renderNumber, align: 'right', summaryRenderer: renderTNumber, summaryType: 'sum'},
    {name: 'performTheshold', text: 'Гүйцэтгэл', type: 'float', width: 120, renderer: renderMoney, align: 'right', summaryRenderer: renderTMoney, summaryType: 'sum'},
-   {name: 'sku', text: 'Sku %', type: 'float', width: 60, renderer: renderPrecent, align: 'right', summaryRenderer: renderTPrecent, summaryType: 'sum'},
+   {name: 'sku', text: 'Sku %', type: 'float', width: 60, renderer: renderPrecent, align: 'right', summaryRenderer: renderTPrecent, summaryType: 'average'},
    {name: 'userCode', text: 'Бүртгэсэн', width: 100, renderer:renderOwner},      
    {name: '_date', text: 'Үүссэн', dateFormat: 'Y-m-d', width: 120, hidden: true}
 ];

@@ -6908,8 +6908,9 @@ Ext.define('OCS.MyGoalWithFormPanel', {
 				text: 'Нэмэх...',
 				disabled: me.insert,
 				handler: function(widget, event) {
-					me.form.updateSource(me.defaultRec);
-					me.form.setVisible(true);
+//					me.form.updateSource(me.defaultRec);
+//					me.form.setVisible(true);
+					window.open('http://202.70.43.26:85/svn/crm/plan/');
 				}
 			}),
 			Ext.create('Ext.Action', {

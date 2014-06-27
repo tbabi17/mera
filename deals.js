@@ -904,16 +904,18 @@ Ext.define('OCS.ServiceProductGrid', {
 		var me = this;
 		me.store.each(function(rec){
 			var values = "qty="+rec.get('qty')+"&price="+rec.get('price')+"&amount="+(rec.get('qty')*rec.get('price'));
-			Ext.Ajax.request({
-			   url: 'avia.php',
-			   params: {handle: 'web', table: 'crm_deal_products', action: 'update', values: values, where: 'id='+rec.get('id')},
-			   success: function(response, opts) {
-				  me.store.reload();
-			   },
-			   failure: function(response, opts) {										   
-				  Ext.MessageBox.alert('Status', 'Error !', function() {});
-			   }
-			});
+			if (rec.get('id') > 0) {			
+				Ext.Ajax.request({
+				   url: 'avia.php',
+				   params: {handle: 'web', table: 'crm_deal_products', action: 'update', values: values, where: 'id='+rec.get('id')},
+				   success: function(response, opts) {
+					  me.store.reload();
+				   },
+				   failure: function(response, opts) {										   
+					  Ext.MessageBox.alert('Status', 'Error !', function() {});
+				   }
+				});
+			}
 		});
 	},
 

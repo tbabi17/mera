@@ -1815,6 +1815,13 @@ function renderMoney(v) {
 	return Ext.util.Format.number(v, '00,00,000.00')+'₮';
 }
 
+function renderAutoMoney(v, p, record) {	
+	v = record.data['qty']*record.data['price'];
+	if (v == 0)
+		return '';
+	return Ext.util.Format.number(v, '00,00,000.00')+'₮';
+}
+
 function renderTNumber(v) {
 	return '<strong>'+Ext.util.Format.number(v, '00,00,000.00')+'</strong>';
 }

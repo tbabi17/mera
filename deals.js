@@ -937,9 +937,7 @@ Ext.define('OCS.ServiceProductGrid', {
 			sortable: true,
 			editor: {
 				xtype: 'numberfield',
-				allowBlank: false,
-				minValue: 0,
-				maxValue: 100000
+				allowBlank: false
 			}
 		},{
 			text: 'Үнэ',
@@ -949,7 +947,16 @@ Ext.define('OCS.ServiceProductGrid', {
 			renderer: renderMoney,
 			summaryType: 'sum',
 			summaryRenderer: renderTMoney,
-			sortable: true
+			sortable: true,
+			editor: {
+				xtype: 'numberfield',
+				allowBlank: false,
+				value: 0,
+				decimalPrecision: 2,
+			    allowNegative: true,
+				useThousandSeparator: true,
+		        currencySymbol:'₮'
+			}
 		},{
 			text: 'Дүн',
 			dataIndex: 'amount',
@@ -993,12 +1000,12 @@ Ext.define('OCS.ServiceProductGrid', {
 					me.form.setVisible(true);				
 				}
 
-				if (me.action)
-					new OCS.ServiceAddProductWindow({
-						selected: me.selected,
-						backgrid: me.grid,
-						record: record
-					}).show();
+			//	if (me.action)
+			//		new OCS.ServiceAddProductWindow({
+			//			selected: me.selected,
+			//			backgrid: me.grid,
+			//			record: record
+			//		}).show();
 		});
 	}	
 });

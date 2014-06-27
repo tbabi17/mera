@@ -990,11 +990,12 @@ Ext.define('OCS.ServiceProductGrid', {
 			text: 'Дүн',
 			dataIndex: 'amount',
 			width: 100,
-			renderer: renderMoney,
+//			renderer: renderMoney,
 			summaryType: 'sum',
 			summaryRenderer: renderTMoney,
 			align: 'right',
-			sortable: true
+			sortable: true,
+			renderer: renderAutoMoney
 		},{
 			text: 'Огноо',
 			dataIndex: '_date',

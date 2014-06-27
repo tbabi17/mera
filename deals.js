@@ -858,6 +858,20 @@ Ext.define('OCS.ServiceProductGrid', {
 		var me = this;
 		me.actions = [
 			Ext.create('Ext.Action', {
+				iconCls : 'commit',
+				text: 'Хадгалах ...',
+				handler: function(widget, event) {		
+					if (me.action)
+						new OCS.ServiceAddProductWindow({
+							selected: me.selected,
+							backgrid: me.grid
+						}).show();
+					else
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
+				}
+			}),
+			'-',
+			Ext.create('Ext.Action', {
 				iconCls : 'add',
 				text: 'Нэмэх ...',
 				handler: function(widget, event) {		

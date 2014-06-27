@@ -904,8 +904,7 @@ Ext.define('OCS.ServiceProductGrid', {
 		var me = this;
 		me.store.each(function(rec){
 			var values = "qty="+rec.get('qty')+"&price="+rec.get('price')+"&amount="+(rec.get('qty')*rec.get('price'));
-			alert(values+' '+rec.get('id'));
-/*			Ext.Ajax.request({
+			Ext.Ajax.request({
 			   url: 'avia.php',
 			   params: {handle: 'web', table: 'crm_deal_products', action: 'update', values: values, where: 'id='+rec.get('id')},
 			   success: function(response, opts) {
@@ -914,7 +913,7 @@ Ext.define('OCS.ServiceProductGrid', {
 			   failure: function(response, opts) {										   
 				  Ext.MessageBox.alert('Status', 'Error !', function() {});
 			   }
-			});*/
+			});
 		});
 	},
 

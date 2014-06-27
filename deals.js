@@ -944,7 +944,7 @@ Ext.define('OCS.ServiceProductGrid', {
 			text: 'Барааны нэр',
 			dataIndex: 'product_name',
 			flex: 1,			
-			sortable: false
+			sortable: true
 		},{
 			text: 'Precent',
 			dataIndex: 'precent',

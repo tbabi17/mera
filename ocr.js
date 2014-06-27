@@ -2691,7 +2691,7 @@ Ext.define('OCS.ServiceView', {
 	xlsName: 'Service',
 
 	createSubActions: function() {
-		var me = this;
+		var me = this; 
 		if (user_level == '5') { 
 			return [
 				Ext.create('Ext.Action', {

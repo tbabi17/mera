@@ -2690,6 +2690,125 @@ Ext.define('OCS.ServiceView', {
 	primary: 'service_id',
 	xlsName: 'Service',
 
+	createSubActions: function() {
+		if (user_level == 5) {
+			return [
+				Ext.create('Ext.Action', {
+					icon   : '',  
+					text: 'Замд яваа',
+					handler: function(widget, event) {
+						me.filterData('Transit services');
+					}
+				}),
+				Ext.create('Ext.Action', {
+					icon   : '',  
+					text: 'Хүлээн авсан',
+					handler: function(widget, event) {
+						me.filterData('Stocked services');
+					}
+				})
+			];
+		} else {
+			return [
+				Ext.create('Ext.Action', {
+					icon   : '',  
+					text: 'Нээлттэй',
+					handler: function(widget, event) {
+						me.filterData('Open Services');
+					}
+				}),
+				Ext.create('Ext.Action', {
+					icon   : '',  
+					text: 'Шинээр ирсэн',
+					handler: function(widget, event) {
+						me.filterData('Incoming Services');
+					}
+				}),
+				Ext.create('Ext.Action', {
+					icon   : '',  
+					text: 'Олгосон',
+					handler: function(widget, event) {
+						me.filterData('Outgoing Services');
+					}
+				}),
+				Ext.create('Ext.Action', {
+					icon   : '',  
+					text: 'Амжилттай хаагдсан',
+					handler: function(widget, event) {
+						me.filterData('Closed Services');
+					}
+				}),	
+				'-',
+				Ext.create('Ext.Action', {
+					icon   : '',  
+					text: 'Амжилтгүй',
+					handler: function(widget, event) {
+						me.filterData('Failed Services');
+					}
+				}),
+				Ext.create('Ext.Action', {
+					icon   : '',  
+					text: 'Орох ёстой',
+					handler: function(widget, event) {
+						me.filterData('Goal Services');
+					}
+				}),
+				Ext.create('Ext.Action', {
+					icon   : '',  
+					text: 'Хойшлогдсон',
+					handler: function(widget, event) {
+						me.filterData('Reminded Services');
+					}
+				}),
+				'-',							
+				Ext.create('Ext.Action', {
+					icon   : '',  
+					text: 'Урамшуулалттай',
+					handler: function(widget, event) {
+						me.filterData('Campaign Services');
+					}
+				}),
+				'-',
+				Ext.create('Ext.Action', {
+					icon   : '',  
+					text: 'Буцаалтанд ирсэн',
+					handler: function(widget, event) {
+						me.filterData('Returned Services');
+					}
+				}),	
+				Ext.create('Ext.Action', {
+					icon   : '',  
+					text: 'Хүлээн авсан буцаалтууд',
+					handler: function(widget, event) {
+						me.filterData('Accepted Returned Services');
+					}
+				}),	
+				'-',
+				Ext.create('Ext.Action', {
+					icon   : '',  
+					text: 'Миний',
+					handler: function(widget, event) {
+						me.filterData('My Owned Services');
+					}
+				}),
+				Ext.create('Ext.Action', {
+					icon   : '',  
+					text: 'Миний үүсгэсэн',
+					handler: function(widget, event) {
+						me.filterData('My Created Services');
+					}
+				}),
+				Ext.create('Ext.Action', {
+					icon   : '',  
+					text: 'Бүтэн жилийн',
+					handler: function(widget, event) {
+						me.filterData('All services in current fiscal year');
+					}
+				})
+			];
+		}
+	},
+
 	createActions: function() {
 		var me = this;
 		me.actions = [
@@ -2698,118 +2817,7 @@ Ext.define('OCS.ServiceView', {
 				text: 'Харагдац',
 				menu: {
 					xtype: 'menu',
-					items: [
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Нээлттэй',
-							handler: function(widget, event) {
-								me.filterData('Open Services');
-							}
-						}),
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Шинээр ирсэн',
-							handler: function(widget, event) {
-								me.filterData('Incoming Services');
-							}
-						}),
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Олгосон',
-							handler: function(widget, event) {
-								me.filterData('Outgoing Services');
-							}
-						}),
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Амжилттай хаагдсан',
-							handler: function(widget, event) {
-								me.filterData('Closed Services');
-							}
-						}),	
-						'-',
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Амжилтгүй',
-							handler: function(widget, event) {
-								me.filterData('Failed Services');
-							}
-						}),
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Орох ёстой',
-							handler: function(widget, event) {
-								me.filterData('Goal Services');
-							}
-						}),
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Хойшлогдсон',
-							handler: function(widget, event) {
-								me.filterData('Reminded Services');
-							}
-						}),
-						'-',							
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Урамшуулалттай',
-							handler: function(widget, event) {
-								me.filterData('Campaign Services');
-							}
-						}),
-						'-',
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Буцаалтанд ирсэн',
-							handler: function(widget, event) {
-								me.filterData('Returned Services');
-							}
-						}),	
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Хүлээн авсан буцаалтууд',
-							handler: function(widget, event) {
-								me.filterData('Accepted Returned Services');
-							}
-						}),	
-						'-',
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Миний',
-							handler: function(widget, event) {
-								me.filterData('My Owned Services');
-							}
-						}),
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Миний үүсгэсэн',
-							handler: function(widget, event) {
-								me.filterData('My Created Services');
-							}
-						}),
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Бүтэн жилийн',
-							handler: function(widget, event) {
-								me.filterData('All services in current fiscal year');
-							}
-						}),
-						'-',
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Замд яваа',
-							handler: function(widget, event) {
-								me.filterData('Transit services');
-							}
-						}),
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Хүлээн авсан',
-							handler: function(widget, event) {
-								me.filterData('Stocked services');
-							}
-						})
-					]
+					items: me.createSubActions()
 				}		
 			}),
 			'-',

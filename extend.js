@@ -3182,6 +3182,12 @@ Ext.define('OCS.GridView', {
 		    store: me.store
 		});
 		
+		me.cellEditing = new Ext.grid.plugin.CellEditing({
+            clicksToEdit: 1
+        });
+
+		me.plugins = [me.cellEditing];
+
 		me.dateMenu1 = Ext.create('Ext.menu.DatePicker', {
 			handler: function(dp, date){
 				me.start = Ext.Date.format(date, 'Y-m-d');

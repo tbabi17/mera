@@ -934,7 +934,13 @@ Ext.define('OCS.ServiceProductGrid', {
 			renderer: renderNumber,
 			summaryType: 'sum',
 			summaryRenderer: renderTNumber,
-			sortable: true
+			sortable: true,
+			editor: {
+				xtype: 'numberfield',
+				allowBlank: false,
+				minValue: 0,
+				maxValue: 100000
+			}
 		},{
 			text: 'Үнэ',
 			dataIndex: 'price',

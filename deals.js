@@ -902,6 +902,8 @@ Ext.define('OCS.ServiceProductGrid', {
 
 	updateRecords: function() {
 		var me = this;
+		me.count = me.store.getCount();
+		me.affected = 0;
 		me.store.each(function(rec){
 			var values = "pty="+(rec.get('qty')/rec.get('unit_size'))+"&qty="+rec.get('qty')+"&price="+rec.get('price')+"&amount="+(rec.get('qty')*rec.get('price'));
 			if (rec.get('id') > 0) {			
@@ -909,7 +911,9 @@ Ext.define('OCS.ServiceProductGrid', {
 				   url: 'avia.php',
 				   params: {handle: 'web', table: 'crm_deal_products', action: 'update', values: values, where: 'id='+rec.get('id')},
 				   success: function(response, opts) {
-					  me.store.reload();
+					  me.affected++;
+					  if (me.affected >= me.count)					  
+						  me.store.reload();
 				   },
 				   failure: function(response, opts) {										   
 					  Ext.MessageBox.alert('Status', 'Error !', function() {});

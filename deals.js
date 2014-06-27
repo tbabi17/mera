@@ -862,10 +862,7 @@ Ext.define('OCS.ServiceProductGrid', {
 				text: 'Хадгалах ...',
 				handler: function(widget, event) {		
 					if (me.action)
-						new OCS.ServiceAddProductWindow({
-							selected: me.selected,
-							backgrid: me.grid
-						}).show();
+						me.updateRecords();
 					else
 						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
 				}
@@ -901,6 +898,24 @@ Ext.define('OCS.ServiceProductGrid', {
 		];
 
 		return me.actions;
+	},
+
+	updateRecords: function() {
+		var me = this;
+		me.store.each(function(rec){
+			var values = "qty="+rec.get('qty')+"&price="+rec.get('price')+"&amount="+rec.get('amount');
+			alert(values+' '+rec.get('id'));
+/*			Ext.Ajax.request({
+			   url: 'avia.php',
+			   params: {handle: 'web', table: 'crm_deal_products', action: 'update', values: values, where: 'id='+rec.get('id')},
+			   success: function(response, opts) {
+				  me.store.reload();
+			   },
+			   failure: function(response, opts) {										   
+				  Ext.MessageBox.alert('Status', 'Error !', function() {});
+			   }
+			});*/
+		});
 	},
 
 	updateSource: function(rec) {

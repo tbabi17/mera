@@ -524,7 +524,7 @@ Ext.define('OCS.Module', {
 			return;
 		}
 				
-		Ext.Msg.confirm('Warning ','Are you sure you want to delete? ('+selection.length+' records)',function(btn){
+		Ext.Msg.confirm('Warning ','Та уг мэдээллийг устгах гэж байна ? ('+selection.length+' records)',function(btn){
 			if(btn === 'yes'){
 				if (selection.length == 1) {
 					if (user_level < 2 && selection[0].get('owner') && selection[0].get('owner') != logged && selection[0].get('userCode') != logged) {

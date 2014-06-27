@@ -903,7 +903,7 @@ Ext.define('OCS.ServiceProductGrid', {
 	updateRecords: function() {
 		var me = this;
 		me.store.each(function(rec){
-			var values = "qty="+rec.get('qty')+"&price="+rec.get('price')+"&amount="+rec.get('amount');
+			var values = "qty="+rec.get('qty')+"&price="+rec.get('price')+"&amount="+(rec.get('qty')*rec.get('price'));
 			alert(values+' '+rec.get('id'));
 /*			Ext.Ajax.request({
 			   url: 'avia.php',

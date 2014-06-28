@@ -898,7 +898,7 @@ fields['CRM_SERVICE_FIELDS'] = [
    {name: 'service_id', text: 'ID', width: 50, hidden:true}, 
    {name: 'service_stage', text: 'Үе шат', width: 85, align: 'center', renderer: renderServiceLevel},
    {name: '_date', text: 'Огноо', width: 120, renderer: renderCreatedDate},
-   {name: 'subject', text: 'Гүйлгээний дугаар', width: 150, primary: true, renderer: renderTopicName},   
+   {name: 'subject', text: 'Гүйлгээний дугаар', width: 120, primary: true, renderer: renderTopicName},   
    {name: 'crm_id', text: 'CRM ID', hidden: true, width: 80},
    {name: 'crm_name', text: 'Харилцагч', width: 250, renderer: renderCRMName},
    {name: 'phone', text: 'Утас', width: 80, hidden: true, primary: true},

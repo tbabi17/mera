@@ -1248,6 +1248,16 @@ Ext.define('OCS.UserGridWithFormPanel', {
 				}
 			}),
 			Ext.create('Ext.Action', {
+				iconCls   : 'add',
+				text: 'Мессеж илгээх...',
+				handler: function(widget, event) {
+					if (me.recordSelected())
+						new OCS.ImageUserUploadWindow({
+							selected: me.grid.getView().getSelectionModel().getSelection()[0]
+						}).show();
+				}
+			}),
+			Ext.create('Ext.Action', {
 				iconCls   : 'key',
 				text: 'Нууц үг өөрчлөх ...',
 				handler: function(widget, event) {
@@ -1601,6 +1611,7 @@ Ext.define('OCS.ProductGridWithFormPanel', {
 		}
 	},
 	xlsName: 'Product',
+	title: '',
 	exportName: 'Products',
 
 	createActions: function(actions) {

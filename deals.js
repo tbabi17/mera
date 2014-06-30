@@ -929,7 +929,16 @@ Ext.define('OCS.ServiceProductGrid', {
 		me.selected = rec;
 		me.where = rec.get('service_id');
 		me.values = 'service_id';
-		me.loadStore();
+		me.loadStore({callback: function() {
+			var total = 0;
+			me.store.each(function(rec) {
+				total += rec.get('amount');
+			});
+
+			if (rec.get('service_revenue') < total) {
+				alert('yes');
+			}
+		}});
 	},
 	
 	createColumns: function() {

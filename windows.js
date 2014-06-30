@@ -5226,6 +5226,7 @@ Ext.define('OCS.MessageWindow', {
 			},{
 				xtype: 'textarea',
 				fieldLabel: 'Мессеж',
+				value: me.selected.get('msg'),
 				name: 'msg'
 			}],
 			buttons: [{

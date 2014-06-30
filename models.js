@@ -766,6 +766,7 @@ fields['CRM_USERS_FIELDS'] = [
    {name: 'permission', text: 'Хандалт', width: 250, hidden: true},
    {name: 'warehouse_id', text: 'Агуулах', width: 100, hidden: true, primary: true},
    {name: 'partner', text: 'Жолооч', width: 120},
+   {name: 'msg', text: 'Мессеж', width: 120, hidden: true}
 ];
 
 Ext.define('CRM_USERS', {

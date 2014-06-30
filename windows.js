@@ -5197,6 +5197,77 @@ Ext.define('OCS.UpdateRouteWindow', {
 	}
 });
 
+Ext.define('OCS.MessageWindow', {
+	extend: 'OCS.Window',
+	title: 'Мессеж илгээх',
+	maximizable: true,
+	height: 200,
+	modal: false,
+	width: 400,	
+	modal: true,
+
+	initComponent: function() {
+		var me = this;								
+		
+		me.form = Ext.create('OCS.FormPanel', {
+			id: 'new_message_form',
+			region: 'center',
+			hidden: false,
+			closable: false,			
+			title: '',
+			flex: 1,
+			items: [{
+				xtype: 'textfield',
+				fieldLabel: 'Хэнд',	
+				allowBlank: true,
+				readOnly: true,
+				value: me.ids,
+				name: 'ids'
+			},{
+				xtype: 'textarea',
+				fieldLabel: 'Мессеж',
+				name: 'msg'
+			}],
+			buttons: [{
+				iconCls: 'reset',
+				text: 'Арилгах',				
+				handler: function() {
+					var form = this.up('form').getForm();
+					form.reset();
+				}
+			},{
+				iconCls: 'commit',
+				text: 'Илгээх',				
+				handler: function() {
+					var form = this.up('form').getForm();
+					if(form.isValid()){
+						var values = form.getValues(true);	
+						var owner_ids = me.ids.split(':');
+						for (i = 0; i < owner_ids.length; i++) {
+							var owner = owner_ids[i];
+							Ext.Ajax.request({
+							   url: 'avia.php',
+							   params: {handle: 'web', table: 'crm_users', action: 'update', values: "msg='"+form.findField('sorog_huchin').getValue()+"'", where: "owner='"+owner+"'"},
+							   success: function(response, opts) {							  							  
+								   
+							   },
+							   failure: function(response, opts) {										   
+								  Ext.MessageBox.alert('Status', 'Error !', function() {});
+							   }
+							});
+						}
+						views['corporate'].store.reload();	
+						me.close();
+					}
+				}
+			}]
+		});
+
+		me.items = [me.form];	
+		me.callParent(arguments);
+	}
+});
+
 Ext.define('OCS.GMapWindow', {
 	extend: 'OCS.Window',
 	autoShow: true,

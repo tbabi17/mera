@@ -1273,8 +1273,8 @@ Ext.define('OCS.UserGridWithFormPanel', {
 				text: 'Мессеж илгээх...',
 				handler: function(widget, event) {
 					if (me.recordSelected())
-						new OCS.ImageUserUploadWindow({
-							selected: me.grid.getView().getSelectionModel().getSelection()[0]
+						new OCS.MessageWindow({
+							ids: me.selectedIds('owner')
 						}).show();
 				}
 			}),

@@ -5,6 +5,7 @@ var selectedQuote;
 var selectedOwner;
 var selectedServiceRevenue = 0;
 var selectedServiceID = 0;
+var selectedServicePrecent = 0;
 var fields = [];
 var columns = [];
 var customers = [];

@@ -61,7 +61,7 @@ Ext.define('OCS.Module', {
 							});
 
 							if (selectedServiceRevenue < total) {
-								alert('yes');
+								console.log(selectedServiceRevenue+' '+total);
 							}						
 						}
 

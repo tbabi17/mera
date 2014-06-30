@@ -53,6 +53,18 @@ Ext.define('OCS.Module', {
 			}],
 			listeners: {
 				load : function(store, records, successful, operation, eOpts) {
+						if (me.func == 'crm_deal_product_list')
+						{
+							var total = 0;
+							me.store.each(function(rec) {
+								total += rec.get('amount');
+							});
+
+							if (selectedServiceRevenue < total) {
+								alert('yes');
+							}						
+						}
+
 						if (me.func == 'crm_campaign_list') {
 							me.store.each(function(rec){
 								campaigns[rec.get('campaign')] = rec;

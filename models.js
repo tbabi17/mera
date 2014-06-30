@@ -3,6 +3,7 @@ var selected;
 var selectedLead;
 var selectedQuote;
 var selectedOwner;
+var selectedServiceRevenue = 0;
 var fields = [];
 var columns = [];
 var customers = [];

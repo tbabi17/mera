@@ -5256,8 +5256,7 @@ Ext.define('OCS.MessageWindow', {
 								  Ext.MessageBox.alert('Status', 'Error !', function() {});
 							   }
 							});
-						}
-						views['corporate'].store.reload();	
+						}						
 						me.close();
 					}
 				}

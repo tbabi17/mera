@@ -5248,7 +5248,7 @@ Ext.define('OCS.MessageWindow', {
 							var owner = owner_ids[i];
 							Ext.Ajax.request({
 							   url: 'avia.php',
-							   params: {handle: 'web', table: 'crm_users', action: 'update', values: "msg='"+form.findField('sorog_huchin').getValue()+"'", where: "owner='"+owner+"'"},
+							   params: {handle: 'web', table: 'crm_users', action: 'update', values: "msg='"+form.findField('msg').getValue()+"'", where: "owner='"+owner+"'"},
 							   success: function(response, opts) {							  							  
 								   
 							   },

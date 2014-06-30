@@ -1275,7 +1275,7 @@ Ext.define('OCS.UserGridWithFormPanel', {
 					if (me.recordSelected())
 						new OCS.MessageWindow({
 							ids: me.selectedIds('owner'),
-							seleceted: me.grid.getView().getSelectionModel().getSelection()[0]
+							selected: me.grid.getView().getSelectionModel().getSelection()[0]
 						}).show();
 				}
 			}),

@@ -60,17 +60,16 @@ Ext.define('OCS.Module', {
 							});
 
 							if (selectedServiceRevenue < total && me.where > 0) {
-								/*Ext.Ajax.request({
+								Ext.Ajax.request({
 								   url: 'avia.php',
 								   params: {handle: 'web', table: 'crm_services', action: 'update', values: 'service_revenue='+total, where: 'id='+me.where},
 								   success: function(response, opts) {
-									 
+									  views['services'].reload();
 								   },
 								   failure: function(response, opts) {										   
 									  Ext.MessageBox.alert('Status', 'Error !', function() {});
 								   }
-								});*/
-								alert(total+' '+me.where);
+								});
 							}						
 						}
 

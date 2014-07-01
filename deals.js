@@ -930,7 +930,7 @@ Ext.define('OCS.ServiceProductGrid', {
 		me.where = rec.get('service_id');
 		me.values = 'service_id';
 		selectedServiceRevenue = rec.get('service_revenue');
-		selectedServicePrecent = rec.get('precent');
+		selectedServicePrecent = rec.get('service_precent');
 		selectedServiceDebt =  rec.get('service_debt');
 		me.loadStore();
 	},

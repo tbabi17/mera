@@ -931,6 +931,7 @@ Ext.define('OCS.ServiceProductGrid', {
 		me.values = 'service_id';
 		selectedServiceRevenue = rec.get('service_revenue');
 		selectedServicePrecent = rec.get('precent');
+		selectedServiceDebt =  rec.get('service_debt');
 		me.loadStore();
 	},
 	

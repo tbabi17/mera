@@ -58,9 +58,9 @@ Ext.define('OCS.Module', {
 							me.store.each(function(rec) {
 								total += rec.get('amount');
 							});
+							total1 = total - total * precent / 100;
 
-							if (selectedServiceRevenue < total && me.where > 0) {
-								total1 = total - total * precent / 100;
+							if ((selectedServiceRevenue < total || selectedServiceDebt < total1) && me.where > 0) {								
 								Ext.Ajax.request({
 								   url: 'avia.php',
 								   params: {handle: 'web', table: 'crm_services', action: 'update', values: 'service_revenue='+total+'&service_debt='+total1, where: 'service_id='+me.where},

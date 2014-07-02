@@ -1276,7 +1276,7 @@ Ext.define('OCS.UserGridWithFormPanel', {
 					if (me.recordSelected())
 						new OCS.ProductAvailableWindow({
 							selected: me.grid.getView().getSelectionModel().getSelection()[0]
-						}).show();
+						}).createWindow();
 				}
 			}),
 			Ext.create('Ext.Action', {

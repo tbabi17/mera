@@ -478,6 +478,7 @@ Ext.define('OCS.ProductAvailableWindow', {
 	groupField: '',
 	values: 'userCode',
 	modelName: 'CRM_PRODUCT_AVAILABLE',	
+	xlsName: 'PRODUCT_AVAILABLE',
 
 	initSource: function() {
 		var me = this;

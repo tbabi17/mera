@@ -59,7 +59,7 @@ Ext.define('OCS.Module', {
 								total += rec.get('amount');
 							}); 
 							var total1 = 0;
-							if (selectedServicePrecent)														
+							if (selectedServicePrecent > 0)														
 								total1 = total - total * selectedServicePrecent / 100;
 							if ((selectedServiceRevenue < total || selectedServiceDebt < total1) && me.where > 0) {								
 								Ext.Ajax.request({
@@ -1265,6 +1265,16 @@ Ext.define('OCS.UserGridWithFormPanel', {
 				handler: function(widget, event) {
 					if (me.recordSelected())
 						new OCS.ImageUserUploadWindow({
+							selected: me.grid.getView().getSelectionModel().getSelection()[0]
+						}).show();
+				}
+			}),
+			Ext.create('Ext.Action', {
+				iconCls   : 'campaign',
+				text: 'Үлдэгдэл...',
+				handler: function(widget, event) {
+					if (me.recordSelected())
+						new OCS.ProductAvailableWindow({
 							selected: me.grid.getView().getSelectionModel().getSelection()[0]
 						}).show();
 				}

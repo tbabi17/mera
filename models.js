@@ -927,6 +927,18 @@ Ext.define('CRM_SERVICE', {
 });
 
 
+fields['CRM_PRODUCT_AVAILABLE_FIELDS'] = [
+   {name: 'product_id', text: 'ID', width: 50, hidden:true}, 
+   {name: 'product_name', text: 'Бараа', width: 150}, 
+   {name: 'total', text: 'Үлдэгдэл', width: 100, align: 'right', renderer: renderNumber}, 
+   {name: 'userCode', text: 'Хариуцагч', width: 120}
+];
+
+Ext.define('CRM_PRODUCT_AVAILABLE', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_PRODUCT_AVAILABLE_FIELDS']
+});
+
 fields['CRM_RESELLER_FIELDS'] = [
    {name: 'deal_id', text: 'ID', width: 50, hidden:true}, 
    {name: 'status', text: 'Status', width: 80, align: 'center'},

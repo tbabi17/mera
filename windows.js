@@ -470,6 +470,48 @@ Ext.define('OCS.CampaignWindow', {
 	}
 });
 
+Ext.define('OCS.ProductAvailableWindow', {
+	extend: 'OCS.ComplainWindow',
+	func : 'crm_product_available_list', 
+	title: 'Борлуулагчийн үлдэгдэл',
+	table: 'crm_product_available',
+	groupField: '',
+	values: 'userCode',
+	modelName: 'CRM_PRODUCT_AVAILABLE',	
+
+	initSource: function() {
+		var me = this;
+		me.defaultRec = {
+			data: {
+				product_id: '0'
+			}
+		};
+
+		me.where = me.selected.get('owner');
+	},
+
+	createWindow: function() {
+		var me = this;
+		me.initSource();
+		me.panel = me.createGrid();
+		me.form.updateSource(me.defaultRec);
+
+		me.win = Ext.create('widget.window', {
+			title:me.title,
+			closable: true,
+			maximizable: true,
+			width: 950,
+			modal: true,
+			minWidth: 650,
+			height: 500,
+			layout: 'border',		
+			items: [me.panel]		
+		});
+
+		me.win.show();
+	}
+});
+
 Ext.define('OCS.TaskWindow', {
 	extend: 'OCS.ComplainWindow',
 	func : 'crm_task_list', 

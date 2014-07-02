@@ -1,4 +1,4 @@
-Ext.define('OCS.ComplainWindow', {
+Ext.define('OCS.ComplainWindow', { 
 	extend: 'OCS.GridWithFormPanel',
 	func : 'crm_complain_list', 
 	title: 'Case Form',

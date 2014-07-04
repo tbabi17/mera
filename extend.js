@@ -54,7 +54,7 @@ Ext.define('OCS.Module', {
 			listeners: {
 				load : function(store, records, successful, operation, eOpts) {
 						if (me.func == 'crm_deal_product_list') {
-							var total = 0;
+						/*	var total = 0;
 							me.store.each(function(rec) {
 								total += rec.get('amount');
 							}); 
@@ -72,7 +72,7 @@ Ext.define('OCS.Module', {
 									  Ext.MessageBox.alert('Status', 'Error !', function() {});
 								   }
 								});
-							}						
+							}		*/				
 						}
 
 						if (me.func == 'crm_campaign_list') {

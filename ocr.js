@@ -4999,6 +4999,16 @@ Ext.define('OCS.Reports', {
 								me.reconfigure('CRM_REPORT_CUSTOMER', 'crm_report_customer_list');
 							}
 						}),
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Цэгийн нэгдсэн тайлан',
+							handler: function(widget, event) {
+								me.where = '';
+								me.values = '';
+								me.panelW.setVisible(false);
+								me.reconfigure('CRM_REPORT_CUSTOMER', 'crm_report_customer_list');
+							}
+						}),
 						'-',
 						Ext.create('Ext.Action', {
 							icon   : '',  

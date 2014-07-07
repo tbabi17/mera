@@ -1108,6 +1108,22 @@ Ext.define('CRM_REPORT_CUSTOMER_PRODUCT', {
 	fields: fields['CRM_REPORT_CUSTOMER_PRODUCT_FIELDS']
 });
 
+fields['CRM_REPORT_USER_FIELDS'] = [
+   {name: 'owner', text: 'Борлуулагч', width: 150}, 
+   {name: 'entry', text: 'Орох ёстой', width: 90, align: 'right'}, 
+   {name: 'orson', text: 'Орсон', width: 90, align: 'right'}, 
+   {name: 'hiisen', text: 'Борлуулалт хийсэн', width: 90, align: 'right'}, 
+   {name: 'cash', text: 'Бэлэн', width: 100, align: 'right'},
+   {name: 'lease', text: 'Зээл', width: 100, align: 'right'},
+   {name: 'payment', text: 'Зээл төлөлт', width: 100, align: 'right'},
+];
+
+Ext.define('CRM_REPORT_USER_PERFORM', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_REPORT_USER_FIELDS']
+});
+
+
 fields['CRM_REPORT_CUSTOMER_FIELDS'] = [
    {name: 'crm_id', text: 'ID', width: 50, hidden: true}, 
    {name: 'crm_name', text: 'Харилцагч', width: 250}, 

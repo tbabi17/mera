@@ -5006,7 +5006,7 @@ Ext.define('OCS.Reports', {
 								me.where = '';
 								me.values = '';
 								me.panelW.setVisible(false);
-								me.reconfigure('CRM_REPORT_USER', 'crm_report_customer_list');
+								me.reconfigure('CRM_REPORT_USER', 'crm_report_user_list');
 							}
 						}),
 						'-',

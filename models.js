@@ -932,7 +932,7 @@ fields['CRM_PRODUCT_AVAILABLE_FIELDS'] = [
    {name: 'product_id', text: 'ID', width: 50, hidden:true}, 
    {name: 'product_name', text: 'Бараа', width: 250}, 
    {name: 'total', text: 'Үлдэгдэл', width: 100, align: 'right', renderer: renderNumber}, 
-   {name: 'userCode', text: 'Хариуцагч', width: 120}
+   {name: 'userCode', text: 'Хариуцагч', width: 150}
 ];
 
 Ext.define('CRM_PRODUCT_AVAILABLE', {

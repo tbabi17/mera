@@ -5000,7 +5000,7 @@ Ext.define('OCS.Reports', {
 							}
 						}),
 						Ext.create('Ext.Action', {
-							icon   : '',  
+							icon   : '',   
 							text: 'Борлуулагчийн нэгдсэн тайлан',
 							handler: function(widget, event) {
 								me.where = '';

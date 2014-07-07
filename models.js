@@ -1110,12 +1110,13 @@ Ext.define('CRM_REPORT_CUSTOMER_PRODUCT', {
 
 fields['CRM_REPORT_USER_FIELDS'] = [
    {name: 'owner', text: 'Борлуулагч', width: 150}, 
-   {name: 'entry', text: 'Орох ёстой', width: 90, align: 'right'}, 
-   {name: 'orson', text: 'Орсон', width: 90, align: 'right'}, 
-   {name: 'hiisen', text: 'Борлуулалт хийсэн', width: 90, align: 'right'}, 
-   {name: 'cash', text: 'Бэлэн', width: 100, align: 'right'},
-   {name: 'lease', text: 'Зээл', width: 100, align: 'right'},
-   {name: 'payment', text: 'Зээл төлөлт', width: 100, align: 'right'},
+   {name: 'entry', text: 'Орох ёстой', width: 120, align: 'right'}, 
+   {name: 'orson', text: 'Орсон', width: 120, align: 'right'}, 
+   {name: 'hiisen', text: 'Борлуулалт хийсэн', width: 120, align: 'right'}, 
+   {name: 'cash', text: 'Бэлэн', width: 150, align: 'right', renderer: renderMoney},
+   {name: 'lease', text: 'Зээл', width: 150, align: 'right', renderer: renderMoney},
+   {name: 'payment', text: 'Зээл төлөлт', width: 150, align: 'right', renderer: renderMoney},
+   {name: 'total', text: 'Нийт', width: 150, align: 'right', renderer: renderMoney}
 ];
 
 Ext.define('CRM_REPORT_USER', {

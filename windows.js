@@ -503,7 +503,7 @@ Ext.define('OCS.ProductAvailableWindow', {
 			title:me.title,
 			closable: true,
 			maximizable: true,
-			width: 950,
+			width: 750,
 			modal: true,
 			minWidth: 650,
 			height: 500,

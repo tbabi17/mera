@@ -477,6 +477,7 @@ Ext.define('OCS.ProductAvailableWindow', {
 	table: 'crm_product_available',
 	groupField: '',
 	values: 'userCode',
+	primary: 'id',
 	modelName: 'CRM_PRODUCT_AVAILABLE',	
 	xlsName: 'PRODUCT_AVAILABLE',
 
@@ -484,6 +485,7 @@ Ext.define('OCS.ProductAvailableWindow', {
 		var me = this;
 		me.defaultRec = {
 			data: {
+				id: 0,
 				product_id: '0'
 			}
 		};

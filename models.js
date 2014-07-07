@@ -1118,7 +1118,7 @@ fields['CRM_REPORT_USER_FIELDS'] = [
    {name: 'payment', text: 'Зээл төлөлт', width: 100, align: 'right'},
 ];
 
-Ext.define('CRM_REPORT_USER_PERFORM', {
+Ext.define('CRM_REPORT_USER', {
 	extend: 'Ext.data.Model',
 	fields: fields['CRM_REPORT_USER_FIELDS']
 });

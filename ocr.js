@@ -5001,12 +5001,12 @@ Ext.define('OCS.Reports', {
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'Цэгийн нэгдсэн тайлан',
+							text: 'Борлуулагчийн нэгдсэн тайлан',
 							handler: function(widget, event) {
 								me.where = '';
 								me.values = '';
 								me.panelW.setVisible(false);
-								me.reconfigure('CRM_REPORT_CUSTOMER', 'crm_report_customer_list');
+								me.reconfigure('CRM_REPORT_USER', 'crm_report_customer_list');
 							}
 						}),
 						'-',

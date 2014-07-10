@@ -2951,6 +2951,9 @@ Ext.define('OCS.ServiceView', {
 						if (userCode == 'amarjargal@cosmo' || userCode == 'amarjargalgoo@cosmo'  || userCode == 'bayarchimeggoo@cosmo' || userCode == 'bayarchimeg@cosmo' || userCode == 'otgonbat@cosmo' || userCode == 'narantsetseg@cosmo')												
 							window.open('http://'+ip+'/invzahon/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
 						else {
+							if (logged.indexOf('glf') != -1)
+								window.open('http://'+ip+'/invms/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
+							else
 							if (logged.indexOf('cosmo') != -1)
 								window.open('http://'+ip+'/invms/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';'+subject,'');
 							else

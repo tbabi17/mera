@@ -1242,6 +1242,23 @@ Ext.define('CRM_REPORT_REVENUE', {
 	fields: fields['CRM_REPORT_REVENUE_FIELDS']
 });
 
+fields['CRM_REPORT_COMPARE_FIELDS'] = [
+   {name: 'owner', text: 'Driver', width: 180}, 
+   {name: 'user_name', text: 'UserName', width: 180}, 
+   {name: 'crm_id', text: 'Customer', width: 180, hidden: true}, 
+   {name: 'crm_name', text: 'Customer', width: 180}, 
+   {name: 'product_code', text: 'Code', width: 50}, 
+   {name: 'product_name', text: 'Name', width: 250}, 
+   {name: 'unit_size', text: 'Unit', type:'float', width: 80, align: 'right'}, 
+   {name: 'price', text: 'Price', type:'float', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'qty', text: 'Qty', type:'float', width: 80, align: 'right', renderer: renderMoney, summaryType: 'sum'},
+   {name: 'total', text: 'Total', type:'float', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum'}  
+];
+
+Ext.define('CRM_REPORT_COMPARE', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_REPORT_COMPARE_FIELDS']
+});
 
 fields['CRM_REPORT_CASE_FIELDS'] = [
    {name: 'owner', text: 'Owner', width: 250}, 

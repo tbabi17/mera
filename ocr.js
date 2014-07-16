@@ -5064,6 +5064,17 @@ Ext.define('OCS.Reports', {
 								me.reconfigureStatic('CRM_REPORT_ACTIVITY', 'crm_report_activity_list');
 							}
 						}),
+						'-',
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Харьцуулалтын тайлан',
+							handler: function(widget, event) {
+								me.where = '';
+								me.values = '';
+								me.panelW.setVisible(false);
+								me.reconfigure('CRM_REPORT_COMPARE', 'crm_report_compare_list');
+							}
+						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
 							text: 'Гомдол саналын тайлан',

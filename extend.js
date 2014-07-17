@@ -1635,6 +1635,7 @@ Ext.define('OCS.ProductGridWithFormPanel', {
 	feature: true,
 	merge: true,
 	sortField: product_sort_field,
+	sortDirection : 'ASC',
 	insert: (user_level==0),
 	remove: (user_level==0),	
 	defaultRec: {

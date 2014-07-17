@@ -4752,8 +4752,7 @@ Ext.define('OCS.ProductPanel', {
 										]
 									},
 									{
-										id : 'warehouse_list',
-										title: 'Агуулахын мэдээлэл',
+										id : 'warehouse_list',										
 										flex: 1,
 										region: 'east',
 										split: true,
@@ -4766,6 +4765,7 @@ Ext.define('OCS.ProductPanel', {
 										items: [{
 											xtype: 'panel',
 											region: 'north',
+											title: 'Агуулахын жагсаалт',
 											flex: 0.5,
 											layout: 'border',
 											border: true,

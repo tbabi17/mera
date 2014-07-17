@@ -1,4 +1,4 @@
-var product_sort_field = '_class';
+var product_sort_field = '_class'; 
 
 Ext.define('OCS.Module', {
 	modelName: '',

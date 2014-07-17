@@ -4759,7 +4759,7 @@ Ext.define('OCS.ProductPanel', {
 										split: true,
 										closable: false,
 										layout: 'border',
-										collapsed: true,
+										collapsed: false,
 										collapsible: true,
 										border: true,
 										bodyPadding: 5,
@@ -4769,7 +4769,6 @@ Ext.define('OCS.ProductPanel', {
 											flex: 0.5,
 											layout: 'border',
 											border: true,
-											title: 'Агуулахын жагсаалт',
 											collapsible: true,
 											split: true,											
 											items: [

@@ -1,4 +1,4 @@
-var product_sort_field = '_date';
+var product_sort_field = '_class';
 
 Ext.define('OCS.Module', {
 	modelName: '',
@@ -225,7 +225,6 @@ Ext.define('OCS.Module', {
 
 	loadStore: function() {
 		var me = this;
-		alert(me.sortField);
 		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where};
 		me.store.loadPage(1, {callback: function() {
 			me.callBack(me.store);

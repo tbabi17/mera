@@ -1500,8 +1500,7 @@ Ext.define('OCS.WareHouseGridWithFormPanel', {
 
 Ext.define('OCS.WareHouseProductGridWithFormPanel', {	
 	extend: 'OCS.GridWithFormPanel',	
-	values: 'warehouse_id',
-	sortField: '_class',
+	values: 'warehouse_id',	
 	buttons: !(user_level==0),
 	feature: true,
 	merge: true,

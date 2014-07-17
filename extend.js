@@ -6,7 +6,7 @@ Ext.define('OCS.Module', {
 	func : '',
 	where: '',
 	values: '',
-	sortField: '',
+	sortField: '_date',
 	sortDirection: 'DESC',
 	groupField: '',
 	autoSelect: false,
@@ -48,7 +48,7 @@ Ext.define('OCS.Module', {
 				extraParams: {handle: 'web', action: 'select', func: me.func, values: me.values, fields: '', where: me.where},
 			},
 			sorters: [{
-				property: me.sortField.length > 0?me.sortField:'_date',
+				property: me.sortField,
 				direction: me.sortDirection
 			}],
 			listeners: {

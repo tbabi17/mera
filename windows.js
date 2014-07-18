@@ -5555,7 +5555,6 @@ Ext.define('OCS.ScatterWindow', {
 	}
 });
 
-
 Ext.define('OCS.UrgencyWindow', {
 	extend: 'OCS.Window',
 	title: 'Urgency & Импортance window',
@@ -5660,5 +5659,73 @@ Ext.define('OCS.UrgencyWindow', {
 			}
 		}];			
 		me.callParent(arguments);
+	}
+});
+
+Ext.define('OCS.UserPlanningWindow', {
+	extend: 'OCS.ComplainWindow',
+	func : 'crm_campaign_list', 
+	title: 'Төлөвлөгөө оруулах',
+	table: 'crm_user_planning',
+	groupField: '',
+	values: 'owner',
+	modelName: 'CRM_USER_PLANNING',	
+
+	initSource: function() {
+		var me = this;
+		me.defaultRec = {
+			data: {
+				id: '0',
+				plan_name: me.monthValue()+' сар',
+				_date : Ext.Date.format(new Date(),'Y-m-d h:m:s'),
+				start_date : me.month(),
+				end_date : me.lastdaymonth()
+			}
+		};
+	},
+	
+	planValue: function() {
+		return new Date().getFullYear()+'-'+(new Date().getMonth()+1);
+	},
+
+	month: function() {
+		 var today = new Date();
+		 var m = today.getMonth();
+		 var y = today.getFullYear();
+		 var nextDate= new Date(y, m, 1);
+		 var ndate=Ext.Date.format(nextDate, 'Y-m-d');
+		 return ndate;
+	},
+
+	lastdaymonth: function() {
+		 var today = new Date();
+		 var m = today.getMonth();
+		 var y = today.getFullYear();
+		 var int_d = new Date(y, m+1,1);
+		 var next_d = new Date(int_d - 1);
+
+		 var ndate=Ext.Date.format(next_d, 'Y-m-d');
+		 return ndate;
+	},
+
+	createWindow: function() {
+		var me = this;
+		me.initSource();
+		me.panel = me.createGrid();
+		me.form.updateSource(me.defaultRec);
+
+		me.win = Ext.create('widget.window', {
+			title:me.title,
+			closable: true,
+			maximizable: true,
+			width: 950,
+			modal: true,
+			minWidth: 650,
+			height: 500,
+			layout: 'border',		
+			items: [me.panel]		
+		});
+
+		me.win.show();
 	}
 });

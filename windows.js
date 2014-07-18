@@ -5683,6 +5683,8 @@ Ext.define('OCS.UserPlanningWindow', {
 				userCode: logged
 			}
 		};
+
+		me.where = me.selected.get('owner');
 	},
 	
 	planValue: function() {

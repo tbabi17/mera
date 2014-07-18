@@ -1011,7 +1011,7 @@ Ext.define('CRM_CAMPAIGN', {
 fields['CRM_DEFAULT_USER_PLANNING_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
    {name: 'plan_name', text: 'Төлөвлөгөөний нэр', width: 120},
-   {name: 'owner', text: 'Борлуулагч', width: 150},
+   {name: 'owner', text: 'Борлуулагч', width: 150, hidden: true},
    {name: 'start_date', text: 'Эхлэх', dateFormat: 'Y-m-d', width: 80},
    {name: 'end_date', text: 'Дуусах', dateFormat: 'Y-m-d',width: 80},
    {name: 'product_id', text: 'Бараа', width: 80, hidden: true},

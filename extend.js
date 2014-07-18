@@ -3855,7 +3855,7 @@ Ext.define('OCS.BGridView', {
 			me.tbar = me.actions;
 
 		me.contextMenu = Ext.create('Ext.menu.Menu', {
-			items: me.actions
+			items:[]// me.actions
 		});
 
 		me.bbar = Ext.create('Ext.PagingToolbar', {

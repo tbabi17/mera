@@ -1008,6 +1008,23 @@ Ext.define('CRM_CAMPAIGN', {
 	fields: fields['CRM_CAMPAIGN_FIELDS']
 });
 
+fields['CRM_DEFAULT_USER_PLANNING_FIELDS'] = [
+   {name: 'id', text: 'ID', width: 50, hidden:true}, 
+   {name: 'plan_name', text: 'Төлөвлөгөөний нэр', width: 120},
+   {name: 'owner', text: 'Борлуулагч', width: 150},
+   {name: 'start_date', text: 'Эхлэх', dateFormat: 'Y-m-d', width: 80},
+   {name: 'end_date', text: 'Дуусах', dateFormat: 'Y-m-d',width: 80},
+   {name: 'product_id', text: 'Бараа', width: 80, hidden: true},
+   {name: 'count', text: 'Т.Тоо', type: 'float', width: 70, renderer: renderNumber, align: 'right', summaryRenderer: renderTNumber, summaryType: 'sum'},
+   {name: 'amountTheshold', text: 'Төлөвлөгөө', type: 'float', width: 120, renderer: renderMoney, align: 'right', summaryRenderer: renderTMoney, summaryType: 'sum'},
+   {name: 'userCode', text: 'Бүртгэсэн', width: 100, renderer:renderOwner},
+   {name: '_date', text: 'Үүссэн', dateFormat: 'Y-m-d', width: 120, hidden: true}
+];
+
+Ext.define('CRM_DEFAULT_USER_PLANNING', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_DEFAULT_USER_PLANNING_FIELDS']
+});
 
 fields['CRM_USER_PLANNING_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 

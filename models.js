@@ -1016,6 +1016,7 @@ fields['CRM_DEFAULT_USER_PLANNING_FIELDS'] = [
    {name: 'end_date', text: 'Дуусах', dateFormat: 'Y-m-d',width: 80},
    {name: 'product_name', text: 'Бараа', width: 150},
    {name: 'product_id', text: 'ID', width: 80, hidden: true},
+   {name: 'price', text: 'Үнэ', type: 'float', width: 70, renderer: renderMoney, align: 'right', summaryRenderer: renderTMoney, summaryType: 'sum'},
    {name: 'count', text: 'Т.Тоо', type: 'float', width: 70, renderer: renderNumber, align: 'right', summaryRenderer: renderTNumber, summaryType: 'sum'},
    {name: 'amountTheshold', text: 'Төлөвлөгөө', type: 'float', width: 120, renderer: renderMoney, align: 'right', summaryRenderer: renderTMoney, summaryType: 'sum'},
    {name: 'userCode', text: 'Бүртгэсэн', width: 100, renderer:renderOwner},

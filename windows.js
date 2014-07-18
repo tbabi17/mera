@@ -5670,6 +5670,7 @@ Ext.define('OCS.UserPlanningWindow', {
 	groupField: '',
 	values: 'owner',
 	modelName: 'CRM_DEFAULT_USER_PLANNING',	 
+
 	initSource: function() {
 		var me = this;
 		me.defaultRec = {

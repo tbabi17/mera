@@ -1,3 +1,4 @@
+var number_float = true;
 var crm_id = '';
 var selected;
 var selectedLead;
@@ -1884,10 +1885,17 @@ function renderIntNumber(v) {
 }
 
 function renderNumber(v) {
-	if (v < 0)
-		return '<span style="color:red">'+Ext.util.Format.number(v, '00,00,000.00')+'</span>';
+	if (number_float) {
+		if (v < 0)
+			return '<span style="color:red">'+Ext.util.Format.number(v, '00,00,000.00')+'</span>';
 
-	return Ext.util.Format.number(v, '00,00,000.00');
+		return Ext.util.Format.number(v, '00,00,000.00');
+	} else {
+		if (v < 0)
+			return '<span style="color:red">'+Ext.util.Format.number(v, '00,00,000')+'</span>';
+
+		return Ext.util.Format.number(v, '00,00,000');
+	}
 }
 
 function renderENumber(v) {

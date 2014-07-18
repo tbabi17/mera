@@ -5664,7 +5664,7 @@ Ext.define('OCS.UrgencyWindow', {
 
 Ext.define('OCS.UserPlanningWindow', {
 	extend: 'OCS.ComplainWindow',
-	func : 'crm_campaign_list', 
+	func : 'crm_default_user_planning_list', 
 	title: 'Төлөвлөгөө оруулах',
 	table: 'crm_user_planning',
 	groupField: '',

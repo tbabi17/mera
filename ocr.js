@@ -5184,7 +5184,7 @@ Ext.define('OCS.Reports', {
 		var me = this;
 		me.start = me.month();
 		me.end = me.nextmonth();
-		me.report = new OCS.GridView({
+		me.report = new OCS.BGridView({
 			store: me.store,
 			columns: me.createColumns(),
 			flex: 0.75,

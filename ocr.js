@@ -6949,7 +6949,7 @@ Ext.define('OCS.MyGoalWithFormPanel', {
 				iconCls   : 'edit',
 				text: 'Засах...',
 				handler: function(widget, event) {
-					new OCS.UserPlanningWindow().show();
+					new OCS.UserPlanningWindow().createWindow();
 				}
 			}),
 			Ext.create('Ext.Action', {

@@ -5676,7 +5676,7 @@ Ext.define('OCS.UserPlanningWindow', {
 		me.defaultRec = {
 			data: {
 				id: '0',
-				plan_name: me.monthValue()+' сар',
+				plan_name: me.planValue()+' сар',
 				_date : Ext.Date.format(new Date(),'Y-m-d h:m:s'),
 				start_date : me.month(),
 				end_date : me.lastdaymonth()

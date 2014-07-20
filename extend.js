@@ -1274,7 +1274,15 @@ Ext.define('OCS.UserGridWithFormPanel', {
 				iconCls   : 'activity',
 				text: 'Төлөвлөгөө үүсгэх...',
 				handler: function(widget, event) {
-					
+					var selection = me.grid.getSelectionModel().getSelection();
+					if (selection.length > 0) {						
+						Ext.Msg.confirm('Warning ','Сонгосон борлуулагчдын төлөвлөгөөг үүсгэх үү ?',function(btn){
+							if(btn === 'yes') {
+									alert(me.selectedIds('owner'));
+							}
+						});
+					} else
+					  Ext.MessageBox.alert('Status', 'Сонгогдсон мөр байхгүй байна !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {

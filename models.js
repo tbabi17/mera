@@ -1043,7 +1043,7 @@ fields['CRM_USER_PLANNING_FIELDS'] = [
 		xtype: 'numberfield', 
 		allowBlank: false,
 		listeners: { 
-			'afteredit': function() {
+			'afteredit': function(e) {
 				alert(1);
 			} 
 		}

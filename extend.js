@@ -1271,7 +1271,7 @@ Ext.define('OCS.UserGridWithFormPanel', {
 			}),
 			'-',
 			Ext.create('Ext.Action', {
-				iconCls   : 'goal',
+				iconCls   : 'activity',
 				text: 'Төлөвлөгөө үүсгэх...',
 				handler: function(widget, event) {
 					

@@ -3999,7 +3999,7 @@ Ext.define('OCS.BGridView', {
 
 	loadStore: function() {
 		var me = this;
-		me.store.load();
+		me.store.loadPage(1);
 	},
 
 	onTextFieldChange_: function(e) {

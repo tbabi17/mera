@@ -3262,10 +3262,8 @@ Ext.define('OCS.GridView', {
 
 					alert(Ext.String.format(
 						'The field "{0}" or record #{1} has been changed from {2} to {3}', 
-						e.field, record.get('id'), e.originalValue, e.newValue
+						e.field, record.get('id'), e.originalValue, e.value
 					));
-
-					alert('The following fields of the records are dirty: ' + Ext.Object.getKeys(record.modified).join(', '));
 				}   
             }
         });

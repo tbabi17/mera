@@ -6939,12 +6939,13 @@ Ext.define('OCS.MyGoalWithFormPanel', {
 			'-',
 			Ext.create('Ext.Action', {
 				iconCls   : 'add',
-				text: 'Нэмэх...',
+				text: 'Үүсгэх...',
 				disabled: me.insert,
 				handler: function(widget, event) {
 //					me.form.updateSource(me.defaultRec);
 //					me.form.setVisible(true);
-					window.open('http://202.70.43.26:85/svn/crm/plan/');
+					//window.open('http://202.70.43.26:85/svn/crm/plan/');
+					Ext.MessageBox.alert('Status', 'Тохиргоо цэсний Төлөвлөгөө үүсгэх коммандыг сонгосон борлуулагчдын хувьд хийнэ үү !', function() {});
 				}
 			}),
 			Ext.create('Ext.Action', {

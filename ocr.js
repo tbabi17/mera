@@ -6900,7 +6900,8 @@ Ext.define('OCS.MyGridWithFormPanel', {
 
 Ext.define('OCS.MyGoalWithFormPanel', {	
 	extend: 'OCS.MyGridWithFormPanel',
-	
+	feature: true,
+
 	createActions: function(actions) {
 		var me = this;
 		me.actions = [

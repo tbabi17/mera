@@ -1041,12 +1041,7 @@ fields['CRM_USER_PLANNING_FIELDS'] = [
    {name: 'count', text: 'Т.Тоо', type: 'float', width: 90, renderer: renderNumber, align: 'right', summaryRenderer: renderTNumber, summaryType: 'sum', 
 	editor: {
 		xtype: 'numberfield', 
-		allowBlank: false,
-		listeners: { 
-			'afteredit': function(e) {
-				alert(1);
-			} 
-		}
+		allowBlank: false		
 	}
    },
    {name: 'amountTheshold', text: 'Төлөвлөгөө', type: 'float', width: 120, renderer: renderMoney, align: 'right', summaryRenderer: renderTMoney, summaryType: 'sum'},

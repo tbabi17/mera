@@ -3265,18 +3265,20 @@ Ext.define('OCS.GridView', {
 							e.field, record.get('id'), e.originalValue, e.value
 						));
 						
-						record.set('amountTheshold', e.value * record.get('price'));
-						/*
+						amount = e.value * record.get('price');
+						count = e.value;
+						record.set('amountTheshold', amount);
+						
 						Ext.Ajax.request({
 						   url: 'avia.php',
-						   params: {handle: 'web', table: 'crm_services', action: 'update', values: 'service_revenue='+total+'&service_debt='+total1, where: 'service_id='+me.where},
+						   params: {handle: 'web', table: 'crm_user_planning', action: 'update', values: 'amountTheshold='+amount+'&count='+count, where: 'id='+record.get('id')},
 						   success: function(response, opts) {
 							  views['services'].reload();
 						   },
 						   failure: function(response, opts) {										   
 							  Ext.MessageBox.alert('Status', 'Error !', function() {});
 						   }
-						});*/
+						});
 					}
 				}   
             }

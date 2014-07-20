@@ -3463,7 +3463,7 @@ Ext.define('OCS.GridView', {
 		if (recs && recs.length > 0)
 			return true;
 		
-		Ext.MessageBox.alert('Status', 'No Selection !', function() {});
+		Ext.MessageBox.alert('Анхаар', 'Мөр сонгогдоогүй байна !', function() {});
 		return false;
 	},
 

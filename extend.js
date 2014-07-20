@@ -3257,8 +3257,8 @@ Ext.define('OCS.GridView', {
 		me.cellEditing = new Ext.grid.plugin.CellEditing({
             clicksToEdit: 1,
 			listeners: {
-                afteredit: function(obj) {
-                    alert(obj.value);
+                afteredit: function(obj, value) {
+                    alert(value);
                 }   
             }
         });

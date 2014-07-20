@@ -1272,7 +1272,7 @@ fields['CRM_REPORT_COMPARE_FIELDS'] = [
    {name: 'owner', text: 'Хариуцагч', width: 180}, 
    {name: 'crm_id', text: 'ID', width: 180, hidden: true}, 
    {name: 'crm_name', text: 'Харилцагч', width: 180}, 
-   {name: 'two_month', text: '2 сарын өмнөх', type:'float', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum'},
+   {name: 'two_month', text: '2 сарын өмнө', type:'float', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum'},
    {name: 'past_month', text: 'Өнгөрсөн сар', type:'float', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum'},
    {name: 'this_month', text: 'Энэ сар', type:'float', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum'}
 ];

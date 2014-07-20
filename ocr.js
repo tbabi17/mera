@@ -5043,27 +5043,7 @@ Ext.define('OCS.Reports', {
 								me.reconfigure('CRM_REPORT_STORAGE_DAILY', 'crm_report_storage_daily_list');
 							}
 						}),
-						'-',
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Орлогын тайлан (хэлцэлээр)',
-							handler: function(widget, event) {
-								me.where = '';
-								me.values = '';
-								me.panelW.setVisible(false);
-								me.reconfigure('CRM_REPORT_REVENUE', 'crm_opportunity_by_revenue_list');
-							}
-						}),
-						Ext.create('Ext.Action', {
-							icon   : '',  
-							text: 'Хэлцэлийн тайлан',
-							handler: function(widget, event) {
-								me.where = '';
-								me.values = '';
-								me.panelW.setVisible(false);
-								me.reconfigure('CRM_REPORT', 'crm_report_deal_list');
-							}
-						}),
+						'-',						
 						Ext.create('Ext.Action', {
 							icon   : '',  
 							text: 'Үйл ажиллагааны тайлан',
@@ -5073,8 +5053,7 @@ Ext.define('OCS.Reports', {
 								me.panelW.setVisible(false);
 								me.reconfigureStatic('CRM_REPORT_ACTIVITY', 'crm_report_activity_list');
 							}
-						}),
-						'-',						
+						}),					
 						Ext.create('Ext.Action', {
 							icon   : '',  
 							text: 'Гомдол саналын тайлан',

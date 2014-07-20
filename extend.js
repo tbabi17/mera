@@ -1277,8 +1277,17 @@ Ext.define('OCS.UserGridWithFormPanel', {
 					var selection = me.grid.getSelectionModel().getSelection();
 					if (selection.length > 0) {						
 						Ext.Msg.confirm('Warning ','Сонгосон борлуулагчдын төлөвлөгөөг үүсгэх үү ?',function(btn){
-							if(btn === 'yes') {
-									alert(me.selectedIds('owner'));
+							if(btn === 'yes'){
+								Ext.Ajax.request({
+								   url: 'avia.php',
+								   params: {handle: 'web', action: 'create_user_planning', where: me.selectedIds('owner')},
+								   success: function(response, opts) {
+									  Ext.MessageBox.alert('Status', 'Амжилттай үүслээ, Төлөвлөгөө цэс рүү шилжилж харна уу !', function() {});
+								   },
+								   failure: function(response, opts) {										   
+									  Ext.MessageBox.alert('Status', 'Error !', function() {});
+								   }
+								});	
 							}
 						});
 					} else

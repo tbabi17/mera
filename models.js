@@ -1270,15 +1270,11 @@ Ext.define('CRM_REPORT_REVENUE', {
 
 fields['CRM_REPORT_COMPARE_FIELDS'] = [
    {name: 'owner', text: 'Хариуцагч', width: 180}, 
-   {name: 'user_name', text: 'Борлуулагч', width: 180}, 
    {name: 'crm_id', text: 'ID', width: 180, hidden: true}, 
    {name: 'crm_name', text: 'Харилцагч', width: 180}, 
-   {name: 'product_code', text: 'Kод', width: 80}, 
-   {name: 'product_name', text: 'Барааны нэр', width: 250}, 
-   {name: 'unit_size', text: 'Нэгж', type:'float', width: 80, align: 'right'}, 
-   {name: 'price', text: 'Үнэ', type:'float', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
-   {name: 'qty', text: 'Тоо', type:'float', width: 80, align: 'right', renderer: renderMoney, summaryType: 'sum'},
-   {name: 'total', text: 'Нийт', type:'float', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum'}  
+   {name: 'two_month', text: '2 сарын өмнөх', type:'float', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum'},
+   {name: 'past_month', text: 'Өнгөрсөн сар', type:'float', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum'},
+   {name: 'this_month', text: 'Энэ сар', type:'float', width: 100, align: 'right', renderer: renderMoney, summaryType: 'sum'}
 ];
 
 Ext.define('CRM_REPORT_COMPARE', {

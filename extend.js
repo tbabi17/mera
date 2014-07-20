@@ -3264,6 +3264,19 @@ Ext.define('OCS.GridView', {
 							'The field "{0}" or record #{1} has been changed from {2} to {3}', 
 							e.field, record.get('id'), e.originalValue, e.value
 						));
+						
+						record.set('amountTheshold', e.value * record.get('price'));
+						/*
+						Ext.Ajax.request({
+						   url: 'avia.php',
+						   params: {handle: 'web', table: 'crm_services', action: 'update', values: 'service_revenue='+total+'&service_debt='+total1, where: 'service_id='+me.where},
+						   success: function(response, opts) {
+							  views['services'].reload();
+						   },
+						   failure: function(response, opts) {										   
+							  Ext.MessageBox.alert('Status', 'Error !', function() {});
+						   }
+						});*/
 					}
 				}   
             }

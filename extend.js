@@ -3904,7 +3904,7 @@ Ext.define('OCS.BGridView', {
 	initComponent: function() {
 		var me = this;			
 		
-		if (me.actions.length > 0)		
+		if (me.actions.length > 0)
 			me.tbar = me.actions;
 
 		me.contextMenu = Ext.create('Ext.menu.Menu', {
@@ -3912,6 +3912,7 @@ Ext.define('OCS.BGridView', {
 		});
 
 		me.bbar = Ext.create('Ext.PagingToolbar', {
+			pageSize: 200,
 			store: me.store,
 			displayInfo: true, 
 			displayMsg: '{0}-{1} of {2}',
@@ -3999,7 +4000,7 @@ Ext.define('OCS.BGridView', {
 
 	loadStore: function() {
 		var me = this;
-		me.store.loadPage(1);
+		me.store.load();
 	},
 
 	onTextFieldChange_: function(e) {

@@ -3258,7 +3258,7 @@ Ext.define('OCS.GridView', {
             clicksToEdit: 1,
 			listeners: {
                 afteredit: function(obj, value) {
-                    alert(value);
+                    alert(obj.record.get('id'));
                 }   
             }
         });

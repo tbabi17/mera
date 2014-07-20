@@ -5219,7 +5219,7 @@ Ext.define('OCS.Reports', {
 			]
 		});
 
-		me.reconfigure('CRM_REPORT_PRODUCT', 'crm_report_product_list');
+		//me.reconfigure('CRM_REPORT_PRODUCT', 'crm_report_product_list');
 
 		return me.panel;
 	},

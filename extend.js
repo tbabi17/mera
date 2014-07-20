@@ -3912,7 +3912,6 @@ Ext.define('OCS.BGridView', {
 		});
 
 		me.bbar = Ext.create('Ext.PagingToolbar', {
-			pageSize: 200,
 			store: me.store,
 			displayInfo: true, 
 			displayMsg: '{0}-{1} of {2}',

@@ -4977,6 +4977,7 @@ Ext.define('OCS.Reports', {
 		me.actions = [		
 			Ext.create('Ext.Action', {
 				iconCls: 'list',
+				id: 'report_title',
 				text: 'Тайлангийн жагсаалт',
 				menu: {
 					xtype: 'menu',

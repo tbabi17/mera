@@ -245,6 +245,7 @@ Ext.define('OCS.Module', {
 					//	locked	 : columns[i].lock,
 						align	 : columns[i].align,
 						filter   : columns[i].filter,
+						editor	 : columns[i].editor,
 						renderer : columns[i].renderer,
 						summaryType: columns[i].summaryType,
 						summaryRenderer : columns[i].summaryRenderer
@@ -271,6 +272,7 @@ Ext.define('OCS.Module', {
 						filter   : columns[i].filter,
 						//locked	 : columns[i].lock,
 						align	 : columns[i].align,
+						editor	 : columns[i].editor,
 						renderer : columns[i].renderer,
 						summaryType: columns[i].summaryType,
 						summaryRenderer : columns[i].summaryRenderer

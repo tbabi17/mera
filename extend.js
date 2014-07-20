@@ -3259,7 +3259,7 @@ Ext.define('OCS.GridView', {
 			listeners: {
                 edit: function(editor, e) {
 					var record = e.record;
-					if (me.table == 'crm_user_planning') {					
+					if (me.func == 'crm_user_planning_list') {					
 						alert(Ext.String.format(
 							'The field "{0}" or record #{1} has been changed from {2} to {3}', 
 							e.field, record.get('id'), e.originalValue, e.value

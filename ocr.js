@@ -5220,6 +5220,7 @@ Ext.define('OCS.Reports', {
 
 	rangeData: function() {
 		var me = this;
+		me.where = Ext.getCmp('report_owner').getValue();
 		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, start_date: me.start, end_date: me.end, values: me.values, where: me.where};
 		me.store.loadPage(1);
 	}

@@ -336,6 +336,21 @@ Ext.define('OCS.Module', {
 		 var ndate=Ext.Date.format(nextDate, 'Y-m-d');
 		 return ndate;
 	},
+	
+	today: function() {
+		var now = new Date();
+		return Ext.Date.format(now, 'Y-m-d');
+	},
+
+	tommorow: function() {
+		 var today = new Date();
+		 var d = today.getDate();
+		 var m = today.getMonth();
+		 var y = today.getFullYear();
+		 var nextDate= new Date(y, m, d+1);
+		 var ndate=Ext.Date.format(nextDate, 'Y-m-d');
+		 return ndate;
+	},
 
 	getCustomerName: function(rec) {
 		if (rec.get('firstName'))

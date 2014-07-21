@@ -5068,7 +5068,7 @@ Ext.define('OCS.Reports', {
 			'-',
 			{
 				id: 'report_start',
-				text: me.month(),
+				text: me.today(),
 				iconCls: 'calendar',
 				menu: Ext.create('Ext.menu.DatePicker', {
 					handler: function(dp, date){
@@ -5080,7 +5080,7 @@ Ext.define('OCS.Reports', {
 			},
 			{
 				id: 'report_end',
-				text: me.nextmonth(),
+				text: me.tommorow(),
 				iconCls: 'calendar',				
 				menu: Ext.create('Ext.menu.DatePicker', {
 					handler: function(dp, date){
@@ -5162,8 +5162,8 @@ Ext.define('OCS.Reports', {
 
 	createPanel: function() {
 		var me = this;
-		me.start = me.month();
-		me.end = me.nextmonth();
+		me.start = me.today();
+		me.end = me.tommorow();
 		me.report = new OCS.BGridView({
 			store: me.store,
 			columns: me.createColumns(),

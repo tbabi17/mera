@@ -4999,6 +4999,7 @@ Ext.define('OCS.Reports', {
 								me.where = '';
 								me.values = '';
 								me.panelW.setVisible(false);
+								Ext.getCmp('report_owner').setVisible(true);
 								me.reconfigure('CRM_REPORT_CUSTOMER', 'crm_report_customer_list');
 							}
 						}),
@@ -5066,6 +5067,20 @@ Ext.define('OCS.Reports', {
 				}		
 			}),
 			'-',
+			{
+				id: 'report_owner',
+				hidden: true,
+				xtype: 'searchcombo',
+				fieldLabel: 'Борлуулагч',
+				labelWidth: 70,
+				table: 'crm_users',				
+				name: 'owner',
+				listeners: {
+					'change': function() {
+						me.rangeData();
+					}
+				}
+			},
 			{
 				id: 'report_start',
 				text: me.today(),

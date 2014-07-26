@@ -4758,7 +4758,7 @@ Ext.define('OCS.ProductPanel', {
 										split: true,
 										closable: false,
 										layout: 'border',
-										collapsed: false,
+										collapsed: true,
 										collapsible: true,
 										border: true,
 										bodyPadding: 5,

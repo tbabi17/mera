@@ -1065,7 +1065,7 @@ Ext.define('OCS.LeadBySource', {
 			donut: false,
 			tips: {
 			  trackMouse: true,
-			  width: 140,
+			  width: 200,
 			  height: 28,
 			  renderer: function(storeItem, item) {				
 				this.setTitle(storeItem.get('name') + ': ' + storeItem.get('value'));

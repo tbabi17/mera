@@ -5385,7 +5385,7 @@ Ext.define('OCS.Dashboard', {
 				margin: '0 0 10 0',
 				border: false,
 				items:[{
-					title:'Харилцагчдын эх сурвалж',		
+					title:'Цэгийн борлуулалтын хувь',		
 					layout: 'fit',
 					collapsible: true,
 					height: 400,

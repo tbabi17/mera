@@ -331,7 +331,7 @@ Ext.define('OCS.OpportunityRevenueChart', {
 		me.start = me.month();
 		me.end = me.nextmonth();
 		me.store = Ext.create('Ext.data.Store', {
-			fields: ['owner', 'team', 'actual_revenue', 'expected_revenue', 'target_revenue'],
+			fields: ['owner', 'team', 'actual_revenue', 'target_revenue'],
 			groupField: 'team',
 			sortField: 'actual_revenue',
 			proxy: {				
@@ -357,7 +357,7 @@ Ext.define('OCS.OpportunityRevenueChart', {
 		me.axes = [{
 			type: 'Numeric',
 			position: 'left',
-			fields: ['actual_revenue', 'expected_revenue', 'target_revenue'],
+			fields: ['actual_revenue', 'target_revenue'],
 			title: true,
 			grid: false,
 			majorTickSteps: 0,
@@ -387,7 +387,7 @@ Ext.define('OCS.OpportunityRevenueChart', {
 			axis: 'bottom',
 			gutter: 120,
 			xField: 'owner',
-			yField: ['actual_revenue', 'expected_revenue', 'target_revenue'],
+			yField: ['actual_revenue', 'target_revenue'],
 //			stacked: true,
 			tips: {
 				trackMouse: true,

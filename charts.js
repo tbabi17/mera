@@ -357,6 +357,7 @@ Ext.define('OCS.OpportunityRevenueChart', {
 		me.axes = [{
 			type: 'Numeric',
 			position: 'left',
+			title:['My First Field','My Second Field'],
 			fields: ['actual_revenue', 'target_revenue'],
 			title: true,
 			grid: false,

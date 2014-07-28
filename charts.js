@@ -375,7 +375,7 @@ Ext.define('OCS.OpportunityRevenueChart', {
                 renderer: function(v) {
                     return Ext.String.ellipsis(v, 15, false);
                 },
-                font: '11px Arial',
+                font: '12px Arial',
                 rotate: {
                     degrees: 270
                 }

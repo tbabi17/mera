@@ -4825,60 +4825,42 @@ Ext.define('OCS.StoragePanel', {
 				split: true,
 				border: false
 			},
-			items: [{					
-				layout: 'border',
+			items: [{																			
+				id : 'warehouse_list',										
+				flex: 1,
 				region: 'center',
-				title: '',
-				border: false,
-				collapsible: false,
-				items: [					
-					{
-						region: 'center',
-						split: true,			
-						border: false,
-						flex: 1,
-						layout: 'border',
-						items: [
-							{								
-								id : 'warehouse_list',										
-								flex: 1,
-								region: 'center',
-								split: true,
-								closable: false,
-								layout: 'border',
-								collapsed: true,
-								collapsible: true,
-								border: true,
-								bodyPadding: 5,
-								items: [{
-									xtype: 'panel',
-									region: 'north',
-									title: 'Агуулахын жагсаалт',
-									flex: 0.5,
-									layout: 'border',
-									border: true,
-									collapsible: true,
-									split: true,											
-									items: [
-										new Ext.create('OCS.WareHouseGridWithFormPanel', {
-											
-										}).createGrid()
-									]
-								}, {
-									xtype: 'panel',
-									region: 'center',
-									flex: 1,
-									border: true,			
-									title: 'Агуулахын үлдэгдэл',
-									layout: 'border',
-									items: [
-										me.storagePanel.createGrid()
-									]
-								}]
-							}														
-						]
-					}								
-				]
+				split: true,
+				closable: false,
+				layout: 'border',
+				collapsed: true,
+				collapsible: true,
+				border: true,
+				bodyPadding: 5,
+				items: [{
+					xtype: 'panel',
+					region: 'north',
+					title: 'Агуулахын жагсаалт',
+					flex: 0.5,
+					layout: 'border',
+					border: true,
+					collapsible: true,
+					split: true,											
+					items: [
+						new Ext.create('OCS.WareHouseGridWithFormPanel', {
+							
+						}).createGrid()
+					]
+				}, {
+					xtype: 'panel',
+					region: 'center',
+					flex: 1,
+					border: true,			
+					title: 'Агуулахын үлдэгдэл',
+					layout: 'border',
+					items: [
+						me.storagePanel.createGrid()
+					]
+				}]
 			}]
 		});
 

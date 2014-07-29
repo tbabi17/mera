@@ -4826,14 +4826,12 @@ Ext.define('OCS.StoragePanel', {
 				border: false
 			},
 			items: [{																			
-				id : 'warehouse_list',										
+				id : 'warehouse_list',
 				flex: 1,
 				region: 'center',
 				split: true,
 				closable: false,
 				layout: 'border',
-				collapsed: true,
-				collapsible: true,
 				border: true,
 				bodyPadding: 5,
 				items: [{

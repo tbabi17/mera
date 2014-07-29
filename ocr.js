@@ -4750,43 +4750,6 @@ Ext.define('OCS.ProductPanel', {
 												
 											}).createGrid()
 										]
-									},
-									{
-										id : 'warehouse_list',										
-										flex: 1,
-										region: 'east',
-										split: true,
-										closable: false,
-										layout: 'border',
-										collapsed: true,
-										collapsible: true,
-										border: true,
-										bodyPadding: 5,
-										items: [{
-											xtype: 'panel',
-											region: 'north',
-											title: 'Агуулахын жагсаалт',
-											flex: 0.5,
-											layout: 'border',
-											border: true,
-											collapsible: true,
-											split: true,											
-											items: [
-												new Ext.create('OCS.WareHouseGridWithFormPanel', {
-													
-												}).createGrid()
-											]
-										}, {
-											xtype: 'panel',
-											region: 'center',
-											flex: 1,
-											border: true,			
-											title: 'Агуулахын үлдэгдэл',
-											layout: 'border',
-											items: [
-												me.storagePanel.createGrid()
-											]
-										}]
 									}
 								]
 							}								
@@ -4827,7 +4790,7 @@ Ext.define('OCS.StoragePanel', {
 			},
 			items: [{
 					xtype: 'panel',
-					region: 'east',
+					region: 'west',
 					title: 'Агуулахын жагсаалт',
 					flex: 0.5,
 					layout: 'border',

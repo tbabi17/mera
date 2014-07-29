@@ -1892,7 +1892,7 @@ Ext.define('OCS.HelpWindow', {
 			autoScroll: true,
 			bodyPadding: 15,
 			autoLoad: {
-				url: 'help/'+me.id+'.html'
+				url: 'http://rawgit.com/tbabi17/mera/master/help/'+me.id+'.html'
 			}
 		}];
 

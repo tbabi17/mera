@@ -4825,16 +4825,7 @@ Ext.define('OCS.StoragePanel', {
 				split: true,
 				border: false
 			},
-			items: [{																			
-				id : 'warehouse_list',
-				flex: 1,
-				region: 'center',
-				split: true,
-				closable: false,
-				layout: 'border',
-				border: true,
-				bodyPadding: 5,
-				items: [{
+			items: [{
 					xtype: 'panel',
 					region: 'north',
 					title: 'Агуулахын жагсаалт',
@@ -4857,9 +4848,9 @@ Ext.define('OCS.StoragePanel', {
 					layout: 'border',
 					items: [
 						me.storagePanel.createGrid()
-					]
-				}]
-			}]
+					]				
+				}
+			]
 		});
 
 		return me.panel;

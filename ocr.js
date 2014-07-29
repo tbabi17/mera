@@ -2986,7 +2986,7 @@ Ext.define('OCS.ServiceView', {
 				text: 'Тусламж',
 				handler: function(widget, event) {
 					new OCS.HelpWindow({
-						id: 'crm_deal_process'
+						id: me.func
 					}).show();
 				}
 			})

@@ -4827,7 +4827,7 @@ Ext.define('OCS.StoragePanel', {
 			},
 			items: [{
 					xtype: 'panel',
-					region: 'north',
+					region: 'east',
 					title: 'Агуулахын жагсаалт',
 					flex: 0.5,
 					layout: 'border',

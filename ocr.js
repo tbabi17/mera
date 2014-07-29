@@ -4800,6 +4800,92 @@ Ext.define('OCS.ProductPanel', {
 	}
 });
 
+Ext.define('OCS.StoragePanel', {
+	extend: 'OCS.Module',
+	
+	storageReload: function(rec) {
+		var me = this;
+		me.storagePanel.loadStore(rec);
+	},
+
+	createPanel: function() {
+		var me = this;
+		
+		me.storagePanel = new Ext.create('OCS.StorageGridWithFormPanel', {
+			
+		});
+
+		me.panel = Ext.create('Ext.Panel', {				
+			layout: 'border',
+			region: 'center',
+			border: false,
+			bodyPadding: 2,
+			defaults: {
+				collapsible: true,
+				split: true,
+				border: false
+			},
+			items: [{					
+				layout: 'border',
+				region: 'center',
+				title: '',
+				border: false,
+				collapsible: false,
+				items: [					
+					{
+						region: 'center',
+						split: true,			
+						border: false,
+						flex: 1,
+						layout: 'border',
+						items: [
+							{								
+								id : 'warehouse_list',										
+								flex: 1,
+								region: 'center',
+								split: true,
+								closable: false,
+								layout: 'border',
+								collapsed: true,
+								collapsible: true,
+								border: true,
+								bodyPadding: 5,
+								items: [{
+									xtype: 'panel',
+									region: 'north',
+									title: 'Агуулахын жагсаалт',
+									flex: 0.5,
+									layout: 'border',
+									border: true,
+									collapsible: true,
+									split: true,											
+									items: [
+										new Ext.create('OCS.WareHouseGridWithFormPanel', {
+											
+										}).createGrid()
+									]
+								}, {
+									xtype: 'panel',
+									region: 'center',
+									flex: 1,
+									border: true,			
+									title: 'Агуулахын үлдэгдэл',
+									layout: 'border',
+									items: [
+										me.storagePanel.createGrid()
+									]
+								}]
+							}														
+						]
+					}								
+				]
+			}]
+		});
+
+		return me.panel;
+	}
+});
+
 Ext.define('OCS.GoalsPanel', {
 	extend: 'OCS.Module',
 

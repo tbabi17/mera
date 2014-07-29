@@ -691,7 +691,7 @@ fields['CRM_WAREHOUSE_FIELDS'] = [
    {name: 'capacity', text: 'Багтаамж', type: 'float', width: 90, renderer: renderNumber, align: 'right'},
    {name: 'descr', text: 'Тайлбар', width: 120},
    {name: 'owner', text: 'Хариуцагч', width: 110, renderer:renderOwner}, 
-   {name: 'warehouse_type', text: 'Type', width: 80},
+   {name: 'warehouse_type', text: 'Төрөл', width: 80},
    {name: '_date', type: 'datetime', dateFormat: 'Y-m-d', text: 'Үүссэн', width: 120, renderer: renderCreatedDate}
 ];
 

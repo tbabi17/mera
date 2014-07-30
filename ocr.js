@@ -5421,7 +5421,7 @@ Ext.define('OCS.Dashboard', {
 				margin: '0 0 10 0',
 				border: false,
 				items:[{
-					title:'Цэгийн борлуулалтын хувь',		
+					title:'Цэгийн гүйцэтгэлийн хувь',		
 					layout: 'fit',
 					collapsible: true,
 					height: 400,

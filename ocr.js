@@ -2967,6 +2967,22 @@ Ext.define('OCS.ServiceView', {
 				}
 			}),
 			Ext.create('Ext.Action', {
+				iconCls   : 'deal_print',
+				text: 'Хэвлэх 1 ...',
+				hidden: !(logged.indexOf('battrade') != -1),
+				handler: function(widget, event) {
+					crm_id = me.grid.getView().getSelectionModel().getSelection()[0].get('crm_id');
+					owner = me.grid.getView().getSelectionModel().getSelection()[0].get('owner');
+					userCode = me.grid.getView().getSelectionModel().getSelection()[0].get('userCode');
+					service_stage = me.grid.getView().getSelectionModel().getSelection()[0].get('service_stage');
+					subject = me.grid.getView().getSelectionModel().getSelection()[0].get('subject');
+					pricetag = me.grid.getView().getSelectionModel().getSelection()[0].get('pricetag');
+					date = me.grid.getView().getSelectionModel().getSelection()[0].get('_date').split(' ')[0]; 
+
+					window.open('http://'+ip+'/invms3/?values='+owner+';'+crm_id+';'+date+';1;1;'+logged+';1',''); 					
+				}
+			}),
+			Ext.create('Ext.Action', {
 				iconCls   : 'deal_undo',
 				text: 'Буцаах ...',
 				handler: function(widget, event) {

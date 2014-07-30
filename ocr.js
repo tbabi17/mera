@@ -933,7 +933,7 @@ Ext.define('OCS.RetailPanel', {
 		var recs = me.grid.getView().getSelectionModel().getSelection();
 		var result = '';
 		for (i = 0; i < recs.length; i++) {
-			result += recs[i].get('crm_id')+':';
+			result += recs[i].get('crm_id')+':'; 
 		}
 
 		return result;

@@ -261,9 +261,9 @@ Ext.define('OCS.Module', {
 	createColumns: function() {	
 		var me = this;
 		var columns = fields[me.modelName+'_FIELDS'];
-		var headers = [];//Ext.create('Ext.grid.RowNumberer', {width: 32})]; 
+		var headers = [Ext.create('Ext.grid.RowNumberer', {width: 32})]; 
 		for (i = 0; i < columns.length; i++) {							
-				headers[i] = {				
+				headers[i+1] = {				
 						hidden	 : columns[i].hidden,	
 						text	 : columns[i].text,
 						dataIndex: columns[i].name,

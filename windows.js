@@ -5339,7 +5339,7 @@ Ext.define('OCS.GMapWindow', {
 					iconCls: 'commit',
 					text: 'Байршил илгээх',
 					handler: function() {
-						alert(me.markers[0].lat+' '+me.markers[0].lng);
+						alert(me.markers[0].lat+' '+me.markers[0].lng); 
 					}
 				},
 				{

@@ -5342,8 +5342,7 @@ Ext.define('OCS.GMapWindow', {
 						Ext.Msg.confirm('Warning ','Цэгийн байршил шинэчлэх үү ?',function(btn){
 							if(btn === 'yes'){
 								var ids = me.ids.split(':');
-								alert(ids[0]);
-								/*
+								
 								Ext.Ajax.request({
 								   url: 'avia.php',
 								   params: {handle: 'web', table: 'crm_customer', action: 'update', values: 'f'+g_lat+',f'+g_lng, where: "crm_id="+ids[0]},
@@ -5353,7 +5352,7 @@ Ext.define('OCS.GMapWindow', {
 								   failure: function(response, opts) {										   
 									  Ext.MessageBox.alert('Status', 'Error !', function() {});
 								   }
-								});*/	
+								});	
 							}
 						});						
 					}

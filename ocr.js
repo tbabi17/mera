@@ -1,5 +1,6 @@
 var allowSelection=true;
-
+var g_lat = 0;
+var g_lng = 0;
 function replaceAll(find, replace, str) {
   return str.replace(new RegExp(find, 'g'), replace);
 }
@@ -952,9 +953,8 @@ Ext.define('OCS.RetailPanel', {
 				listeners: {
 					'dragend': function(marker) {
 						var latLng = marker.latLng;
-						var lat = latLng.lat();
-						var lng = latLng.lng();
-						console.log(marker);
+						g_lat = latLng.lat();
+						g_lng = latLng.lng();						
 					}
 				}
 			};

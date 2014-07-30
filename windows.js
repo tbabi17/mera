@@ -5337,7 +5337,14 @@ Ext.define('OCS.GMapWindow', {
 			buttons : ['->',
 				{
 					iconCls: 'commit',
-					text: 'Илгээх',
+					text: 'Байршил илгээх',
+					handler: function() {
+						alert(me.markers[0].lat+' '+me.markers[0].lng);
+					}
+				},
+				{
+					iconCls: 'commit',
+					text: 'Чиглэл солих',
 					handler: function() {
 						new OCS.UpdateRouteWindow({
 							ids: me.ids

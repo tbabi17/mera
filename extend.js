@@ -1639,7 +1639,7 @@ Ext.define('OCS.StorageGridWithFormPanel', {
 					Ext.Ajax.request({
 					   url: 'avia.php',
 					   isUpload: true,
-					   form: Ext.fly('frmDummy'),
+					   form: Ext.fly('frmDummy'), 
 					   params: {handle: 'file', action:'export', where: me.xlsName},					
 					   success: function(response, opts) {					
 						  Ext.MessageBox.alert('Status', 'Success !', function() {});

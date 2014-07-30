@@ -378,7 +378,7 @@ Ext.define('OCS.OpportunityRevenueChart', {
                 },
                 font: '12px Arial',
                 rotate: {
-                    degrees: 270
+                    degrees: 45
                 }
             }
 		}];

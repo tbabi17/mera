@@ -728,14 +728,14 @@ Ext.define('OSS.ProductCombo', {
     extend  : 'Ext.form.field.ComboBox',
     alias   : 'widget.productcombo',
 	pageSize: 300,
-	valueField: 'name',
-	displayField: 'value',
+	valueField: 'product_id',
+	displayField: 'product_name',
     typeAhead: false,
     hideLabel: false,
     hideTrigger: false,
 	minChars: 1,
 	anchor: '120%',		
-	table: 'crm_customer',
+	table: 'crm_products',
 	listConfig : {
 		width: 500,
 		loadingText: 'Хайж байна...',
@@ -769,9 +769,9 @@ Ext.define('OSS.ProductCombo', {
 					update : 'POST',
 					destroy: 'POST'
 				},
-				extraParams: {handler: 'web', func: 'crm_query_list', action: 'select', table: me.table, fields: me.name}
+				extraParams: {handler: 'web', func: 'crm_query_list', action: 'select', table: me.table, fields: 'product_id'}
 			},
-			fields: [{name: me.name, name: 'value'}]
+			fields: [{name: 'product_id'}, {name: 'product_name'}]
 		});
 
 		me.callParent(arguments);

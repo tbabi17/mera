@@ -5134,6 +5134,7 @@ Ext.define('OCS.Reports', {
 				valueField: 'name',
 				listeners: {
 					'change': function() {
+						alert(this.value);
 						me.rangeData();
 					}
 				}

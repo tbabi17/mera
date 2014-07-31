@@ -5122,9 +5122,9 @@ Ext.define('OCS.Reports', {
 			{
 				id: 'report_product',
 				//hidden: true,
-				xtype: 'productcombo',
+				xtype: 'searchcombo',
 				fieldLabel: 'Бараа',
-				labelWidth: 70,
+				labelWidth: 40,
 				table: 'crm_products',				
 				name: 'product_name',
 				listeners: {

@@ -5130,7 +5130,6 @@ Ext.define('OCS.Reports', {
 				listWidth: 290,
 				table: 'crm_products',				
 				name: 'product_name',
-				valueField: 'name',
 				listeners: {
 					'change': function() {
 						alert(this.value);

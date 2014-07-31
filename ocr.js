@@ -5131,7 +5131,7 @@ Ext.define('OCS.Reports', {
 				anchor: '150%',	
 				table: 'crm_products',				
 				name: 'product_name',
-				valueField: 'value',
+				valueField: 'name',
 				listeners: {
 					'change': function() {
 						me.rangeData();

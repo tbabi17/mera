@@ -5120,6 +5120,20 @@ Ext.define('OCS.Reports', {
 				}
 			},
 			{
+				id: 'report_product',
+				//hidden: true,
+				xtype: 'productcombo',
+				fieldLabel: 'Бараа',
+				labelWidth: 70,
+				table: 'crm_products',				
+				name: 'product_name',
+				listeners: {
+					'change': function() {
+						me.rangeData();
+					}
+				}
+			},
+			{
 				id: 'report_start',
 				text: me.today(),
 				iconCls: 'calendar',

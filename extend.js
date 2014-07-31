@@ -893,6 +893,60 @@ Ext.define('OSS.WareSearchCombo', {
 	}
 });
 
+Ext.define('OSS.ProductSearchCombo', {
+    extend  : 'Ext.form.field.ComboBox',
+    alias   : 'widget.productcombo',
+
+	pageSize: 100,
+	valueField: 'product_id',
+	displayField: 'name',
+    typeAhead: false,
+    hideLabel: false,
+    hideTrigger: false,
+	minChars: 1,
+	anchor: '120%',		
+	table: 'crm_warehouse',
+	listConfig : {
+		width: 500,
+		loadingText: 'Хайж байна...',
+		emptyText: '<span class="search_result">илэрц байхгүй !</span>',
+		getInnerTpl: function() {
+			return '<span class="search_result">{name}</span>';
+		}
+	},
+	
+	constructor: function(cnfg) {
+        this.callParent(arguments);
+        this.initConfig(cnfg);
+    },
+
+	initComponent: function() {
+		var me = this;
+	
+		me.store = Ext.create('Ext.data.Store', {
+			pageSize:100,
+			proxy: {
+				type: 'ajax',
+				url : 'avia.php',
+				reader: {
+					type:'json',
+    	            root:'items',
+    	            totalProperty: 'results'
+    	        },
+				actionMethods: {
+					create : 'POST',
+					read   : 'POST',
+					update : 'POST',
+					destroy: 'POST'
+				},
+				extraParams: {handler: 'web', func: 'crm_query_list', action: 'select', table: me.table, fields: 'name'}
+			},
+			fields: [{name: 'product_id'}, {name: 'name'}]
+		});
+
+		me.callParent(arguments);
+	}
+});
 
 Ext.define('OCS.GridWithFormPanel', {	
 	extend: 'OCS.Module',

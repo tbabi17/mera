@@ -5123,13 +5123,14 @@ Ext.define('OCS.Reports', {
 			{
 				id: 'report_product',
 				hidden: true,
-				xtype: 'productcombo',
+				xtype: 'searchcombo',
 				fieldLabel: 'Бараа',
 				labelWidth: 40,
 				width: 290,
 				listWidth: 290,
 				table: 'crm_products',				
 				name: 'product_name',
+				valueField: 'name',
 				listeners: {
 					'change': function() {
 						alert(this.getValue());

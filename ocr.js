@@ -5125,6 +5125,9 @@ Ext.define('OCS.Reports', {
 				xtype: 'searchcombo',
 				fieldLabel: 'Бараа',
 				labelWidth: 40,
+				listConfig : {
+					width: 600
+				},
 				table: 'crm_products',				
 				name: 'product_name',
 				listeners: {

@@ -673,7 +673,7 @@ Ext.define('OCS.Module', {
 Ext.define('OSS.SearchCombo', {
     extend  : 'Ext.form.field.ComboBox',
     alias   : 'widget.searchcombo',
-	pageSize: 100,
+	pageSize: 300,
 	valueField: 'value',
 	displayField: 'value',
     typeAhead: false,
@@ -700,7 +700,7 @@ Ext.define('OSS.SearchCombo', {
 		var me = this;
 	
 		me.store = Ext.create('Ext.data.Store', {
-			pageSize: 100,
+			pageSize: 300,
 			proxy: {
 				type: 'ajax',
 				url : 'avia.php',

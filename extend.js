@@ -724,6 +724,61 @@ Ext.define('OSS.SearchCombo', {
 	}
 });
 
+Ext.define('OSS.ProductCombo', {
+    extend  : 'Ext.form.field.ComboBox',
+    alias   : 'widget.productcombo',
+	pageSize: 300,
+	valueField: 'name',
+	displayField: 'value',
+    typeAhead: false,
+    hideLabel: false,
+    hideTrigger: false,
+	minChars: 1,
+	anchor: '120%',		
+	table: 'crm_customer',
+	listConfig : {
+		width: 500,
+		loadingText: 'Хайж байна...',
+		emptyText: '<span class="search_result">илэрц байхгүй !</span>',
+		getInnerTpl: function() {
+			return '<span class="search_result">{value}</span>';
+		}
+	},
+	
+	constructor: function(cnfg) {
+        this.callParent(arguments);
+        this.initConfig(cnfg);
+    },
+
+	initComponent: function() {
+		var me = this;
+	
+		me.store = Ext.create('Ext.data.Store', {
+			pageSize: 300,
+			proxy: {
+				type: 'ajax',
+				url : 'avia.php',
+				reader: {
+					type:'json',
+    	            root:'items',
+    	            totalProperty: 'results'
+    	        },
+				actionMethods: {
+					create : 'POST',
+					read   : 'POST',
+					update : 'POST',
+					destroy: 'POST'
+				},
+				extraParams: {handler: 'web', func: 'crm_query_list', action: 'select', table: me.table, fields: me.name}
+			},
+			fields: [{name: me.name, name: 'value'}]
+		});
+
+		me.callParent(arguments);
+	}
+});
+
+
 Ext.define('OSS.CustomerSearchCombo', {
     extend  : 'Ext.form.field.ComboBox',
     alias   : 'widget.customercombo',

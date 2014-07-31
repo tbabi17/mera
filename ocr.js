@@ -5123,7 +5123,7 @@ Ext.define('OCS.Reports', {
 			{
 				id: 'report_product',
 				hidden: true,
-				xtype: 'searchcombo',
+				xtype: 'productcombo',
 				fieldLabel: 'Бараа',
 				labelWidth: 40,
 				width: 290,
@@ -5132,7 +5132,7 @@ Ext.define('OCS.Reports', {
 				name: 'product_name',
 				listeners: {
 					'change': function() {
-						alert(this.getRawValue());
+						alert(this.getValue());
 						me.rangeData();
 					}
 				}

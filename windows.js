@@ -5345,7 +5345,7 @@ Ext.define('OCS.GMapWindow', {
 								
 								Ext.Ajax.request({
 								   url: 'avia.php',
-								   params: {handle: 'web', table: 'crm_customer', action: 'update', values: 'f'+g_lat+',f'+g_lng, where: "crm_id="+ids[0]},
+								   params: {handle: 'web', table: 'crm_customer', action: 'update', values: 'lat='+g_lat+',lng='+g_lng, where: "crm_id="+ids[0]},
 								   success: function(response, opts) {
 									  Ext.MessageBox.alert('Status', 'Амжилттай байршил шинэчиллээ !', function() {});
 								   },

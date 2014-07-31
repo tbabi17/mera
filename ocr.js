@@ -5132,7 +5132,7 @@ Ext.define('OCS.Reports', {
 				name: 'product_name',
 				listeners: {
 					'change': function() {
-						alert(this.value);
+						alert(this.getRawValue());
 						me.rangeData();
 					}
 				}

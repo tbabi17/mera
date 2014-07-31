@@ -5058,6 +5058,7 @@ Ext.define('OCS.Reports', {
 								me.values = '';
 								me.panelW.setVisible(false);
 								Ext.getCmp('report_owner').setVisible(true);
+								Ext.getCmp('report_product').setVisible(true);
 								me.reconfigure('CRM_REPORT_COMPARE', 'crm_report_compare_list');
 							}
 						}),
@@ -5121,7 +5122,7 @@ Ext.define('OCS.Reports', {
 			},
 			{
 				id: 'report_product',
-				//hidden: true,
+				hidden: true,
 				xtype: 'searchcombo',
 				fieldLabel: 'Бараа',
 				labelWidth: 40,

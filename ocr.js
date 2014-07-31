@@ -5126,7 +5126,7 @@ Ext.define('OCS.Reports', {
 				fieldLabel: 'Бараа',
 				labelWidth: 40,
 				fieldStyle: {
-					width: '300px!important'
+					width: '300px!important;'
 				},
 				table: 'crm_products',				
 				name: 'product_name',

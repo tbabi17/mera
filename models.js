@@ -1311,6 +1311,19 @@ Ext.define('CRM_REPORT_COMPARE_CUSTOMER', {
 	fields: fields['CRM_REPORT_COMPARE_CUSTOMER_FIELDS']
 });
 
+fields['CRM_REPORT_COMPARE_USER_FIELDS'] = [
+   {name: 'owner', text: 'Борлуулагчийн нэр', width: 180}, 
+   {name: 'month1', text: 'Сар 1', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month2', text: 'Сар 2', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month3', text: 'Сар 3', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'precent', text: 'Эзлэх хувь', type:'float', width: 130, align: 'right', renderer: renderPrecent, summaryType: 'average', summaryRenderer: renderTPrecent},
+];
+
+Ext.define('CRM_REPORT_COMPARE_USER', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_REPORT_COMPARE_USER_FIELDS']
+});
+
 fields['CRM_REPORT_CASE_FIELDS'] = [
    {name: 'owner', text: 'Owner', width: 250}, 
    {name: 'section', text: 'Section', width: 150}, 

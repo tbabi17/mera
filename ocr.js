@@ -5070,12 +5070,23 @@ Ext.define('OCS.Reports', {
 								me.values = '';
 								me.panelW.setVisible(false);
 								Ext.getCmp('report_owner').setVisible(true);
-								me.reconfigure('CRM_REPORT_COMPARE_PRODUCT', 'crm_report_compare_list');
+								me.reconfigure('CRM_REPORT_COMPARE_CUSTOMER', 'crm_report_compare_list');
 							}
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'Харьцуулалтын тайлан',
+							text: 'Борлуулагчийн харьцуулалтын тайлан',
+							handler: function(widget, event) {
+								me.where = '';
+								me.values = '';
+								me.panelW.setVisible(false);
+								Ext.getCmp('report_owner').setVisible(true);
+								me.reconfigure('CRM_REPORT_COMPARE_USER', 'crm_report_compare_list');
+							}
+						}),
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Борлуулагч болон Барааны харьцуулалтын тайлан',
 							handler: function(widget, event) {
 								me.where = '';
 								me.values = '';

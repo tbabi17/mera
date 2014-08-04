@@ -5064,6 +5064,17 @@ Ext.define('OCS.Reports', {
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
+							text: 'Харилцагчийн харьцуулалтын тайлан',
+							handler: function(widget, event) {
+								me.where = '';
+								me.values = '';
+								me.panelW.setVisible(false);
+								Ext.getCmp('report_owner').setVisible(true);
+								me.reconfigure('CRM_REPORT_COMPARE_PRODUCT', 'crm_report_compare_list');
+							}
+						}),
+						Ext.create('Ext.Action', {
+							icon   : '',  
 							text: 'Харьцуулалтын тайлан',
 							handler: function(widget, event) {
 								me.where = '';

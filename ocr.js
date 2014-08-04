@@ -5059,7 +5059,7 @@ Ext.define('OCS.Reports', {
 								me.values = '';
 								me.panelW.setVisible(false);
 								Ext.getCmp('report_owner').setVisible(true);
-								me.reconfigure('CRM_REPORT_COMPARE_PRODUCT', 'crm_report_compare_list');
+								me.reconfigure('CRM_REPORT_COMPARE_PRODUCT', 'crm_report_compare_product_list');
 							}
 						}),
 						Ext.create('Ext.Action', {

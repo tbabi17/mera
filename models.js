@@ -1285,7 +1285,7 @@ Ext.define('CRM_REPORT_COMPARE', {
 fields['CRM_REPORT_COMPARE_PRODUCT_FIELDS'] = [
    {name: 'product_id', text: 'ID', width: 180, hidden: true}, 
    {name: 'product_code', text: 'Код', width: 60}, 
-   {name: 'product_name', text: 'Барааны нэр', width: 180}, 
+   {name: 'product_name', text: 'Барааны нэр', width: 250}, 
    {name: 'product_barcode', text: 'Бар код', width: 90}, 
    {name: 'product_brand', text: 'Бренд', width: 180}, 
    {name: 'month1', text: 'Сар 1', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
@@ -1300,7 +1300,7 @@ Ext.define('CRM_REPORT_COMPARE_PRODUCT', {
 
 fields['CRM_REPORT_COMPARE_CUSTOMER_FIELDS'] = [
    {name: 'crm_id', text: 'ID', width: 180, hidden: true}, 
-   {name: 'crm_name', text: 'Харилцагчийн нэр', width: 180}, 
+   {name: 'crm_name', text: 'Харилцагчийн нэр', width: 250}, 
    {name: 'month1', text: 'Сар 1', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
    {name: 'month2', text: 'Сар 2', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
    {name: 'month3', text: 'Сар 3', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney} 
@@ -1312,7 +1312,7 @@ Ext.define('CRM_REPORT_COMPARE_CUSTOMER', {
 });
 
 fields['CRM_REPORT_COMPARE_USER_FIELDS'] = [
-   {name: 'owner', text: 'Борлуулагчийн нэр', width: 180}, 
+   {name: 'owner', text: 'Борлуулагчийн нэр', width: 250}, 
    {name: 'month1', text: 'Сар 1', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
    {name: 'month2', text: 'Сар 2', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
    {name: 'month3', text: 'Сар 3', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},

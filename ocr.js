@@ -5070,7 +5070,7 @@ Ext.define('OCS.Reports', {
 								me.values = '';
 								me.panelW.setVisible(false);
 								Ext.getCmp('report_owner').setVisible(true);
-								me.reconfigure('CRM_REPORT_COMPARE_CUSTOMER', 'crm_report_compare_list');
+								me.reconfigure('CRM_REPORT_COMPARE_CUSTOMER', 'crm_report_compare_customer_list');
 							}
 						}),
 						Ext.create('Ext.Action', {
@@ -5081,7 +5081,7 @@ Ext.define('OCS.Reports', {
 								me.values = '';
 								me.panelW.setVisible(false);
 								Ext.getCmp('report_owner').setVisible(true);
-								me.reconfigure('CRM_REPORT_COMPARE_USER', 'crm_report_compare_list');
+								me.reconfigure('CRM_REPORT_COMPARE_USER', 'crm_report_compare_user_list');
 							}
 						}),
 						Ext.create('Ext.Action', {

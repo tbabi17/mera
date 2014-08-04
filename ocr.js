@@ -5050,6 +5050,18 @@ Ext.define('OCS.Reports', {
 								me.reconfigure('CRM_REPORT_USER', 'crm_report_user_list');
 							}
 						}),
+						'-',
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Барааны харьцуулалтын тайлан',
+							handler: function(widget, event) {
+								me.where = '';
+								me.values = '';
+								me.panelW.setVisible(false);
+								Ext.getCmp('report_owner').setVisible(true);
+								me.reconfigure('CRM_REPORT_COMPARE_PRODUCT', 'crm_report_compare_list');
+							}
+						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
 							text: 'Харьцуулалтын тайлан',

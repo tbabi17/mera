@@ -921,7 +921,7 @@ Ext.define('OCS.RetailPanel', {
 	recordSelected: function() {
 		var me = this;
 		var recs = me.grid.getView().getSelectionModel().getSelection();
-		if (recs && recs.length > 0 && rec.length < 10)
+		if (recs && recs.length > 0 && recs.length < 10)
 			return true;
 		
 		Ext.MessageBox.alert('Status', 'Сонголт хийгдээгүй эсвэл 10-аас дээш сонголтыг зөвшөөрөхгүй !', function() {});

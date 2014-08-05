@@ -5319,7 +5319,8 @@ Ext.define('OCS.Reports', {
 				me.report, me.panelW
 			]
 		});
-
+		
+		Ext.getCmp('report_title').setText('Бүтээгдэхүүний нэгдсэн тайлан');
 		me.reconfigure('CRM_REPORT_PRODUCT', 'crm_report_product_list');
 
 		return me.panel;

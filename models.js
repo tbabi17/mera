@@ -1269,12 +1269,24 @@ Ext.define('CRM_REPORT_REVENUE', {
 });
 
 fields['CRM_REPORT_COMPARE_FIELDS'] = [
-   {name: 'owner', text: 'Хариуцагч', width: 180}, 
-   {name: 'crm_id', text: 'ID', width: 180, hidden: true}, 
-   {name: 'crm_name', text: 'Харилцагч', width: 180}, 
-   {name: 'two_month', text: '2 сарын өмнө', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
-   {name: 'past_month', text: 'Өнгөрсөн сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
-   {name: 'this_month', text: 'Энэ сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney} 
+   {name: 'product_id', text: 'ID', width: 50, hidden: true}, 
+   {name: 'product_code', text: 'Код', width: 50, align: 'center'}, 
+   {name: 'product_barcode', text: 'Баркод', width: 90, align: 'center'}, 
+   {name: 'product_brand', text: 'Бренд', width: 150}, 
+   {name: 'product_name', text: 'Нэр', width: 250}, 
+   {name: 'unit_size', text: 'Нэгж', width: 50, align: 'center'}, 
+   {name: 'qty', text: 'Ширхэг', type: 'float', width: 85, align: 'right', renderer: renderNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'pty', text: 'Хайрцаг', type: 'float', width: 85, align: 'right', renderer: renderNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'amount', align: 'right', type:'float', text: 'Дүн', width: 150, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney}, 
+   {name: 'owner1', text: 'Борлуулагч 1', type:'float',  width: 90, align: 'right', renderer: renderMoney, summaryType: 'average', summaryRenderer: renderTMoney},
+   {name: 'owner2', text: 'Борлуулагч 2', type:'float',  width: 90, align: 'right', renderer: renderMoney, summaryType: 'average', summaryRenderer: renderTMoney},
+   {name: 'owner3', text: 'Борлуулагч 3', type:'float',  width: 90, align: 'right', renderer: renderMoney, summaryType: 'average', summaryRenderer: renderTMoney},
+   {name: 'owner4', text: 'Борлуулагч 4', type:'float',  width: 90, align: 'right', renderer: renderMoney, summaryType: 'average', summaryRenderer: renderTMoney},
+   {name: 'owner5', text: 'Борлуулагч 5', type:'float',  width: 90, align: 'right', renderer: renderMoney, summaryType: 'average', summaryRenderer: renderTMoney},
+   {name: 'owner6', text: 'Борлуулагч 6', type:'float',  width: 90, align: 'right', renderer: renderMoney, summaryType: 'average', summaryRenderer: renderTMoney},
+   {name: 'owner7', text: 'Борлуулагч 7', type:'float',  width: 90, align: 'right', renderer: renderMoney, summaryType: 'average', summaryRenderer: renderTMoney},
+   {name: 'owner8', text: 'Борлуулагч 8', type:'float',  width: 90, align: 'right', renderer: renderMoney, summaryType: 'average', summaryRenderer: renderTMoney},
+   {name: 'owner9', text: 'Борлуулагч 9', type:'float',  width: 90, align: 'right', renderer: renderMoney, summaryType: 'average', summaryRenderer: renderTMoney}
 ];
 
 Ext.define('CRM_REPORT_COMPARE', {

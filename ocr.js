@@ -5059,6 +5059,8 @@ Ext.define('OCS.Reports', {
 								me.values = '';
 								me.panelW.setVisible(false);
 								Ext.getCmp('report_owner').setVisible(false);
+								Ext.getCmp('report_start').setVisible(false);
+								Ext.getCmp('report_end').setVisible(false);
 								me.reconfigure('CRM_REPORT_COMPARE_PRODUCT', 'crm_report_compare_product_list');
 							}
 						}),
@@ -5083,6 +5085,8 @@ Ext.define('OCS.Reports', {
 								me.values = '';
 								me.panelW.setVisible(false);
 								Ext.getCmp('report_owner').setVisible(false);
+								Ext.getCmp('report_start').setVisible(false);
+								Ext.getCmp('report_end').setVisible(false);
 								me.reconfigure('CRM_REPORT_COMPARE_USER', 'crm_report_compare_user_list');
 							}
 						}),
@@ -5095,6 +5099,8 @@ Ext.define('OCS.Reports', {
 								me.panelW.setVisible(false);
 								Ext.getCmp('report_owner').setVisible(false);
 								Ext.getCmp('report_product').setVisible(false);
+								Ext.getCmp('report_start').setVisible(true);
+								Ext.getCmp('report_end').setVisible(true);
 								me.reconfigure('CRM_REPORT_COMPARE', 'crm_report_compare_list');
 							}
 						}),

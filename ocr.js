@@ -5145,7 +5145,9 @@ Ext.define('OCS.Reports', {
 				hidden: true,
 				xtype: 'searchcombo',
 				fieldLabel: 'Борлуулагч',
-				labelWidth: 70,
+				labelWidth: 60,
+				width: 250,
+				listWidth: 250,
 				table: 'crm_users',				
 				name: 'owner',
 				listeners: {

@@ -5108,7 +5108,7 @@ Ext.define('OCS.Reports', {
 								Ext.getCmp('report_start').setVisible(true);
 								Ext.getCmp('report_end').setVisible(true);
 								Ext.getCmp('report_title').setText('Борлуулагч болон Барааны харьцуулалтын тайлан');
-								me.reconfigure('CRM_REPORT_COMPARE', 'crm_report_compare_list');
+								me.reconfigure('CRM_REPORT_COMPARE', 'crm_report_compare_product_user_list');
 							}
 						}),
 						'-',

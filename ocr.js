@@ -5070,6 +5070,8 @@ Ext.define('OCS.Reports', {
 								me.values = '';
 								me.panelW.setVisible(false);
 								Ext.getCmp('report_owner').setVisible(true);
+								Ext.getCmp('report_start').setVisible(false);
+								Ext.getCmp('report_end').setVisible(false);
 								me.reconfigure('CRM_REPORT_COMPARE_CUSTOMER', 'crm_report_compare_customer_list');
 							}
 						}),

@@ -5025,6 +5025,7 @@ Ext.define('OCS.Reports', {
 								me.where = '';
 								me.values = '';
 								me.panelW.setVisible(false);
+								Ext.getCmp('report_title').setText('Бүтээгдэхүүний нэгдсэн тайлан');
 								me.reconfigure('CRM_REPORT_PRODUCT', 'crm_report_product_list');
 							}
 						}),										
@@ -5036,6 +5037,7 @@ Ext.define('OCS.Reports', {
 								me.values = '';
 								me.panelW.setVisible(false);
 								Ext.getCmp('report_owner').setVisible(true);
+								Ext.getCmp('report_title').setText('Харилцагчийн нэгдсэн тайлан');
 								me.reconfigure('CRM_REPORT_CUSTOMER', 'crm_report_customer_list');
 							}
 						}),
@@ -5047,6 +5049,7 @@ Ext.define('OCS.Reports', {
 								me.where = '';
 								me.values = '';
 								me.panelW.setVisible(false);
+								Ext.getCmp('report_title').setText('Борлуулагчийн нэгдсэн тайлан');
 								me.reconfigure('CRM_REPORT_USER', 'crm_report_user_list');
 							}
 						}),
@@ -5061,6 +5064,7 @@ Ext.define('OCS.Reports', {
 								Ext.getCmp('report_owner').setVisible(false);
 								Ext.getCmp('report_start').setVisible(false);
 								Ext.getCmp('report_end').setVisible(false);
+								Ext.getCmp('report_title').setText('Барааны харьцуулалтын тайлан');
 								me.reconfigure('CRM_REPORT_COMPARE_PRODUCT', 'crm_report_compare_product_list');
 							}
 						}),
@@ -5074,6 +5078,7 @@ Ext.define('OCS.Reports', {
 								Ext.getCmp('report_owner').setVisible(true);
 								Ext.getCmp('report_start').setVisible(false);
 								Ext.getCmp('report_end').setVisible(false);
+								Ext.getCmp('report_title').setText('Харилцагчийн харьцуулалтын тайлан');
 								me.reconfigure('CRM_REPORT_COMPARE_CUSTOMER', 'crm_report_compare_customer_list');
 							}
 						}),
@@ -5087,6 +5092,7 @@ Ext.define('OCS.Reports', {
 								Ext.getCmp('report_owner').setVisible(false);
 								Ext.getCmp('report_start').setVisible(false);
 								Ext.getCmp('report_end').setVisible(false);
+								Ext.getCmp('report_title').setText('Борлуулагчийн харьцуулалтын тайлан');
 								me.reconfigure('CRM_REPORT_COMPARE_USER', 'crm_report_compare_user_list');
 							}
 						}),
@@ -5101,6 +5107,7 @@ Ext.define('OCS.Reports', {
 								Ext.getCmp('report_product').setVisible(false);
 								Ext.getCmp('report_start').setVisible(true);
 								Ext.getCmp('report_end').setVisible(true);
+								Ext.getCmp('report_title').setText('Борлуулагч болон Барааны харьцуулалтын тайлан');
 								me.reconfigure('CRM_REPORT_COMPARE', 'crm_report_compare_list');
 							}
 						}),

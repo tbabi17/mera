@@ -1277,7 +1277,7 @@ fields['CRM_REPORT_COMPARE_FIELDS'] = [
    {name: 'unit_size', text: 'Нэгж', width: 50, align: 'center'}, 
    {name: 'qty', text: 'Ширхэг', type: 'float', width: 85, align: 'right', renderer: renderNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
    {name: 'pty', text: 'Хайрцаг', type: 'float', width: 85, align: 'right', renderer: renderNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-   {name: 'amount', align: 'right', type:'float', text: 'Дүн', width: 150, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney}, 
+   {name: 'amount', align: 'right', type:'float', text: 'Дүн', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney}, 
    {name: 'owner1', text: 'Борлуулагч 1', type:'float',  width: 110, align: 'right', renderer: renderMoney, summaryType: 'average', summaryRenderer: renderTMoney},
    {name: 'owner2', text: 'Борлуулагч 2', type:'float',  width: 110, align: 'right', renderer: renderMoney, summaryType: 'average', summaryRenderer: renderTMoney},
    {name: 'owner3', text: 'Борлуулагч 3', type:'float',  width: 110, align: 'right', renderer: renderMoney, summaryType: 'average', summaryRenderer: renderTMoney},

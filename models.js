@@ -1288,9 +1288,18 @@ fields['CRM_REPORT_COMPARE_PRODUCT_FIELDS'] = [
    {name: 'product_name', text: 'Барааны нэр', width: 250}, 
    {name: 'product_barcode', text: 'Бар код', width: 90}, 
    {name: 'product_brand', text: 'Бренд', width: 180}, 
-   {name: 'month1', text: 'Сар 1', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
-   {name: 'month2', text: 'Сар 2', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
-   {name: 'month3', text: 'Сар 3', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney} 
+   {name: 'month1', text: '1 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month2', text: '2 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month3', text: '3 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month4', text: '4 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},    
+   {name: 'month5', text: '5 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month6', text: '6 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month7', text: '7 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month8', text: '8 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month9', text: '9 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month10', text: '10 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month11', text: '11 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month12', text: '12 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney}
 ];
 
 Ext.define('CRM_REPORT_COMPARE_PRODUCT', {
@@ -1301,9 +1310,18 @@ Ext.define('CRM_REPORT_COMPARE_PRODUCT', {
 fields['CRM_REPORT_COMPARE_CUSTOMER_FIELDS'] = [
    {name: 'crm_id', text: 'ID', width: 180, hidden: true}, 
    {name: 'crm_name', text: 'Харилцагчийн нэр', width: 250}, 
-   {name: 'month1', text: 'Сар 1', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
-   {name: 'month2', text: 'Сар 2', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
-   {name: 'month3', text: 'Сар 3', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney} 
+   {name: 'month1', text: '1 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month2', text: '2 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month3', text: '3 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month4', text: '4 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},    
+   {name: 'month5', text: '5 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month6', text: '6 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month7', text: '7 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month8', text: '8 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month9', text: '9 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month10', text: '10 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month11', text: '11 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month12', text: '12 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney}
 ];
 
 Ext.define('CRM_REPORT_COMPARE_CUSTOMER', {
@@ -1313,10 +1331,19 @@ Ext.define('CRM_REPORT_COMPARE_CUSTOMER', {
 
 fields['CRM_REPORT_COMPARE_USER_FIELDS'] = [
    {name: 'owner', text: 'Борлуулагчийн нэр', width: 250}, 
-   {name: 'month1', text: 'Сар 1', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
-   {name: 'month2', text: 'Сар 2', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
-   {name: 'month3', text: 'Сар 3', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
-   {name: 'precent', text: 'Эзлэх хувь', type:'float', width: 130, align: 'right', renderer: renderPrecent, summaryType: 'average', summaryRenderer: renderTPrecent},
+   {name: 'month1', text: '1 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month2', text: '2 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month3', text: '3 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month4', text: '4 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},    
+   {name: 'month5', text: '5 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month6', text: '6 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month7', text: '7 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month8', text: '8 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month9', text: '9 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month10', text: '10 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month11', text: '11 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'month12', text: '12 сар', type:'float', width: 130, align: 'right', renderer: renderMoney, summaryType: 'sum', summaryRenderer: renderTMoney},
+   {name: 'precent', text: 'Эзлэх хувь', type:'float', width: 130, align: 'right', renderer: renderPrecent, summaryType: 'average', summaryRenderer: renderTPrecent}
 ];
 
 Ext.define('CRM_REPORT_COMPARE_USER', {

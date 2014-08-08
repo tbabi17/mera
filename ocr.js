@@ -5183,7 +5183,6 @@ Ext.define('OCS.Reports', {
 		      displayField: 'value',
 			  valueField: 'value',
 			  triggerAction: 'all',
-			  disabled: true,
 			  editable: false
 			},
 			{

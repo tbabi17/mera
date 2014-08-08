@@ -1958,7 +1958,7 @@ function renderTopicName(v, metadata, record, rowIndex, colIndex, store) {
 function renderTMoney(v) {
 /*	if (logged == 'batbileg@mxc')
 		return '--.---';*/
-	return '<strong>'+Ext.util.Format.number(v, '00,00,000.00')+'₮</strong>';
+	return '<strong>'+Ext.util.Format.number(v, '00,00,000.00')+'</strong>';
 }
 
 function renderMoney(v) {
@@ -1967,7 +1967,7 @@ function renderMoney(v) {
 
 	if (v == 0)
 		return '';
-	return Ext.util.Format.number(v, '00,00,000.00')+'₮';
+	return Ext.util.Format.number(v, '00,00,000.00');
 }
 
 function renderAutoMoney(v, p, record) {	

@@ -5182,6 +5182,7 @@ Ext.define('OCS.Reports', {
 			  name: 'report_unit_type',
 			  queryMode: 'local',
 		      displayField: 'value',
+			  value: 'мөнгөн дүнгээр',					 
 			  valueField: 'value',
 			  triggerAction: 'all',
 			  hidden: true,

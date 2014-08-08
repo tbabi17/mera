@@ -5172,21 +5172,19 @@ Ext.define('OCS.Reports', {
 				}
 			},
 			{
-				id: 'report_product',
-				hidden: true,
-				xtype: 'searchcombo',
-				fieldLabel: 'Бараа',
-				labelWidth: 40,
-				width: 290,
-				listWidth: 290,
-				table: 'crm_products',				
-				name: 'product_name',
-				valueField: 'product_name',
-				listeners: {
-					'change': function() {
-						me.rangeData();
-					}
-				}
+			  id : 'report_unit_type',
+			  xtype: 'combo',
+			  store: Ext.create('Ext.data.Store', {
+  				  model: 'CRM_ITEM',
+ 				  data: [{value: 'тоогоор'},{value: 'мөнгөн дүнгээр'}]
+              }),
+			  name: 'report_unit_type',
+			  queryMode: 'local',
+		      displayField: 'value',
+			  valueField: 'value',
+			  triggerAction: 'all',
+			  disabled: true,
+			  editable: false
 			},
 			{
 				id: 'report_start',

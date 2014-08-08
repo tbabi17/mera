@@ -1493,9 +1493,9 @@ Ext.define('OCS.ServiceMultiAssignWindow', {
 			},{
 				xtype: 'searchcombo',
 				table: 'crm_users',
-				fieldLabel: 'Owner',				
+				fieldLabel: 'Owner',									
 				name: 'owner',
-				value: logged
+				value: me.selected.get('partner')
 			},		
 			{
 				xtype: 'textarea',

@@ -5184,7 +5184,13 @@ Ext.define('OCS.Reports', {
 		      displayField: 'value',
 			  valueField: 'value',
 			  triggerAction: 'all',
-			  editable: false
+			  hidden: true,
+			  editable: false,
+			  listeners: {
+					'change': function() {
+						me.rangeData();
+					}
+			  }
 			},
 			{
 				id: 'report_start',

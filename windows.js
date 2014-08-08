@@ -1469,7 +1469,6 @@ Ext.define('OCS.DealAssignWindow', {
 
 Ext.define('OCS.ServiceMultiAssignWindow', {
 	extend: 'OCS.Window',
-	
 	title: 'Assign to',
 	maximizable: false,
 	height: 250,

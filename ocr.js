@@ -5062,6 +5062,7 @@ Ext.define('OCS.Reports', {
 								me.values = '';
 								me.panelW.setVisible(false);
 								Ext.getCmp('report_owner').setVisible(false);
+								Ext.getCmp('report_unit_type').setVisible(true);
 								Ext.getCmp('report_start').setVisible(false);
 								Ext.getCmp('report_end').setVisible(false);
 								Ext.getCmp('report_title').setText('Барааны харьцуулалтын тайлан');
@@ -5104,7 +5105,7 @@ Ext.define('OCS.Reports', {
 								me.values = '';
 								me.panelW.setVisible(false);
 								Ext.getCmp('report_owner').setVisible(false);
-								Ext.getCmp('report_product').setVisible(false);
+								Ext.getCmp('report_unit_type').setVisible(true);
 								Ext.getCmp('report_start').setVisible(true);
 								Ext.getCmp('report_end').setVisible(true);
 								Ext.getCmp('report_title').setText('Борлуулагч болон Барааны харьцуулалтын тайлан');

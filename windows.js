@@ -1564,6 +1564,7 @@ Ext.define('OCS.ServiceMultiAgreeWindow', {
 	initComponent: function() {
 		var me = this;
 		me.title = 'Зөвшөөрөх ('+(me.ids.split(':').length-1)+' бичлэг)';
+		console.log(me.partner);
 		me.form = Ext.create('OCS.FormPanel', {
 			id : 'service_assign_to',				
 			title: 'Assign to',	

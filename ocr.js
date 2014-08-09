@@ -2923,6 +2923,7 @@ Ext.define('OCS.ServiceView', {
 			Ext.create('Ext.Action', {
 				iconCls   : 'deal_won',
 				text: 'Зөвшөөрөх ...',
+				hidden: (logged.indexOf('voltam') != -1),
 				handler: function(widget, event) {
 					if (user_level > 0 ) {												
 						if (me.recordSelected())						

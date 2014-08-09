@@ -1493,10 +1493,10 @@ Ext.define('OCS.ServiceMultiAssignWindow', {
 			},{
 				xtype: 'searchcombo',
 				table: 'crm_users',
-				fieldLabel: 'Owner',									
-				name: 'owner',
+				fieldLabel: 'Хариуцагч',				
 				allowBlank: false,
-				value: me.selected.get('partner')
+				value: me.selected.get('partner'),
+				name: 'owner'
 			},		
 			{
 				xtype: 'textarea',

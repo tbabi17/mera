@@ -1476,7 +1476,7 @@ Ext.define('OCS.ServiceMultiAssignWindow', {
 
 	initComponent: function() {
 		var me = this;
-		alert(me.selected.get('partner'));
+
 		me.title = 'Assign to ('+(me.ids.split(':').length-1)+' record selected)';
 		me.form = Ext.create('OCS.FormPanel', {
 			id : 'service_assign_to',				

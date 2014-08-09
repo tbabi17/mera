@@ -1496,7 +1496,7 @@ Ext.define('OCS.ServiceMultiAssignWindow', {
 				table: 'crm_users',
 				fieldLabel: 'Хариуцагч',				
 				allowBlank: false,
-				value: me.selected.get('partner'),
+				value: me.partner,
 				name: 'owner'
 			},		
 			{

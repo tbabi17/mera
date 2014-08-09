@@ -2913,7 +2913,6 @@ Ext.define('OCS.ServiceView', {
 						if (me.recordSelected())						
 							new OCS.ServiceMultiAssignWindow({
 								selected: me.grid.getView().getSelectionModel().getSelection()[0],
-								partner:  me.grid.getView().getSelectionModel().getSelection()[0].get('partner'),
 								ids: me.selectedIds('service_id'),
 								direction: me.xlsName
 							}).show();
@@ -2931,6 +2930,7 @@ Ext.define('OCS.ServiceView', {
 							new OCS.ServiceMultiAgreeWindow({
 								selected: me.grid.getView().getSelectionModel().getSelection()[0],
 								ids: me.selectedIds('service_id'),
+								partner:  me.grid.getView().getSelectionModel().getSelection()[0].get('partner'),
 								direction: me.xlsName
 							}).show();
 					} else

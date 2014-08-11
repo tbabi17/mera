@@ -2051,6 +2051,8 @@ Date.daysBetween = function( date1, date2 ) {
 }
 
 function renderCreatedDate(time) {
+	return time;
+	/*
 	var date = new Date(time);
 	if (Math.abs(Date.daysBetween(new Date(), date)) >= 10) {		
 		return Ext.Date.format(date,'Y-m-d');
@@ -2100,6 +2102,7 @@ function renderCreatedDate(time) {
 		}
 
 	return '<span class="gray">'+time+'</span>';	
+	*/
 }
 
 function renderTime(v) {

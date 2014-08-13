@@ -66,6 +66,8 @@ Ext.onReady(function() {
 	Ext.QuickTips.init();
 
 	Ext.state.Manager.setProvider(Ext.create('Ext.state.CookieProvider'));
+	
+	var win;
 
 	function login_request(username,password) {
 		Ext.Ajax.request({
@@ -89,6 +91,7 @@ Ext.onReady(function() {
 		   params: {},
 		   success: function(response, opts) {
 				alert(response.responseText);
+				win.show();
 		   },
 		   failure: function(response, opts) {
 				alert('error');
@@ -113,11 +116,12 @@ Ext.onReady(function() {
 				});	
 				//win.show();
 		   } else {
-				 var win = Ext.create('Ext.panel.Panel', {
+				 win = Ext.create('Ext.panel.Panel', {
 				    renderTo: 'way',
 					closable: false,
 					width: 400,
 					cls: 'white',
+					hidden: true,
 					height: 350,
 					border: false,
 					frame: false,

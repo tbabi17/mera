@@ -103,9 +103,9 @@ Ext.onReady(function() {
 								layout: 'border',
 								margins: '0'
 							});	
-							//win.show();
+							
 					   } else {
-							 win = Ext.create('Ext.panel.Panel', {
+							 var win = Ext.create('Ext.panel.Panel', {
 								renderTo: 'way',
 								closable: false,
 								width: 400,

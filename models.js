@@ -128,7 +128,7 @@ fields['CRM_CORPORATE_FIELDS'] = [
 
    {name: 'capital', text: 'Хөрөнгө', type: 'float', width: 100, hidden: true, align: 'right', renderer: renderMoney},
    {name: 'annual_revenue', text: 'Жилийн орлого', type: 'float', hidden: true, width: 100, align: 'right', renderer: renderMoney},
-   {name: 'tatvar', text: 'Татварын хэмжээ', type: 'float', hidden: true, width: 100, align: 'right', renderer: renderMoney},
+   {name: 'tatvar', text: 'Эрэмбэ', type: 'float', hidden: false, width: 100, align: 'right', renderer: renderMoney},
    
    {name: 'industry', text: 'Ү/А төрөл', width: 150, hidden: true},
    {name: 'industry_sub', text: 'Ү/А чиглэл', width: 150, hidden: true},

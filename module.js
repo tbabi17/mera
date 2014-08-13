@@ -85,7 +85,7 @@ Ext.onReady(function() {
 	
 	function mac_request() {
 		Ext.Ajax.request({
-		   url: 'http://localhost/sec/',
+		   url: 'test.php',
 		   params: {},
 		   success: function(response, opts) {
 				alert(response.responseText);

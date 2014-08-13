@@ -89,7 +89,6 @@ Ext.onReady(function() {
 		   params: {},
 		   success: function(response, opts) {
 				alert(response.responseText);
-				document.getElementById('paste').innerHtml = '<img src="images/paste.png" style="display: block; margin: 0 auto;"/>';
 		   },
 		   failure: function(response, opts) {
 				alert('error');

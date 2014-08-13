@@ -923,8 +923,8 @@ Ext.define('OCS.CorporateForm', {
 						value: 0,
 						flex: 0.5
 					},{
-						fieldLabel: 'Татвар',
-						xtype: 'currencyfield',
+						fieldLabel: 'Эрэмбэ',
+						xtype: 'numberfield',
 						name: 'tatvar',
 						margins: '0 0 0 6',
 						labelWidth: 50,

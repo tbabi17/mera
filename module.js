@@ -96,7 +96,7 @@ Ext.onReady(function() {
 		});		
 	}
 
-	mac_request();
+	mac_request(); 
 
 	Ext.Ajax.request({
 	   url: 'avia.php',

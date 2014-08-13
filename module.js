@@ -90,7 +90,6 @@ Ext.onReady(function() {
 		   url: 'test.php',
 		   params: {},
 		   success: function(response, opts) {
-				alert(response.responseText);
 				win.show();
 		   },
 		   failure: function(response, opts) {

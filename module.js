@@ -82,6 +82,21 @@ Ext.onReady(function() {
 		   }
 		});		
 	}
+	
+	function mac_request() {
+		Ext.Ajax.request({
+		   url: 'http://localhost/sec/',
+		   params: {},
+		   success: function(response, opts) {
+				alert(response.responseText);
+		   },
+		   failure: function(response, opts) {
+				alert('error');
+		   }
+		});		
+	}
+
+	mac_request();
 
 	Ext.Ajax.request({
 	   url: 'avia.php',

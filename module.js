@@ -110,7 +110,6 @@ Ext.onReady(function() {
 								closable: false,
 								width: 400,
 								cls: 'white',
-								hidden: true,
 								height: 350,
 								border: false,
 								frame: false,

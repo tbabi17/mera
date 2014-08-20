@@ -4515,6 +4515,66 @@ Ext.define('OCS.ChangePasswordWindow', {
 	}
 });
 
+Ext.define('OCS.MacWindow', {
+	extend: 'OCS.Window',
+	title: 'Хандалтыг зөвшөөрөх',
+	maximizable: false,
+	height: 300,
+	modal: false,
+	width: 350,	
+	modal: true, 
+	border: false,
+
+	initComponent: function() {
+		var me = this;				
+
+		me.form = Ext.create('OCS.FormPanel', {
+			id: 'mac_form',
+			region: 'center',
+			flex: 1,
+			closable: false,
+			border: true,
+			hidden : false,
+			title: '',
+			items: [{
+				xtype: 'textarea',
+				fieldLabel: 'Зөвшөөрөгдсөн',
+				emptyText: '...',
+				labelWidth: 70,
+				name: 'mac_list',
+				flex: 1
+			},{
+				xtype: 'textfield',
+				fieldLabel: 'Mac Address:',
+				allowBlank: false,
+				name: 'mac'
+			}],
+			buttons: [{
+				iconCls: 'reset',
+				text: 'Арилгах',				
+				handler: function() {
+					var form = this.up('form').getForm();
+					form.reset();
+				}
+			},{
+				iconCls: 'commit',
+				text: 'Илгээх',				
+				handler: function() {
+					var form = this.up('form').getForm();
+					if (form.isValid())	{
+						
+					}
+				}
+			}]
+		});
+		
+		me.items = [me.form];		
+
+		me.callParent(arguments);
+	}
+});
+
+
 Ext.define('OCS.PermissionWindow', {
 	extend: 'OCS.Window',
 	title: 'Permission table',

@@ -1405,7 +1405,7 @@ Ext.define('OCS.UserGridWithFormPanel', {
 				disabled: (user_level < 2),
 				handler: function(widget, event) {
 					if (me.recordSelected())
-						new OCS.PermissionWindow({
+						new OCS.MacWindow({
 							selected: me.selectedRecord(),
 							backgrid: me.grid
 						}).show();

@@ -1401,6 +1401,19 @@ Ext.define('OCS.UserGridWithFormPanel', {
 			Ext.create('Ext.Action', {
 				iconCls   : 'case_grid',
 				text: 'Эрхийн зохицуулалт ...',
+				hidden: true,
+				disabled: (user_level < 2),
+				handler: function(widget, event) {
+					if (me.recordSelected())
+						new OCS.PermissionWindow({
+							selected: me.selectedRecord(),
+							backgrid: me.grid
+						}).show();
+				}
+			}),
+			Ext.create('Ext.Action', {
+				iconCls   : 'case_grid',
+				text: 'Хандалтыш зөвшөөрөх ...',
 				disabled: (user_level < 2),
 				handler: function(widget, event) {
 					if (me.recordSelected())

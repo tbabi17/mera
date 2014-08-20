@@ -4538,16 +4538,11 @@ Ext.define('OCS.MacWindow', {
 			title: '',
 			items: [{
 				xtype: 'textarea',
-				fieldLabel: 'Зөвшөөрөгдсөн',
+				fieldLabel: 'Mac list',
 				emptyText: '...',
 				labelWidth: 70,
 				name: 'mac_list',
 				flex: 1
-			},{
-				xtype: 'textfield',
-				fieldLabel: 'Mac Address:',
-				allowBlank: false,
-				name: 'mac'
 			}],
 			buttons: [{
 				iconCls: 'reset',
@@ -4562,7 +4557,18 @@ Ext.define('OCS.MacWindow', {
 				handler: function() {
 					var form = this.up('form').getForm();
 					if (form.isValid())	{
-						
+						var mac_list = form.findField('mac_list').getValue();
+						Ext.Ajax.request({
+						   url: 'axia.php',
+						   params: {mac_list: mac_list},
+						   success: function(response, opts) {							  
+							  Ext.MessageBox.alert('Status', 'Success !', function() {});  									
+						   },
+						   failure: function(response, opts) {										   
+							  Ext.MessageBox.alert('Status', 'Error !', function() {});
+							  me.close();
+						   }
+						});
 					}
 				}
 			}]

@@ -1404,11 +1404,10 @@ Ext.define('OCS.UserGridWithFormPanel', {
 				hidden: true,
 				disabled: (user_level < 2),
 				handler: function(widget, event) {
-					if (me.recordSelected())
-						new OCS.MacWindow({
-							selected: me.selectedRecord(),
-							backgrid: me.grid
-						}).show();
+					new OCS.MacWindow({
+						selected: me.selectedRecord(),
+						backgrid: me.grid
+					}).show();
 				}
 			}),
 			Ext.create('Ext.Action', {

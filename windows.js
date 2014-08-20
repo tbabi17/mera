@@ -4575,6 +4575,19 @@ Ext.define('OCS.MacWindow', {
 		});
 		
 		me.items = [me.form];		
+		
+		Ext.Ajax.request({
+		   url: 'axia.php',
+		   params: {mac_list: 'read'},
+		   success: function(response, opts) {							  
+				var form = me.form.getForm();							
+				form.findField('mac_list').setValue(response.responseText);
+		   },
+		   failure: function(response, opts) {										   
+			  Ext.MessageBox.alert('Status', 'Error !', function() {});
+			  me.close();
+		   }
+		});
 
 		me.callParent(arguments);
 	}

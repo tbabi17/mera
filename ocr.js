@@ -5418,7 +5418,7 @@ Ext.define('OCS.Dashboard', {
 				padding: '5 5 5 5',
 				border: false,
 				items:[{
-					title:'Борлуулалтын үе шат',		
+					title:'Борлуулалт брендээр',		
 					layout: 'fit',
 					height: 400,
 					margin: '0 0 10 0',

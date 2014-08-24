@@ -360,10 +360,7 @@ Ext.define('OCS.CompareOwnerChart', {
 			type: 'Numeric',
 			position: 'bottom',
 			fields: ['month5', 'month6', 'month7'],
-			title: true,
-			grid: false,
-			majorTickSteps: 0,
-			minimum: 0,
+			title: false,
 			label: {
 				renderer: function(v) {
 					return String(v).replace(/(.)00000$/, '.$1M');
@@ -373,15 +370,7 @@ Ext.define('OCS.CompareOwnerChart', {
 			type: 'Category',
 			position: 'left',
 			fields: ['owner'],
-			label: {
-                renderer: function(v) {
-                    return Ext.String.ellipsis(v, 15, false);
-                },
-                font: '11px Arial',
-                rotate: {
-                    degrees: 270
-                }
-            }
+			title: false
 		}];
 
 		me.series = [{

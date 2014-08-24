@@ -430,7 +430,7 @@ Ext.define('OCS.SalesUpDownChart', {
 		me.start = me.month();
 		me.end = me.nextmonth();
 		me.store = Ext.create('Ext.data.Store', {
-			fields: ['month', 'amount', 'customers'],
+			fields: ['monthName', 'amount', 'customers'],
 			remoteSort: true,
 			proxy: {				
 				type: 'ajax',
@@ -467,7 +467,7 @@ Ext.define('OCS.SalesUpDownChart', {
         }, {
             type: 'Category',
             position: 'bottom',
-            fields: ['month'],
+            fields: ['monthName'],
             title: false,
             grid: true,
             label: {
@@ -481,7 +481,7 @@ Ext.define('OCS.SalesUpDownChart', {
 		me.series = [{
             type: 'column',
             axis: 'left',
-            xField: 'month',
+            xField: 'monthName',
             yField: 'amount',
             style: {
                 fill: 'url(#bar-gradient)',
@@ -498,12 +498,12 @@ Ext.define('OCS.SalesUpDownChart', {
         }, {
             type: 'line',
             axis: 'left',
-            xField: 'month',
+            xField: 'monthName',
             yField: 'customers',
             tips: {
                 trackMouse: true,
                 renderer: function(storeItem, item) {
-                    this.setTitle(storeItem.get('customers') + ' visits in ' + storeItem.get('month').substr(0, 3));
+                    this.setTitle(storeItem.get('customers') + ' visits in ' + storeItem.get('monthName'));
                 }
             },
             style: {

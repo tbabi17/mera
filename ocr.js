@@ -5388,6 +5388,8 @@ Ext.define('OCS.Dashboard', {
 		me.charts[6] = new OCS.AccountByIndustry();	
 		me.charts[8] = new OCS.SalesServiceFunnel();
 		me.charts[9] = new OCS.ProductChart();
+
+		me.charts[10] = new OCS.CompareOwnerChart();
 	},
 
 	reloadCharts: function() {
@@ -5563,6 +5565,20 @@ Ext.define('OCS.Dashboard', {
 						}
 					}],
 					items: me.charts[3]
+				}]
+			},{
+				columnWidth: 1,
+				padding: '5 5 5 5',
+				border: false,
+				items: [{
+					layout: 'fit',
+					title:'Борлуулалт борлуулагчаар',
+					collapsible: true,						
+					columnWidth: 1/2,
+					autoScroll: true,
+					height: 500,
+					tbar: [],
+					items: [me.charts[10]]
 				}]
 			},{
 				columnWidth: 1,

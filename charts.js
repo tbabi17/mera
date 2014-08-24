@@ -475,6 +475,11 @@ Ext.define('OCS.SalesUpDownChart', {
                 'stroke-width': 0,
                 fill: '#38B8BF',
                 stroke: '#38B8BF'
+            },
+			renderer: function(sprite, record, attr, index, store) {
+                return Ext.apply(attr, {
+                    fill: '#7263ff'
+                });
             }
         }, {
             type: 'line',

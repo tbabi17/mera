@@ -5380,7 +5380,7 @@ Ext.define('OCS.Dashboard', {
 		me.charts = [];
 		//me.charts[0] = new OCS.CampaignChartRevenue();
 		me.charts[7] = new OCS.OpportunityRevenueChart();
-		me.charts[1] = new OCS.CampaignChartSuccess();
+		//me.charts[1] = new OCS.CampaignChartSuccess();
 		//me.charts[2] = new OCS.CasesByStatus();
 		me.charts[3] = new OCS.SalesUpDownChart();
 		me.charts[4] = new OCS.MapOnline();

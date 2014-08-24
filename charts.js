@@ -379,6 +379,11 @@ Ext.define('OCS.CompareBrandChart', {
                 renderer: function(storeItem, item) {
                     this.setTitle(storeItem.get('product_brand') + ': ' + renderMoney(storeItem.get('amount')));
                 }
+            },			
+			renderer: function(sprite, record, attr, index, store) {
+                return Ext.apply(attr, {
+                    fill: '#0045a4'
+                });
             },
             label: {
               display: 'insideEnd',

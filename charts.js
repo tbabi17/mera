@@ -357,10 +357,10 @@ Ext.define('OCS.CompareOwnerChart', {
             position: 'bottom',
             fields: ['amount'],
             label: {
-                renderer: Ext.util.Format.numberRenderer('0,0')
+                renderer: Ext.util.Format.numberRenderer('0,0 ₮')
             },
             title: 'Борлуулалтын дүн',
-            grid: true,
+            grid: false,
             minimum: 0
         }, {
             type: 'Category',

@@ -452,7 +452,7 @@ Ext.define('OCS.OpportunityRevenueChart', {
 			minimum: 0,
 			label: {
 				renderer: function(v) {
-					return String(v).replace(/(.)00000$/, '.$1M');
+					return renderMoney(v);
 				}
 			}
 		}, {

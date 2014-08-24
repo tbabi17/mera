@@ -5432,56 +5432,56 @@ Ext.define('OCS.Dashboard', {
 							items: [{
 								text: 'Өнөөдөр',
 								handler: function() {
-									me.charts[8].rangeData(me.today(), me.tommorow());
+									me.charts[10].rangeData(me.today(), me.tommorow());
 								}
 							},{
 								text: 'Энэ долоо хоног',
 								handler: function() {
-									me.charts[8].rangeData(me.monday(), me.tommorow());
+									me.charts[10].rangeData(me.monday(), me.tommorow());
 								}
 							},{
 								text: 'Энэ сар',
 								handler: function() {
-									me.charts[8].rangeData(me.month(), me.nextmonth());
+									me.charts[10].rangeData(me.month(), me.nextmonth());
 								}
 							},{
 								text: 'Энэ жил',
 								handler: function() {
-									me.charts[8].rangeData(me.year(), me.nextyear());
+									me.charts[10].rangeData(me.year(), me.nextyear());
 								}
 							}]
 						}
 					},'->',
 					{
-						id: 'start_8',
+						id: 'start_10',
 						text: me.month(),
 						iconCls: 'calendar',
 						menu: Ext.create('Ext.menu.DatePicker', {
 							handler: function(dp, date){
-								me.charts[8].start = Ext.Date.format(date, 'Y-m-d');
-								Ext.getCmp('start_8').setText(Ext.Date.format(date, 'Y-m-d'));
-								me.charts[8].rangeData(me.charts[8].start, me.charts[8].end);
+								me.charts[10].start = Ext.Date.format(date, 'Y-m-d');
+								Ext.getCmp('start_10').setText(Ext.Date.format(date, 'Y-m-d'));
+								me.charts[10].rangeData(me.charts[10].start, me.charts[10].end);
 							}
 						})
 					},
 					{
-						id: 'end_8',
+						id: 'end_10',
 						text: me.nextmonth(),
 						iconCls: 'calendar',
 						menu: Ext.create('Ext.menu.DatePicker', {
 							handler: function(dp, date){
-								me.charts[8].end = Ext.Date.format(date, 'Y-m-d');
-								Ext.getCmp('end_8').setText(Ext.Date.format(date, 'Y-m-d'));
-								me.charts[8].rangeData(me.charts[8].start, me.charts[8].end);
+								me.charts[10].end = Ext.Date.format(date, 'Y-m-d');
+								Ext.getCmp('end_10').setText(Ext.Date.format(date, 'Y-m-d'));
+								me.charts[10].rangeData(me.charts[10].start, me.charts[10].end);
 							}
 						})
 					},{
 						text: 'Арилгах',
 						iconCls: 'reset',
 						handler: function() {
-							Ext.getCmp('start_8').setText(me.month());
-							Ext.getCmp('end_8').setText(me.nextmonth());
-							me.charts[8].rangeData(me.charts[8].month(), me.charts[8].nextmonth());
+							Ext.getCmp('start_10').setText(me.month());
+							Ext.getCmp('end_10').setText(me.nextmonth());
+							me.charts[10].rangeData(me.charts[10].month(), me.charts[10].nextmonth());
 						}
 					}],
 					items: /*{
@@ -5492,7 +5492,7 @@ Ext.define('OCS.Dashboard', {
 							url: 'funnel.php',
 							scripts: true
 						}
-					}*/me.charts[8]
+					}*/me.charts[10]
 				}]
 			},{
 				columnWidth: 1/2,
@@ -5565,20 +5565,6 @@ Ext.define('OCS.Dashboard', {
 						}
 					}],
 					items: me.charts[3]
-				}]
-			},{
-				columnWidth: 1,
-				padding: '5 5 5 5',
-				border: false,
-				items: [{
-					layout: 'fit',
-					title:'Борлуулалт борлуулагчаар',
-					collapsible: true,						
-					columnWidth: 1/2,
-					autoScroll: true,
-					height: 500,
-					tbar: [],
-					items: [me.charts[10]]
 				}]
 			},{
 				columnWidth: 1,

@@ -330,7 +330,7 @@ Ext.define('OCS.CompareOwnerChart', {
 		me.start = me.month();
 		me.end = me.nextmonth();
 		me.store = Ext.create('Ext.data.Store', {
-			fields: ['owner', 'month5', 'month6', 'month7'],
+			fields: ['product_brand', 'amount'],
 			remoteSort: true,
 			proxy: {				
 				type: 'ajax',
@@ -346,46 +346,49 @@ Ext.define('OCS.CompareOwnerChart', {
     	            totalProperty: 'results'
     	        },				
 				simpleSortMode: true,
-				extraParams: {handle: 'web', action: 'select', func: 'crm_report_compare_user_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: 'user_level', where: ',мөнгөн дүнгээр'}
-			},
-			sorters: [{
-				property: '_date',
-				direction: 'asc'
-			}]
+				extraParams: {handle: 'web', action: 'select', func: 'crm_chart_product_brand_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: 'user_level', where: ',мөнгөн дүнгээр'}
+			}
 		});
 
 		me.rangeData(me.month(), me.nextmonth());
 
 		me.axes = [{
-			type: 'Numeric',
-			position: 'bottom',
-			fields: ['month5', 'month6', 'month7'],
-			title: false,
-			label: {
-				renderer: function(v) {
-					return String(v).replace(/(.)00000$/, '.$1M');
-				}
-			}
-		}, {
-			type: 'Category',
-			position: 'left',
-			fields: ['owner'],
-			title: false
-		}];
+            type: 'Numeric',
+            position: 'bottom',
+            fields: ['amount'],
+            label: {
+                renderer: Ext.util.Format.numberRenderer('0,0')
+            },
+            title: 'Борлуулалтын дүн',
+            grid: true,
+            minimum: 0
+        }, {
+            type: 'Category',
+            position: 'left',
+            fields: ['product_brand'],
+            title: 'Бренд'
+        }];
 
 		me.series = [{
             type: 'bar',
             axis: 'bottom',
-            gutter: 80,
-            xField: 'owner',
-            yField: ['month5', 'month6', 'month7'],
-            stacked: true,
+            highlight: true,
             tips: {
                 trackMouse: true,
                 renderer: function(storeItem, item) {
-                    this.setTitle(String(item.value[1] / 1000000) + 'M');
+                    this.setTitle(storeItem.get('name') + ': ' + storeItem.get('data1') + ' views');
                 }
-            }
+            },
+            label: {
+              display: 'insideEnd',
+                  field: 'amount',
+                  renderer: Ext.util.Format.numberRenderer('0'),
+                  orientation: 'horizontal',
+                  color: '#333',
+                'text-anchor': 'middle'
+            },
+            xField: 'product_brand',
+            yField: ['amount']
         }];
 
 		me.callParent(arguments);
@@ -395,7 +398,7 @@ Ext.define('OCS.CompareOwnerChart', {
 		var me = this;
 		me.start = e1;
 		me.end = e2;
-		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_report_compare_user_list', start_date: e1, end_date: e2, where: ',мөнгөн дүнгээр'};
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_product_brand_list', start_date: e1, end_date: e2, where: ',мөнгөн дүнгээр'};
 		me.store.load();
 	}
 });

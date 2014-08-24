@@ -376,7 +376,7 @@ Ext.define('OCS.CompareOwnerChart', {
             tips: {
                 trackMouse: true,
                 renderer: function(storeItem, item) {
-                    this.setTitle(storeItem.get('name') + ': ' + storeItem.get('data1') + ' views');
+                    this.setTitle(storeItem.get('product_brand') + ': ' + storeItem.get('amount') + ' views');
                 }
             },
             label: {

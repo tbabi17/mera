@@ -409,10 +409,21 @@ Ext.define('OCS.SalesUpDownChart', {
 	animate: true,
 	shadow: false,
 	insetPadding: 30,
-	legend: {
-		position: 'bottom',
-		visible: false
-	},
+	gradients: [{
+	  angle: 90,
+	  id: 'bar-gradient',
+	  stops: {
+		  0: {
+			  color: '#99BBE8'
+		  },
+		  70: {
+			  color: '#77AECE'
+		  },
+		  100: {
+			  color: '#77AECE'
+		  }
+	  }
+	}],
 
 	initComponent: function() {
 		var me = this;
@@ -462,7 +473,7 @@ Ext.define('OCS.SalesUpDownChart', {
             label: {
                 font: '11px Arial',
                 renderer: function(name) {
-                    return name.substr(0, 3);
+                    return name;
                 }
             }
         }];

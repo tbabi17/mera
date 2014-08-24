@@ -367,7 +367,7 @@ Ext.define('OCS.CompareBrandChart', {
             type: 'Category',
             position: 'left',
             fields: ['product_brand'],
-            title: 'Бренд'
+            title: ''
         }];
 
 		me.series = [{

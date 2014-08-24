@@ -385,52 +385,17 @@ Ext.define('OCS.CompareOwnerChart', {
 		}];
 
 		me.series = [{
-            type: 'line',
-            highlight: {
-                size: 7,
-                radius: 7
-            },
-            axis: 'left',
+            type: 'bar',
+            axis: 'bottom',
+            gutter: 80,
             xField: 'owner',
-            yField: 'month5',
-            markerConfig: {
-                type: 'cross',
-                size: 4,
-                radius: 4,
-                'stroke-width': 0
-            }
-        }, {
-            type: 'line',
-            highlight: {
-                size: 7,
-                radius: 7
-            },
-            axis: 'left',
-            smooth: true,
-            xField: 'owner',
-            yField: 'month6',
-            markerConfig: {
-                type: 'circle',
-                size: 4,
-                radius: 4,
-                'stroke-width': 0
-            }
-        }, {
-            type: 'line',
-            highlight: {
-                size: 7,
-                radius: 7
-            },
-            axis: 'left',
-            smooth: true,
-            fill: true,
-            xField: 'owner',
-            yField: 'month7',
-            markerConfig: {
-                type: 'circle',
-                size: 4,
-                radius: 4,
-                'stroke-width': 0
+            yField: ['month5', 'month6', 'month7'],
+            stacked: true,
+            tips: {
+                trackMouse: true,
+                renderer: function(storeItem, item) {
+                    this.setTitle(String(item.value[1] / 1000000) + 'M');
+                }
             }
         }];
 

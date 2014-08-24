@@ -348,7 +348,11 @@ Ext.define('OCS.CompareOwnerChart', {
     	        },				
 				simpleSortMode: true,
 				extraParams: {handle: 'web', action: 'select', func: 'crm_report_compare_user_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: 'user_level', where: ',мөнгөн дүнгээр'}
-			}
+			},
+			sorters: [{
+				property: '_date',
+				direction: 'asc'
+			}]
 		});
 
 		me.rangeData(me.month(), me.nextmonth());

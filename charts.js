@@ -322,7 +322,7 @@ Ext.define('OCS.CompareOwnerChart', {
 	shadow: false,
 	insetPadding: 30,
 	legend: {
-		position: 'right'
+		position: 'bottom'
 	},
 
 	initComponent: function() {
@@ -382,9 +382,9 @@ Ext.define('OCS.CompareOwnerChart', {
             label: {
               display: 'insideEnd',
                   field: 'amount',
-                  renderer: Ext.util.Format.numberRenderer('0'),
+                  renderer: Ext.util.Format.numberRenderer('0,0 ₮'),
                   orientation: 'horizontal',
-                  color: '#333',
+                  color: '#fff',
                 'text-anchor': 'middle'
             },
             xField: 'product_brand',

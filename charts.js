@@ -360,7 +360,7 @@ Ext.define('OCS.CompareBrandChart', {
             label: {
                 renderer: Ext.util.Format.numberRenderer('0,0 ₮')
             },
-            title: 'Борлуулалтын дүн',
+            title: '',
             grid: false,
             minimum: 0
         }, {

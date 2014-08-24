@@ -322,7 +322,7 @@ Ext.define('OCS.CompareOwnerChart', {
 	shadow: false,
 	insetPadding: 30,
 	legend: {
-		position: 'bottom'
+		position: 'right'
 	},
 
 	initComponent: function() {

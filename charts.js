@@ -347,7 +347,7 @@ Ext.define('OCS.CompareOwnerChart', {
     	            totalProperty: 'results'
     	        },				
 				simpleSortMode: true,
-				extraParams: {handle: 'web', action: 'select', func: 'crm_report_compare_user_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: 'user_level', where: 0}
+				extraParams: {handle: 'web', action: 'select', func: 'crm_report_compare_user_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: 'user_level', where: ',мөнгөн дүнгээр'}
 			}
 		});
 
@@ -438,7 +438,7 @@ Ext.define('OCS.CompareOwnerChart', {
 		var me = this;
 		me.start = e1;
 		me.end = e2;
-		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_report_compare_user_list', start_date: e1, end_date: e2};
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_report_compare_user_list', start_date: e1, end_date: e2, where: ',мөнгөн дүнгээр'};
 		me.store.load();
 	}
 });

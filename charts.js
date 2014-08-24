@@ -359,7 +359,7 @@ Ext.define('OCS.CompareOwnerChart', {
 		me.axes = [{
 			type: 'Numeric',
 			position: 'left',
-			fields: ['month1', 'month2', 'month3', 'month4', 'month5', 'month6', 'month7', 'month8', 'month9', 'month10', 'month11', 'month12'],
+			fields: ['month5', 'month6', 'month7'],
 			title: true,
 			grid: false,
 			majorTickSteps: 0,

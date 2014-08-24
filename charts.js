@@ -457,7 +457,6 @@ Ext.define('OCS.SalesUpDownChart', {
             position: 'left',
             fields: ['amount'],
             title: false,
-            grid: true,
             label: {
                 renderer: Ext.util.Format.numberRenderer('0,0'),
                 font: '10px Arial'
@@ -467,7 +466,6 @@ Ext.define('OCS.SalesUpDownChart', {
             position: 'bottom',
             fields: ['monthName'],
             title: false,
-            grid: true,
             label: {
                 font: '11px Arial',
                 renderer: function(name) {

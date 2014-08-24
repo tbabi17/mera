@@ -454,8 +454,6 @@ Ext.define('OCS.SalesUpDownChart', {
 
 		me.axes = [{
             type: 'Numeric',
-            minimum: 0,
-            maximum: 100,
             position: 'left',
             fields: ['amount'],
             title: false,

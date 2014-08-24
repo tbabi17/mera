@@ -330,7 +330,7 @@ Ext.define('OCS.CompareOwnerChart', {
 		me.start = me.month();
 		me.end = me.nextmonth();
 		me.store = Ext.create('Ext.data.Store', {
-			fields: ['owner', 'month1', 'month2', 'month3', 'month4', 'month5', 'month6', 'month7', 'month8', 'month9', 'month10', 'month11', 'month12'],
+			fields: ['owner', 'month5', 'month6', 'month7'],
 			remoteSort: true,
 			proxy: {				
 				type: 'ajax',

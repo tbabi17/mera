@@ -316,6 +316,132 @@ Ext.define('OCS.CampaignChartRevenue', {
 	}
 });
 
+Ext.define('OCS.CompareOwnerChart', {
+	extend: 'OCS.Chart',
+	animate: true,
+	shadow: false,
+	insetPadding: 30,
+	legend: {
+		position: 'bottom'
+	},
+
+	initComponent: function() {
+		var me = this;
+		me.start = me.month();
+		me.end = me.nextmonth();
+		me.store = Ext.create('Ext.data.Store', {
+			fields: ['owner', 'month1', 'month2', 'month3', 'month4', 'month5', 'month6', 'month7', 'month8', 'month9', 'month10', 'month11', 'month12'],
+			groupField: 'team',
+			sortField: 'actual_revenue',
+			proxy: {				
+				type: 'ajax',
+    			url: 'avia.php',
+				actionMethods: {
+					create : 'POST',
+					read   : 'POST',
+					update : 'POST',
+					destroy: 'POST'
+				},
+    	        reader: {
+    	            root:'items',
+    	            totalProperty: 'results'
+    	        },				
+				simpleSortMode: true,
+				extraParams: {handle: 'web', action: 'select', func: 'crm_opportunity_by_revenue_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: 'user_level', where: 0}
+			}
+		});
+
+		me.rangeData(me.month(), me.nextmonth());
+
+		me.axes = [{
+			type: 'Numeric',
+			position: 'left',
+			fields: ['month1', 'month2', 'month3', 'month4', 'month5', 'month6', 'month7', 'month8', 'month9', 'month10', 'month11', 'month12'],
+			title: true,
+			grid: false,
+			majorTickSteps: 0,
+			minimum: 0,
+			label: {
+				renderer: function(v) {
+					return String(v).replace(/(.)00000$/, '.$1M');
+				}
+			}
+		}, {
+			type: 'Category',
+			position: 'bottom',
+			fields: ['owner'],
+			label: {
+                renderer: function(v) {
+                    return Ext.String.ellipsis(v, 15, false);
+                },
+                font: '11px Arial',
+                rotate: {
+                    degrees: 270
+                }
+            }
+		}];
+
+		me.series = [{
+            type: 'line',
+            highlight: {
+                size: 7,
+                radius: 7
+            },
+            axis: 'left',
+            xField: 'name',
+            yField: 'month5',
+            markerConfig: {
+                type: 'cross',
+                size: 4,
+                radius: 4,
+                'stroke-width': 0
+            }
+        }, {
+            type: 'line',
+            highlight: {
+                size: 7,
+                radius: 7
+            },
+            axis: 'left',
+            smooth: true,
+            xField: 'name',
+            yField: 'month6',
+            markerConfig: {
+                type: 'circle',
+                size: 4,
+                radius: 4,
+                'stroke-width': 0
+            }
+        }, {
+            type: 'line',
+            highlight: {
+                size: 7,
+                radius: 7
+            },
+            axis: 'left',
+            smooth: true,
+            fill: true,
+            xField: 'name',
+            yField: 'month7',
+            markerConfig: {
+                type: 'circle',
+                size: 4,
+                radius: 4,
+                'stroke-width': 0
+            }
+        }];
+
+		me.callParent(arguments);
+	},
+
+	rangeData: function(e1, e2) {
+		var me = this;
+		me.start = e1;
+		me.end = e2;
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_report_compare_user_list', start_date: e1, end_date: e2};
+		me.store.load();
+	}
+});
 
 Ext.define('OCS.OpportunityRevenueChart', {
 	extend: 'OCS.Chart',

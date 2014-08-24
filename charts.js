@@ -391,7 +391,7 @@ Ext.define('OCS.CompareOwnerChart', {
                 radius: 7
             },
             axis: 'left',
-            xField: 'name',
+            xField: 'owner',
             yField: 'month5',
             markerConfig: {
                 type: 'cross',
@@ -407,7 +407,7 @@ Ext.define('OCS.CompareOwnerChart', {
             },
             axis: 'left',
             smooth: true,
-            xField: 'name',
+            xField: 'owner',
             yField: 'month6',
             markerConfig: {
                 type: 'circle',
@@ -424,7 +424,7 @@ Ext.define('OCS.CompareOwnerChart', {
             axis: 'left',
             smooth: true,
             fill: true,
-            xField: 'name',
+            xField: 'owner',
             yField: 'month7',
             markerConfig: {
                 type: 'circle',

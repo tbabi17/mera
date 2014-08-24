@@ -382,7 +382,7 @@ Ext.define('OCS.CompareBrandChart', {
             },			
 			renderer: function(sprite, record, attr, index, store) {
                 return Ext.apply(attr, {
-                    fill: '#0045a4'
+                    fill: '#0045a4' 
                 });
             },
             label: {

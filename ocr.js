@@ -5389,7 +5389,7 @@ Ext.define('OCS.Dashboard', {
 		me.charts[8] = new OCS.SalesServiceFunnel();
 		me.charts[9] = new OCS.ProductChart();
 
-		me.charts[10] = new OCS.CompareOwnerChart();
+		me.charts[10] = new OCS.CompareBrandChart();
 	},
 
 	reloadCharts: function() {

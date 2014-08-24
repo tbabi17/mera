@@ -316,7 +316,7 @@ Ext.define('OCS.CampaignChartRevenue', {
 	}
 });
 
-Ext.define('OCS.CompareOwnerChart', {
+Ext.define('OCS.CompareBrandChart', {
 	extend: 'OCS.Chart',
 	animate: true,
 	shadow: false,
@@ -403,6 +403,125 @@ Ext.define('OCS.CompareOwnerChart', {
 		me.store.load();
 	}
 });
+
+Ext.define('OCS.SalesUpDownChart', {
+	extend: 'OCS.Chart',
+	animate: true,
+	shadow: false,
+	insetPadding: 30,
+	legend: {
+		position: 'bottom',
+		visible: false
+	},
+
+	initComponent: function() {
+		var me = this;
+		me.start = me.month();
+		me.end = me.nextmonth();
+		me.store = Ext.create('Ext.data.Store', {
+			fields: ['month', 'amount'],
+			remoteSort: true,
+			proxy: {				
+				type: 'ajax',
+    			url: 'avia.php',
+				actionMethods: {
+					create : 'POST',
+					read   : 'POST',
+					update : 'POST',
+					destroy: 'POST'
+				},
+    	        reader: {
+    	            root:'items',
+    	            totalProperty: 'results'
+    	        },				
+				simpleSortMode: true,
+				extraParams: {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: 'user_level', where: ',мөнгөн дүнгээр'}
+			}
+		});
+
+		me.rangeData(me.month(), me.nextmonth());
+
+		me.axes = [{
+            type: 'Numeric',
+            minimum: 0,
+            maximum: 100,
+            position: 'left',
+            fields: ['amount'],
+            title: false,
+            grid: true,
+            label: {
+                renderer: Ext.util.Format.numberRenderer('0,0'),
+                font: '10px Arial'
+            }
+        }, {
+            type: 'Category',
+            position: 'bottom',
+            fields: ['month'],
+            title: false,
+            grid: true,
+            label: {
+                font: '11px Arial',
+                renderer: function(name) {
+                    return name.substr(0, 3);
+                }
+            }
+        }];
+
+		me.series = [{
+            type: 'column',
+            axis: 'left',
+            xField: 'month',
+            yField: 'amount',
+            style: {
+                fill: 'url(#bar-gradient)',
+                'stroke-width': 3
+            },
+            markerConfig: {
+                type: 'circle',
+                size: 4,
+                radius: 4,
+                'stroke-width': 0,
+                fill: '#38B8BF',
+                stroke: '#38B8BF'
+            }
+        }, {
+            type: 'line',
+            axis: 'left',
+            xField: 'month',
+            yField: 'customers',
+            tips: {
+                trackMouse: true,
+                renderer: function(storeItem, item) {
+                    this.setTitle(storeItem.get('customers') + ' visits in ' + storeItem.get('month').substr(0, 3));
+                }
+            },
+            style: {
+                fill: '#18428E',
+                stroke: '#18428E',
+                'stroke-width': 3
+            },
+            markerConfig: {
+                type: 'circle',
+                size: 4,
+                radius: 4,
+                'stroke-width': 0,
+                fill: '#18428E',
+                stroke: '#18428E'
+            }
+        }];
+
+		me.callParent(arguments);
+	},
+
+	rangeData: function(e1, e2) {
+		var me = this;
+		me.start = e1;
+		me.end = e2;
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: e1, end_date: e2, where: ',мөнгөн дүнгээр'};
+		me.store.load();
+	}
+});
+
 
 Ext.define('OCS.OpportunityRevenueChart', {
 	extend: 'OCS.Chart',

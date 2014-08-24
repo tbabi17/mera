@@ -478,7 +478,7 @@ Ext.define('OCS.SalesUpDownChart', {
             type: 'column',
             axis: 'left',
             xField: 'monthName',
-            yField: 'customers',
+            yField: 'amount',
             style: {
                 fill: 'url(#bar-gradient)',
                 'stroke-width': 3
@@ -495,7 +495,7 @@ Ext.define('OCS.SalesUpDownChart', {
             type: 'line',
             axis: 'left',
             xField: 'monthName',
-            yField: 'amount',
+            yField: 'customers',
             tips: {
                 trackMouse: true,
                 renderer: function(storeItem, item) {

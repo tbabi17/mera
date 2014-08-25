@@ -5510,52 +5510,19 @@ Ext.define('OCS.Dashboard', {
 						menu: {
 							xtype: 'menu',
 							items: [{
-								text: 'Өнөөдөр',
+								text: 'Борлуулагчаар',
 								handler: function() {
 									me.charts[3].rangeData(me.today(), me.tommorow());
 								}
 							},{
-								text: 'Энэ долоо хоног',
+								text: 'Бараагаар',
 								handler: function() {
 									me.charts[3].rangeData(me.monday(), me.tommorow());
-								}
-							},{
-								text: 'Энэ сар',
-								handler: function() {
-									me.charts[3].rangeData(me.month(), me.nextmonth());
-								}
-							},{
-								text: 'Энэ жил',
-								handler: function() {
-									me.charts[3].rangeData(me.year(), me.nextyear());
 								}
 							}]
 						}
 					},'->',
 					{
-						id: 'start_3',
-						text: me.month(),
-						iconCls: 'calendar',
-						menu: Ext.create('Ext.menu.DatePicker', {
-							handler: function(dp, date){
-								me.charts[3].start = Ext.Date.format(date, 'Y-m-d');
-								Ext.getCmp('start_3').setText(Ext.Date.format(date, 'Y-m-d'));
-								me.charts[3].rangeData(me.charts[3].start, me.charts[3].end);
-							}
-						})
-					},
-					{
-						id: 'end_3',
-						text: me.nextmonth(),
-						iconCls: 'calendar',
-						menu: Ext.create('Ext.menu.DatePicker', {
-							handler: function(dp, date){
-								me.charts[3].end = Ext.Date.format(date, 'Y-m-d');
-								Ext.getCmp('end_3').setText(Ext.Date.format(date, 'Y-m-d'));
-								me.charts[3].rangeData(me.charts[3].start, me.charts[3].end);
-							}
-						})
-					},{
 						text: 'Арилгах',
 						iconCls: 'reset',
 						handler: function() {

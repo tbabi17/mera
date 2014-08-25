@@ -652,10 +652,10 @@ Ext.define('OCS.SalesUpDownChart', {
 				id: 'grouping_compare_product_chart'
 			}],
 			columns : [
-                {text: "ID", width: 50, dataIndex: 'product_id', sortable: true},
+                {text: "ID", width: 40, dataIndex: 'product_id', sortable: true},
                 {text: "Бараа", flex: 1, dataIndex: 'product_name', sortable: true},
-                {text: "Бренд", width: 120, dataIndex: 'product_brand', sortable: true},
-                {text: "Нийлүүлэгч", width: 115, dataIndex: 'product_vendor', sortable: true}
+                {text: "Бренд", width: 150, dataIndex: 'product_brand', sortable: true},
+                {text: "Нийлүүлэгч", width: 150, dataIndex: 'product_vendor', sortable: true}
             ],
 			buttons: [{
 				text: 'Арилгах',
@@ -681,7 +681,7 @@ Ext.define('OCS.SalesUpDownChart', {
 
 		me.win = new Ext.create('Ext.Window', {
 			title: 'Бараагаар',
-			width: 580,
+			width: 650,
 			height: 350,
 			layout: 'border',
 			items: me.grid

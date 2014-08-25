@@ -654,8 +654,8 @@ Ext.define('OCS.SalesUpDownChart', {
 			columns : [
                 {text: "ID", width: 40, dataIndex: 'product_id', sortable: true},
                 {text: "Бараа", flex: 1, dataIndex: 'product_name', sortable: true},
-                {text: "Бренд", width: 150, dataIndex: 'product_brand', sortable: true},
-                {text: "Нийлүүлэгч", width: 150, dataIndex: 'product_vendor', sortable: true}
+                {text: "Бренд", width: 120, dataIndex: 'product_brand', sortable: true},
+                {text: "Нийлүүлэгч", width: 190, dataIndex: 'product_vendor', sortable: true}
             ],
 			buttons: [{
 				text: 'Арилгах',
@@ -681,8 +681,8 @@ Ext.define('OCS.SalesUpDownChart', {
 
 		me.win = new Ext.create('Ext.Window', {
 			title: 'Бараагаар',
-			width: 650,
-			height: 350,
+			width: 700,
+			height: 450,
 			layout: 'border',
 			items: me.grid
 		});

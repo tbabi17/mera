@@ -5542,7 +5542,7 @@ Ext.define('OCS.Dashboard', {
 									checkHandler: function(item, checked) {
 										if (checked) {										
 											me.charts[3].view_type = 1;
-											me.charts[3].rangeData(me.charts[10].start, me.charts[10].end);
+											me.charts[3].rangeData(me.charts[3].month(), me.charts[3].nextmonth());
 										}
 									}
 								}, {
@@ -5552,7 +5552,7 @@ Ext.define('OCS.Dashboard', {
 									checkHandler: function(item, checked) {
 										if (checked) {										
 											me.charts[3].view_type = 2;
-											me.charts[3].rangeData(me.charts[10].start, me.charts[10].end);
+											me.charts[3].rangeData(me.charts[3].month(), me.charts[3].nextmonth());
 										}
 									}
 								}

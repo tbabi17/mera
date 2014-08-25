@@ -5663,34 +5663,34 @@ Ext.define('OCS.Dashboard', {
 				padding: '5 5 5 5',
 				border: false,
 				items:[{
-					title:'Stage of Sales pipeline',		
+					title:'Борлуулалт төрлөөр',		
 					layout: 'fit',
 					height: 400,
 					margin: '0 0 10 0',
 					columnWidth: 1/2,
 					collapsible: true,
 					tbar: [{
-						text: 'Views',
+						text: 'Харагдац',
 						iconCls: 'list',
 						menu: {
 							xtype: 'menu',
 							items: [{
-								text: 'Today',
+								text: 'Өнөөдөр',
 								handler: function() {
 									me.charts[8].rangeData(me.today(), me.tommorow());
 								}
 							},{
-								text: 'This week',
+								text: 'Энэ долоо хоног',
 								handler: function() {
 									me.charts[8].rangeData(me.monday(), me.tommorow());
 								}
 							},{
-								text: 'This month',
+								text: 'Энэ сар',
 								handler: function() {
 									me.charts[8].rangeData(me.month(), me.nextmonth());
 								}
 							},{
-								text: 'This year',
+								text: 'Энэ жил',
 								handler: function() {
 									me.charts[8].rangeData(me.year(), me.nextyear());
 								}
@@ -5730,6 +5730,79 @@ Ext.define('OCS.Dashboard', {
 						}
 					}],
 					items: me.charts[8]
+				}]
+			},
+			{
+				columnWidth: 1/2,
+				padding: '5 5 5 5',
+				margin: '0 0 10 0',
+				border: false,
+				items:[{
+					title:'Leads by Source',		
+					layout: 'fit',
+					collapsible: true,
+					height: 400,
+					tbar: [{
+						text: 'Views',
+						iconCls: 'list',
+						menu: {
+							xtype: 'menu',
+							items: [{
+								text: 'Today',
+								handler: function() {
+									me.charts[3].rangeData(me.today(), me.tommorow());
+								}
+							},{
+								text: 'This week',
+								handler: function() {
+									me.charts[3].rangeData(me.monday(), me.tommorow());
+								}
+							},{
+								text: 'This month',
+								handler: function() {
+									me.charts[3].rangeData(me.month(), me.nextmonth());
+								}
+							},{
+								text: 'This year',
+								handler: function() {
+									me.charts[3].rangeData(me.year(), me.nextyear());
+								}
+							}]
+						}
+					},'->',
+					{
+						id: 'start_3',
+						text: me.month(),
+						iconCls: 'calendar',
+						menu: Ext.create('Ext.menu.DatePicker', {
+							handler: function(dp, date){
+								me.charts[3].start = Ext.Date.format(date, 'Y-m-d');
+								Ext.getCmp('start_3').setText(Ext.Date.format(date, 'Y-m-d'));
+								me.charts[3].rangeData(me.charts[3].start, me.charts[3].end);
+							}
+						})
+					},
+					{
+						id: 'end_3',
+						text: me.nextmonth(),
+						iconCls: 'calendar',
+						menu: Ext.create('Ext.menu.DatePicker', {
+							handler: function(dp, date){
+								me.charts[3].end = Ext.Date.format(date, 'Y-m-d');
+								Ext.getCmp('end_3').setText(Ext.Date.format(date, 'Y-m-d'));
+								me.charts[3].rangeData(me.charts[3].start, me.charts[3].end);
+							}
+						})
+					},{
+						text: 'Reset',
+						iconCls: 'reset',
+						handler: function() {
+							Ext.getCmp('start_3').setText(me.month());
+							Ext.getCmp('end_3').setText(me.nextmonth());
+							me.charts[3].rangeData(me.charts[3].month(), me.charts[3].nextmonth());
+						}
+					}],
+					items: me.charts[3]
 				}]
 			},
 			{

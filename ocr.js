@@ -5415,7 +5415,7 @@ Ext.define('OCS.Dashboard', {
 				items:[{
 					title:'Борлуулалт брендээр',		
 					layout: 'fit',
-					height: 400,
+					height: 600,
 					margin: '0 0 10 0',
 					columnWidth: 1/2,
 					collapsible: true,
@@ -5498,7 +5498,7 @@ Ext.define('OCS.Dashboard', {
 					title:'Борлуулалтын өсөлт бууралт',		
 					layout: 'fit',
 					collapsible: true,
-					height: 400,
+					height: 600,
 					tbar: [{
 						text: 'Харагдац',
 						iconCls: 'list',
@@ -5536,7 +5536,7 @@ Ext.define('OCS.Dashboard', {
 					collapsible: true,						
 					columnWidth: 1/2,
 					autoScroll: true,
-					height: 500,
+					height: 250, 
 					tbar: [{
 						text: 'Харагдац',
 						iconCls: 'list',

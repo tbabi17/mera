@@ -5531,6 +5531,35 @@ Ext.define('OCS.Dashboard', {
 						}
 					},'->',
 					{
+						iconCls: 'merge',
+						text: 'Нэгж',
+						menu: {     
+							items: [																
+								{
+									text: 'Мөнгөн дүнгээр',
+									checked: true,
+									group: 'unit_size_10',
+									checkHandler: function(item, checked) {
+										if (checked) {										
+											me.charts[3].view_type = 1;
+											me.charts[3].rangeData(me.charts[10].start, me.charts[10].end);
+										}
+									}
+								}, {
+									text: 'Тоон дүнгээр',
+									checked: false,
+									group: 'unit_size_10',
+									checkHandler: function(item, checked) {
+										if (checked) {										
+											me.charts[3].view_type = 2;
+											me.charts[3].rangeData(me.charts[10].start, me.charts[10].end);
+										}
+									}
+								}
+							]
+						}
+				    },
+					{
 						text: 'Арилгах',
 						iconCls: 'reset',
 						handler: function() {

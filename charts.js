@@ -579,11 +579,8 @@ Ext.define('OCS.SalesUpDownChart', {
 						var rec = records[i];
 						owners += rec.get('owner')+',';
 					}
-
-					me.store1.filter(function(r) {
-						var value = r.get('owner');
-						return (owners.indexOf(value+',') != -1);
-					});
+					
+					alert(owners);
 				}
 			}]
 		});

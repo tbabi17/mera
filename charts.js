@@ -535,6 +535,7 @@ Ext.define('OCS.SalesUpDownChart', {
 		me.store1 = Ext.create('Ext.data.Store', {
 			fields: fields['CRM_USERS_FIELDS'],
 			remoteSort: true,
+			pageSize: 500,
 			proxy: {				
 				type: 'ajax',
     			url: 'avia.php',
@@ -615,6 +616,7 @@ Ext.define('OCS.SalesUpDownChart', {
 		me.store1 = Ext.create('Ext.data.Store', {
 			fields: fields['CRM_PRODUCT_FIELDS'],
 			remoteSort: true,
+			pageSize: 500,
 			proxy: {				
 				type: 'ajax',
     			url: 'avia.php',

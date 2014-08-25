@@ -439,7 +439,7 @@ Ext.define('OCS.SalesUpDownChart', {
     	            totalProperty: 'results'
     	        },				
 				simpleSortMode: true,
-				extraParams: {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: 'user_level', where: ','+me.view_type}
+				extraParams: {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: 'user_level', where: ' ,'+me.view_type}
 			}
 		});
 

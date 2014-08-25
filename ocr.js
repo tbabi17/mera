@@ -5382,7 +5382,6 @@ Ext.define('OCS.Dashboard', {
 		me.charts[3] = new OCS.SalesUpDownChart();
 		me.charts[4] = new OCS.MapOnline();
 		me.charts[8] = new OCS.SalesServiceFunnel();
-		me.charts[9] = new OCS.ProductChart();
 		me.charts[1] = new OCS.LeadBySource();
 
 		me.charts[10] = new OCS.CompareBrandChart();
@@ -5806,92 +5805,6 @@ Ext.define('OCS.Dashboard', {
 				}]
 			},
 			{
-				columnWidth: 1,
-				padding: '5 5 5 5',
-				border: false,
-				hidden: true,
-				items:[{
-					title:'Борлуулалт бүтээгдэхүүнээр',		
-					layout: 'fit',
-					height: 700,
-					tbar: [{
-						text: 'Харагдац',
-						iconCls: 'list',
-						menu: {
-							xtype: 'menu',
-							items: [{
-								text: 'Өнөөдөр',
-								handler: function() {
-									Ext.getCmp('start_9').setText(me.today());
-									Ext.getCmp('end_9').setText( me.tommorow());
-									me.charts[9].rangeData(me.today(), me.tommorow());
-								}
-							},{
-								text: 'Энэ долоо хоног',
-								handler: function() {
-									Ext.getCmp('start_9').setText(me.monday());
-									Ext.getCmp('end_9').setText( me.tommorow());
-									me.charts[9].rangeData(me.monday(), me.tommorow());
-								}
-							},{
-								text: 'Энэ сар',
-								handler: function() {
-									Ext.getCmp('start_9').setText(me.month());
-									Ext.getCmp('end_9').setText( me.nextmonth());
-									me.charts[9].rangeData(me.month(), me.nextmonth());
-								}
-							},{
-								text: 'Энэ жил',
-								handler: function() {
-									Ext.getCmp('start_9').setText(me.year());
-									Ext.getCmp('end_9').setText( me.nextyear());
-									me.charts[9].rangeData(me.year(), me.nextyear());
-								}
-							},{
-								text: 'Last year',
-								handler: function() {
-									Ext.getCmp('start_9').setText(me.prevyear());
-									Ext.getCmp('end_9').setText( me.year());
-									me.charts[9].rangeData(me.prevyear(), me.year());
-								}
-							}]
-						}
-					},'->',
-					{
-						id: 'start_9',
-						text: me.month(),
-						iconCls: 'calendar',
-						menu: Ext.create('Ext.menu.DatePicker', {
-							handler: function(dp, date){
-								me.charts[9].start = Ext.Date.format(date, 'Y-m-d');
-								Ext.getCmp('start_9').setText(Ext.Date.format(date, 'Y-m-d'));
-								me.charts[9].rangeData(me.charts[9].start, me.charts[9].end);
-							}
-						})
-					},
-					{
-						id: 'end_9',
-						text: me.nextmonth(),
-						iconCls: 'calendar',
-						menu: Ext.create('Ext.menu.DatePicker', {
-							handler: function(dp, date){
-								me.charts[9].end = Ext.Date.format(date, 'Y-m-d');
-								Ext.getCmp('end_9').setText(Ext.Date.format(date, 'Y-m-d'));
-								me.charts[9].rangeData(me.charts[9].start, me.charts[9].end);
-							}
-						})
-					},{
-						text: 'Арилгах',
-						iconCls: 'reset',
-						handler: function() {
-							Ext.getCmp('start_9').setText(me.month());
-							Ext.getCmp('end_9').setText(me.nextmonth());
-							me.charts[9].rangeData(me.charts[9].month(), me.charts[9].nextmonth());
-						}
-					}],
-					items: me.charts[9]
-				}]
-			},{
 				columnWidth: 1,
 				padding: '5 5 5 5',
 				border: false,				

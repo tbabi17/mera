@@ -564,6 +564,13 @@ Ext.define('OCS.SalesUpDownChart', {
 			region: 'center',
 			border: false,			
 			flex: 1,
+			features : [{
+				ftype: 'grouping',
+				groupHeaderTpl: '{columnName}: {name} ({rows.length} бичлэг)',
+				hideGroupedHeader: false,
+				startCollapsed: false,
+				id: 'grouping_compare_owner_chart'
+			}],
 			columns : [
                 {text: "Борлуулагч", flex: 1, dataIndex: 'owner', renderer: renderOwner, sortable: true},
                 {text: "Хэсэг", width: 120, dataIndex: 'section'},
@@ -637,8 +644,16 @@ Ext.define('OCS.SalesUpDownChart', {
 			region: 'center',
 			border: false,			
 			flex: 1,
+			features : [{
+				ftype: 'grouping',
+				groupHeaderTpl: '{columnName}: {name} ({rows.length} бичлэг)',
+				hideGroupedHeader: false,
+				startCollapsed: false,
+				id: 'grouping_compare_product_chart'
+			}],
 			columns : [
-                {text: "Бараа", flex: 1, dataIndex: 'product_id', renderer: renderOwner, sortable: true},
+                {text: "ID", width: 50, dataIndex: 'product_id', sortable: true},
+                {text: "Бараа", flex: 1, dataIndex: 'product_name', sortable: true},
                 {text: "Бренд", width: 120, dataIndex: 'product_brand'},
                 {text: "Нийлүүлэгч", width: 115, dataIndex: 'product_vendor', align: 'right', renderer: renderMoney, sortable: true}
             ],

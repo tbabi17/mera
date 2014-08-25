@@ -322,6 +322,7 @@ Ext.define('OCS.CompareBrandChart', {
 	shadow: false,
 	insetPadding: 30,
 	warehouse_id: 1,
+	view_type: 1,
 	legend: {
 		position: 'bottom',
 		visible: false
@@ -348,7 +349,7 @@ Ext.define('OCS.CompareBrandChart', {
     	            totalProperty: 'results'
     	        },				
 				simpleSortMode: true,
-				extraParams: {handle: 'web', action: 'select', func: 'crm_chart_product_brand_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: '', where: me.warehouse_id+',мөнгөн дүнгээр'}
+				extraParams: {handle: 'web', action: 'select', func: 'crm_chart_product_brand_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: '', where: me.warehouse_id+','+me.view_type}
 			}
 		});
 
@@ -405,7 +406,7 @@ Ext.define('OCS.CompareBrandChart', {
 		var me = this;
 		me.start = e1;
 		me.end = e2;
-		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_product_brand_list', start_date: e1, end_date: e2, where: me.warehouse_id+',мөнгөн дүнгээр'};
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_product_brand_list', start_date: e1, end_date: e2, where: me.warehouse_id+','+me.view_type};
 		me.store.load();
 	}
 });

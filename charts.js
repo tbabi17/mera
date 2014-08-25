@@ -468,7 +468,7 @@ Ext.define('OCS.SalesUpDownChart', {
         }];
 
 		me.series = [{
-            type: 'column',
+            type: 'line',
             axis: 'left',
             xField: 'monthName',
             yField: 'amount',

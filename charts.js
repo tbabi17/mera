@@ -528,6 +528,12 @@ Ext.define('OCS.SalesUpDownChart', {
 		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', values: 'byowner', where: filter};
 		me.store.load();
 	},
+	
+	byProductData: function(filter) {
+		var me = this;
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', values: 'byproduct', where: filter};
+		me.store.load();
+	},
 
 	createOwnerWindow: function() {
 		var me = this;
@@ -676,7 +682,7 @@ Ext.define('OCS.SalesUpDownChart', {
 						owners += rec.get('product_id')+',';
 					}
 					
-					me.byOwnerData(owners);
+					me.byProductData(owners);
 				}
 			}]
 		});

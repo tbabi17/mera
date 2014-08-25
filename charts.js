@@ -469,49 +469,19 @@ Ext.define('OCS.SalesUpDownChart', {
 
 		me.series = [{
             type: 'line',
+            highlight: {
+                size: 7,
+                radius: 7
+            },
             axis: 'left',
+            smooth: true,
             xField: 'monthName',
             yField: 'amount',
-            style: {
-                fill: 'url(#bar-gradient)',
-                'stroke-width': 3
-            },
             markerConfig: {
                 type: 'circle',
                 size: 4,
                 radius: 4,
-                'stroke-width': 0,
-                fill: '#38B8BF',
-                stroke: '#38B8BF'
-            },
-			renderer: function(sprite, record, attr, index, store) {
-                return Ext.apply(attr, {
-                    fill: '#7263ff'
-                });
-            }
-        }, {
-            type: 'line',
-            axis: 'left',
-            xField: 'monthName',
-            yField: 'customers',
-            tips: {
-                trackMouse: true,
-                renderer: function(storeItem, item) {
-                    this.setTitle(storeItem.get('customers') + ' visits in ' + storeItem.get('monthName'));
-                }
-            },
-            style: {
-                fill: '#18428E',
-                stroke: '#18428E',
-                'stroke-width': 3
-            },
-            markerConfig: {
-                type: 'circle',
-                size: 4,
-                radius: 4,
-                'stroke-width': 0,
-                fill: '#18428E',
-                stroke: '#18428E'
+                'stroke-width': 0
             }
         }];
 

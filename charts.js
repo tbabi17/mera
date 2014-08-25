@@ -563,47 +563,6 @@ Ext.define('OCS.SalesUpDownChart', {
                 {text: "Хэсэг", width: 120, dataIndex: 'section'},
                 {text: "Албан тушаал", width: 115, dataIndex: 'position', align: 'right', renderer: renderMoney, sortable: true}
             ],
-			tbar: [{
-				xtype: 'textfield',
-				emptyText: 'Хайлт',
-				listeners: {
-					specialkey: function(field, e){
-						if (e.getKey() == e.ENTER) {
-							var g = field.up('grid'),
-							value = field.getValue(); 
-							if (value.length > 0) {							
-								g.store.filter({scope: this, filterFn: function(rec) { 
-										var rege = new RegExp(".*" + value + ".*"); 
-										if (rege.test(rec.data.owner) || rege.test(rec.data.team)) {
-											return true;
-										}
-										return false;
-									} 
-								});
-							} else {
-								g.store.clearFilter();
-							}
-						}
-					},
-					change: function (radio2, newvalue, oldvalue) {				
-						if (newvalue) {	
-							me.store.clearFilter();
-							me.store.filter({scope: this, filterFn: function(rec) { 
-									var rege = new RegExp(".*" + newvalue + ".*"); 
-									if (rege.test(rec.data.owner) || rege.test(rec.data.team)) {
-										return true;
-									}
-									return false;
-								} 
-							});
-						} else {
-							me.store.clearFilter();
-						}
-					}
-				}
-			},{
-
-			}],
 			buttons: [{
 				text: 'Арилгах',
 				iconCls: 'reset',

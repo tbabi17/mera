@@ -477,7 +477,7 @@ Ext.define('OCS.SalesUpDownChart', {
             },
             axis: 'left',
             xField: 'monthName',
-            yField: 'amount',
+            yField: ['amount'],
             markerConfig: {
                 type: 'cross',
                 size: 4,

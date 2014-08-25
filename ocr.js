@@ -5659,6 +5659,10 @@ Ext.define('OCS.Dashboard', {
 				}]
 			},
 			{
+				columnWidth: 1/2,
+				padding: '5 5 5 5',
+				border: false,
+				items:[{
 					title:'Stage of Sales pipeline',		
 					layout: 'fit',
 					height: 400,
@@ -5725,15 +5729,7 @@ Ext.define('OCS.Dashboard', {
 							me.charts[8].rangeData(me.charts[8].month(), me.charts[8].nextmonth());
 						}
 					}],
-					items: /*{
-						xtype: 'panel',
-						bodyPadding: 30,
-						border: false,
-						autoLoad: {
-							url: 'funnel.php',
-							scripts: true
-						}
-					}*/me.charts[8]
+					items: me.charts[8]
 				}]
 			},{
 				columnWidth: 1/2,
@@ -5807,7 +5803,7 @@ Ext.define('OCS.Dashboard', {
 					}],
 					items: me.charts[1]
 				}]
-			},			
+			},
 			{
 				columnWidth: 1,
 				padding: '5 5 5 5',

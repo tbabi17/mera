@@ -5425,24 +5425,14 @@ Ext.define('OCS.Dashboard', {
 						menu: {
 							xtype: 'menu',
 							items: [{
-								text: 'Өнөөдөр',
+								text: 'Хүнс',
 								handler: function() {
 									me.charts[10].rangeData(me.today(), me.tommorow());
 								}
 							},{
-								text: 'Энэ долоо хоног',
+								text: 'Гоо сайхан',
 								handler: function() {
 									me.charts[10].rangeData(me.monday(), me.tommorow());
-								}
-							},{
-								text: 'Энэ сар',
-								handler: function() {
-									me.charts[10].rangeData(me.month(), me.nextmonth());
-								}
-							},{
-								text: 'Энэ жил',
-								handler: function() {
-									me.charts[10].rangeData(me.year(), me.nextyear());
 								}
 							}]
 						}

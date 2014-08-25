@@ -636,7 +636,7 @@ Ext.define('OCS.SalesUpDownChart', {
 			}],
 			columns : [
                 {text: "ID", width: 40, dataIndex: 'product_id', sortable: true, hidden: true},
-                {text: "Бар код", width: 80, dataIndex: 'product_barcode', sortable: true},
+                {text: "Бар код", width: 90, dataIndex: 'product_barcode', sortable: true},
                 {text: "Бараа", flex: 1, dataIndex: 'product_name', sortable: true},
                 {text: "Бренд", width: 120, dataIndex: 'product_brand', sortable: true},
                 {text: "Нийлүүлэгч", width: 190, dataIndex: 'product_vendor', sortable: true}

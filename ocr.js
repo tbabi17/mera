@@ -5450,7 +5450,7 @@ Ext.define('OCS.Dashboard', {
 									group: 'unit_size_10',
 									checkHandler: function(item, checked) {
 										if (checked) {										
-											me.view_type = 1;
+											me.charts[10].view_type = 1;
 											me.charts[10].rangeData(me.charts[10].start, me.charts[10].end);
 										}
 									}
@@ -5460,7 +5460,7 @@ Ext.define('OCS.Dashboard', {
 									group: 'unit_size_10',
 									checkHandler: function(item, checked) {
 										if (checked) {										
-											me.view_type = 2;
+											me.charts[10].view_type = 2;
 											me.charts[10].rangeData(me.charts[10].start, me.charts[10].end);
 										}
 									}

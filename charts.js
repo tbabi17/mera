@@ -424,7 +424,7 @@ Ext.define('OCS.SalesUpDownChart', {
 		me.start = me.month();
 		me.end = me.nextmonth();
 		me.store = Ext.create('Ext.data.Store', {
-			fields: ['monthName', 'amount', 'customers'],
+			fields: ['monthName', 'amount'],
 			remoteSort: true,
 			proxy: {				
 				type: 'ajax',
@@ -449,7 +449,7 @@ Ext.define('OCS.SalesUpDownChart', {
 		me.axes = [{
             type: 'Numeric',
             position: 'left',
-            fields: ['amount', 'customers'],
+            fields: ['amount'],
             title: false,
             label: {
                 renderer: Ext.util.Format.numberRenderer('0,0'),

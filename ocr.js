@@ -5378,14 +5378,9 @@ Ext.define('OCS.Dashboard', {
 	initCharts: function() {
 		var me = this;
 		me.charts = [];
-		//me.charts[0] = new OCS.CampaignChartRevenue();
 		me.charts[7] = new OCS.OpportunityRevenueChart();
-		//me.charts[1] = new OCS.CampaignChartSuccess();
-		//me.charts[2] = new OCS.CasesByStatus();
 		me.charts[3] = new OCS.SalesUpDownChart();
 		me.charts[4] = new OCS.MapOnline();
-		//me.charts[5] = new OCS.SalesStagePipeLine();
-		//me.charts[6] = new OCS.AccountByIndustry();	
 		me.charts[8] = new OCS.SalesServiceFunnel();
 		me.charts[9] = new OCS.ProductChart();
 

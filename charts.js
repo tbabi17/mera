@@ -451,9 +451,10 @@ Ext.define('OCS.SalesUpDownChart', {
             position: 'left',
             fields: ['amount'],
             title: false,
-            label: {
-                renderer: Ext.util.Format.numberRenderer('0,0'),
-                font: '10px Arial'
+            grid: true,
+            minimum: 0,
+			label: {
+                renderer: Ext.util.Format.numberRenderer('0,0')
             }
         }, {
             type: 'Category',
@@ -475,11 +476,10 @@ Ext.define('OCS.SalesUpDownChart', {
                 radius: 7
             },
             axis: 'left',
-            smooth: true,
             xField: 'monthName',
             yField: 'amount',
             markerConfig: {
-                type: 'circle',
+                type: 'cross',
                 size: 4,
                 radius: 4,
                 'stroke-width': 0

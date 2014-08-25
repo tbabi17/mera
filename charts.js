@@ -416,6 +416,7 @@ Ext.define('OCS.SalesUpDownChart', {
 	animate: true,
 	shadow: false,
 	insetPadding: 30,
+	view_type : 1,
 
 	initComponent: function() {
 		var me = this;
@@ -438,7 +439,7 @@ Ext.define('OCS.SalesUpDownChart', {
     	            totalProperty: 'results'
     	        },				
 				simpleSortMode: true,
-				extraParams: {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: 'user_level', where: ',мөнгөн дүнгээр'}
+				extraParams: {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: 'user_level', where: ','+me.view_type}
 			}
 		});
 
@@ -521,19 +522,19 @@ Ext.define('OCS.SalesUpDownChart', {
 		var me = this;
 		me.start = e1;
 		me.end = e2;
-		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: e1, end_date: e2, where: ',мөнгөн дүнгээр'};
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: e1, end_date: e2, where: ','+me.view_type};
 		me.store.load();
 	},
 	
 	byOwnerData: function(filter) {
 		var me = this;
-		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', values: 'byowner', where: filter};
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', values: 'byowner', where: filter+','+me.view_type};
 		me.store.load();
 	},
 	
 	byProductData: function(filter) {
 		var me = this;
-		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', values: 'byproduct', where: filter};
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', values: 'byproduct', where: filter+','+me.view_type};
 		me.store.load();
 	},
 

@@ -5521,8 +5521,6 @@ Ext.define('OCS.Dashboard', {
 						text: 'Арилгах',
 						iconCls: 'reset',
 						handler: function() {
-							Ext.getCmp('start_3').setText(me.month());
-							Ext.getCmp('end_3').setText(me.nextmonth());
 							me.charts[3].rangeData(me.charts[3].month(), me.charts[3].nextmonth());
 						}
 					}],

@@ -5381,7 +5381,7 @@ Ext.define('OCS.Dashboard', {
 		me.charts[7] = new OCS.OpportunityRevenueChart();
 		me.charts[3] = new OCS.SalesUpDownChart();
 		me.charts[4] = new OCS.MapOnline();
-		me.charts[8] = new OCS.SalesStagePipeLine();
+		me.charts[8] = new OCS.SalesServiceFunnel();
 		me.charts[9] = new OCS.ProductChart();
 		me.charts[1] = new OCS.LeadBySource();
 

@@ -5738,7 +5738,7 @@ Ext.define('OCS.Dashboard', {
 				margin: '0 0 10 0',
 				border: false,
 				items:[{
-					title:'Leads by Source',		
+					title:'Борлуулалтын цэгийн гүйцэтгэл',		
 					layout: 'fit',
 					collapsible: true,
 					height: 400,

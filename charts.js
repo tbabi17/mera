@@ -527,7 +527,7 @@ Ext.define('OCS.SalesUpDownChart', {
 		var me = this;
 		
 		me.store1 = Ext.create('Ext.data.Store', {
-			model: 'CRM_USERS_FIELDS',
+			model: 'CRM_USERS',
 			pageSize: 200,
 			autoLoad: true,
 			remoteSort: true,

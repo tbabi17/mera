@@ -5512,7 +5512,7 @@ Ext.define('OCS.Dashboard', {
 							},{
 								text: 'Бараагаар',
 								handler: function() {
-									me.charts[3].rangeData(me.monday(), me.tommorow());
+									me.charts[3].createProductWindow();
 								}
 							}]
 						}

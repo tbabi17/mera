@@ -600,6 +600,79 @@ Ext.define('OCS.SalesUpDownChart', {
 		});
 		
 		me.win.show();
+	},
+
+	createProductWindow: function() {
+		var me = this;
+
+		me.store1 = Ext.create('Ext.data.Store', {
+			fields: fields['CRM_PRODUCT_FIELDS'],
+			remoteSort: true,
+			proxy: {				
+				type: 'ajax',
+    			url: 'avia.php',
+				actionMethods: {
+					create : 'POST',
+					read   : 'POST',
+					update : 'POST',
+					destroy: 'POST'
+				},
+    	        reader: {
+    	            root:'items',
+    	            totalProperty: 'results'
+    	        },				
+				simpleSortMode: true,
+				extraParams: {handle: 'web', action: 'select', func: 'crm_product_list', values: 'user_level', where: '0'}
+			},
+			sorters: [{
+				property: '_date',
+				direction: 'asc'
+			}]
+		});
+		
+		me.store1.load();
+		me.grid = new Ext.create('Ext.grid.Panel', {
+			selType: 'checkboxmodel',
+			store: me.store1,
+			region: 'center',
+			border: false,			
+			flex: 1,
+			columns : [
+                {text: "Бараа", flex: 1, dataIndex: 'product_id', renderer: renderOwner, sortable: true},
+                {text: "Бренд", width: 120, dataIndex: 'product_brand'},
+                {text: "Нийлүүлэгч", width: 115, dataIndex: 'product_vendor', align: 'right', renderer: renderMoney, sortable: true}
+            ],
+			buttons: [{
+				text: 'Арилгах',
+				iconCls: 'reset',
+				handler: function() {
+					
+				}
+			},{
+				text: 'Харах',
+				iconCls: 'commit',
+				handler: function() {
+					var records = me.grid.getView().getSelectionModel().getSelection();
+					var owners = '';
+					for (i = 0;  i < records.length; i++) {
+						var rec = records[i];
+						owners += rec.get('product_id')+',';
+					}
+					
+					me.byOwnerData(owners);
+				}
+			}]
+		});
+
+		me.win = new Ext.create('Ext.Window', {
+			title: 'Бараагаар',
+			width: 580,
+			height: 350,
+			layout: 'border',
+			items: me.grid
+		});
+		
+		me.win.show();
 	}
 });
 

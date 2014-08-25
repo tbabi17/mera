@@ -5440,6 +5440,26 @@ Ext.define('OCS.Dashboard', {
 						}
 					},'->',
 					{
+						text: 'Нэгж',
+						menu: {     
+							items: [																
+								{
+									text: 'Тоогоор',
+									checked: true,
+									group: 'unit_size_10',
+									checkHandler: function() {
+									}
+								}, {
+									text: 'Мөнгөөр',
+									checked: false,
+									group: 'unit_size_10',
+									checkHandler: function() {
+									}
+								}
+							]
+						}
+				    },
+					{
 						id: 'start_10',
 						text: me.month(),
 						iconCls: 'calendar',
@@ -5471,15 +5491,7 @@ Ext.define('OCS.Dashboard', {
 							me.charts[10].rangeData(me.charts[10].month(), me.charts[10].nextmonth());
 						}
 					}],
-					items: /*{
-						xtype: 'panel',
-						bodyPadding: 30,
-						border: false,
-						autoLoad: {
-							url: 'funnel.php',
-							scripts: true
-						}
-					}*/me.charts[10]
+					items: me.charts[10]
 				}]
 			},{
 				columnWidth: 1/2,
@@ -5528,7 +5540,7 @@ Ext.define('OCS.Dashboard', {
 					collapsible: true,						
 					columnWidth: 1/2,
 					autoScroll: true,
-					height: 250, 
+					height: 280, 
 					tbar: [{
 						text: 'Харагдац',
 						iconCls: 'list',

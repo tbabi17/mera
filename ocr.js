@@ -5445,7 +5445,7 @@ Ext.define('OCS.Dashboard', {
 						menu: {     
 							items: [																
 								{
-									text: 'Тоогоор',
+									text: 'Мөнгөн дүнгээр',
 									checked: true,
 									group: 'unit_size_10',
 									checkHandler: function(item, checked) {
@@ -5455,7 +5455,7 @@ Ext.define('OCS.Dashboard', {
 										}
 									}
 								}, {
-									text: 'Мөнгөөр',
+									text: 'Тоон дүнгээр',
 									checked: false,
 									group: 'unit_size_10',
 									checkHandler: function(item, checked) {

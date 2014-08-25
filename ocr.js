@@ -5507,7 +5507,7 @@ Ext.define('OCS.Dashboard', {
 							items: [{
 								text: 'Борлуулагчаар',
 								handler: function() {
-									me.charts[3].rangeData(me.today(), me.tommorow());
+									me.charts[3].createOwnerWindow();
 								}
 							},{
 								text: 'Бараагаар',

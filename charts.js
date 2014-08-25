@@ -544,7 +544,11 @@ Ext.define('OCS.SalesUpDownChart', {
     	        },				
 				simpleSortMode: true,
 				extraParams: {handle: 'web', action: 'select', func: 'crm_users_list', values: 'user_level', where: '0'}
-			}
+			},
+			sorters: [{
+				property: '_date',
+				direction: 'asc'
+			}]
 		});
 		
 		me.store1.load();

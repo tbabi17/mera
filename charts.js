@@ -360,7 +360,7 @@ Ext.define('OCS.CompareBrandChart', {
             position: 'bottom',
             fields: ['amount'],
             label: {
-                renderer: Ext.util.Format.numberRenderer('0,0 ₮')
+                renderer: Ext.util.Format.numberRenderer('0,0')
             },
             title: '',
             grid: false,
@@ -390,7 +390,7 @@ Ext.define('OCS.CompareBrandChart', {
             label: {
 	              display: 'outsideEnd',
 		          field: 'amount',
-                  renderer: Ext.util.Format.numberRenderer('0,0 ₮'),
+                  renderer: Ext.util.Format.numberRenderer('0,0'),
                   orientation: 'horizontal',
                   color: '#333',
                   'text-anchor': 'middle'

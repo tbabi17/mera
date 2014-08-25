@@ -521,6 +521,119 @@ Ext.define('OCS.SalesUpDownChart', {
 		me.end = e2;
 		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: e1, end_date: e2, where: ',мөнгөн дүнгээр'};
 		me.store.load();
+	},
+
+	createOwnerWindow: function() {
+		var me = this;
+		
+		me.store1 = Ext.create('Ext.data.Store', {
+			model: 'CRM_USERS_FIELDS',
+			pageSize: 200,
+			autoLoad: true,
+			remoteSort: true,
+			proxy: {				
+				type: 'ajax',
+    			url: 'avia.php',
+    	        reader: {
+    	            root:'items',
+    	            totalProperty: 'results',
+					idProperty: 'id'
+    	        },
+				simpleSortMode: true,
+				extraParams: {handle: 'web', action: 'select', func: 'crm_user_list', values: '', fields: '', where: ''},
+			},
+			sorters: [{
+				property: '_date',
+				direction: 'asc'
+			}]
+		});
+
+		me.grid = new Ext.create('Ext.grid.Panel', {
+			selType: 'checkboxmodel',
+			store: me.store1,
+			region: 'center',
+			border: false,			
+			flex: 1,
+			columns : [
+                {text: "Борлуулагч", flex: 1, dataIndex: 'owner', renderer: renderOwner, sortable: true},
+                {text: "Хэсэг", width: 120, dataIndex: 'section'},
+                {text: "Албан тушаал", width: 115, dataIndex: 'position', align: 'right', renderer: renderMoney, sortable: true}
+            ],
+			tbar: [{
+				xtype: 'textfield',
+				emptyText: 'filter',
+				listeners: {
+					specialkey: function(field, e){
+						if (e.getKey() == e.ENTER) {
+							var g = field.up('grid'),
+							value = field.getValue(); 
+							if (value.length > 0) {							
+								g.store.filter({scope: this, filterFn: function(rec) { 
+										var rege = new RegExp(".*" + value + ".*"); 
+										if (rege.test(rec.data.owner) || rege.test(rec.data.team)) {
+											return true;
+										}
+										return false;
+									} 
+								});
+							} else {
+								g.store.clearFilter();
+							}
+						}
+					},
+					change: function (radio2, newvalue, oldvalue) {				
+						if (newvalue) {	
+							me.store.clearFilter();
+							me.store.filter({scope: this, filterFn: function(rec) { 
+									var rege = new RegExp(".*" + newvalue + ".*"); 
+									if (rege.test(rec.data.owner) || rege.test(rec.data.team)) {
+										return true;
+									}
+									return false;
+								} 
+							});
+						} else {
+							me.store.clearFilter();
+						}
+					}
+				}
+			},{
+
+			}],
+			buttons: [{
+				text: 'Арилгах',
+				iconCls: 'reset',
+				handler: function() {
+					
+				}
+			},{
+				text: 'Харах',
+				iconCls: 'commit',
+				handler: function() {
+					var records = me.grid.getView().getSelectionModel().getSelection();
+					var owners = '';
+					for (i = 0;  i < records.length; i++) {
+						var rec = records[i];
+						owners += rec.get('owner')+',';
+					}
+
+					me.store1.filter(function(r) {
+						var value = r.get('owner');
+						return (owners.indexOf(value+',') != -1);
+					});
+				}
+			}]
+		});
+
+		me.win = new Ext.create('Ext.Window', {
+			title: 'Борлуулагчаар',
+			width: 650,
+			height: 350,
+			layout: 'border',
+			items: me.grid
+		});
+		
+		me.win.show();
 	}
 });
 

@@ -565,7 +565,7 @@ Ext.define('OCS.SalesUpDownChart', {
             ],
 			tbar: [{
 				xtype: 'textfield',
-				emptyText: 'filter',
+				emptyText: 'Хайлт',
 				listeners: {
 					specialkey: function(field, e){
 						if (e.getKey() == e.ENTER) {
@@ -631,7 +631,7 @@ Ext.define('OCS.SalesUpDownChart', {
 
 		me.win = new Ext.create('Ext.Window', {
 			title: 'Борлуулагчаар',
-			width: 650,
+			width: 580,
 			height: 350,
 			layout: 'border',
 			items: me.grid

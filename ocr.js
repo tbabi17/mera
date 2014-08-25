@@ -5397,7 +5397,7 @@ Ext.define('OCS.Dashboard', {
 		var me = this;			
 		me.initCharts();
 		me.height_1 = 400;
-		if (logged.indexOf('@cosmo')
+		if (logged.indexOf('@cosmo') != -1)
 			me.height_1 = 600;
 
 		me.panel = Ext.create('Ext.Panel', {	

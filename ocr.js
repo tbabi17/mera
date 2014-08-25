@@ -5448,17 +5448,21 @@ Ext.define('OCS.Dashboard', {
 									text: 'Тоогоор',
 									checked: true,
 									group: 'unit_size_10',
-									checkHandler: function() {
-										me.view_type = 1;
-										me.charts[10].rangeData(me.charts[10].start, me.charts[10].end);
+									checkHandler: function(item, checked) {
+										if (checked) {										
+											me.view_type = 1;
+											me.charts[10].rangeData(me.charts[10].start, me.charts[10].end);
+										}
 									}
 								}, {
 									text: 'Мөнгөөр',
 									checked: false,
 									group: 'unit_size_10',
-									checkHandler: function() {
-										me.view_type = 2;
-										me.charts[10].rangeData(me.charts[10].start, me.charts[10].end);
+									checkHandler: function(item, checked) {
+										if (checked) {										
+											me.view_type = 2;
+											me.charts[10].rangeData(me.charts[10].start, me.charts[10].end);
+										}
 									}
 								}
 							]

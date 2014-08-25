@@ -416,6 +416,7 @@ Ext.define('OCS.SalesUpDownChart', {
 	animate: true,
 	shadow: false,
 	insetPadding: 30,
+	theme: 'Category1',
 	view_type : 1,
 
 	initComponent: function() {

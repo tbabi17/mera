@@ -416,15 +416,25 @@ Ext.define('OCS.SalesUpDownChart', {
 	animate: true,
 	shadow: false,
 	insetPadding: 30,
+	id: 'aaaa',
 	theme: 'Category1',
 	view_type : 1,
+	legend : {
+		position: 'float',
+		x: 80,
+		y: 0,
+		boxFill: 'none',
+		boxStroke: 'none',
+		labelFont: '9px Helvetica, sans-serif'
+	},
+	title: ['Бүгд','','','','','','','','','','','','','','',''],
 
 	initComponent: function() {
 		var me = this;
 		me.start = me.month();
 		me.end = me.nextmonth();
 		me.store = Ext.create('Ext.data.Store', {
-			fields: ['monthName', 'amount'],
+			fields: ['monthName', 'data1', 'data2', 'data3', 'data4', 'data5', 'data6', 'data7', 'data8', 'data9', 'data10'],
 			remoteSort: true,
 			proxy: {				
 				type: 'ajax',
@@ -440,7 +450,7 @@ Ext.define('OCS.SalesUpDownChart', {
     	            totalProperty: 'results'
     	        },				
 				simpleSortMode: true,
-				extraParams: {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: 'user_level', where: ' ,'+me.view_type}
+				extraParams: {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: 'user_level', where: ' :'+me.view_type}
 			}
 		});
 
@@ -449,8 +459,7 @@ Ext.define('OCS.SalesUpDownChart', {
 		me.axes = [{
             type: 'Numeric',
             position: 'left',
-            fields: ['amount'],
-            title: false,
+            fields: ['data1', 'data2', 'data3', 'data4', 'data5', 'data6', 'data7', 'data8', 'data9', 'data10'],			
             grid: true,
             minimum: 0,
 			label: {
@@ -470,17 +479,154 @@ Ext.define('OCS.SalesUpDownChart', {
         }];
 
 		me.series = [{
-            type: 'area',
+            type: 'line',
             highlight: {
-                size: 7,
-                radius: 7
-            },
+				size: 5,
+				radius: 5
+			},
             axis: 'left',
             xField: 'monthName',
-            yField: ['amount'],
-            style: {
-                opacity: 0.93
-            }
+            yField: 'data1',			
+			title: me.title[0],
+			markerConfig: {
+				size: 3,
+				radius: 3
+			}
+        },{
+            type: 'line',
+            highlight: {
+				size: 5,
+				radius: 5
+			},
+            axis: 'left',
+            xField: 'monthName',
+            yField: 'data2',
+			showInLegend: false,
+			title: me.title[1],
+			markerConfig: {
+				size: 3,
+				radius: 3
+			}
+        },{
+            type: 'line',
+            highlight: {
+				size: 5,
+				radius: 5
+			},
+            axis: 'left',
+            xField: 'monthName',
+            yField: 'data3',
+			showInLegend: false,
+			title: me.title[2],
+			markerConfig: {
+				size: 3,
+				radius: 3
+			}
+        },{
+            type: 'line',
+            highlight: {
+				size: 5,
+				radius: 5
+			},
+            axis: 'left',
+            xField: 'monthName',
+            yField: 'data4',
+			showInLegend: false,
+			title: me.title[3],
+			markerConfig: {
+				size: 3,
+				radius: 3
+			}
+        },{
+            type: 'line',
+            highlight: {
+				size: 5,
+				radius: 5
+			},
+            axis: 'left',
+            xField: 'monthName',
+            yField: 'data5',
+			showInLegend: false,
+			title: me.title[4],
+			markerConfig: {
+				size: 3,
+				radius: 3
+			}
+        },{
+            type: 'line',
+            highlight: {
+				size: 5,
+				radius: 5
+			},
+            axis: 'left',
+            xField: 'monthName',
+            yField: 'data6',
+			showInLegend: false,
+			title: me.title[5],
+			markerConfig: {
+				size: 3,
+				radius: 3
+			}
+        },{
+            type: 'line',
+            highlight: {
+				size: 5,
+				radius: 5
+			},
+            axis: 'left',
+            xField: 'monthName',
+            yField: 'data7',
+			showInLegend: false,
+			title: me.title[6],
+			markerConfig: {
+				size: 3,
+				radius: 3
+			}
+        },{
+            type: 'line',
+            highlight: {
+				size: 5,
+				radius: 5
+			},
+            axis: 'left',
+            xField: 'monthName',
+            yField: 'data8',
+			showInLegend: false,
+			title: me.title[7],
+			markerConfig: {
+				size: 3,
+				radius: 3
+			}
+        },{
+            type: 'line',
+            highlight: {
+				size: 5,
+				radius: 5
+			},
+            axis: 'left',
+            xField: 'monthName',
+            yField: 'data9',
+			showInLegend: false,
+			title: me.title[8],
+			markerConfig: {
+				size: 3,
+				radius: 3
+			}
+        },{
+            type: 'line',
+            highlight: {
+				size: 5,
+				radius: 5
+			},
+            axis: 'left',
+            xField: 'monthName',
+            yField: 'data10',
+			showInLegend: false,
+			title: me.title[9],
+			markerConfig: {
+				size: 3,
+				radius: 3
+			}
         }];
 
 		me.callParent(arguments);
@@ -490,19 +636,19 @@ Ext.define('OCS.SalesUpDownChart', {
 		var me = this;
 		me.start = e1;
 		me.end = e2;
-		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: e1, end_date: e2, where: ' ,'+me.view_type};
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: e1, end_date: e2, where: ' :'+me.view_type};
 		me.store.load();
 	},
 	
 	byOwnerData: function(filter) {
 		var me = this;
-		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', values: 'byowner', where: filter+','+me.view_type};
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', values: 'byowner', where: filter+':'+me.view_type};
 		me.store.load();
 	},
 	
 	byProductData: function(filter) {
 		var me = this;
-		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', values: 'byproduct', where: filter+','+me.view_type};
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', values: 'byproduct', where: filter+':'+me.view_type};
 		me.store.load();
 	},
 
@@ -650,12 +796,19 @@ Ext.define('OCS.SalesUpDownChart', {
 				handler: function() {
 					var records = me.grid.getView().getSelectionModel().getSelection();
 					var owners = '';
+					for (i = 0; i < 10; i++) 
+						me.series.items[i].showInLegend = false;
+
 					for (i = 0;  i < records.length; i++) {
 						var rec = records[i];
 						owners += rec.get('product_id')+',';
+						me.title[i] = rec.get('product_name');
+						me.series.items[i].title = rec.get('product_name');
+						me.series.items[i].showInLegend = true;
 					}
 					
 					me.byProductData(owners);
+					Ext.getCmp('aaaa').redraw();
 				}
 			}]
 		});

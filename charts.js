@@ -423,7 +423,7 @@ Ext.define('OCS.SalesUpDownChart', {
 		var me = this;
 		me.start = me.month();
 		me.end = me.nextmonth();
-		me.store = Ext.create('Ext.data.Store', {
+		/*me.store = Ext.create('Ext.data.Store', {
 			fields: ['monthName', 'amount'],
 			remoteSort: true,
 			proxy: {				
@@ -442,6 +442,46 @@ Ext.define('OCS.SalesUpDownChart', {
 				simpleSortMode: true,
 				extraParams: {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: 'user_level', where: ' ,'+me.view_type}
 			}
+		});*/
+		
+		me.store = Ext.create('Ext.data.JsonStore', {
+			fields: ['monthName', 'amount', 'data2', 'data3', 'data4', 'data5'],
+			data: [{
+				'monthName': 'metric one',
+				'amount': 10,
+				'data2': 12,
+				'data3': 14,
+				'data4': 8,
+				'data5': 13
+			}, {
+				'monthName': 'metric two',
+				'amount': 7,
+				'data2': 8,
+				'data3': 16,
+				'data4': 10,
+				'data5': 3
+			}, {
+				'monthName': 'metric three',
+				'amount': 5,
+				'data2': 2,
+				'data3': 14,
+				'data4': 12,
+				'data5': 7
+			}, {
+				'monthName': 'metric four',
+				'amount': 2,
+				'data2': 14,
+				'data3': 6,
+				'data4': 1,
+				'data5': 23
+			}, {
+				'monthName': 'metric five',
+				'amount': 4,
+				'data2': 4,
+				'data3': 36,
+				'data4': 13,
+				'data5': 33
+			}]
 		});
 
 		me.rangeData(me.month(), me.nextmonth());
@@ -493,8 +533,8 @@ Ext.define('OCS.SalesUpDownChart', {
 		var me = this;
 		me.start = e1;
 		me.end = e2;
-		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: e1, end_date: e2, where: ' ,'+me.view_type};
-		me.store.load();
+		//me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: e1, end_date: e2, where: ' ,'+me.view_type};
+		//me.store.load();
 	},
 	
 	byOwnerData: function(filter) {

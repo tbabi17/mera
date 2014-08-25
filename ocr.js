@@ -5427,11 +5427,13 @@ Ext.define('OCS.Dashboard', {
 							items: [{
 								text: 'Хүнс',
 								handler: function() {
+									me.charts[10].warehouse_id = 1;
 									me.charts[10].rangeData(me.today(), me.tommorow());
 								}
 							},{
 								text: 'Гоо сайхан',
 								handler: function() {
+									me.charts[10].warehouse_id = 2;
 									me.charts[10].rangeData(me.monday(), me.tommorow());
 								}
 							}]

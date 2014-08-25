@@ -522,7 +522,7 @@ Ext.define('OCS.SalesUpDownChart', {
 		var me = this;
 		me.start = e1;
 		me.end = e2;
-		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: e1, end_date: e2, where: ','+me.view_type};
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: e1, end_date: e2, where: ' ,'+me.view_type};
 		me.store.load();
 	},
 	

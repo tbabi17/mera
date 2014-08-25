@@ -546,7 +546,8 @@ Ext.define('OCS.SalesUpDownChart', {
 				extraParams: {handle: 'web', action: 'select', func: 'crm_users_list', values: 'user_level', where: '0'}
 			}
 		});
-
+		
+		me.store1.load();
 		me.grid = new Ext.create('Ext.grid.Panel', {
 			selType: 'checkboxmodel',
 			store: me.store1,

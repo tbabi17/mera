@@ -5396,6 +5396,9 @@ Ext.define('OCS.Dashboard', {
 	createPanel: function() {
 		var me = this;			
 		me.initCharts();
+		me.height_1 = 400;
+		if (logged.indexOf('@cosmo')
+			me.height_1 = 600;
 
 		me.panel = Ext.create('Ext.Panel', {	
 			layout: 'column',
@@ -5415,7 +5418,7 @@ Ext.define('OCS.Dashboard', {
 				items:[{
 					title:'Борлуулалт брендээр',		
 					layout: 'fit',
-					height: 600,
+					height: me.height_1,
 					margin: '0 0 10 0',
 					columnWidth: 1/2,
 					collapsible: true,
@@ -5511,7 +5514,7 @@ Ext.define('OCS.Dashboard', {
 					title:'Борлуулалтын өсөлт бууралт',		
 					layout: 'fit',
 					collapsible: true,
-					height: 600,
+					height: me.height_1,
 					tbar: [{
 						text: 'Харагдац',
 						iconCls: 'list',

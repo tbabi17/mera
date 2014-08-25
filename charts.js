@@ -622,7 +622,7 @@ Ext.define('OCS.SalesUpDownChart', {
     	            totalProperty: 'results'
     	        },				
 				simpleSortMode: true,
-				extraParams: {handle: 'web', action: 'select', func: 'crm_product_list', values: 'user_level', where: '0'}
+				extraParams: {handle: 'web', action: 'select', func: 'crm_product_list', values: '', where: ''}
 			},
 			sorters: [{
 				property: '_date',

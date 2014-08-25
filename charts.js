@@ -386,12 +386,12 @@ Ext.define('OCS.CompareBrandChart', {
                 });
             },
             label: {
-              display: 'insideEnd',
-                  field: 'amount',
+	              display: 'insideEnd',
+		          field: 'amount',
                   renderer: Ext.util.Format.numberRenderer('0,0 ₮'),
                   orientation: 'horizontal',
-                  color: '#fff',
-                'text-anchor': 'middle'
+                  color: '#333',
+                  'text-anchor': 'middle'
             },
             xField: 'product_brand',
             yField: ['amount']

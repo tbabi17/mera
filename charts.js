@@ -387,7 +387,7 @@ Ext.define('OCS.CompareBrandChart', {
                 });
             },
             label: {
-	              display: 'insideEnd',
+	              display: 'outsideEnd',
 		          field: 'amount',
                   renderer: Ext.util.Format.numberRenderer('0,0 ₮'),
                   orientation: 'horizontal',

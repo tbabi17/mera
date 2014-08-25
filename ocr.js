@@ -5538,7 +5538,7 @@ Ext.define('OCS.Dashboard', {
 								{
 									text: 'Мөнгөн дүнгээр',
 									checked: true,
-									group: 'unit_size_10',
+									group: 'unit_size_3',
 									checkHandler: function(item, checked) {
 										if (checked) {										
 											me.charts[3].view_type = 1;
@@ -5548,7 +5548,7 @@ Ext.define('OCS.Dashboard', {
 								}, {
 									text: 'Тоон дүнгээр',
 									checked: false,
-									group: 'unit_size_10',
+									group: 'unit_size_3',
 									checkHandler: function(item, checked) {
 										if (checked) {										
 											me.charts[3].view_type = 2;

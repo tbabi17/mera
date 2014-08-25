@@ -522,6 +522,14 @@ Ext.define('OCS.SalesUpDownChart', {
 		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', start_date: e1, end_date: e2, where: ',мөнгөн дүнгээр'};
 		me.store.load();
 	},
+	
+	byOwnerData: function(filter) {
+		var me = this;
+		me.start = e1;
+		me.end = e2;
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_sales_up_down_list', values: 'byowner', where: filter};
+		me.store.load();
+	},
 
 	createOwnerWindow: function() {
 		var me = this;
@@ -580,7 +588,7 @@ Ext.define('OCS.SalesUpDownChart', {
 						owners += rec.get('owner')+',';
 					}
 					
-					alert(owners);
+					me.byOwnerData(owners);
 				}
 			}]
 		});

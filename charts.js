@@ -525,27 +525,26 @@ Ext.define('OCS.SalesUpDownChart', {
 
 	createOwnerWindow: function() {
 		var me = this;
-		
+
 		me.store1 = Ext.create('Ext.data.Store', {
-			model: 'CRM_USERS',
-			pageSize: 200,
-			autoLoad: true,
+			fields: fields['CRM_USERS_FIELDS'],
 			remoteSort: true,
 			proxy: {				
 				type: 'ajax',
     			url: 'avia.php',
+				actionMethods: {
+					create : 'POST',
+					read   : 'POST',
+					update : 'POST',
+					destroy: 'POST'
+				},
     	        reader: {
     	            root:'items',
-    	            totalProperty: 'results',
-					idProperty: 'id'
-    	        },
+    	            totalProperty: 'results'
+    	        },				
 				simpleSortMode: true,
-				extraParams: {handle: 'web', action: 'select', func: 'crm_users_list', values: '', fields: '', where: ''},
-			},
-			sorters: [{
-				property: '_date',
-				direction: 'asc'
-			}]
+				extraParams: {handle: 'web', action: 'select', func: 'crm_users_list', values: 'user_level', where: '0'}
+			}
 		});
 
 		me.grid = new Ext.create('Ext.grid.Panel', {

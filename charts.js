@@ -597,6 +597,7 @@ Ext.define('OCS.SalesUpDownChart', {
 			fields: fields['CRM_PRODUCT_FIELDS'],
 			remoteSort: true,
 			pageSize: 500,
+			groupField: 'product_brand',
 			proxy: {				
 				type: 'ajax',
     			url: 'avia.php',

@@ -469,7 +469,7 @@ Ext.define('OCS.SalesUpDownChart', {
         }];
 
 		me.series = [{
-            type: 'line',
+            type: 'column',
             highlight: {
                 size: 7,
                 radius: 7

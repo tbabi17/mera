@@ -3954,6 +3954,7 @@ Ext.define('OCS.StorageAddProductWindow', {
 				listeners: {
 					'change': function(v) {
 						var form = this.up('form').getForm();
+						alert(form.findField('fake').getValue());
 						var value = v * form.findField('unit_size').getValue() + form.findField('fake').getValue();
 						form.findField('qty').setValue(value);
 					}

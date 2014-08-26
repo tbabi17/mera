@@ -3954,8 +3954,7 @@ Ext.define('OCS.StorageAddProductWindow', {
 				listeners: {
 					'change': function(v) {
 						var form = this.up('form').getForm();
-						alert(form.findField('fake').getValue());
-						var value = v * form.findField('unit_size').getValue() + form.findField('fake').getValue();
+						var value = v.getValue() * form.findField('unit_size').getValue() + form.findField('fake').getValue();
 						form.findField('qty').setValue(value);
 					}
 				},
@@ -3967,7 +3966,7 @@ Ext.define('OCS.StorageAddProductWindow', {
 				listeners: {
 					'change': function(v) {
 						var form = this.up('form').getForm();
-						var value = form.findField('box').getValue() * form.findField('unit_size').getValue() + v;
+						var value = form.findField('box').getValue() * form.findField('unit_size').getValue() + v.getValue();
 						form.findField('qty').setValue(value);
 					}
 				},

@@ -3950,6 +3950,30 @@ Ext.define('OCS.StorageAddProductWindow', {
 			},{
 				xtype: 'numberfield',
 				value: 0,
+				fieldLabel: 'Хайрцаг',
+				listeners: {
+					'change': function(v) {
+						var form = this.up('form').getForm();
+						var value = v * form.findField('unit_size').getValue() + form.findField('count').getValue();
+						form.findField('qty').setValue(value);
+					}
+				},
+				name: 'box'				
+			},{
+				xtype: 'numberfield',
+				value: 0,
+				fieldLabel: 'Ширхэг',
+				listeners: {
+					'change': function(v) {
+						var form = this.up('form').getForm();
+						var value = form.findField('box').getValue() * form.findField('unit_size').getValue() + v;
+						form.findField('qty').setValue(value);
+					}
+				},
+				name: 'count'				
+			},{
+				xtype: 'numberfield',
+				value: 0,
 				fieldLabel: 'Тоо',
 				name: 'qty'				
 			},{

@@ -5621,7 +5621,7 @@ Ext.define('OCS.Dashboard', {
 							}
 							,'-',
 							{
-								text: 'Filter ...',
+								text: 'Шүүлтүүр ...',
 								handler: function() {
 									me.charts[7].createWindow();
 								}

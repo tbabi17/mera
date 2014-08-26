@@ -421,7 +421,7 @@ Ext.define('OCS.SalesUpDownChart', {
 	view_type : 1,
 	legend : {
 		position: 'float',
-		x: 80,
+		x: 90,
 		y: 0,
 		boxFill: 'none',
 		boxStroke: 'none',
@@ -712,9 +712,15 @@ Ext.define('OCS.SalesUpDownChart', {
 				handler: function() {
 					var records = me.grid.getView().getSelectionModel().getSelection();
 					var owners = '';
+					for (i = 0; i < 10; i++) 
+						me.series.items[i].showInLegend = false;
+
 					for (i = 0;  i < records.length; i++) {
 						var rec = records[i];
 						owners += rec.get('owner')+',';
+						me.title[i] = rec.get('product_name');
+						me.series.items[i].title = rec.get('owner');
+						me.series.items[i].showInLegend = true;
 					}
 					
 					me.byOwnerData(owners);

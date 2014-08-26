@@ -5397,8 +5397,11 @@ Ext.define('OCS.Dashboard', {
 		var me = this;			
 		me.initCharts();
 		me.height_1 = 400;
-		if (logged.indexOf('@cosmo') != -1)
+		me.chart_2 = false;
+		if (logged.indexOf('@cosmo') != -1) {
 			me.height_1 = 600;
+			me.chart_2 = true;
+		}
 
 		me.panel = Ext.create('Ext.Panel', {	
 			layout: 'column',
@@ -5664,6 +5667,7 @@ Ext.define('OCS.Dashboard', {
 				columnWidth: 1/2,
 				padding: '5 5 5 5',
 				border: false,
+				hidden: me.chart_2,
 				items:[{
 					title:'Борлуулалт төрлөөр',		
 					layout: 'fit',
@@ -5738,6 +5742,7 @@ Ext.define('OCS.Dashboard', {
 				columnWidth: 1/2,
 				padding: '5 5 5 5',
 				margin: '0 0 10 0',
+				hidden: me.chart_2,
 				border: false,
 				items:[{
 					title:'Борлуулалтын цэгийн гүйцэтгэл',		

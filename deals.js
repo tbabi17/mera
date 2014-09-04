@@ -907,6 +907,7 @@ Ext.define('OCS.ServiceProductGrid', {
 		me.store.each(function(rec){
 			var unit_size = rec.get('unit_size');
 			if (!unit_size || unit_size == 0) unit_size = 1;			
+			alert(unit_size);
 			var values = "pty="+(rec.get('qty')/unit_size)+"&qty="+rec.get('qty')+"&price="+rec.get('price')+"&amount="+(rec.get('qty')*rec.get('price'));
 			if (rec.get('id') > 0) {			
 				Ext.Ajax.request({

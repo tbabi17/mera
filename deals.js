@@ -905,7 +905,9 @@ Ext.define('OCS.ServiceProductGrid', {
 		me.count = me.store.getCount();
 		me.affected = 0;
 		me.store.each(function(rec){
-			var values = "pty="+(rec.get('qty')/rec.get('unit_size'))+"&qty="+rec.get('qty')+"&price="+rec.get('price')+"&amount="+(rec.get('qty')*rec.get('price'));
+			var unit_size = rec.get('unit_size');
+			if (unit_size == 0) unit_size = 1;			
+			var values = "pty="+(rec.get('qty')/unit_size)+"&qty="+rec.get('qty')+"&price="+rec.get('price')+"&amount="+(rec.get('qty')*rec.get('price'));
 			if (rec.get('id') > 0) {			
 				Ext.Ajax.request({
 				   url: 'avia.php',

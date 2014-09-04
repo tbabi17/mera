@@ -861,7 +861,7 @@ Ext.define('OCS.ServiceProductGrid', {
 				iconCls : 'commit',
 				text: 'Хадгалах ...',
 				handler: function(widget, event) {		
-					if (me.action && user_level == '5')
+					if (me.action/* && user_level == '5'*/)
 						me.updateRecords();
 					else
 						Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});

@@ -4057,7 +4057,7 @@ Ext.define('OCS.StorageAddProductWindow', {
 			   url: 'avia.php',
 			   params: {handle: 'web', func: 'crm_finance_fun', table: 'storage', action: 'balance', values: values, where: ''},
 			   success: function(response, opts) {							  
-				  me.close();
+				  //me.close();
 			   },
 			   failure: function(response, opts) {										   
 				  Ext.MessageBox.alert('Status', 'Error !', function() {});
@@ -4069,7 +4069,7 @@ Ext.define('OCS.StorageAddProductWindow', {
 			   url: 'avia.php',
 			   params: {handle: 'web', func: 'crm_finance_fun', table: 'storage', action: 'balance', values: values, where: ''},
 			   success: function(response, opts) {							  
-				  me.close();
+				  //me.close();
 			   },
 			   failure: function(response, opts) {										   
 				  Ext.MessageBox.alert('Status', 'Error !', function() {});

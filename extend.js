@@ -3395,7 +3395,12 @@ Ext.define('OCS.GridView', {
 							 fn: me.onTextFieldChange_,
 							 scope: this,
 							 buffer: 200
-						 }
+						 },
+						specialkey: function(f,e){  
+						   if(e.getKey()==e.ENTER){  
+							   me.onTextFieldChange_(f);
+				           }  
+				        }
 					}
 				},	
 				{
@@ -3593,7 +3598,6 @@ Ext.define('OCS.GridView', {
 	},
 
 	onTextFieldChange_: function(e) {
-		console.log(e.getKey());
 		var me = this;		
 		var v = '';
 		if (e) v = e.getValue();

@@ -3593,6 +3593,7 @@ Ext.define('OCS.GridView', {
 	},
 
 	onTextFieldChange_: function(e) {
+		console.log(e);
 		var me = this;		
 		var v = '';
 		if (e) v = e.getValue();

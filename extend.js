@@ -3391,11 +3391,11 @@ Ext.define('OCS.GridView', {
 					readOnly: false,
 					value: me.query,
 					listeners: {
-						 change: {
+						 /*change: {
 							 fn: me.onTextFieldChange_,
 							 scope: this,
 							 buffer: 200
-						 },
+						 },*/
 						specialkey: function(f,e){  
 						   if(e.getKey()==e.ENTER){  
 							   me.onTextFieldChange_(f);

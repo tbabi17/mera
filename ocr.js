@@ -5045,7 +5045,7 @@ Ext.define('OCS.Reports', {
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',   
-							hidden: true,
+							//hidden: true,
 							text: 'Борлуулагчийн нэгдсэн тайлан',
 							handler: function(widget, event) {
 								me.where = '';

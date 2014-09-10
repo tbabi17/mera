@@ -3306,6 +3306,8 @@ Ext.define('OCS.GridView', {
 	trackMouseOver: true,	
 	views: '',
 	query: '',
+	start: '',
+	end: '',
 
 	constructor: function(cnfg) {
         this.callParent(arguments);
@@ -3605,10 +3607,17 @@ Ext.define('OCS.GridView', {
 
 		if (v) {			
 			me.query = v;
-			me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where, query: me.query, views: me.views};
+			if (me.start != '')
+				me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where, query: me.query, views: me.views, start_date: me.start, end_date: me.end};
+			else
+				me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where, query: me.query, views: me.views};
+
 			me.store.loadPage(1);
 		} else {
-			me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where, views: me.views};
+			if (me.start != '')
+				me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where, views: me.views, start_date: me.start, end_date: me.end};
+			else
+				me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where, views: me.views};
 			me.store.loadPage(1);
 		}
 	},

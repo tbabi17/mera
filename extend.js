@@ -3083,6 +3083,15 @@ Ext.define('OCS.PropertyGrid', {
 			};
 		}
 
+		if (name == 'product_brand')
+		{
+			return {
+				xtype: 'searchcombo',
+				name: name,
+				table: 'crm_products'
+			};
+		}
+
 		if (name == 'resolution_type')
 		{
 			return {

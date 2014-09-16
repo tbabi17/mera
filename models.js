@@ -32,7 +32,7 @@ Ext.define('CRM_PREV', {
 	extend: 'Ext.data.Model',
 	fields: [{name: 'value'}, {name: 'name'}]
 });
-
+ 
 fields['CRM_RETAIL_FIELDS'] = [
    {name: 'crm_id', text: 'ID', width: 20, hidden: true},   
    {name: 'type', text: 'CRM Type', width: 50, hidden:true},   

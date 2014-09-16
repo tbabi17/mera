@@ -2093,7 +2093,8 @@ Ext.define('OCS.ServiceDescrWindow', {
 							me.selected.data['service_stage'] = me.service_stage;							
 						} else {
 							values_services = "owner='"+form.findField('owner').getValue()+"',service_stage='"+me.service_stage+"'"+
-										   ",descr='"+form.findField('descr').getValue()+"'";							
+										   ",remind_date='"+Ext.Date.format(form.findField('remind_date').getValue(),'Y-m-d')+"'"+
+										   ",descr='"+form.findField('descr').getValue()+"'";
 						}
 
 						Ext.Ajax.request({

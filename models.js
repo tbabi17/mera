@@ -914,7 +914,7 @@ fields['CRM_SERVICE_FIELDS'] = [
    {name: 'userCode', text: 'Бүртгэсэн', width: 140},
    {name: 'owner', text: 'Хариуцагч', width: 130, renderer: renderOwner},
    {name: 'closing_date', text: 'Хаагдах огноо', dateFormat: 'Y-m-d', width: 120, align: 'center'},   
-   {name: 'remind_date', text: 'Хойшлогдсон', dateFormat: 'Y-m-d', width: 85, align: 'center', renderer: renderDate}, 
+   {name: 'remind_date', text: 'Олгосон огноо', dateFormat: 'Y-m-d', width: 120, align: 'center', renderer: renderDate}, 
    {name: 'descr', text: 'Тайлбар', width: 200, hidden: true},
    {name: 'campaign', text: 'Campaign', width: 200},
    {name: 'partner', text: 'Жолооч', width: 0},

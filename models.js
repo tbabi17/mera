@@ -699,6 +699,24 @@ Ext.define('CRM_PROMOTION_CORPORATE', {
 	fields: fields['CRM_PROMOTION_CORPORATE_FIELDS']
 });
 
+fields['CRM_PROMOTION_FIELDS'] = [
+   {name: 'id', text: 'ID', width: 50, hidden:true}, 
+   {name: 'promotion_name', text: 'Нэр', width: 180, primary: true}, 
+   {name: 'start_date', type: 'datetime', text: 'Эхэлэх', align:'center', width: 80, dateFormat: 'Y-m-d', primary: true}, 
+   {name: 'end_date', type: 'datetime', text: 'Дуусах', align:'center', width: 80, dateFormat: 'Y-m-d', primary: true},   
+   {name: 'promo_type', text: 'Төрөл', width:90, primary: true},
+   {name: 'summaryTotal', text: 'Багцын нийлбэр', width:90, type: 'float', align: 'right'},
+   {name: 'randomCount', text: 'Сонголтоор орсон байх', width: 90, type: 'float', align: 'right'},
+   {name: 'discount', text: 'Хөнгөлөх дүн', width: 100, type: 'float', align: 'right'},
+   {name: 'userCode', text: 'Бүртгэсэн', hidden: true, width: 100},
+   {name: 'descr', text: 'Тайлбар', hidden: true, width: 250}
+];
+
+
+Ext.define('CRM_PROMOTION', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_PROMOTION_FIELDS']
+});
 
 fields['CRM_PROMOTION_PRODUCT_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
@@ -721,27 +739,6 @@ Ext.define('CRM_PROMOTION_PRODUCT', {
 	extend: 'Ext.data.Model',
 	fields: fields['CRM_PROMOTION_PRODUCT_FIELDS']
 });
-
-
-fields['CRM_PROMOTION_FIELDS'] = [
-   {name: 'id', text: 'ID', width: 50, hidden:true}, 
-   {name: 'promotion_name', text: 'Нэр', width: 180, primary: true}, 
-   {name: 'start_date', type: 'datetime', text: 'Эхэлэх', align:'center', width: 80, dateFormat: 'Y-m-d', primary: true}, 
-   {name: 'end_date', type: 'datetime', text: 'Дуусах', align:'center', width: 80, dateFormat: 'Y-m-d', primary: true},   
-   {name: 'promo_type', text: 'Төрөл', width:90, primary: true},
-   {name: 'summaryTotal', text: 'Багцын нийлбэр', width:90, type: 'float', align: 'right'},
-   {name: 'randomCount', text: 'Сонголтоор орсон байх', width: 90, type: 'float', align: 'right'},
-   {name: 'discount', text: 'Хөнгөлөх дүн', width: 100, type: 'float', align: 'right'},
-   {name: 'userCode', text: 'Бүртгэсэн', hidden: true, width: 100},
-   {name: 'descr', text: 'Тайлбар', hidden: true, width: 250}
-];
-
-
-Ext.define('CRM_PROMOTION', {
-	extend: 'Ext.data.Model',
-	fields: fields['CRM_PROMOTION_FIELDS']
-});
-
 
 fields['CRM_PROMOTION_CUSTOMER_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 

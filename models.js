@@ -685,6 +685,21 @@ Ext.define('CRM_PRODUCT', {
 	fields: fields['CRM_PRODUCT_FIELDS']
 });
 
+fields['CRM_PROMOTION_CORPORATE_FIELDS'] = [
+   {name: 'id', text: 'ID', width: 50, hidden:true},
+   {name: 'promotion_id', text: 'Урам ID', hidden: true, primary: true},
+   {name: 'crm_id', text: 'ID', width: 20, hidden: true},   
+   {name: 'crm_name', text: 'Нэр', width: 220, renderer: renderTip, primary: true},
+   {name: 'owner', text: 'Хариуцагч', width: 140, renderer:renderOwner},
+   {name: '_date', type: 'datetime', text: 'Үүсгэсэн', width: 120, align: 'center', renderer: renderCreatedDate}
+];
+
+Ext.define('CRM_PROMOTION_CORPORATE', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_PROMOTION_CORPORATE_FIELDS']
+});
+
+
 fields['CRM_PROMOTION_PRODUCT_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
    {name: 'product_id', text: 'ID', width: 20, primary: true, hidden: true}, 

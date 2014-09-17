@@ -358,6 +358,181 @@ Ext.define('OCS.CompetitorView', {
 	}
 });
 
+Ext.define('OCS.PromotionProductsView', {
+	extend: 'OCS.OwnerView',
+	func: 'crm_promotion_product_list',
+	modelName : 'CRM_PROMOTION_PRODUCT',
+	cls: 'products',
+	autoLoad: true,
+	values: 'promotion_id',
+
+	createTmpl: function() {
+		var me = this;
+		if (me.cls == 'products')				
+			return Ext.create('Ext.XTemplate',
+					'<tpl for=".">',
+						'<div class="phone">',
+							'<div class="content">',
+							'<img src="product_images/{product_barcode}.jpg" width="40px" height="45px" style="float: left; margin-right: 5px;"></img>',
+							'<strong>{pty}хр</strong>&nbsp;|&nbsp;{price1}₮&nbsp;{product_name}',
+							'<span class="text">{product_brand}</span></br></br>',
+							'</div>',	
+						'</div>',
+					'</tpl>'
+				);
+		else
+			return Ext.create('Ext.XTemplate',
+				'<tpl for=".">',
+					'<div class="phone">',
+						'<div class="content">',
+						'<img src="product_images/{product_barcode}.jpg" width="40px" height="45px" style="float: left; margin-right: 5px;"></img>',
+						'<strong>{qty}ш</strong>&nbsp;|&nbsp;{price1}₮&nbsp;{product_name}',
+						'<span class="text">{product_brand}</span></br></br>',
+						'</div>',	
+					'</div>',
+				'</tpl>'
+			);
+	},
+
+	selectAction: function(selections) {
+		var me = this;
+		new OCS.PromotionProductSetWindow({
+			selected: selections[0],
+			store: me.store,
+			cls: me.cls
+		}).show();
+	},
+
+	loadStore: function(where) {
+		var me = this;
+		me.where = where;
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where};
+		me.store.load();
+	},
+
+	addRecordsStore: function(recs) {
+		var me = this;
+		me.count = recs.length;
+		for (i = 0; i < recs.length; i++) {		
+			me.store.add(recs[i]);
+			var values = "product_id="+recs[i].get('product_id')+"&qty=0&pty=0&unit_size="+recs[i].get('unit_size')+"&promotion_id="+me.where;
+			Ext.Ajax.request({
+			   url: 'avia.php',
+			   params: {handle: 'web', table: 'crm_promotion_products', action: 'insert', values: values, where: ''},
+			   success: function(response, opts) {		
+					me.count--;
+					if (me.count == 0)
+						me.loadStore(me.where);
+			   },
+			   failure: function(response, opts) {										   
+				  Ext.MessageBox.alert('Status', 'Error !', function() {});
+			   }
+			});	
+		}
+	},
+	
+	createView: function() {
+		var me = this;		
+		me.createStore();
+
+		me.dataview = Ext.create('Ext.view.View', {
+			deferInitialRefresh: false,
+			store: me.store,
+			tpl  : me.createTmpl(),
+			id: me.cls,
+			itemSelector: 'div.phone',
+			overItemCls : 'phone-hover',
+			multiSelect : false,
+			autoScroll  : true,
+			listeners: {
+				selectionchange : function(item, selections){
+					if (selections.length > 0)	
+						me.selectAction(selections);
+					me.dataview.clearSelection();
+				},
+				rowselect: function(sm, rowIdx, r) {
+					me.form.updateSource(selections[0]);				
+				}
+			}
+		});
+				
+		me.panel = Ext.create('Ext.panel.Panel', {
+			layout: 'fit',
+			border: false,
+			items : me.dataview,		
+			region: 'center',			
+			tbar: [{
+				text: 'Бараа нэмэх',
+				iconCls: 'add',
+				handler: function() {
+					if (me.where)					
+						new OCS.PromotionAddProductWindow({
+							cls: me.cls
+						}).show();
+					else
+					 Ext.MessageBox.alert('Status', 'Урамшуулал сонгогдоогүй байна !', function() {});
+				}
+			},{
+				text: 'Цэвэрлэх',
+				iconCls: 'delete',
+				handler: function() {
+					Ext.Msg.confirm('Warning ','Урамшуулалд хамрагдах харилцагчийн жагсаалтыг цэвэрлэх үү ?',function(btn){
+						if(btn === 'yes'){
+							var action = 'delete_all_promotion_product';
+							if (me.cls == 'bonus')
+								action = 'delete_all_promotion_bonus';
+							Ext.Ajax.request({
+							   url: 'avia.php',
+							   params: {handle: 'web', action: action, where: me.where},
+							   success: function(response, opts) {	
+								  me.store.reload();
+							   },
+							   failure: function(response, opts) {										   
+								  Ext.MessageBox.alert('Status', 'Error !', function() {});
+							   }
+							});	
+						}
+					});	
+				}
+			},'-',{
+				text: 'Тусламж',
+				iconCls: 'help',
+				handler: function() {
+
+				}
+			}]
+		});			
+		return me.panel;
+	}
+});
+
+Ext.define('OCS.PromotionFreeProductsView', {
+	extend: 'OCS.PromotionProductsView',
+	func: 'crm_promotion_bonus_list',
+	cls: 'bonus',
+
+	addRecordsStore: function(recs) {
+		var me = this;
+		me.count = recs.length;
+		for (i = 0; i < recs.length; i++) {		
+			me.store.add(recs[i]);
+			var values = "product_id="+recs[i].get('product_id')+"&qty=0&promotion_id="+me.where;
+			Ext.Ajax.request({
+			   url: 'avia.php',
+			   params: {handle: 'web', table: 'crm_promotion_bonus', action: 'insert', values: values, where: ''},
+			   success: function(response, opts) {		
+					me.count--;
+					if (me.count == 0)
+						me.loadStore(me.where);
+			   },
+			   failure: function(response, opts) {										   
+				  Ext.MessageBox.alert('Status', 'Error !', function() {});
+			   }
+			});	
+		}
+	}
+});
+
 Ext.define('OCS.RetailPanel', {	
 	extend: 'OCS.Module',			
 	firstName: '',
@@ -1191,6 +1366,123 @@ Ext.define('OCS.CorporatePanel', {
 			columns: me.createColumns(),
 			features: [me.filters],
 			actions: me.createActions(),
+			func: me.func			
+		});				
+								
+		me.panel = Ext.create('Ext.panel.Panel', {
+			title: me.title,
+			id: me.tab,
+			layout: 'border',
+			border: false,
+			region: 'center',
+			items : [me.grid]			
+		});
+
+		return me.panel;
+	}
+});
+
+
+Ext.define('OCS.PromotionCorporatePanel', {	
+	extend: 'OCS.CorporatePanel',			
+	firstName: '',
+	lastName: '',
+	modelName: 'CRM_PROMOTION_CORPORATE',
+	func: 'crm_promotion_customer_list',
+	autoSelect: true,
+	tab: '',
+	values: 'promotion_id',
+	title: 'Урамшуулалд хамрагдах харилцагчид',
+
+	loadStore: function(where) {
+		var me = this;
+		me.where = where;
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: me.func, values: me.values, where: me.where};
+		me.store.load();
+	},
+
+	createActions: function() {
+		var me = this;		
+		return [{
+			text: 'Нэмэх',
+			iconCls: 'add',
+			handler: function() {
+				if (me.where)
+					new OCS.PromotionAddCustomerWindow({
+						promotion_id: me.where
+					}).show();
+				else
+					 Ext.MessageBox.alert('Status', 'Урамшуулал сонгогдоогүй байна !', function() {});
+			}
+		},{
+			text: 'Устгах',
+			iconCls: 'delete',
+			handler: function() {
+				if (me.recordSelected()) {		
+					var recs = me.grid.getView().getSelectionModel().getSelection();
+					Ext.Msg.confirm('Warning ','Урамшуулалд хамрагдах харилцагчийн жагсаалтаас хасах уу ?',function(btn){
+						if(btn === 'yes'){
+							Ext.Ajax.request({
+							   url: 'avia.php',
+							   params: {handle: 'web', action: 'delete_where_promotion_customer', where: recs[0].get('crm_id')+','+me.where},
+							   success: function(response, opts) {	
+								  me.store.reload();
+							   },
+							   failure: function(response, opts) {										   
+								  Ext.MessageBox.alert('Status', 'Error !', function() {});
+							   }
+							});	
+						}
+					});
+				}
+			}
+		},{
+			text: 'Цэвэрлэх',
+			iconCls: 'delete',
+			handler: function() {	
+				Ext.Msg.confirm('Warning ','Урамшуулалд хамрагдах харилцагчийн жагсаалтыг цэвэрлэх үү ?',function(btn){
+					if(btn === 'yes'){
+						Ext.Ajax.request({
+						   url: 'avia.php',
+						   params: {handle: 'web', action: 'delete_all_promotion_customer', where: me.where},
+						   success: function(response, opts) {	
+							  me.store.reload();
+						   },
+						   failure: function(response, opts) {										   
+							  Ext.MessageBox.alert('Status', 'Error !', function() {});
+						   }
+						});	
+					}
+				});				
+			}
+		},'-',{
+			text: 'Тусламж',
+			iconCls: 'help',
+			handler: function() {
+			}
+		}];
+	},
+
+	createGrid: function() {
+		var me = this;
+		me.createStore();	
+		
+		me.filters = {
+			ftype: 'filters',
+			encode: true, 
+			local: false, 
+			filters: [{
+				type: 'string',
+				dataIndex: 'level'
+			}]
+		};
+
+		me.grid = Ext.create('OCS.GridView', {	
+			store: me.store,
+			columns: me.createColumns(),
+			features: [me.filters],
+			actions: me.createActions(),
+			feature: false,
 			func: me.func			
 		});				
 								
@@ -2981,7 +3273,7 @@ Ext.define('OCS.ServiceView', {
 					pricetag = me.grid.getView().getSelectionModel().getSelection()[0].get('pricetag');
 					date = me.grid.getView().getSelectionModel().getSelection()[0].get('_date').split(' ')[0]; 
 
-					window.open('http://'+ip+'/invms3/?values='+userCode+';'+crm_id+';'+date+';1;1;1',''); 					
+					window.open('http://'+ip+'/invms3/?values='+owner+';'+crm_id+';'+date+';1;1;1',''); 					
 				}
 			}),
 			Ext.create('Ext.Action', {
@@ -4781,6 +5073,128 @@ Ext.define('OCS.ProductPanel', {
 	}
 });
 
+Ext.define('OCS.PromotionPanel', {
+	extend: 'OCS.Module',
+
+	addProductIf: function(recs, cls) {
+		var me = this;
+		if (cls == 'products')
+			me.promotionProductList.addRecordsStore(recs);
+		else
+			me.promotionFreeProductList.addRecordsStore(recs);
+	},
+	
+	reload: function(rec) {
+		var me = this;
+		if (rec) {		
+			me.promotionProductList.loadStore(rec.get('id'));
+			me.promotionFreeProductList.loadStore(rec.get('id'));
+			me.promotionCustomerList.loadStore(rec.get('id'));
+		}
+	},
+	
+	reloadCustomer: function(promotion_id) {
+		var me = this;
+		me.promotionCustomerList.loadStore(promotion_id);
+	},
+
+	createPanel: function() {
+		var me = this;
+		
+		me.promotionProductList = new Ext.create('OCS.PromotionProductsView', {							
+		});
+
+		me.promotionCustomerList = new OCS.PromotionCorporatePanel();
+		me.promotionMoneyList = new OCS.PromotionMoneyGridWithFormPanel();
+		
+		me.promotionFreeProductList = new Ext.create('OCS.PromotionFreeProductsView', {							
+		});
+
+		me.panel = Ext.create('Ext.Panel', {				
+			layout: 'border',
+			region: 'center',
+			border: false,
+			bodyPadding: 2,
+			defaults: {
+				collapsible: true,
+				split: true,
+				border: false
+			},
+			items: [{					
+				layout: 'border',
+				region: 'center',
+				title: '',
+				border: false,
+				collapsible: false,
+				items: [					
+					{
+						region: 'center',
+						split: true,			
+						border: false,
+						flex: 1,
+						layout: 'border',
+						items: [{
+							layout: 'border',
+							region: 'north',
+							title: 'Урамшуулалын жагсаалт',
+							flex: 0.5,
+							split: true,
+							items: [
+								new Ext.create('OCS.PromotionGridWithFormPanel', {
+								
+								}).createGrid()	
+							]
+						},{
+							layout: 'border',
+							region: 'center',							
+							flex: 0.5,
+							items: [
+								me.promotionCustomerList.createPanel()
+							]
+						}]						
+					},{
+						region: 'east',
+						flex: 0.8,
+						split: true,
+						border: false,
+						layout: 'border', 
+						items: [{
+							xtype: 'panel',
+							region: 'north',
+							split: true,
+							border: false,
+							layout: 'border',
+							flex: 0.5,
+							items: [{
+								xtype: 'panel',
+								region: 'center',
+								split: true,
+								title: 'Урамшуулалын нөхцөл',									
+								flex: 1,
+								items: [
+									me.promotionProductList.createView()
+								]
+							}]
+						}, {
+							xtype: 'panel',
+							region: 'center',
+							border: true,
+							flex: 0.5,
+							title: 'Урамшуулалд дагалдах бараа',
+							layout: 'border',
+							items: [
+								me.promotionFreeProductList.createView()								
+							]
+						}]
+					}
+				]
+			}]
+		});
+
+		return me.panel;
+	}
+});
+
 Ext.define('OCS.StoragePanel', {
 	extend: 'OCS.Module',
 	
@@ -5045,7 +5459,7 @@ Ext.define('OCS.Reports', {
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',   
-							//hidden: true,
+							hidden: true,
 							text: 'Борлуулагчийн нэгдсэн тайлан',
 							handler: function(widget, event) {
 								me.where = '';
@@ -5383,7 +5797,7 @@ Ext.define('OCS.Dashboard', {
 		me.charts[4] = new OCS.MapOnline();
 		me.charts[8] = new OCS.SalesServiceFunnel();
 		me.charts[1] = new OCS.LeadBySource();
-
+		me.charts[2] = new OCS.BreakPointChart();
 		me.charts[10] = new OCS.CompareBrandChart();
 	},
 
@@ -5575,7 +5989,72 @@ Ext.define('OCS.Dashboard', {
 					items: me.charts[3]
 				}]
 			},{
-				columnWidth: 1,
+				columnWidth: 0.3,
+				padding: '5 5 5 5',
+				border: false,
+				items: [{
+					layout: 'fit',
+					title:'Барааны тасалдал',
+					collapsible: true,						
+					columnWidth: 1/2,
+					autoScroll: true,
+					height: 380, 
+					tbar: [{
+						text: 'Харагдац',
+						iconCls: 'list',
+						menu: {
+							xtype: 'menu',
+							items: [{
+								text: 'Хүнс',
+								handler: function() {
+									me.charts[2].warehouse_id = 1;
+									me.charts[2].rangeData(me.today(), me.tommorow());
+								}
+							},{
+								text: 'Гоо сайхан',
+								handler: function() {
+									me.charts[2].warehouse_id = 2;
+									me.charts[2].rangeData(me.monday(), me.tommorow());
+								}
+							}]
+						}
+					},'->',
+					{
+						id: 'start_2',
+						text: me.month(),
+						iconCls: 'calendar',
+						menu: Ext.create('Ext.menu.DatePicker', {
+							handler: function(dp, date){
+								me.charts[2].start = Ext.Date.format(date, 'Y-m-d');
+								Ext.getCmp('start_2').setText(Ext.Date.format(date, 'Y-m-d'));
+								me.charts[2].rangeData(me.charts[2].start, me.charts[2].end);
+							}
+						})
+					},
+					{
+						id: 'end_2',
+						text: me.nextmonth(),
+						iconCls: 'calendar',
+						menu: Ext.create('Ext.menu.DatePicker', {
+							handler: function(dp, date){
+								me.charts[2].end = Ext.Date.format(date, 'Y-m-d');
+								Ext.getCmp('end_2').setText(Ext.Date.format(date, 'Y-m-d'));
+								me.charts[2].rangeData(me.charts[2].start, me.charts[2].end);
+							}
+						})
+					},{
+						text: 'Арилгах',
+						iconCls: 'reset',
+						handler: function() {
+							Ext.getCmp('start2').setText(me.month());
+							Ext.getCmp('end_2').setText(me.nextmonth());
+							me.charts[2].rangeData(me.charts[2].month(), me.charts[2].nextmonth());
+						}
+					}],
+					items: [me.charts[2]]
+				}]
+			},{
+				columnWidth: 0.7,
 				padding: '5 5 5 5',
 				border: false,
 				items: [{
@@ -5584,7 +6063,7 @@ Ext.define('OCS.Dashboard', {
 					collapsible: true,						
 					columnWidth: 1/2,
 					autoScroll: true,
-					height: 280, 
+					height: 380, 
 					tbar: [{
 						text: 'Харагдац',
 						iconCls: 'list',
@@ -5815,7 +6294,8 @@ Ext.define('OCS.Dashboard', {
 			{
 				columnWidth: 1,
 				padding: '5 5 5 5',
-				border: false,				
+				border: false,		
+				hidden: true,
 				items:[{
 					title:'Борлуулалгчдын байршил',
 					layout: 'border',

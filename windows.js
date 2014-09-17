@@ -3625,6 +3625,63 @@ Ext.define('OCS.ServiceAddProductWindow', {
 	}
 });
 
+Ext.define('OCS.PromotionAddProductWindow', {
+	extend: 'OCS.Window',
+	title: 'Барааны жагсаалт',
+	maximizable: true,
+	height: 500,
+	modal: false,
+	width: 800,		
+		
+	initComponent: function() {
+		var me = this;				
+		
+		me.productList = new OCS.PromotionProductGridWithFormPanel({
+			cls: me.cls
+		});
+
+		me.items = [{
+			xtype: 'panel',
+			layout: 'border',
+			region: 'center',
+			flex: 1,
+			border: false,
+			items: [me.productList.createGrid()]
+		}];	
+
+		me.callParent(arguments);
+	}
+});
+
+Ext.define('OCS.PromotionAddCustomerWindow', {
+	extend: 'OCS.Window',
+	title: 'Харилцагчийн жагсаалт',
+	maximizable: true,
+	height: 500,
+	modal: false,
+	width: 750,		
+		
+	initComponent: function() {
+		var me = this;				
+		
+		me.customerList = new OCS.CustomerGridWithFormPanel({
+			promotion_id: me.promotion_id
+		});
+
+		me.items = [{
+			xtype: 'panel',
+			layout: 'border',
+			region: 'center',
+			flex: 1,
+			border: false,
+			items: [me.customerList.createGrid()]
+		}];	
+
+		me.callParent(arguments);
+	}
+});
+
+
 Ext.define('OCS.ServiceLoanGroupWindow', {
 	extend: 'OCS.Window',
 	title: 'Зээл төлөлт нэгтгэж оруулах',
@@ -3864,7 +3921,6 @@ Ext.define('OCS.StorageAddProductWindow', {
 	height: 500,
 	modal: false,
 	width: 850,	
-	modal: true,	
 
 	initComponent: function() {
 		var me = this;				
@@ -3908,6 +3964,7 @@ Ext.define('OCS.StorageAddProductWindow', {
 				xtype: 'warecombo',
 				fieldLabel: 'Source',
 				hidden: true,
+				value: 3,
 				name: 'source_warehouse_id'				
 			},{
 				xtype: 'textfield',
@@ -4069,6 +4126,7 @@ Ext.define('OCS.StorageAddProductWindow', {
 			   url: 'avia.php',
 			   params: {handle: 'web', func: 'crm_finance_fun', table: 'storage', action: 'balance', values: values, where: ''},
 			   success: function(response, opts) {							  
+				   me.backgrid.store.reload();
 				  //me.close();
 			   },
 			   failure: function(response, opts) {										   
@@ -5339,6 +5397,131 @@ Ext.define('OCS.UpdateRouteWindow', {
 						}
 						views['corporate'].store.reload();	
 						me.close();
+					}
+				}
+			}]
+		});
+
+		me.items = [me.form];	
+		me.callParent(arguments);
+	}
+});
+
+Ext.define('OCS.PromotionProductSetWindow', {
+	extend: 'OCS.Window',
+	title: 'Урамшуулалд сонгогдсон бараа',
+	maximizable: true,
+	height: 250,
+	modal: false,
+	width: 300,	
+	modal: true,
+
+	initComponent: function() {
+		var me = this;								
+	
+		me.form = Ext.create('OCS.FormPanel', {
+			region: 'center',
+			hidden: false,
+			closable: false,			
+			title: '',
+			flex: 1,
+			items: [{
+				xtype: 'textfield',
+				fieldLabel: 'ID',	
+				hidden: true,
+				value: me.selected.get('product_id'),
+				name: 'product_id'
+			},{
+				xtype: 'textfield',
+				fieldLabel: 'Бараа',	
+				allowBlank: true,
+				readOnly: true,
+				value: me.selected.get('product_name'),
+				name: 'product_name'
+			},{
+				xtype: 'numberfield',
+				fieldLabel: 'Нэгж',
+				readOnly: true,
+				value: me.selected.get('unit_size'),
+				name: 'unit_size'
+			},{
+				xtype: 'numberfield',
+				fieldLabel: 'Хайрцаг',
+				allowBlank: false,
+				value: me.selected.get('pty'),
+				name: 'pty',
+				listeners: {
+					'change': function(v) {
+						var form = this.up('form').getForm();
+						form.findField('qty').setValue(v.getValue()*me.selected.get('unit_size'));
+					}
+				}
+			},{
+				xtype: 'numberfield',
+				fieldLabel: 'Ширхэг',
+				value: me.selected.get('qty'),
+				name: 'qty'
+			},{
+				xtype: 'numberfield',
+				fieldLabel: 'Урамшуулалт үнэ',
+				allowBlank: false,
+				value: me.selected.get('price1'),
+				name: 'price1'
+			}],
+			buttons: [{
+				iconCls: 'reset',
+				text: 'Арилгах',				
+				handler: function() {
+					var form = this.up('form').getForm();
+					form.reset();
+				}
+			},{
+				iconCls: 'delete',
+				text: 'Устгах',				
+				handler: function() {
+					var form = this.up('form').getForm();
+					var table = 'crm_promotion_products';
+					if (me.cls == 'bonus')
+						table = 'crm_promotion_bonus';
+					if(form.isValid()){
+						var values = form.getValues(true);	
+						Ext.Ajax.request({
+						   url: 'avia.php',
+						   params: {handle: 'web', table: table, action: 'delete', where: me.selected.get('id')},
+						   success: function(response, opts) {	
+		   					  me.close();
+							  me.store.reload();
+						   },
+						   failure: function(response, opts) {										   
+							  Ext.MessageBox.alert('Status', 'Error !', function() {});
+						   }
+						});			
+					}
+				}
+			},{
+				iconCls: 'commit',
+				text: 'Илгээх',				
+				handler: function() {
+					var form = this.up('form').getForm();
+					if (form.isValid()){
+						var values = form.getValues(true);	
+						var table = 'crm_promotion_products';
+						if (me.cls == 'bonus')
+							table = 'crm_promotion_bonus';
+						var pty = form.findField('pty').getValue();
+						var qty = form.findField('qty').getValue();
+						pty = qty / form.findField('unit_size').getValue();
+						Ext.Ajax.request({
+						   url: 'avia.php',
+						   params: {handle: 'web', table: table, action: 'update', values: "pty="+pty+"&qty="+form.findField('qty').getValue()+"&price1="+form.findField('price1').getValue(), where: "id="+me.selected.get('id')},
+						   success: function(response, opts) {	
+							  me.store.reload();
+		   					  me.close();
+						   },
+						   failure: function(response, opts) {										   
+							  Ext.MessageBox.alert('Status', 'Error !', function() {});
+						   }
+						});			
 					}
 				}
 			}]

@@ -128,7 +128,7 @@ fields['CRM_CORPORATE_FIELDS'] = [
 
    {name: 'capital', text: 'Хөрөнгө', type: 'float', width: 100, hidden: true, align: 'right', renderer: renderMoney},
    {name: 'annual_revenue', text: 'Жилийн орлого', type: 'float', hidden: true, width: 100, align: 'right', renderer: renderMoney},
-   {name: 'tatvar', text: 'Эрэмбэ', type: 'float', hidden: false, width: 100, align: 'right', renderer: renderMoney},
+   {name: 'tatvar', text: 'Татварын хэмжээ', type: 'float', hidden: true, width: 100, align: 'right', renderer: renderMoney},
    
    {name: 'industry', text: 'Ү/А төрөл', width: 150, hidden: true},
    {name: 'industry_sub', text: 'Ү/А чиглэл', width: 150, hidden: true},
@@ -463,7 +463,8 @@ fields['CRM_DEAL_PRODUCTS_FIELDS'] = [
    {name: 'price', text: 'Price', width: 90, type: 'float', align: 'right', renderer: renderMoney},
    {name: 'amount', text: 'Amount (Discount)', type: 'float', width: 100, align: 'right', renderer: renderMoney, summaryRenderer: renderTMoney, summaryType: 'sum'},
    {name: '_date', text: 'Created on', dateFormat: 'Y-m-d', width: 120, renderer: renderCreatedDate},
-   {name: 'unit_size', text: 'Unit size', width: 80, renderer: renderNumber, align: 'right'}
+   {name: 'unit_size', text: 'Unit size', width: 80, renderer: renderNumber, align: 'right'},
+   {name: 'flag', text: 'Flag', width: 80, renderer: renderNumber, align: 'right'}
 ];
 
 Ext.define('CRM_DEAL_PRODUCTS', {
@@ -675,13 +676,52 @@ fields['CRM_PRODUCT_FIELDS'] = [
    {name: 'warehouse_id', text: 'Агуулах', type: 'int', width: 70, align: 'center'},
    {name: 'unit_type', text: 'Нэгж', width: 40},
    {name: 'unit_size', text: 'Хэмжээ', type: 'float', width: 40},
-   {name: 'company', text: 'Тайлбар', width: 120}  
+   {name: 'company', text: 'Тайлбар', width: 220}  
 ];
 
 
 Ext.define('CRM_PRODUCT', {
 	extend: 'Ext.data.Model',
 	fields: fields['CRM_PRODUCT_FIELDS']
+});
+
+fields['CRM_PROMOTION_FIELDS'] = [
+   {name: 'id', text: 'ID', width: 50, hidden:true}, 
+   {name: 'promotion_name', text: 'Нэр', width: 180, primary: true}, 
+   {name: 'start_date', type: 'datetime', text: 'Эхэлэх', align:'center', width: 80, dateFormat: 'Y-m-d', primary: true}, 
+   {name: 'end_date', type: 'datetime', text: 'Дуусах', align:'center', width: 80, dateFormat: 'Y-m-d', primary: true},   
+   {name: 'summaryTotal', text: 'Нийлбэр', width:70, type: 'float', align: 'right'},
+   {name: 'randomCount', text: 'Сонголт', width: 70, type: 'float', align: 'right'},
+   {name: 'userCode', text: 'Бүртгэсэн', hidden: true, width: 100},
+   {name: 'descr', text: 'Тайлбар', hidden: true, width: 250}
+];
+
+
+Ext.define('CRM_PROMOTION', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_PROMOTION_FIELDS']
+});
+
+fields['CRM_PROMOTION_PRODUCT_FIELDS'] = [
+   {name: 'id', text: 'ID', width: 50, hidden:true}, 
+   {name: 'product_id', text: 'ID', width: 20, primary: true, hidden: true}, 
+   {name: 'product_code', text: 'Код', width: 60}, 
+   {name: 'product_barcode', text: 'Баркод', width: 80}, 
+   {name: 'product_name', text: 'Барааны нэр', width: 180}, 
+   {name: 'product_brand', text: 'Бренд', width: 100}, 
+   {name: 'product_vendor', text: 'Нийлүүлэгч', width: 180}, 
+   {name: 'unit_size', text: 'Нэгж', width: 50}, 
+   {name: 'price1', text: 'Үнд.үнэ', width: 80, type: 'float', align: 'right'},   
+   {name: 'qty', text: 'Ширхэг', width: 70, type: 'float', align: 'right'},
+   {name: 'pty', text: 'Хайрцаг', width: 70, type: 'float', align: 'right'},
+   {name: 'promotion_name', text: 'Урамшууллын нэр', hidden: true, width: 100},
+   {name: '_date', text: 'Үүссэн', hidden: true, width: 250}
+];
+
+
+Ext.define('CRM_PROMOTION_PRODUCT', {
+	extend: 'Ext.data.Model',
+	fields: fields['CRM_PROMOTION_PRODUCT_FIELDS']
 });
 
 fields['CRM_WAREHOUSE_FIELDS'] = [
@@ -707,10 +747,10 @@ fields['CRM_STORAGE_FIELDS'] = [
    {name: 'product_id', text: 'ID', width: 50, primary: true, hidden:true}, 
    {name: 'product_code', text: 'Код', width: 50, primary: true, align: 'center'}, 
    {name: 'product_name', text: 'Нэр', width: 250, summaryType: 'count', summaryRenderer: renderTNumber},
-   {name: 'aty', text: 'Боломжит үлдэгдэл', type: 'float', width: 100, renderer: renderNumber, align: 'right', summaryType: 'sum', summaryRenderer: renderTNumber},
-   {name: 'qty', text: 'Бодит үлдэгдэл', type: 'float', width: 100, renderer: renderNumber, align: 'right', summaryType: 'sum', summaryRenderer: renderTNumber},
-   {name: 'pty', text: 'Хайрцаг', type: 'float', width: 90, renderer: renderNumber, align: 'right', hidden: true, summaryType: 'sum', summaryRenderer: renderTNumber},
-   {name: 'price', text: 'Үнэ', width: 120, renderer:renderMoney},
+   {name: 'aty', text: 'Боломжит үлдэгдэл', type: 'float', width: 100, hidden: true, renderer: renderNumber, align: 'right', summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'qty', text: 'Ширхэг', type: 'float', width: 100, renderer: renderNumber, align: 'right', summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'pty', text: 'Хайрцаг', type: 'float', width: 90, renderer: renderNumber, align: 'right', summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'price', text: 'Үнэ', width: 120, renderer:renderMoney, hidden: true},
    {name: 'amount', text: 'Дүн', width: 110, renderer:renderMoney, hidden: true}, 
    {name: 'warehouse_name', text: 'Агуулах', width: 120}, 
    {name: 'descr', text: 'Тайлбар', width: 120, hidden: true},
@@ -931,8 +971,11 @@ Ext.define('CRM_SERVICE', {
 fields['CRM_PRODUCT_AVAILABLE_FIELDS'] = [
    {name: 'id', text: 'ID', width: 50, hidden:true}, 
    {name: 'product_id', text: 'ID', width: 50, hidden:true}, 
-   {name: 'product_name', text: 'Бараа', width: 200}, 
-   {name: 'total', text: 'Үлдэгдэл', width: 100, align: 'right', renderer: renderNumber}, 
+   {name: 'product_code', text: 'Код', width: 50, align:'center'}, 
+   {name: 'product_barcode', text: 'Баркод', width: 90}, 
+   {name: 'product_name', text: 'Бараа', width: 260}, 
+   {name: 'qty', text: 'Ширхэг', width: 80, align: 'right', renderer: renderNumber}, 
+   {name: 'pty', text: 'Хайрцаг', width: 80, align: 'right', renderer: renderNumber}, 
    {name: 'userCode', text: 'Хариуцагч', width: 150}
 ];
 
@@ -1790,6 +1833,13 @@ function renderCustomerLevel(v, metadata, record, rowIndex, colIndex, store) {
 	metadata.tdAttr = 'data-qtip="<b>' + v + '</b></br>"'
 
 	return '<span class="circle '+v+'">&nbsp;</span>';
+}
+
+function renderProductFlag(v, metadata, record, rowIndex, colIndex, store) {
+	if (record.data['flag'] == 1)
+		return '<span style="color:red;">'+v+'</span>';
+
+	return '<span style="color:green;">'+v+'</span>';
 }
 
 function renderPriority(v) {

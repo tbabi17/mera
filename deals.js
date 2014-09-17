@@ -906,7 +906,7 @@ Ext.define('OCS.ServiceProductGrid', {
 		me.affected = 0;
 		me.store.each(function(rec){
 			var unit_size = rec.get('unit_size');
-			if (!unit_size || unit_size == 0) unit_size = 1;			
+			if (unit_size == 0) unit_size = 1;			
 			var values = "pty="+(rec.get('qty')/unit_size)+"&qty="+rec.get('qty')+"&price="+rec.get('price')+"&amount="+(rec.get('qty')*rec.get('price'));
 			if (rec.get('id') > 0) {			
 				Ext.Ajax.request({
@@ -949,19 +949,19 @@ Ext.define('OCS.ServiceProductGrid', {
 			text: 'Барааны нэр',
 			dataIndex: 'product_name',
 			flex: 1,			
+			renderer: renderProductFlag,
 			sortable: false
 		},{
-			text: 'Precent',
+			text: 'Хувь',
 			dataIndex: 'precent',
-			width: 100,
+			width: 50,
 			renderer: renderPrecent,
 			align: 'right',
-			hidden: true,
 			sortable: true
 		},{
 			text: 'Утга',
 			dataIndex: 'type',
-			width: 80,
+			width: 60,
 			align: 'center',
 			renderer: renderSalesType,
 			sortable: true
@@ -1012,6 +1012,12 @@ Ext.define('OCS.ServiceProductGrid', {
 			width: 120,
 			hidden: true,
 			renderer: renderDate,
+			sortable: true
+		},{
+			text: 'Төлөв',
+			dataIndex: 'flag',
+			width: 0,
+			hidden: true,
 			sortable: true
 		}];
 	},

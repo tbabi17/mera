@@ -411,6 +411,101 @@ Ext.define('OCS.CompareBrandChart', {
 	}
 });
 
+Ext.define('OCS.BreakPointChart', {
+	extend: 'OCS.Chart',
+	animate: true,
+	shadow: false,
+	insetPadding: 30,
+	warehouse_id: 1,
+	view_type: 1,
+	legend: {
+		position: 'bottom',
+		visible: false
+	},
+
+	initComponent: function() {
+		var me = this;
+		me.start = me.month();
+		me.end = me.nextmonth();
+		me.store = Ext.create('Ext.data.Store', {
+			fields: ['product_name', 'count'],
+			remoteSort: true,
+			proxy: {				
+				type: 'ajax',
+    			url: 'avia.php',
+				actionMethods: {
+					create : 'POST',
+					read   : 'POST',
+					update : 'POST',
+					destroy: 'POST'
+				},
+    	        reader: {
+    	            root:'items',
+    	            totalProperty: 'results'
+    	        },				
+				simpleSortMode: true,
+				extraParams: {handle: 'web', action: 'select', func: 'crm_chart_product_break_list', start_date: new Date(new Date().getFullYear(), 0, 1), end_date: new Date(new Date().getFullYear(), 11, 31), values: '', where: me.warehouse_id+','+me.view_type}
+			}
+		});
+
+		me.rangeData(me.month(), me.nextmonth());
+
+		me.axes = [{
+            type: 'Numeric',
+            position: 'bottom',
+            fields: ['count'],
+            label: {
+                renderer: Ext.util.Format.numberRenderer('0,0')
+            },
+            title: '',
+            grid: false,
+            minimum: 0
+        }, {
+            type: 'Category',
+            position: 'left',
+            fields: ['product_name'],
+            title: ''
+        }];
+
+		me.series = [{
+            type: 'bar',
+            axis: 'bottom',
+            highlight: true,
+            tips: {
+                trackMouse: true,
+                renderer: function(storeItem, item) {
+                    this.setTitle(storeItem.get('product_name') + ': ' + storeItem.get('count')+' удаа тасалдсан');
+                }
+            },			
+			renderer: function(sprite, record, attr, index, store) {
+                return Ext.apply(attr, {
+                    fill: '#a41300'					
+                });
+            },
+            label: {
+	              display: 'outsideEnd',
+		          field: 'amount',
+                  renderer: Ext.util.Format.numberRenderer('0,0'),
+                  orientation: 'horizontal',
+                  color: '#333',
+                  'text-anchor': 'middle'
+            },
+            xField: 'product_name',
+            yField: ['count']
+        }];
+
+		me.callParent(arguments);
+	},
+
+	rangeData: function(e1, e2) {
+		var me = this;
+		me.start = e1;
+		me.end = e2;
+		me.store.getProxy().extraParams = {handle: 'web', action: 'select', func: 'crm_chart_product_break_list', start_date: e1, end_date: e2, where: me.warehouse_id+','+me.view_type};
+		me.store.load();
+	}
+});
+
 Ext.define('OCS.SalesUpDownChart', {
 	extend: 'OCS.Chart',
 	animate: true,

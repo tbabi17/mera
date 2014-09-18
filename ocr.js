@@ -3273,7 +3273,7 @@ Ext.define('OCS.ServiceView', {
 					pricetag = me.grid.getView().getSelectionModel().getSelection()[0].get('pricetag');
 					date = me.grid.getView().getSelectionModel().getSelection()[0].get('_date').split(' ')[0]; 
 
-					window.open('http://'+ip+'/invms3/?values='+owner+';'+crm_id+';'+date+';1;1;1',''); 					
+					window.open('http://'+ip+'/invms3/?values='+userCode+';'+crm_id+';'+date+';1;1;1',''); 					
 				}
 			}),
 			Ext.create('Ext.Action', {

@@ -5536,6 +5536,7 @@ Ext.define('OCS.Reports', {
 								me.where = '';
 								me.values = '';
 								me.panelW.setVisible(false);
+								Ext.getCmp('report_title').setText('Агуулахын тайлан');
 								me.reconfigure('CRM_REPORT_STORAGE', 'crm_report_storage_list');
 							}
 						}),	
@@ -5546,6 +5547,7 @@ Ext.define('OCS.Reports', {
 								me.where = '';
 								me.values = '';
 								me.panelW.setVisible(false);
+								Ext.getCmp('report_title').setText('Агуулахын тайлан өдрөөр');
 								me.reconfigure('CRM_REPORT_STORAGE_DAILY', 'crm_report_storage_daily_list');
 							}
 						}),

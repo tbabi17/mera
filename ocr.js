@@ -6295,7 +6295,6 @@ Ext.define('OCS.Dashboard', {
 				columnWidth: 1,
 				padding: '5 5 5 5',
 				border: false,		
-				hidden: true,
 				items:[{
 					title:'Борлуулалгчдын байршил',
 					layout: 'border',

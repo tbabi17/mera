@@ -1277,9 +1277,7 @@ fields['CRM_REPORT_STORAGE_DAILY_FIELDS'] = [
    {name: 'sales', type: 'float', width: 85, text: 'Борлуулалт', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
    {name: 'promo', type: 'float', width: 85, text: 'Урамшуулал', width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
    {name: 'bm1', type: 'float', width: 85, text: ware_text[2], width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-   {name: 'bm2', type: 'float', width: 85, text: ware_text[3], width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-   {name: 'bm3', type: 'float', width: 85, text: ware_text[2], width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
-   {name: 'bm4', type: 'float', width: 85, text: ware_text[3], width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
+   {name: 'bm3', type: 'float', width: 85, text: ware_text[3], width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
    {name: 'shop', type: 'float', width: 85, text: ware_text[4], width: 100, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
    {name: 'last', type: 'float', width: 85, text: 'Эцсийн үлдэгдэл', width: 120, align: 'right', renderer: renderReportNumber, summaryType: 'sum', summaryRenderer: renderTNumber},
 

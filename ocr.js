@@ -7568,6 +7568,11 @@ Ext.define('OCS.MyGoalWithFormPanel', {
 
 	createActions: function(actions) {
 		var me = this;
+		me.dateMenu = Ext.create('Ext.menu.DatePicker', {
+			handler: function(dp, date){
+			}
+		});
+
 		me.actions = [
 			Ext.create('Ext.Action', {
 				iconCls: 'list',
@@ -7591,10 +7596,8 @@ Ext.define('OCS.MyGoalWithFormPanel', {
 						}),						
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'Тухайн сарын төлөвлөгөө',
-							handler: function(widget, event) {
-								me.filterData('Closed Goals');
-							}
+							text: 'Сонгосон сарын төлөвлөгөө',
+							menu: me.dateMenu
 						}),
 						'-',
 						Ext.create('Ext.Action', {

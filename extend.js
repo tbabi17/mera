@@ -4275,6 +4275,8 @@ Ext.define('OCS.BGridView', {
 	stateful: false,
 	search : true,
 	emptyText: 'No records.',
+	start: '',
+	end: '',
 	
 	constructor: function(cnfg) {
         this.callParent(arguments);

@@ -5618,6 +5618,7 @@ Ext.define('OCS.Reports', {
 				menu: Ext.create('Ext.menu.DatePicker', {
 					handler: function(dp, date){
 						me.start = Ext.Date.format(date, 'Y-m-d');
+						me.report.start = Ext.Date.format(date, 'Y-m-d');
 						Ext.getCmp('report_start').setText(me.start);
 						me.rangeData();
 					}
@@ -5630,6 +5631,7 @@ Ext.define('OCS.Reports', {
 				menu: Ext.create('Ext.menu.DatePicker', {
 					handler: function(dp, date){
 						me.end = Ext.Date.format(date, 'Y-m-d');
+						me.report.end = Ext.Date.format(date, 'Y-m-d');
 						Ext.getCmp('report_end').setText(me.end);
 						me.rangeData();
 					}
@@ -5643,6 +5645,8 @@ Ext.define('OCS.Reports', {
 					Ext.getCmp('report_start').setText(me.month());
 					Ext.getCmp('report_end').setText(me.nextmonth());
 					me.start = me.month(); me.end = me.nextmonth();
+					me.report.start = me.month();
+					me.report.end = me.nextmonth();
 					me.rangeData();
 				}
 			},			

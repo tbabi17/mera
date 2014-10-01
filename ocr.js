@@ -7584,7 +7584,14 @@ Ext.define('OCS.MyGoalWithFormPanel', {
 						}),
 						Ext.create('Ext.Action', {
 							icon   : '',  
-							text: 'Хаагдсан төлөвлөгөө',
+							text: 'Өнгөрсөн сарын төлөвлөгөө',
+							handler: function(widget, event) {
+								me.filterData('Closed Goals');
+							}
+						}),						
+						Ext.create('Ext.Action', {
+							icon   : '',  
+							text: 'Тухайн сарын төлөвлөгөө',
 							handler: function(widget, event) {
 								me.filterData('Closed Goals');
 							}

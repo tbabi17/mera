@@ -7570,7 +7570,7 @@ Ext.define('OCS.MyGoalWithFormPanel', {
 		var me = this;
 		me.dateMenu = Ext.create('Ext.menu.DatePicker', {
 			handler: function(dp, date){
-				me.filterData(Ext.Date.format(date, 'Y-m-d'));
+				me.filterData(Ext.Date.format(date, 'Y-m-d')); 
 			}
 		});
 

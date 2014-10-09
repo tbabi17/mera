@@ -2538,7 +2538,8 @@ Ext.define('OCS.UploadForm', {
 			text: 'Download template',
 			iconCls: '',
 			handler: function() {
-				window.open('C:/xampp/htdocs/svn/crm/tmpl/contact.xls');
+				var url='http://localhost/xampp/htdocs/svn/crm/tmpl/contact.xls';    
+		        window.open(url,'Download'); 
 			}
 		},{
             text: 'Арилгах',

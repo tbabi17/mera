@@ -2539,15 +2539,15 @@ Ext.define('OCS.UploadForm', {
 			iconCls: '',
 			handler: function() {
 				if (me.name == 'Contact')
-					window.open('tmpl/contact.xls');
+					window.open('svn/crm/tmpl/contact.xls');
 				if (me.name == 'Account')								
-					window.open('tmpl/account.xls');
+					window.open('svn/crm/tmpl/account.xls');
 				if (me.name == 'Deal')								
-					window.open('tmpl/account.xls');
+					window.open('svn/crm/tmpl/account.xls');
 				if (me.name == 'Storage')								
-					window.open('tmpl/storage.xls');
+					window.open('svn/crm/tmpl/storage.xls');
 				if (me.name == 'Product')								
-					window.open('tmpl/product.xls');
+					window.open('svn/crm/tmpl/product.xls');
 			}
 		},{
             text: 'Арилгах',

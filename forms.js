@@ -2538,8 +2538,16 @@ Ext.define('OCS.UploadForm', {
 			text: 'Download template',
 			iconCls: '',
 			handler: function() {
-				var url='http://localhost/xampp/htdocs/svn/crm/tmpl/contact.xls';    
-		        window.open(url,'Download'); 
+				if (me.name == 'Contact')
+					window.open('/tmpl/contact.xls');
+				if (me.name == 'Account')								
+					window.open('/tmpl/account.xls');
+				if (me.name == 'Deal')								
+					window.open('/tmpl/account.xls');
+				if (me.name == 'Storage')								
+					window.open('/tmpl/storage.xls');
+				if (me.name == 'Product')								
+					window.open('/tmpl/product.xls');
 			}
 		},{
             text: 'Арилгах',

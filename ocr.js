@@ -1058,6 +1058,17 @@ Ext.define('OCS.RetailPanel', {
 							}).createWindow();
 						}
 					},{
+						text: 'Өрөлтийн зураг',
+						iconCls: 'chart',
+						handler: function(widget, event) {		
+								crm_id = me.grid.getView().getSelectionModel().getSelection()[0].get('crm_id');
+							if (logged.indexOf('mtc') != -1)
+								port = '81';
+							else
+								port = '85';
+								window.open('http://'+ip+':'+port+'/svn/crm/gallery.php?f='+crm_id);
+						}
+					},{
 						text: 'Ложистик...',
 						iconCls: 'container',
 						handler: function(widget, event) {		

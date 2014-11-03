@@ -2061,7 +2061,7 @@ function renderTNumber(v) {
 }
 
 function renderT4Number(v) {
-	return '<strong>'+Ext.util.Format.numberRenderer(v, '0.0000')+'</strong>';
+	return '<strong>'+Ext.util.Format.numberRenderer(v, '0.000')+'</strong>';
 }
 
 function renderIntNumber(v) {

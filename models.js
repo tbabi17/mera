@@ -779,7 +779,7 @@ fields['CRM_STORAGE_FIELDS'] = [
    {name: 'product_name', text: 'Нэр', width: 250, summaryType: 'count', summaryRenderer: renderTNumber},
    {name: 'aty', text: 'Боломжит үлдэгдэл', type: 'float', width: 100, hidden: true, renderer: renderNumber, align: 'right', summaryType: 'sum', summaryRenderer: renderTNumber},
    {name: 'qty', text: 'Ширхэг', type: 'float', width: 100, renderer: renderNumber, align: 'right', summaryType: 'sum', summaryRenderer: renderTNumber},
-   {name: 'pty', text: 'Хайрцаг', type: 'float', width: 90, renderer: renderNumber, align: 'right', summaryType: 'sum', summaryRenderer: renderT4Number},
+   {name: 'pty', text: 'Хайрцаг', type: 'float', width: 90, align: 'right', summaryType: 'sum', summaryRenderer: renderT4Number},
    {name: 'price', text: 'Үнэ', width: 120, renderer:renderMoney, hidden: true},
    {name: 'amount', text: 'Дүн', width: 110, renderer:renderMoney, hidden: true}, 
    {name: 'warehouse_name', text: 'Агуулах', width: 120}, 

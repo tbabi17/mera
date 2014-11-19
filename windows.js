@@ -1552,6 +1552,85 @@ Ext.define('OCS.ServiceMultiAssignWindow', {
 	}
 });
 
+Ext.define('OCS.ServiceDateChangeWindow', {
+	extend: 'OCS.Window',
+	
+	title: 'Assign to',
+	maximizable: false,
+	height: 250,
+	width: 300,	
+
+	initComponent: function() {
+		var me = this;
+		me.title = 'Assign to ('+(me.ids.split(':').length-1)+' record selected)';
+		me.form = Ext.create('OCS.FormPanel', {
+			id : 'service_assign_to',				
+			title: 'Assign to',	
+			region: 'center',
+			hidden: false,
+			closable: false,
+			title: '',
+			items: [{
+				xtype: 'textfield',
+				fieldLabel: 'Selected '+me.direction,				
+				name: 'selected',
+				value: me.ids
+			},{
+				xtype: 'datefield',
+				fieldLabel: 'Date',				
+				name: '_date',
+				value: new Date(),
+				hidden: false,
+				format: 'Y-m-d'
+			},	
+			{
+				xtype: 'textarea',
+				fieldLabel: 'Description',				
+				name: 'descr',
+				flex: 1,
+				hidden: true,
+				value: me.descr
+			},
+			{
+				xtype: 'textfield',
+				fieldLabel: 'Created by',				
+				name: 'userCode',
+				value: logged,
+				hidden: true,
+				readOnly: true
+			}],
+			buttons: [{
+				iconCls: 'commit',
+				text: 'Илгээх',
+				handler: function() {
+					var form = this.up('form').getForm();
+					if (form.isValid())	{
+						var values = form.getValues(true);
+						var _date = Ext.Date.format(form.findField('_date').getValue(),'Y-m-d');
+						values = _date+","+form.findField('selected').getValue()+","+form.findField('descr').getValue();
+								
+						Ext.Ajax.request({
+						   url: 'avia.php',
+						   params: {handle: 'web', table: 'crm_services', action: 'update_services_date', values: values},
+						   success: function(response, opts) {
+								views['services'].reload();
+								me.close();
+						   },
+						   failure: function(response, opts) {										   
+							  Ext.MessageBox.alert('Status', 'Error !', function() {});
+						   }
+						});											
+					}
+					else
+					  Ext.MessageBox.alert('Status', 'Invalid data !', function() {});
+				}
+			}]
+		});
+		
+		me.items = [me.form];		
+		me.callParent(arguments);
+	}
+});
 
 Ext.define('OCS.ServiceMultiAgreeWindow', {
 	extend: 'OCS.Window',

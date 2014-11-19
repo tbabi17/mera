@@ -3288,6 +3288,29 @@ Ext.define('OCS.ServiceView', {
 				}
 			}),
 			Ext.create('Ext.Action', {
+				iconCls   : 'calendar',
+				text: 'Огноо өөрчлөх...',
+				hidden: !(logged.indexOf('battrade') != -1),
+				handler: function(widget, event) {
+					if (me.selectedIds('service_stage') == 'receipt:')
+					{
+						if (user_level > 0 ) {												
+							if (me.recordSelected())						
+								new OCS.ServiceDateChangeWindow({
+									selected: me.grid.getView().getSelectionModel().getSelection()[0],
+									ids: me.selectedIds('service_id'),
+									descr: me.selectedIds('subject'),
+									direction: me.xlsName
+								}).show();
+						} else
+							Ext.MessageBox.alert('Error', 'Уг үйлдлийг хийхэд таны эрх хүрэлцэхгүй !', function() {});
+					} else 
+					{
+						Ext.MessageBox.alert('Error', 'Уг үйлдлийг зөвхөн ирсэн төлөвт буй захиалга дээр хийнэ !', function() {});
+					}
+				}
+			}),
+			Ext.create('Ext.Action', {
 				iconCls   : 'deal_print',
 				text: 'Багцлах...',
 				hidden: !(logged.indexOf('battrade') != -1),
